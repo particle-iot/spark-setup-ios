@@ -1,0 +1,14 @@
+PODS:
+  - Spark-Setup (0.1.0)
+
+DEPENDENCIES:
+  - Spark-Setup (from `../`)
+
+EXTERNAL SOURCES:
+  Spark-Setup:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Spark-Setup: 75e0f326ec70925fcf2af9c8abaa4af844f0d3cd
+
+COCOAPODS: 0.35.0
