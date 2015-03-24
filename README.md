@@ -1,3 +1,6 @@
+### Work in progress
+### not ready to use
+
 # Spark-Setup
 
 [![CI Status](http://img.shields.io/travis/Ido Kleinman/Spark-Setup.svg?style=flat)](https://travis-ci.org/Ido Kleinman/Spark-Setup)
@@ -22,7 +25,7 @@ pod "Spark-Setup"
 
 ## Author
 
-Ido Kleinman, idokleinman@gmail.com
+Ido K, ido@spark.io
 
 ## License
 
