@@ -13,6 +13,8 @@
 #import "SparkSetupCustomization.h"
 #import "SparkSetupUIElements.h"
 
+#define ACTIVATION_CODE_LENGTH  4
+
 @interface SparkUserSignupViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -84,14 +86,15 @@
     self.activationCodeTextField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     self.activationCodeTextField.delegate = self;
     
+    // Got a predefined activation code from the URL scheme
     if ((self.predefinedActivationCode) && (self.predefinedActivationCode.length >= 4))
     {
-        // trim white space, set string max length to 4 chars and uppercase it
+        // trim white space, set string max length to ACTIVATION_CODE_LENGTH chars and uppercase it
         NSString *code = self.predefinedActivationCode;
         NSString *codeWhiteSpaceTrimmed = [code stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         codeWhiteSpaceTrimmed = [codeWhiteSpaceTrimmed stringByReplacingOccurrencesOfString:@" " withString:@""];
         codeWhiteSpaceTrimmed = [codeWhiteSpaceTrimmed stringByReplacingOccurrencesOfString:@"%20" withString:@""];
-        NSRange stringRange = {0, 4};
+        NSRange stringRange = {0, ACTIVATION_CODE_LENGTH};
         NSString *shortActCode = [codeWhiteSpaceTrimmed substringWithRange:stringRange];
         self.activationCodeTextField.text = [shortActCode uppercaseString];
     }
@@ -101,18 +104,26 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    // make activation code uppercase
+    
     if (textField == self.activationCodeTextField)
     {
         NSRange lowercaseCharRange = [string rangeOfCharacterFromSet:[NSCharacterSet lowercaseLetterCharacterSet]];
-        
+    
+        // make activation code uppercase
         if (lowercaseCharRange.location != NSNotFound) {
             textField.text = [textField.text stringByReplacingCharactersInRange:range
                                                                      withString:[string uppercaseString]];
             return NO;
         }
         
-        return YES;
+        // limit it to ACTIVATION_CODE_LENGTH chars
+        if(range.length + range.location > textField.text.length)
+        {
+            return NO;
+        }
+        
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > ACTIVATION_CODE_LENGTH) ? NO : YES;
     }
     
     return YES;

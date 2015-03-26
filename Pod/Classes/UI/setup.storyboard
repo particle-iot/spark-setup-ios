@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -2204,9 +2205,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Jy-Gm-a61" id="vHx-90-Lgh">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Connecting step text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="qIH-sQ-Fih">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Connecting step text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000000000000009" adjustsLetterSpacingToFitWidth="YES" id="qIH-sQ-Fih">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2277,6 +2278,7 @@
                             <constraint firstItem="eud-gX-Qzz" firstAttribute="top" secondItem="dyM-qm-UaJ" secondAttribute="topMargin" id="CJj-ng-ePU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eud-gX-Qzz" secondAttribute="trailing" constant="-16" id="Cla-K4-3YF"/>
                             <constraint firstAttribute="centerX" secondItem="eud-gX-Qzz" secondAttribute="centerX" id="DVc-xY-a4A"/>
+                            <constraint firstItem="sVc-hH-dHk" firstAttribute="leading" secondItem="dyM-qm-UaJ" secondAttribute="leadingMargin" id="EcO-R3-W8Q"/>
                             <constraint firstAttribute="centerX" secondItem="sVc-hH-dHk" secondAttribute="centerX" id="Gbn-bI-dwP"/>
                             <constraint firstItem="cOI-4H-O0J" firstAttribute="top" secondItem="sVc-hH-dHk" secondAttribute="bottom" constant="8" id="MvW-Cv-MyL"/>
                             <constraint firstAttribute="centerX" secondItem="cOI-4H-O0J" secondAttribute="centerX" id="QDx-7G-uz9"/>
@@ -2289,6 +2291,7 @@
                             <constraint firstAttribute="centerX" secondItem="pE1-ji-8tD" secondAttribute="centerX" id="fQE-gc-jya"/>
                             <constraint firstItem="GP5-8v-Doz" firstAttribute="leading" secondItem="dyM-qm-UaJ" secondAttribute="leadingMargin" id="gBN-C4-iLH"/>
                             <constraint firstItem="IzB-Lz-4Wh" firstAttribute="top" secondItem="GP5-8v-Doz" secondAttribute="bottom" constant="20" id="hBN-PU-RKu"/>
+                            <constraint firstItem="sVc-hH-dHk" firstAttribute="trailing" secondItem="dyM-qm-UaJ" secondAttribute="trailingMargin" id="l38-Y8-255"/>
                             <constraint firstItem="sVc-hH-dHk" firstAttribute="top" secondItem="ETu-KJ-qbF" secondAttribute="bottom" constant="154" id="mve-Kx-mJX"/>
                             <constraint firstItem="b2A-QU-4k0" firstAttribute="top" secondItem="sVc-hH-dHk" secondAttribute="bottom" constant="3" id="n6t-qd-MSM"/>
                             <constraint firstItem="GP5-8v-Doz" firstAttribute="top" secondItem="pE1-ji-8tD" secondAttribute="bottom" constant="8" id="pxH-9y-EKw">
@@ -2328,8 +2331,10 @@
                                 <exclude reference="fQE-gc-jya"/>
                                 <exclude reference="thv-mV-dd6"/>
                                 <exclude reference="2UB-Dw-XKS"/>
+                                <exclude reference="EcO-R3-W8Q"/>
                                 <exclude reference="Gbn-bI-dwP"/>
                                 <exclude reference="RRz-NG-iTf"/>
+                                <exclude reference="l38-Y8-255"/>
                                 <exclude reference="mve-Kx-mJX"/>
                                 <exclude reference="Qhg-ur-N7F"/>
                                 <exclude reference="bFG-JV-DBy"/>
@@ -2364,8 +2369,10 @@
                                 <include reference="fQE-gc-jya"/>
                                 <include reference="thv-mV-dd6"/>
                                 <exclude reference="2UB-Dw-XKS"/>
+                                <include reference="EcO-R3-W8Q"/>
                                 <include reference="Gbn-bI-dwP"/>
                                 <include reference="RRz-NG-iTf"/>
+                                <include reference="l38-Y8-255"/>
                                 <exclude reference="mve-Kx-mJX"/>
                                 <exclude reference="Qhg-ur-N7F"/>
                                 <include reference="bFG-JV-DBy"/>
@@ -2440,7 +2447,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You successfully setup you device! hooray!" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUz-dW-L6z" customClass="SparkSetupUILabel">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -3722,7 +3729,7 @@
         <image name="wifi3" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c4T-fL-kLE"/>
         <segue reference="LMP-8O-ZPP"/>
+        <segue reference="c4T-fL-kLE"/>
     </inferredMetricsTieBreakers>
 </document>

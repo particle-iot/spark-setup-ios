@@ -10,6 +10,7 @@
 #import "SparkSetupUILabel.h"
 #import "SparkSetupCustomization.h"
 #import "SparkConnectingProgressViewController.h"
+#import "SparkSetupCommManager.h"
 
 @interface SparkSetupPasswordEntryViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -53,18 +54,29 @@
 - (IBAction)showPasswordSwitchTapped:(id)sender
 {
     self.passwordTextField.secureTextEntry = self.showPasswordSwitch.isOn;
+
+    // Hack to update cursor position to match new length of dots/chars
+    NSString *tmp = self.passwordTextField.text;
+    self.passwordTextField.text = @" ";
+    self.passwordTextField.text = tmp;
+    
 }
 
 
 - (IBAction)connectButtonTapped:(id)sender
 {
-    if (self.passwordTextField.text.length < 8)
+    int minWifiPassChars = 8;
+    if ([self.securityTypeLabel.text containsString:@"WEP"])
+        minWifiPassChars = 5;
+    
+    if (self.passwordTextField.text.length < minWifiPassChars)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid password" message:@"Password must be 8 characters or longer" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid password" message:[NSString stringWithFormat:@"Password must be %d characters or longer",minWifiPassChars] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
     else
     {
+        [self.view endEditing:YES];
         [self performSegueWithIdentifier:@"connect" sender:self];
     }
     
@@ -88,7 +100,36 @@
 
 -(NSString *)convertSecurityTypeToString:(NSNumber *)securityType
 {
-    return @"WPA2";
+        switch ([securityType intValue]) {
+        case SparkSetupWifiSecurityTypeOpen:
+            return @"Unsecured";
+            break;
+        case SparkSetupWifiSecurityTypeWEP_PSK:
+            return @"WEP-PSK";
+            break;
+        case SparkSetupWifiSecurityTypeWEP_SHARED:
+            return @"WEP-Shared";
+            break;
+        case SparkSetupWifiSecurityTypeWPA_TKIP_PSK:
+            return @"WPA-TKIP";
+            break;
+        case SparkSetupWifiSecurityTypeWPA_AES_PSK:
+            return @"WPA-AES";
+            break;
+        case SparkSetupWifiSecurityTypeWPA2_AES_PSK:
+            return @"WPA2-AES";
+            break;
+        case SparkSetupWifiSecurityTypeWPA2_TKIP_PSK:
+            return @"WPA2-TKIP";
+            break;
+        case SparkSetupWifiSecurityTypeWPA2_MIXED_PSK:
+            return @"WPA2-Mixed";
+            break;
+            
+        default:
+            return @"unknown";
+            break;
+    }
 }
 
 

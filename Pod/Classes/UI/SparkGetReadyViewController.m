@@ -110,7 +110,7 @@
     [self.spinner startAnimating];
     self.readyButton.userInteractionEnabled = NO;
     
-    [[SparkCloud sharedInstance] generateClaimCode:[SparkSetupCustomization sharedInstance].organizationName completion:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
+    [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
     //  [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
     
         self.readyButton.userInteractionEnabled = YES;

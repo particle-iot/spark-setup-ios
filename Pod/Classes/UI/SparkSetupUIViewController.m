@@ -12,7 +12,7 @@
 @interface SparkSetupUIViewController ()
 @property (nonatomic, assign) CGFloat kbSizeHeight;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
-
+@property (nonatomic, strong) UITapGestureRecognizer *tap;
 @end
 
 @implementation SparkSetupUIViewController
@@ -22,9 +22,6 @@
     [super viewDidLoad];
     
     // do customization
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    tap.cancelsTouchesInView = NO; // to enable touches to go through tableviews, etc
-    [self.view addGestureRecognizer:tap];
 }
 
 
@@ -73,6 +70,10 @@
 
 - (void)keyboardWillShow:(NSNotification *)notification
 {
+    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    self.tap.cancelsTouchesInView = YES; // to enable touches to go through tableviews, etc
+    [self.view addGestureRecognizer:self.tap];
+
     self.kbSizeHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
     self.kbSizeHeight -= [self keyboardHeightAdjust];
     
@@ -85,6 +86,8 @@
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
+    [self.view removeGestureRecognizer:self.tap];
+
     if (self.view.frame.origin.y >= 0) {
         [self setViewMovedUp:YES];
     } else if (self.view.frame.origin.y < 0) {

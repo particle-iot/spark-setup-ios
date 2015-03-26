@@ -92,6 +92,7 @@
 {
     if (![self.networkNameTextField.text isEqualToString:@""])
     {
+        [self.view endEditing:YES];
         if (self.networkRequiresPasswordSwitch.isOn)
         {
             [self performSegueWithIdentifier:@"require_password" sender:self];

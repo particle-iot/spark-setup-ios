@@ -129,7 +129,7 @@ NSInteger const kMaxRetriesReachability = 5;
     NSString *text = self.connectionProgressTextList[indexPath.row];
     cell.textLabel.text = text;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:cell.textLabel.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
+    cell.textLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:cell.textLabel.font.pointSize]; //+[SparkSetupCustomization sharedInstance].fontSizeOffset];
     
     
     if (indexPath.row+1 == self.connectionProgressTextList.count)
@@ -277,7 +277,7 @@ NSInteger const kMaxRetriesReachability = 5;
             
             while (([SparkSetupCommManager checkSparkDeviceWifiConnection]) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
             {
-                [NSThread sleepForTimeInterval:1.0];
+                [NSThread sleepForTimeInterval:2.0];
                 self.disconnectRetries++;
             }
             
