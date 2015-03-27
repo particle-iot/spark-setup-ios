@@ -556,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Yu-1U-dx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-421.5" y="846.75"/>
+            <point key="canvasLocation" x="-422" y="1158"/>
         </scene>
         <!--Spark User Login View Controller-->
         <scene sceneID="7ex-bS-8Mc">
@@ -895,7 +895,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpJ-Io-cdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="411" y="846.75"/>
+            <point key="canvasLocation" x="411" y="1158"/>
         </scene>
         <!--Spark User Forgot Password View Controller-->
         <scene sceneID="bd7-Cf-2aF">
@@ -1163,7 +1163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v72-0W-IKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1249.5" y="846.75"/>
+            <point key="canvasLocation" x="1249" y="1158"/>
         </scene>
         <!--Spark Setup Web View Controller-->
         <scene sceneID="PMd-xx-OKt">
@@ -1285,7 +1285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Sx-Ve-tZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2031" y="846.75"/>
+            <point key="canvasLocation" x="2031" y="1158"/>
         </scene>
         <!--Spark Discover Device View Controller-->
         <scene sceneID="bQl-2p-6GE">

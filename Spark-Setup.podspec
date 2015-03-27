@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
+  s.resources    = 'Pod/Classes/UI/setup.storyboard'
   s.resource_bundles = {
     'Spark-Setup' => ['Pod/Assets/*.*']
   }
