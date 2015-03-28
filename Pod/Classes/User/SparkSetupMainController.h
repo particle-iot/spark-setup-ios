@@ -1,5 +1,5 @@
 //
-//  SparkSetupManager.h
+//  SparkSetupMainController.h
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 11/15/14.

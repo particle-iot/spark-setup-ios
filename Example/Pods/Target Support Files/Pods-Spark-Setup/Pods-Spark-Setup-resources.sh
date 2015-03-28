@@ -51,10 +51,12 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "../../Pod/Classes/UI/setup.storyboard"
   install_resource "${BUILT_PRODUCTS_DIR}/Spark-SDK.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/Spark-Setup.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "../../Pod/Classes/UI/setup.storyboard"
   install_resource "${BUILT_PRODUCTS_DIR}/Spark-SDK.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/Spark-Setup.bundle"
 fi

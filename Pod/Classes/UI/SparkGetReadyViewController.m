@@ -110,6 +110,7 @@
     [self.spinner startAnimating];
     self.readyButton.userInteractionEnabled = NO;
     
+    // remove org name
     [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
     //  [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
     

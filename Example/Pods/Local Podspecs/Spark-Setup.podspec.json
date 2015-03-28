@@ -17,6 +17,7 @@
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
+  "resources": "Pod/Classes/UI/setup.storyboard",
   "resource_bundles": {
     "Spark-Setup": [
       "Pod/Assets/*.*"
@@ -27,5 +28,10 @@
     "UIKit",
     "SystemConfiguration",
     "Security"
-  ]
+  ],
+  "dependencies": {
+    "Spark-SDK": [
+
+    ]
+  }
 }
