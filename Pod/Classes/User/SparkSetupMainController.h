@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SparkSetupCustomization.h"
-#import "SparkDevice.h"
+//#import "SparkDevice.h"
 
 
 typedef NS_ENUM(NSInteger, SparkSetupMainControllerResult) {
@@ -28,7 +28,7 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
 @protocol SparkSetupMainControllerDelegate
 @required
 // TODO: handle NSError reporting
-- (void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
+- (void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(id)device;
 @end
 
 

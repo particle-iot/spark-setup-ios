@@ -10,9 +10,9 @@
 #import "SparkUserSignupViewController.h"
 #import "SparkSetupCommManager.h"
 #import "SparkSetupConnection.h"
-#import "SparkCloud.h"
 #import "SparkSetupCustomization.h"
 #import "SparkUserLoginViewController.h"
+#import "Spark-SDK.h"
 
 NSString *const kSparkSetupDidFinishNotification = @"kSparkSetupDidFinishNotification";
 NSString *const kSparkSetupDidFinishStateKey = @"kSparkSetupDidFinishStateKey";

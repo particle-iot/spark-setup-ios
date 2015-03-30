@@ -551,8 +551,6 @@
 				5707A5171C9EA70D99397F6F /* SparkSetupPasswordEntryViewController.m */,
 				CAB7D63EBD5FF74BCBB91AEA /* SparkSetupSuccessFailureViewController.h */,
 				B11746A759D1A38F0F666E1B /* SparkSetupSuccessFailureViewController.m */,
-				E46591E5E8B151749D305471 /* SparkSetupUIViewController.h */,
-				8AFAD86B018A12DAA06236E6 /* SparkSetupUIViewController.m */,
 				752CBF5F18CB3F19A47008EA /* SparkSetupWebViewController.h */,
 				4BBB1DF6791FA7B8AFA9268B /* SparkSetupWebViewController.m */,
 				7AF9F549E2344A3BD7977398 /* SparkUserForgotPasswordViewController.h */,
@@ -561,6 +559,8 @@
 				9F950EAA994C4EAFC1EDCFF6 /* SparkUserLoginViewController.m */,
 				26310013EF9BD54131FE7A39 /* SparkUserSignupViewController.h */,
 				45A9A962552CC7F56F2D6519 /* SparkUserSignupViewController.m */,
+				E46591E5E8B151749D305471 /* SparkSetupUIViewController.h */,
+				8AFAD86B018A12DAA06236E6 /* SparkSetupUIViewController.m */,
 				3C9980B96B00FBB2CC888D50 /* setup.storyboard */,
 				A20EEC58DF355A4F35101043 /* UI Elements */,
 			);
@@ -643,16 +643,8 @@
 			isa = PBXGroup;
 			children = (
 				5734992B18D3E2278CD609DC /* Assets */,
-				B20D57B1BC4884469603672D /* Classes */,
 			);
 			path = Pod;
-			sourceTree = "<group>";
-		};
-		9A723657AB44A1278A360E3A /* UI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		A20EEC58DF355A4F35101043 /* UI Elements */ = {
@@ -675,14 +667,6 @@
 				C4DC42FAB891D6824503A52F /* Comm */,
 				76F220E06FFF5CA123F41D7E /* UI */,
 				3E75D6DB223CC4566374F4E4 /* User */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		B20D57B1BC4884469603672D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				9A723657AB44A1278A360E3A /* UI */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

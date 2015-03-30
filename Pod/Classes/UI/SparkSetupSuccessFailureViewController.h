@@ -7,7 +7,7 @@
 //
 
 #import "SparkSetupUIViewController.h"
-#import "SparkDevice.h"
+//#import "SparkDevice.h"
 
 typedef NS_ENUM(NSInteger, SparkSetupResult) {
     SparkSetupResultSuccess=0,
@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, SparkSetupResult) {
 };
 
 @interface SparkSetupSuccessFailureViewController : SparkSetupUIViewController
-@property (nonatomic, strong) SparkDevice *device;
+@property (nonatomic, strong) id device; // SparkDevice *
 @property (nonatomic) SparkSetupResult setupResult;
 
 @end
