@@ -1194,7 +1194,7 @@
 		1305593DB67CAADE1FDDA733 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = "Spark-Setup";
 				SDKROOT = iphoneos;
@@ -1207,7 +1207,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 080BA79FBF9CDF4433AB956E /* Pods-Spark-Setup-Spark-Setup-Private.xcconfig */;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Spark-Setup-Spark-Setup/Pods-Spark-Setup-Spark-Setup-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -1223,7 +1223,7 @@
 		2895345AE584A5C10B304BC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = "Spark-SDK";
 				SDKROOT = iphoneos;
@@ -1270,7 +1270,7 @@
 		73A0A26648C85D548A68E272 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = "Spark-SDK";
 				SDKROOT = iphoneos;
@@ -1323,7 +1323,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 080BA79FBF9CDF4433AB956E /* Pods-Spark-Setup-Spark-Setup-Private.xcconfig */;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Spark-Setup-Spark-Setup/Pods-Spark-Setup-Spark-Setup-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -1340,7 +1340,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69BEEDDF1207C394EF9E2548 /* Pods-Spark-Setup-Spark-SDK-Private.xcconfig */;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Spark-Setup-Spark-SDK/Pods-Spark-Setup-Spark-SDK-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -1357,7 +1357,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1F3D2BD219B4556FDC9885C /* Pods-Spark-Setup-AFNetworking-Private.xcconfig */;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Spark-Setup-AFNetworking/Pods-Spark-Setup-AFNetworking-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -1374,7 +1374,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1F3D2BD219B4556FDC9885C /* Pods-Spark-Setup-AFNetworking-Private.xcconfig */;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Spark-Setup-AFNetworking/Pods-Spark-Setup-AFNetworking-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -1392,6 +1392,7 @@
 			baseConfigurationReference = D1A8E5A9190252BADB6BCFCD /* Pods-Spark-Setup.release.xcconfig */;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_LINK_OBJC_RUNTIME = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1409,6 +1410,7 @@
 			baseConfigurationReference = 143D5EC8B5086B1ACC9697DF /* Pods-Spark-Setup.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_LINK_OBJC_RUNTIME = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1425,7 +1427,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69BEEDDF1207C394EF9E2548 /* Pods-Spark-Setup-Spark-SDK-Private.xcconfig */;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Spark-Setup-Spark-SDK/Pods-Spark-Setup-Spark-SDK-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -1441,7 +1443,7 @@
 		EC7E311D24273EB282C2A4DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = "Spark-Setup";
 				SDKROOT = iphoneos;
