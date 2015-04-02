@@ -27,8 +27,11 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.public_header_files = 'Pod/Classes/User/*.h'
-  s.source_files = 'Pod/Classes/User/*.*'
+
+  s.subspec 'User' do |ss|
+    s.public_header_files = 'Pod/Classes/User/*.h'
+    s.source_files = 'Pod/Classes/User/**/*'
+  end
 
 
   s.subspec 'Comm' do |ss|
@@ -39,6 +42,8 @@ Pod::Spec.new do |s|
   s.subspec 'UI' do |ss|
       ss.source_files = 'Pod/Classes/UI/**/*'
       ss.dependency 'Spark-SDK'
+      ss.dependency 'Spark-Setup/Comm'
+      ss.dependency 'Spark-Setup/User'
       ss.resources    = 'Pod/Classes/UI/setup.storyboard'
       ss.resource_bundles = {
         'Spark-Setup' => ['Pod/Assets/*.*']

@@ -13,8 +13,6 @@
 #import "SparkSetupCustomization.h"
 #import "SparkSetupUIElements.h"
 
-#define ACTIVATION_CODE_LENGTH  4
-
 @interface SparkUserSignupViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -86,15 +84,14 @@
     self.activationCodeTextField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     self.activationCodeTextField.delegate = self;
     
-    // Got a predefined activation code from the URL scheme
     if ((self.predefinedActivationCode) && (self.predefinedActivationCode.length >= 4))
     {
-        // trim white space, set string max length to ACTIVATION_CODE_LENGTH chars and uppercase it
+        // trim white space, set string max length to 4 chars and uppercase it
         NSString *code = self.predefinedActivationCode;
         NSString *codeWhiteSpaceTrimmed = [code stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         codeWhiteSpaceTrimmed = [codeWhiteSpaceTrimmed stringByReplacingOccurrencesOfString:@" " withString:@""];
         codeWhiteSpaceTrimmed = [codeWhiteSpaceTrimmed stringByReplacingOccurrencesOfString:@"%20" withString:@""];
-        NSRange stringRange = {0, ACTIVATION_CODE_LENGTH};
+        NSRange stringRange = {0, 4};
         NSString *shortActCode = [codeWhiteSpaceTrimmed substringWithRange:stringRange];
         self.activationCodeTextField.text = [shortActCode uppercaseString];
     }
@@ -116,14 +113,14 @@
             return NO;
         }
         
-        // limit it to ACTIVATION_CODE_LENGTH chars
+        // limit it to 4 chars
         if(range.length + range.location > textField.text.length)
         {
             return NO;
         }
         
         NSUInteger newLength = [textField.text length] + [string length] - range.length;
-        return (newLength > ACTIVATION_CODE_LENGTH) ? NO : YES;
+        return (newLength > 4) ? NO : YES;
     }
     
     return YES;

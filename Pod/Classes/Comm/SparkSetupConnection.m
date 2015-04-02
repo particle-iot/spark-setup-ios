@@ -32,11 +32,19 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
 
 -(void)initSocket
 {
-    NSInputStream *inputStream;
-    NSOutputStream *outputStream;
+    // This is the iOS 8+ way to go:
+//    NSInputStream *inputStream;
+//    NSOutputStream *outputStream;
+//    [NSStream getStreamsToHostWithName:self.IPaddr port:self.port inputStream:&inputStream outputStream:&outputStream];
     
-    [NSStream getStreamsToHostWithName:self.IPaddr port:self.port inputStream:&inputStream outputStream:&outputStream];
-    
+    // instead of all this crap:
+    CFReadStreamRef readStream;
+    CFWriteStreamRef writeStream;
+    CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)self.IPaddr, self.port, &readStream, &writeStream);
+    NSInputStream *inputStream = (__bridge_transfer NSInputStream *)readStream;
+    NSOutputStream *outputStream = (__bridge_transfer NSOutputStream *)writeStream;
+    // ----
+
     self.inputStream = inputStream;
     self.outputStream = outputStream;
     

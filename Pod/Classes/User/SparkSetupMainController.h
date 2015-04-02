@@ -1,5 +1,5 @@
 //
-//  SparkSetupMainController.h
+//  SparkSetupManager.h
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 11/15/14.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SparkSetupCustomization.h"
-//#import "SparkDevice.h"
+#import "SparkDevice.h"
 
 
 typedef NS_ENUM(NSInteger, SparkSetupMainControllerResult) {
@@ -28,7 +28,7 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
 @protocol SparkSetupMainControllerDelegate
 @required
 // TODO: handle NSError reporting
-- (void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(id)device;
+- (void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
 @end
 
 

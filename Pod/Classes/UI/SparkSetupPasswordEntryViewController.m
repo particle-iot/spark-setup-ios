@@ -66,7 +66,8 @@
 - (IBAction)connectButtonTapped:(id)sender
 {
     int minWifiPassChars = 8;
-    if ([self.securityTypeLabel.text containsString:@"WEP"])
+//    if ([self.securityTypeLabel.text containsString:@"WEP"]) // iOS 8 only
+    if ([self.securityTypeLabel.text rangeOfString:@"WEP"].length > 0) //iOS7 way to do it (still need to do something nicer here)
         minWifiPassChars = 5;
     
     if (self.passwordTextField.text.length < minWifiPassChars)
@@ -102,7 +103,7 @@
 {
         switch ([securityType intValue]) {
         case SparkSetupWifiSecurityTypeOpen:
-            return @"Unsecured";
+            return @"Open";
             break;
         case SparkSetupWifiSecurityTypeWEP_PSK:
             return @"WEP-PSK";

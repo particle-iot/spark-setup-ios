@@ -29,6 +29,7 @@
 {
     if (self = [super init])
     {
+        // Default values
         self.deviceName = @"Spark device";
         self.deviceImage = [UIImage imageNamed:@"photon"];
         self.brandName = @"Spark";
@@ -39,6 +40,8 @@
         self.networkNamePrefix = @"Photon"; // Keurig
         self.listenModeLEDColorName = @"blue";
         self.organization = NO;
+        self.appName = @"Setup app";
+        self.fontSizeOffset = 0;
         
         self.privacyPolicyLinkURL = [NSURL URLWithString:@"https://www.spark.io/privacy"];
         self.termsOfServiceLinkURL = [NSURL URLWithString:@"https://www.spark.io/tos"];
@@ -53,8 +56,8 @@
         
         self.elementBackgroundColor = [UIColor colorWithRed:0.84f green:0.32f blue:0.07f alpha:1.0f];
         self.elementTextColor = [UIColor whiteColor];
-        self.normalTextFontName = @"Gotham-Book"; // TODO: system font default
-        self.boldTextFontName = @"Gotham-Bold"; // TODO: system font default
+//        self.normalTextFontName = @"Gotham-Book"; // TODO: system font default
+//        self.boldTextFontName = @"Gotham-Bold"; // TODO: system font default
         
         return self;
     }

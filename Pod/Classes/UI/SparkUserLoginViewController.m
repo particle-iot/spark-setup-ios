@@ -115,7 +115,8 @@
              else
              {
                  NSString *errorText;
-                 if ([error.localizedDescription containsString:@"(400)"]) // TODO: fix this hack to something nicer
+//                 if ([error.localizedDescription containsString:@"(400)"]) // TODO: fix this hack to something nicer
+                 if ([error.localizedDescription rangeOfString:@"(400)"].length > 0) //iOS7 way to do it (still need to do something nicer here)
                      errorText = @"Incorrect username and/or password";
                  else
                      errorText = error.localizedDescription;

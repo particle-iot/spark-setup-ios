@@ -33,7 +33,7 @@
 @property (strong, nonatomic) NSArray *scannedWifiList;
 @property (weak, nonatomic) IBOutlet UIButton *cancelSetupButton;
 @property (nonatomic, strong) NSString *detectedDeviceID;
-@property (weak, nonatomic) IBOutlet UILabel *loggedInLabel;
+
 @property (nonatomic) BOOL gotPublicKey;
 @property (nonatomic) BOOL gotOwnershipInfo;
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
@@ -74,8 +74,6 @@
 //    self.spinner.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
     //    self.spinner.color = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
 
-    self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
-    self.loggedInLabel.alpha = 0.6f;
     
     // customize logo
     self.brandImage.image = [SparkSetupCustomization sharedInstance].brandImage;
@@ -448,15 +446,6 @@
 
 
 
-- (IBAction)logoutButtonTouched:(id)sender
-{
-    [self.checkConnectionTimer invalidate];
-    [[SparkCloud sharedInstance] logout];
-    // call main delegate or post notification
-    [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidLogoutNotification object:nil userInfo:nil];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-    
-}
 
 
 @end

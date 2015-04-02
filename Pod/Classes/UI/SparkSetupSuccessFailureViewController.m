@@ -53,7 +53,10 @@
         case SparkSetupResultFailureClaiming:
             self.setupResultImageView.image = [UIImage imageNamed:@"failure"];
             self.shortMessageLabel.text = @"Setup failed";
-            self.longMessageLabel.text = @"Setup process failed at claiming your {device}, if your {device} LED is blinking in blue or green this means that you provided wrong Wi-Fi credentials. If {device} LED is breathing cyan an internal cloud issue occured - please contact product support.";
+            // TODO: add customization point for custom troubleshoot texts
+//            self.longMessageLabel.text = @"Setup process failed at claiming your {device}, if your {device} LED is blinking in blue or green this means that you provided wrong Wi-Fi credentials. If {device} LED is breathing cyan an internal cloud issue occured - please contact product support.";
+            self.longMessageLabel.text = @"Setup process failed at claiming your {device}, if your {device} LED is blinking in blue or green this means that you provided wrong Wi-Fi credentials. If {device} LED is breathing cyan an internal cloud issue occured - please contact customer care at 866-901-2739 for help connecting your Wi-Fi module.";
+
             break;
             
         case SparkSetupResultFailureCannotDisconnectFromDevice:

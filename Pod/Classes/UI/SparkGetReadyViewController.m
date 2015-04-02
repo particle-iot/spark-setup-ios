@@ -26,6 +26,8 @@
 @property (strong, nonatomic) MPMoviePlayerController *videoPlayer;
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 
+@property (weak, nonatomic) IBOutlet UILabel *loggedInLabel;
+
 // new claiming process
 @property (nonatomic, strong) NSString *claimCode;
 @property (nonatomic, strong) NSArray *claimedDevices;
@@ -35,18 +37,15 @@
 
 @implementation SparkGetReadyViewController
 
-- (IBAction)testButton:(id)sender
-{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"k-connect://setup/signup?activation_code=FGHJ"]];
-//                                                @"k-connect://test_page/one?token=12345&domain=foo.com"]];
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+
+    self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
+    self.loggedInLabel.alpha = 0.7;
 
 }
 
@@ -110,7 +109,7 @@
     [self.spinner startAnimating];
     self.readyButton.userInteractionEnabled = NO;
     
-    // remove org name
+    
     [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
     //  [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
     
@@ -148,6 +147,17 @@
     }];
     
 
+}
+
+
+- (IBAction)logoutButtonTouched:(id)sender
+{
+//    [self.checkConnectionTimer invalidate];
+    [[SparkCloud sharedInstance] logout];
+    // call main delegate or post notification
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidLogoutNotification object:nil userInfo:nil];
+    //    [self.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 
 

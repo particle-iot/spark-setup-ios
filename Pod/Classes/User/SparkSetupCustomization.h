@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSString *modeButtonName;
 @property (nonatomic, strong) NSString *listenModeLEDColorName;
 @property (nonatomic, strong) NSString *networkNamePrefix; //photon  -<xxxxxx>
+@property (nonatomic, strong) NSString *appName;
 
 @property (nonatomic, strong) NSURL *termsOfServiceLinkURL;
 @property (nonatomic, strong) NSURL *privacyPolicyLinkURL;

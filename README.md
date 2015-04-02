@@ -5,7 +5,7 @@ powered by a Spark Core/Photon. The setup UI can be easily customized by a custo
 that includes: look & feel, colors, fonts as well as custom brand logos and instructional video for your product.
 
 #### Work in progress
-#### not ready to use
+#### Not ready to use
 
 [![CI Status](http://img.shields.io/travis/Ido Kleinman/Spark-Setup.svg?style=flat)](https://travis-ci.org/Ido Kleinman/Spark-Setup)
 [![Version](https://img.shields.io/cocoapods/v/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/Spark-Setup)
@@ -13,7 +13,7 @@ that includes: look & feel, colors, fonts as well as custom brand logos and inst
 [![Platform](https://img.shields.io/cocoapods/p/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/Spark-Setup)
 
 ## Usage
-(Instructions coming soon)
+(Usage instructions coming real soon)
 
 ## Requirements
 
