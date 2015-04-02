@@ -29,8 +29,8 @@ Pod::Spec.new do |s|
 
 
   s.subspec 'User' do |ss|
-    s.public_header_files = 'Pod/Classes/User/*.h'
-    s.source_files = 'Pod/Classes/User/**/*'
+    ss.public_header_files = 'Pod/Classes/User/*.h'
+    ss.source_files = 'Pod/Classes/User/**/*'
   end
 
 
