@@ -40,7 +40,7 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
     // instead of all this crap:
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)self.IPaddr, self.port, &readStream, &writeStream);
+    CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)self.IPaddr, (UInt32)self.port, &readStream, &writeStream);
     NSInputStream *inputStream = (__bridge_transfer NSInputStream *)readStream;
     NSOutputStream *outputStream = (__bridge_transfer NSOutputStream *)writeStream;
     // ----
