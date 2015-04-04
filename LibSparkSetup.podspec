@@ -8,14 +8,14 @@ Pod::Spec.new do |s|
     Spark devices from within your app. Setup UI can be easily customized to the look & feel as well as
     custom brand logos/colors and instructional video.
     DESC
-    s.homepage         = "https://github.com/spark/spark-setup-lib-ios"
+    s.homepage         = "https://github.com/spark/spark-setup-ios"
     # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
     s.license          = 'LGPL v3'
     s.author           = { "Ido Kleinman" => "ido@spark.io" }
     s.source           = { :git => "https://github.com/spark/spark-setup-ios.git", :tag => s.version.to_s }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-    s.platform     = :ios, '7.0'
+    s.platform     = :ios, '7.1'
     s.requires_arc = true
 
     s.subspec 'Core' do |core|
