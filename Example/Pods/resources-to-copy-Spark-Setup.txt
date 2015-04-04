@@ -1,2 +1,0 @@
-/Users/ido/Library/Developer/Xcode/DerivedData/Spark-Setup-erjlnkqyzcigmkbghmvrfeevvayo/Build/Products/Release-iphoneos/Spark-SDK.bundle
-/Users/ido/Library/Developer/Xcode/DerivedData/Spark-Setup-erjlnkqyzcigmkbghmvrfeevvayo/Build/Products/Release-iphoneos/Spark-Setup.bundle

@@ -1,1 +1,0 @@
-PODS_SPARK_SETUP_SPARK_SETUP_OTHER_LDFLAGS = -framework "Security" -framework "SystemConfiguration" -framework "UIKit"
