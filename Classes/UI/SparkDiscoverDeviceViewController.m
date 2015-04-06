@@ -117,6 +117,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     // TODO: solve this via autolayout?
     if (isiPhone4)
         self.productImageHeight.constant = 80; //for 3.5" screen
@@ -129,6 +130,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     [self restartDeviceDetectionTimer];
 }
 

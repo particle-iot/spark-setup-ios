@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#define SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER  @"io.spark.SparkSetup"
 
 @interface SparkSetupUIViewController : UIViewController
 

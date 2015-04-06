@@ -147,6 +147,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self.wifiTableView reloadData];
     [self restartDeviceDetectionTimer];
     [self disableKeyboardMovesViewUp];

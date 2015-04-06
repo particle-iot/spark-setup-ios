@@ -82,7 +82,7 @@
     {
         [self.spinner stopAnimating];
         // TODO: should be in first screen - see what is the endpoint for non-org users
-        SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:nil] instantiateViewControllerWithIdentifier:@"webview"];
+        SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
         webVC.link = [SparkSetupCustomization sharedInstance].forgotPasswordLinkURL;
         [self presentViewController:webVC animated:YES completion:nil];
     }

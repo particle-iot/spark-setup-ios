@@ -36,6 +36,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     
     switch (self.setupResult) {
         case SparkSetupResultSuccess:
@@ -112,7 +113,7 @@
 - (IBAction)troubleshootingButtonTouched:(id)sender
 {
     
-    SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:nil] instantiateViewControllerWithIdentifier:@"webview"];
+    SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
     webVC.link = [SparkSetupCustomization sharedInstance].troubleshootingLinkURL;
     [self presentViewController:webVC animated:YES completion:nil];
     

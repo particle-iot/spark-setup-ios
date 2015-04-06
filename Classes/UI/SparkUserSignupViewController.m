@@ -256,7 +256,7 @@
 - (IBAction)privacyPolicyButton:(id)sender
 {
     [self.view endEditing:YES];
-    SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:nil] instantiateViewControllerWithIdentifier:@"webview"];
+    SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
     webVC.link = [SparkSetupCustomization sharedInstance].privacyPolicyLinkURL;
 //    webVC.htmlFilename = @"test";
     [self presentViewController:webVC animated:YES completion:nil];
@@ -267,7 +267,7 @@
 - (IBAction)termOfServiceButton:(id)sender
 {
     [self.view endEditing:YES];
-    SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:nil] instantiateViewControllerWithIdentifier:@"webview"];
+    SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
     webVC.link = [SparkSetupCustomization sharedInstance].termsOfServiceLinkURL;
     [self presentViewController:webVC animated:YES completion:nil];
 }
@@ -280,7 +280,7 @@
     [self.delegate didRequestUserLogin:self];
     
     /*
-    SparkUserLoginViewController* loginVC = [[UIStoryboard storyboardWithName:@"setup" bundle:nil] instantiateViewControllerWithIdentifier:@"login"];
+    SparkUserLoginViewController* loginVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"login"];
     loginVC.delegate = self.delegate;
     loginVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;// //UIModalPresentationPageSheet;
     [self presentViewController:loginVC animated:YES completion:nil];

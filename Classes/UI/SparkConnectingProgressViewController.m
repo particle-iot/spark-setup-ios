@@ -172,6 +172,7 @@ NSInteger const kMaxRetriesReachability = 5;
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     self.configureRetries = 0;
 
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -492,6 +493,7 @@ NSInteger const kMaxRetriesReachability = 5;
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
 //    NSLog(@"-- removed kReachabilityChangedNotification");
     [self.hostReachability stopNotifier];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];

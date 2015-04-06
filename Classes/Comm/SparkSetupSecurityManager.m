@@ -109,7 +109,8 @@ char *const kSparkSetupSecurityPublicKeystore = "kSparkSetupSecurityPublicKeysto
     [keyAttr setObject:refTag forKey:(__bridge id)kSecAttrApplicationTag];
     
     /* First we delete any current keys */
-    error = SecItemDelete((__bridge CFDictionaryRef) keyAttr);
+    /*error = */
+    SecItemDelete((__bridge CFDictionaryRef) keyAttr);
     
     [keyAttr setObject:extractedKey forKey:(__bridge id)kSecValueData];
     [keyAttr setObject:[NSNumber numberWithBool:YES] forKey:(__bridge id)kSecReturnPersistentRef];
@@ -166,6 +167,8 @@ char *const kSparkSetupSecurityPublicKeystore = "kSparkSetupSecurityPublicKeysto
     if (plainText.length > keyBlockSize)
     {
         NSLog(@"plainText size must be less or equal to key block size");
+        free(cipherBuffer);
+        
         return nil;
     }
     
@@ -180,9 +183,21 @@ char *const kSparkSetupSecurityPublicKeystore = "kSparkSetupSecurityPublicKeysto
                            &cipherBufferSize
                            );
 
+    NSData *cipherText;
+    if (status == errSecSuccess)
+    {
+        cipherText = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
+        free(cipherBuffer);
+        return cipherText;
+
+    }
+    else
+    {
+        free(cipherBuffer);
+        return nil;
+    }
     
-    NSData *cipherText = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
-    return cipherText;
+    
 }
 
 

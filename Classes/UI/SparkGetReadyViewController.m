@@ -61,6 +61,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     NSString *videoFileName = [SparkSetupCustomization sharedInstance].welcomeVideoFilename;
     if (videoFileName)
     {
@@ -86,7 +88,7 @@
 
 - (IBAction)troubleShootingButtonTapped:(id)sender
 {
-    SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:nil] instantiateViewControllerWithIdentifier:@"webview"];
+    SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
     webVC.link = [SparkSetupCustomization sharedInstance].troubleshootingLinkURL;
     [self presentViewController:webVC animated:YES completion:nil];
 

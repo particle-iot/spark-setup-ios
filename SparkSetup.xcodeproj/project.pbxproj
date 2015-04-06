@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		506C6FE11AD31AFE009D8498 /* SparkSetupCustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 509081E01ACF6AF70014E7DF /* SparkSetupCustomization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		506C6FE21AD31AFE009D8498 /* SparkSetupMainController.h in Headers */ = {isa = PBXBuildFile; fileRef = 509081E21ACF6AF70014E7DF /* SparkSetupMainController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		506C6FE61AD32E1C009D8498 /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */; };
 		509081B21ACF6A8A0014E7DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509081AF1ACF6A8A0014E7DF /* Images.xcassets */; };
 		509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509081B11ACF6A8A0014E7DF /* setup.storyboard */; };
 		509081E41ACF6AF70014E7DF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081B71ACF6AF70014E7DF /* Reachability.m */; };
@@ -22,7 +23,6 @@
 		509081EC1ACF6AF70014E7DF /* SparkSelectNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081C81ACF6AF70014E7DF /* SparkSelectNetworkViewController.m */; };
 		509081ED1ACF6AF70014E7DF /* SparkSetupPasswordEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081CA1ACF6AF70014E7DF /* SparkSetupPasswordEntryViewController.m */; };
 		509081EE1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081CC1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.m */; };
-		509081EF1ACF6AF70014E7DF /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081CE1ACF6AF70014E7DF /* SparkSetupUIViewController.m */; };
 		509081F01ACF6AF70014E7DF /* SparkSetupWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081D01ACF6AF70014E7DF /* SparkSetupWebViewController.m */; };
 		509081F11ACF6AF70014E7DF /* SparkUserForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081D21ACF6AF70014E7DF /* SparkUserForgotPasswordViewController.m */; };
 		509081F21ACF6AF70014E7DF /* SparkUserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081D41ACF6AF70014E7DF /* SparkUserLoginViewController.m */; };
@@ -32,7 +32,6 @@
 		509081F61ACF6AF70014E7DF /* SparkSetupUISpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081DE1ACF6AF70014E7DF /* SparkSetupUISpinner.m */; };
 		509081F71ACF6AF70014E7DF /* SparkSetupCustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081E11ACF6AF70014E7DF /* SparkSetupCustomization.m */; };
 		509081F81ACF6AF70014E7DF /* SparkSetupMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081E31ACF6AF70014E7DF /* SparkSetupMainController.m */; };
-		509081FC1ACF707C0014E7DF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509081FB1ACF707C0014E7DF /* Info.plist */; };
 		509082001ACF714A0014E7DF /* SparkCloud.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509081FD1ACF714A0014E7DF /* SparkCloud.h */; };
 		509082011ACF714A0014E7DF /* SparkDevice.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509081FE1ACF714A0014E7DF /* SparkDevice.h */; };
 		509082021ACF714A0014E7DF /* Spark-SDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509081FF1ACF714A0014E7DF /* Spark-SDK.h */; };
@@ -54,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		506C6FE31AD32E1C009D8498 /* SparkSetupUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupUIViewController.h; sourceTree = "<group>"; };
+		506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupUIViewController.m; sourceTree = "<group>"; };
 		509080DC1ACF494A0014E7DF /* SparkSetup.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkSetup.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		509080E71ACF49660014E7DF /* libSparkSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSparkSetup.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		509081AC1ACF69720014E7DF /* SparkSetup.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = SparkSetup.podspec; sourceTree = "<group>"; };
@@ -81,8 +82,6 @@
 		509081CA1ACF6AF70014E7DF /* SparkSetupPasswordEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupPasswordEntryViewController.m; sourceTree = "<group>"; };
 		509081CB1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupSuccessFailureViewController.h; sourceTree = "<group>"; };
 		509081CC1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupSuccessFailureViewController.m; sourceTree = "<group>"; };
-		509081CD1ACF6AF70014E7DF /* SparkSetupUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupUIViewController.h; sourceTree = "<group>"; };
-		509081CE1ACF6AF70014E7DF /* SparkSetupUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupUIViewController.m; sourceTree = "<group>"; };
 		509081CF1ACF6AF70014E7DF /* SparkSetupWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupWebViewController.h; sourceTree = "<group>"; };
 		509081D01ACF6AF70014E7DF /* SparkSetupWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupWebViewController.m; sourceTree = "<group>"; };
 		509081D11ACF6AF70014E7DF /* SparkUserForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkUserForgotPasswordViewController.h; sourceTree = "<group>"; };
@@ -208,6 +207,8 @@
 		509081BE1ACF6AF70014E7DF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				509081CB1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.h */,
+				509081CC1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.m */,
 				509081BF1ACF6AF70014E7DF /* SparkConnectingProgressViewController.h */,
 				509081C01ACF6AF70014E7DF /* SparkConnectingProgressViewController.m */,
 				509081C11ACF6AF70014E7DF /* SparkDiscoverDeviceViewController.h */,
@@ -220,10 +221,6 @@
 				509081C81ACF6AF70014E7DF /* SparkSelectNetworkViewController.m */,
 				509081C91ACF6AF70014E7DF /* SparkSetupPasswordEntryViewController.h */,
 				509081CA1ACF6AF70014E7DF /* SparkSetupPasswordEntryViewController.m */,
-				509081CB1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.h */,
-				509081CC1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.m */,
-				509081CD1ACF6AF70014E7DF /* SparkSetupUIViewController.h */,
-				509081CE1ACF6AF70014E7DF /* SparkSetupUIViewController.m */,
 				509081CF1ACF6AF70014E7DF /* SparkSetupWebViewController.h */,
 				509081D01ACF6AF70014E7DF /* SparkSetupWebViewController.m */,
 				509081D11ACF6AF70014E7DF /* SparkUserForgotPasswordViewController.h */,
@@ -241,6 +238,8 @@
 		509081D71ACF6AF70014E7DF /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				506C6FE31AD32E1C009D8498 /* SparkSetupUIViewController.h */,
+				506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */,
 				509081D81ACF6AF70014E7DF /* SparkSetupUIButton.h */,
 				509081D91ACF6AF70014E7DF /* SparkSetupUIButton.m */,
 				509081DA1ACF6AF70014E7DF /* SparkSetupUIElements.h */,
@@ -367,7 +366,6 @@
 			files = (
 				509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */,
 				509081B21ACF6A8A0014E7DF /* Images.xcassets in Resources */,
-				509081FC1ACF707C0014E7DF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +385,6 @@
 			files = (
 				509081E41ACF6AF70014E7DF /* Reachability.m in Sources */,
 				509081EC1ACF6AF70014E7DF /* SparkSelectNetworkViewController.m in Sources */,
-				509081EF1ACF6AF70014E7DF /* SparkSetupUIViewController.m in Sources */,
 				509081F71ACF6AF70014E7DF /* SparkSetupCustomization.m in Sources */,
 				509081F21ACF6AF70014E7DF /* SparkUserLoginViewController.m in Sources */,
 				509081F61ACF6AF70014E7DF /* SparkSetupUISpinner.m in Sources */,
@@ -395,6 +392,7 @@
 				509081F11ACF6AF70014E7DF /* SparkUserForgotPasswordViewController.m in Sources */,
 				509081F41ACF6AF70014E7DF /* SparkSetupUIButton.m in Sources */,
 				509081EB1ACF6AF70014E7DF /* SparkManualNetworkViewController.m in Sources */,
+				506C6FE61AD32E1C009D8498 /* SparkSetupUIViewController.m in Sources */,
 				509081E81ACF6AF70014E7DF /* SparkConnectingProgressViewController.m in Sources */,
 				509081E51ACF6AF70014E7DF /* SparkSetupCommManager.m in Sources */,
 				509081F01ACF6AF70014E7DF /* SparkSetupWebViewController.m in Sources */,
@@ -497,7 +495,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = SparkSetup;
-				SDKROOT = iphoneos8.2;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
@@ -512,7 +510,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = SparkSetup;
-				SDKROOT = iphoneos8.2;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
@@ -532,7 +530,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = SparkSetup;
-				SDKROOT = iphoneos8.2;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -546,7 +544,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = SparkSetup;
-				SDKROOT = iphoneos8.2;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
