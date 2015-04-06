@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-    s.name             = "LibSparkSetup"
+    s.name             = "SparkSetup"
     s.version          = "0.1.0"
     s.summary          = "Spark soft AP setup library for integrating setup process of Spark devices in your app"
     s.description      = <<-DESC
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
     s.subspec 'Core' do |core|
-        core.resource_bundle = {'LibSparkSetup' => ['Resources/**/*']}
+        core.resource_bundle = {'SparkSetup' => ['Resources/**/*']}
         core.source_files  = 'Classes/**/*'
         core.frameworks    = 'SystemConfiguration', 'Security'
         core.dependency 'Spark-SDK'
