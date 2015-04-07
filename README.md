@@ -1,11 +1,11 @@
 <p align="center" >
 <img src="https://s3.amazonaws.com/spark-website/spark.png" alt="Spark" title="Spark">
-# Spark-Setup
 </p>
 
+# SparkSetup
 The Spark Soft AP setup library is meant for integrating the initial setup process of Spark devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connect products
-powered by a Spark Core/Photon. The setup UI can be easily customized by a customization proxy class available to the user
+powered by a Spark Photon/P0/P1. The setup UI can be easily customized by a customization proxy class available to the user
 that includes: look & feel, colors, fonts as well as custom brand logos and instructional video for your product.
 
 <!---
