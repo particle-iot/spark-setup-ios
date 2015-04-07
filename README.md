@@ -1,13 +1,19 @@
+<p align="center" >
+<img src="https://s3.amazonaws.com/spark-website/spark.png" alt="Spark" title="Spark">
 # Spark-Setup
+</p>
+
 The Spark Soft AP setup library is meant for integrating the initial setup process of Spark devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connect products
 powered by a Spark Core/Photon. The setup UI can be easily customized by a customization proxy class available to the user
 that includes: look & feel, colors, fonts as well as custom brand logos and instructional video for your product.
 
+<!---
 [![CI Status](http://img.shields.io/travis/spark/SparkSetup.svg?style=flat)](https://travis-ci.org/spark/SparkSetup)
 [![Version](https://img.shields.io/cocoapods/v/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
 [![License](https://img.shields.io/cocoapods/l/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
 [![Platform](https://img.shields.io/cocoapods/p/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
+-->
 
 ## Usage
 
@@ -48,8 +54,16 @@ Spark-Setup is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "Spark-Setup"
+pod "SparkSetup"
 ```
+
+## Communication
+
+- If you **need help**, use [Our community website](http://community.spark.io)
+- If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue.
+- If you **have a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
+
 
 ## Author
 
@@ -58,4 +72,4 @@ Spark
 
 ## License
 
-Spark-Setup is available under the LGPL v3 license. See the LICENSE file for more info.
+SparkSetup is available under the LGPL v3 license. See the LICENSE file for more info.
