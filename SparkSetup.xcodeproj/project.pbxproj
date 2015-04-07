@@ -105,6 +105,8 @@
 		509081FD1ACF714A0014E7DF /* SparkCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SparkCloud.h; path = "Pods/Spark-SDK/Pod/Classes/SDK/SparkCloud.h"; sourceTree = "<group>"; };
 		509081FE1ACF714A0014E7DF /* SparkDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SparkDevice.h; path = "Pods/Spark-SDK/Pod/Classes/SDK/SparkDevice.h"; sourceTree = "<group>"; };
 		509081FF1ACF714A0014E7DF /* Spark-SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Spark-SDK.h"; path = "Pods/Spark-SDK/Pod/Classes/Spark-SDK.h"; sourceTree = "<group>"; };
+		50D0955A1AD38CE4008EDBD7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		50D0955B1AD38E2E008EDBD7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8D140506C125F8E7CE18E841 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F404D8EB82B123EA6352E8F3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC0ADC41A6CCAF841506DF90 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,10 +150,10 @@
 		509080B51ACF46600014E7DF = {
 			isa = PBXGroup;
 			children = (
-				509081AE1ACF6A8A0014E7DF /* Resources */,
-				509081AC1ACF69720014E7DF /* SparkSetup.podspec */,
-				509081611ACF66E60014E7DF /* Classes */,
 				509080BF1ACF46600014E7DF /* Products */,
+				50D0955C1AD38E35008EDBD7 /* Pod metadata */,
+				509081611ACF66E60014E7DF /* Classes */,
+				509081AE1ACF6A8A0014E7DF /* Resources */,
 				1B1A9049554A9AA8660E1AAD /* Pods */,
 				4B2BF0FCCECCBC6E051F3901 /* Frameworks */,
 			);
@@ -272,6 +274,16 @@
 			);
 			name = "Spark-SDK Headers";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		50D0955C1AD38E35008EDBD7 /* Pod metadata */ = {
+			isa = PBXGroup;
+			children = (
+				509081AC1ACF69720014E7DF /* SparkSetup.podspec */,
+				50D0955A1AD38CE4008EDBD7 /* README.md */,
+				50D0955B1AD38E2E008EDBD7 /* LICENSE */,
+			);
+			name = "Pod metadata";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,7 +444,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				VALID_ARCHS = "arm64 i386 armv7 armv7s";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -448,6 +459,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 i386 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -455,7 +467,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				VALID_ARCHS = "arm64 i386 armv7 armv7s";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -483,6 +494,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 i386 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -531,11 +543,11 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				VALID_ARCHS = "arm64 i386 armv7 armv7s";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = SparkSetup;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 i386 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -548,9 +560,9 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = SparkSetup;
-				VALID_ARCHS = "arm64 i386 armv7 armv7s";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 i386 armv7 armv7s";
 			};
 			name = Release;
 		};

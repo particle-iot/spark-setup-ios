@@ -4,18 +4,43 @@ This library will enable you to easily invoke a standalone setup wizard UI for s
 powered by a Spark Core/Photon. The setup UI can be easily customized by a customization proxy class available to the user
 that includes: look & feel, colors, fonts as well as custom brand logos and instructional video for your product.
 
-#### Work in progress
-#### Not ready to use
-
-[![CI Status](http://img.shields.io/travis/Ido Kleinman/Spark-Setup.svg?style=flat)](https://travis-ci.org/Ido Kleinman/Spark-Setup)
-[![Version](https://img.shields.io/cocoapods/v/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/Spark-Setup)
-[![License](https://img.shields.io/cocoapods/l/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/Spark-Setup)
-[![Platform](https://img.shields.io/cocoapods/p/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/Spark-Setup)
+[![CI Status](http://img.shields.io/travis/spark/SparkSetup.svg?style=flat)](https://travis-ci.org/spark/SparkSetup)
+[![Version](https://img.shields.io/cocoapods/v/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
+[![License](https://img.shields.io/cocoapods/l/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
+[![Platform](https://img.shields.io/cocoapods/p/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
 
 ## Usage
-(Usage instructions coming real soon)
+
+### Basic
+Import `SparkSetupMainController.h` in your view controller implementation file, and invoke setup wizard by:
+```Objective-C
+SparkSetupMainController *setupController = [SparkSetupMainController new];
+[self presentViewController:setupController animated:YES completion:nil];
+```
+
+### Customization
+
+Customize setup look and feel by #importing `SparkSetupCustomization.h`,
+access the SparkSetupCustomization singleton appearance proxy using 
+```Objective-C
+[SparkSetupCustomization sharedInstance]
+```
+and modify its self-explanatory properties.
+
+### Advanced
+
+You can get an active instance of `SparkDevice` by making your viewcontroller conform to protocol `<SparkSetupMainControllerDelegate>` when Setup Wizard completes:
+```Objective-C
+-(void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
+```
+will be called. and if `(result == SparkSetupMainControllerResultSuccess)` the device parameter will contain an active `SparkDevice` instance you can interact with
+using the Spark-SDK.
+
+(Extended usage instructions coming soon)
 
 ## Requirements
+
+(coming soon)
 
 ## Installation
 
@@ -29,6 +54,7 @@ pod "Spark-Setup"
 ## Author
 
 Ido K, ido@spark.io
+Spark
 
 ## License
 
