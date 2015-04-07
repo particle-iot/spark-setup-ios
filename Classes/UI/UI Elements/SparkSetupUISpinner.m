@@ -8,6 +8,7 @@
 
 #import "SparkSetupUISpinner.h"
 #import "SparkSetupCustomization.h"
+#import "SparkSetupMainController.h"
 
 @implementation SparkSetupUISpinner
 
@@ -22,13 +23,13 @@
 {
     if ((type) && ([type isEqualToString:@"foreground"]))
     {
-        self.image = [UIImage imageNamed:@"spinner_big"]; //big black one
+        self.image = [UIImage imageNamed:@"spinner_big" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         self.image = [self.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         self.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
     }
     else
     {
-        self.image = [UIImage imageNamed:@"spinner"]; // small white one
+        self.image = [UIImage imageNamed:@"spinner" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
     }
     
     [self setNeedsDisplay];

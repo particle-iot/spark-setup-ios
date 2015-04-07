@@ -7,6 +7,9 @@
 //
 
 #import "SparkSetupCustomization.h"
+#import "SparkSetupMainController.h"
+
+
 
 @interface UIColor(withDecimalRGB) // TODO: move to category in helpers
 +(UIColor *)colorWithRed:(NSInteger)r green:(NSInteger)g blue:(NSInteger)b;
@@ -43,9 +46,10 @@
     {
         // Defaults
         self.deviceName = @"Spark device";
-        self.deviceImage = [UIImage imageNamed:@"photon"];
+        self.deviceImage = [UIImage imageNamed:@"photon" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         self.brandName = @"Spark";
-        self.brandImage = [UIImage imageNamed:@"SparkSetup.bundle/spark-logo"];
+//        self.brandImage = [UIImage imageNamed:@"SparkSetup.bundle/spark-logo-head"]; 
+        self.brandImage = [UIImage imageNamed:@"spark-logo-head" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
 //        self.brandImageBackgroundColor = [UIColor colorWithRed:0.79f green:0.79f blue:0.79f alpha:1.0f];
         self.brandImageBackgroundColor = [UIColor colorWithRed:229 green:229 blue:237];
       

@@ -55,6 +55,13 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
  */
 -(void)showSignupWithPredefinedActivationCode:(NSString *)activationCode;
 
+/**
+ *  Get default resource bundle for Spark Soft AP setup assets
+ *
+ *  @return Default assets resource NSBundle instance
+ */
++(NSBundle *)getResourcesBundle;
+
 @end
 
 

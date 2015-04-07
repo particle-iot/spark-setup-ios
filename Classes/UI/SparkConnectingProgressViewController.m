@@ -135,7 +135,7 @@ NSInteger const kMaxRetriesReachability = 5;
     if (indexPath.row+1 == self.connectionProgressTextList.count)
     {
  
-        cell.imageView.image = [UIImage imageNamed:@"spinner_big"];
+        cell.imageView.image = [UIImage imageNamed:@"spinner_big" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         [self startAnimatingSpinner:cell.imageView];
         CGSize itemSize = CGSizeMake(30, 30);
         cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -152,7 +152,7 @@ NSInteger const kMaxRetriesReachability = 5;
     {
         [self stopAnimatingSpinner:cell.imageView];
         cell.imageView.hidden = NO;
-        cell.imageView.image = [UIImage imageNamed:@"checkmark"];
+        cell.imageView.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;;
         
@@ -508,9 +508,9 @@ NSInteger const kMaxRetriesReachability = 5;
         [self stopAnimatingSpinner:cell.imageView];
         cell.imageView.hidden = NO;
         if (error)
-            cell.imageView.image = [UIImage imageNamed:@"x"];
+            cell.imageView.image = [UIImage imageNamed:@"x" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         else
-            cell.imageView.image = [UIImage imageNamed:@"checkmark"];
+            cell.imageView.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
         [cell setNeedsDisplay];

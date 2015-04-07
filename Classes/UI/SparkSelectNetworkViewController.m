@@ -11,11 +11,14 @@
 #import "SparkConnectingProgressViewController.h"
 #import "SparkSetupCommManager.h"
 #import "SparkSetupCustomization.h"
+#import "SparkSetupUIElements.h"
+#import "SparkManualNetworkViewController.h"
+#import "SparkSetupMainController.h"
+
 // TODO: move it somewhere else
 #define kSparkWifiRSSIThresholdStrong   -56
 #define kSparkWifiRSSIThresholdWeak     -71
-#import "SparkSetupUIElements.h"
-#import "SparkManualNetworkViewController.h"
+
 
 
 @interface SparkSelectNetworkViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -105,15 +108,15 @@
     int rssi = [self.wifiList[row][@"rssi"] intValue];
     if (rssi > kSparkWifiRSSIThresholdStrong)
     {
-        [signalStrengthImageView setImage:[UIImage imageNamed:@"wifi3"]];
+        [signalStrengthImageView setImage:[UIImage imageNamed:@"wifi3" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
     }
     else if (rssi > kSparkWifiRSSIThresholdWeak)
     {
-        [signalStrengthImageView setImage:[UIImage imageNamed:@"wifi2"]];
+        [signalStrengthImageView setImage:[UIImage imageNamed:@"wifi2" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
     }
     else
     {
-        [signalStrengthImageView setImage:[UIImage imageNamed:@"wifi1"]];
+        [signalStrengthImageView setImage:[UIImage imageNamed:@"wifi1" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
     }
     
         

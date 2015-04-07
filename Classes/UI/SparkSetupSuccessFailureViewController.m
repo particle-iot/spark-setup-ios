@@ -40,40 +40,40 @@
     
     switch (self.setupResult) {
         case SparkSetupResultSuccess:
-            self.setupResultImageView.image = [UIImage imageNamed:@"success"];
+            self.setupResultImageView.image = [UIImage imageNamed:@"success" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
             self.shortMessageLabel.text = @"Setup completed successfully";
             self.longMessageLabel.text = @"Congrats! You've successfully set up your {device}.";
             break;
             
         case SparkSetupResultSuccessUnknown:
-            self.setupResultImageView.image = [UIImage imageNamed:@"success"];
+            self.setupResultImageView.image = [UIImage imageNamed:@"success" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
             self.shortMessageLabel.text = @"Setup completed!";
             self.longMessageLabel.text = @"Setup was successful, but you're not the primary owner so we can't check if the {device} connected to the Internet. If you see the LED breathing cyan this means it worked! If not, please restart the setup process.";
             break;
             
         case SparkSetupResultFailureClaiming:
-            self.setupResultImageView.image = [UIImage imageNamed:@"failure"];
+            self.setupResultImageView.image = [UIImage imageNamed:@"failure" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
             self.shortMessageLabel.text = @"Setup failed";
             // TODO: add customization point for custom troubleshoot texts
 //            self.longMessageLabel.text = @"Setup process failed at claiming your {device}, if your {device} LED is blinking in blue or green this means that you provided wrong Wi-Fi credentials. If {device} LED is breathing cyan an internal cloud issue occured - please contact product support.";
-            self.longMessageLabel.text = @"Setup process failed at claiming your {device}, if your {device} LED is blinking in blue or green this means that you provided wrong Wi-Fi credentials. If {device} LED is breathing cyan an internal cloud issue occured - please contact customer care at 866-901-2739 for help connecting your Wi-Fi module.";
+            self.longMessageLabel.text = @"Setup process failed at claiming your {device}, if your {device} LED is blinking in blue or green this means that you provided wrong Wi-Fi credentials. If {device} LED is breathing cyan an internal cloud issue occured - please contact customer care for help connecting your Wi-Fi module.";
 
             break;
             
         case SparkSetupResultFailureCannotDisconnectFromDevice:
-            self.setupResultImageView.image = [UIImage imageNamed:@"failure"];
+            self.setupResultImageView.image = [UIImage imageNamed:@"failure" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
             self.shortMessageLabel.text = @"Oops!";
             self.longMessageLabel.text = @"Setup process couldn't claim your {device}! If the {device} LED is blinking blue or green then you may have mistyped the Wi-Fi credentials and you should try setup again. If the LED is breathing cyan a server issue may have occurred - please contact support.";
             break;
             
         case SparkSetupResultFailureConfigure:
-            self.setupResultImageView.image = [UIImage imageNamed:@"failure"];
+            self.setupResultImageView.image = [UIImage imageNamed:@"failure" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
             self.shortMessageLabel.text = @"Uh oh!";
             self.longMessageLabel.text = @"Setup process couldn't disconnect from the {device} Wi-fi network. This is an internal problem with the device, so please try running setup again after resetting your {device} and putting it back in blinking blue listen mode if needed.";
             break;
             
         case SparkSetupResultFailureLostConnectionToDevice:
-            self.setupResultImageView.image = [UIImage imageNamed:@"failure"];
+            self.setupResultImageView.image = [UIImage imageNamed:@"failure" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
             self.shortMessageLabel.text = @"Error!";
             self.longMessageLabel.text = @"Setup process couldn't configure the Wi-Fi credentials for your {device}, please try running setup again after resetting your {device} and putting it back in blinking blue listen mode if needed.";
             break;

@@ -79,7 +79,7 @@
     self.brandImage.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImage.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
 
-    self.wifiSignalImageView.image = [UIImage imageNamed:@"wifi3"];
+    self.wifiSignalImageView.image = [UIImage imageNamed:@"wifi3"  inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
     self.wifiSignalImageView.hidden = NO;
     self.needToCheckDeviceClaimed = NO;
     
@@ -98,7 +98,7 @@
 {
     // TODO: this is a hack
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.wifiSignalImageView.image = [UIImage imageNamed:@"wifi3"];
+        self.wifiSignalImageView.image = [UIImage imageNamed:@"wifi3" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         [self.spinner stopAnimating];
         self.wifiSignalImageView.hidden = NO;
         

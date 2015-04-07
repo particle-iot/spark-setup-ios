@@ -27,7 +27,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 //@property (nonatomic, strong) UINavigationController *setupNavController;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (nonatomic, strong) UIViewController *currentVC;
-
+@property (nonatomic, strong) UIStoryboard *setupStoryboard;
 @end
 
 @implementation SparkSetupMainController
@@ -40,12 +40,15 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 }
 
 
++(UIStoryboard *)getSetupStoryboard
+{
+    UIStoryboard *setupStoryboard = [UIStoryboard storyboardWithName:@"setup" bundle:[SparkSetupMainController getResourcesBundle]];
+    return setupStoryboard;
+}
 
 +(SparkSetupMainController *)new
 {
-
-    UIStoryboard *setupStoryboard = [UIStoryboard storyboardWithName:@"setup" bundle:[SparkSetupMainController getResourcesBundle]];
-    SparkSetupMainController* mainVC = [setupStoryboard instantiateViewControllerWithIdentifier:@"root"];
+    SparkSetupMainController* mainVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"root"];
     return mainVC;
 }
 
@@ -72,7 +75,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 -(void)runSetup
 {
-    UINavigationController* setupVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"setup"];
+    UINavigationController* setupVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"setup"];
     [self showViewController:setupVC];
 }
 
@@ -83,7 +86,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 -(void)showSignupWithPredefinedActivationCode:(NSString *)activationCode;
 {
-    SparkUserSignupViewController *signupVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"signup"];
+    SparkUserSignupViewController *signupVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
     signupVC.predefinedActivationCode = activationCode;
     signupVC.delegate = self;
     [self showViewController:signupVC];
@@ -92,14 +95,14 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 -(void)showLogin
 {
-    SparkUserLoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"login"];
+    SparkUserLoginViewController *loginVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"login"];
     loginVC.delegate = self;
     [self showViewController:loginVC];
 }
 
 -(void)showPasswordReset
 {
-    SparkUserLoginViewController *pwdrstVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"password_reset"];
+    SparkUserLoginViewController *pwdrstVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"password_reset"];
     pwdrstVC.delegate = self;
     [self showViewController:pwdrstVC];
 }
