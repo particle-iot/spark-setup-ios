@@ -8,7 +8,19 @@
 
 #import "SparkSetupCustomization.h"
 
+@interface UIColor(withDecimalRGB) // TODO: move to category in helpers
++(UIColor *)colorWithRed:(NSInteger)r green:(NSInteger)g blue:(NSInteger)b;
+@end
+
+@implementation UIColor(withDecimalRGB) // TODO: move to category in helpers
++(UIColor *)colorWithRed:(NSInteger)r green:(NSInteger)g blue:(NSInteger)b
+{
+    return [UIColor colorWithRed:((float)r/255.0f) green:((float)g/255.0f) blue:((float)b/255.0f) alpha:1.0f];
+}
+@end
+
 @implementation SparkSetupCustomization
+
 
 +(instancetype)sharedInstance
 {
@@ -29,18 +41,19 @@
 {
     if (self = [super init])
     {
-        // Default values
+        // Defaults
         self.deviceName = @"Spark device";
         self.deviceImage = [UIImage imageNamed:@"photon"];
         self.brandName = @"Spark";
-        self.brandImage = [UIImage imageNamed:@"spark-logo"];
-        self.brandImageBackgroundColor = [UIColor colorWithRed:0.79f green:0.79f blue:0.79f alpha:1.0f];
-        
+        self.brandImage = [UIImage imageNamed:@"SparkSetup.bundle/spark-logo"];
+//        self.brandImageBackgroundColor = [UIColor colorWithRed:0.79f green:0.79f blue:0.79f alpha:1.0f];
+        self.brandImageBackgroundColor = [UIColor colorWithRed:229 green:229 blue:237];
+      
         self.modeButtonName = @"mode button";
-        self.networkNamePrefix = @"Photon"; // Keurig
+        self.networkNamePrefix = @"Photon";
         self.listenModeLEDColorName = @"blue";
         self.organization = NO;
-        self.appName = @"Setup app";
+        self.appName = self.brandName;// @"SparkSetup";
         self.fontSizeOffset = 0;
         
         self.privacyPolicyLinkURL = [NSURL URLWithString:@"https://www.spark.io/privacy"];
@@ -49,15 +62,20 @@
         self.troubleshootingLinkURL = [NSURL URLWithString:@"https://community.spark.io/t/spark-core-troubleshooting-guide-spark-team/696"];
         // TODO: add default HTMLs
         
-        self.normalTextColor = [UIColor blackColor];
+//        self.normalTextColor = [UIColor blackColor];
+        self.normalTextColor = [UIColor colorWithRed:28 green:26 blue:25];
         self.pageBackgroundColor = [UIColor colorWithWhite:0.94 alpha:1.0f];
+//        self.pageBackgroundColor = [UIColor colorWithRed:250 green:250 blue:250];
         self.linkTextColor = [UIColor blueColor];
-        self.errorTextColor = [UIColor redColor];
-        
-        self.elementBackgroundColor = [UIColor colorWithRed:0.84f green:0.32f blue:0.07f alpha:1.0f];
+//        self.linkTextColor = [UIColor colorWithRed:6 green:165 blue:226];
+//        self.errorTextColor = [UIColor redColor];
+        self.errorTextColor = [UIColor colorWithRed:254 green:71 blue:71];
+//        self.elementBackgroundColor = [UIColor colorWithRed:0.84f green:0.32f blue:0.07f alpha:1.0f];
+        self.elementBackgroundColor = [UIColor colorWithRed:0 green:165 blue:231];
         self.elementTextColor = [UIColor whiteColor];
-//        self.normalTextFontName = @"Gotham-Book"; // TODO: system font default
-//        self.boldTextFontName = @"Gotham-Bold"; // TODO: system font default
+        
+        self.normalTextFontName = @"HelveticaNeue";
+        self.boldTextFontName = @"HelveticaNeue-Bold";
         
         return self;
     }

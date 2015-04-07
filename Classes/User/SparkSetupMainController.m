@@ -13,12 +13,14 @@
 #import "SparkCloud.h"
 #import "SparkSetupCustomization.h"
 #import "SparkUserLoginViewController.h"
+#import "SparkSetupUIElements.h"
+
+//#define SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER  @"io.spark.SparkSetup"
 
 NSString *const kSparkSetupDidFinishNotification = @"kSparkSetupDidFinishNotification";
 NSString *const kSparkSetupDidFinishStateKey = @"kSparkSetupDidFinishStateKey";
 NSString *const kSparkSetupDidFinishDeviceKey = @"kSparkSetupDidFinishDeviceKey";
 NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotification";
-
 
 @interface SparkSetupMainController() <SparkUserLoginDelegate>
 
@@ -30,9 +32,20 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 @implementation SparkSetupMainController
 
-+(SparkSetupMainController *)new //instanciateSparkSetupMainController
+
++(NSBundle *)getResourcesBundle
 {
-    SparkSetupMainController* mainVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"root"];
+    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SparkSetup" withExtension:@"bundle"]];
+    return bundle;
+}
+
+
+
++(SparkSetupMainController *)new
+{
+
+    UIStoryboard *setupStoryboard = [UIStoryboard storyboardWithName:@"setup" bundle:[SparkSetupMainController getResourcesBundle]];
+    SparkSetupMainController* mainVC = [setupStoryboard instantiateViewControllerWithIdentifier:@"root"];
     return mainVC;
 }
 

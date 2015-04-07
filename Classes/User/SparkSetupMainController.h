@@ -37,9 +37,22 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
 @property (nonatomic, weak) id<SparkSetupMainControllerDelegate> delegate;
 //@property (nonatomic, strong) SparkSetupCustomization *customization;
 
+
+/**
+ *  Entry point for invoking Spark Soft AP setup wizard, use by calling this on your viewController:
+ *  SparkSetupMainController *setupController = [SparkSetupMainController new];
+ *  [self presentViewController:setupController animated:YES completion:nil];
+ *
+ *  @return An inititalized SparkSetupMainController instance ready to be presented.
+ */
 + (SparkSetupMainController *)new;
 -(id)init __attribute__((unavailable("Must use +new")));
 
+/**
+ *  Open setup wizard in Signup screen with a pre-filled activation code from a URL scheme which was used to open the app
+ *
+ *  @param activationCode Activation code string
+ */
 -(void)showSignupWithPredefinedActivationCode:(NSString *)activationCode;
 
 @end
