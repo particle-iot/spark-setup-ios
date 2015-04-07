@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "SparkSetup"
-    s.version          = "0.1.0"
+    s.version          = "0.1.1"
     s.summary          = "Spark soft AP setup library for integrating setup process of Spark devices in your app"
     s.description      = <<-DESC
     Spark Soft AP setup module for integrating setup process of Spark devices in your app
