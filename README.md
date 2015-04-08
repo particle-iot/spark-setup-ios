@@ -44,6 +44,9 @@ using the Spark-SDK.
 
 (Extended usage instructions coming soon)
 
+### Swift projects
+To use SparkSetup from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html)
+
 ## Requirements
 
 (coming soon)
