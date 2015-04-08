@@ -46,9 +46,16 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
     return setupStoryboard;
 }
 
-+(SparkSetupMainController *)new
+-(instancetype)init
 {
-    SparkSetupMainController* mainVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"root"];
+    SparkSetupMainController* mainVC;
+    @try {
+        mainVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"root"];
+    }
+    @catch (NSException *exception) {
+        return nil;
+    }
+    
     return mainVC;
 }
 

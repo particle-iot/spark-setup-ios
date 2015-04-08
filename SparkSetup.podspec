@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "SparkSetup"
-    s.version          = "0.1.1"
+    s.version          = "0.1.2"
     s.summary          = "Spark soft AP setup library for integrating setup process of Spark devices in your app"
     s.description      = <<-DESC
     Spark Soft AP setup module for integrating setup process of Spark devices in your app
@@ -18,12 +18,25 @@ Pod::Spec.new do |s|
     s.platform     = :ios, '7.1'
     s.requires_arc = true
 
-    s.subspec 'Core' do |core|
-        core.resource_bundle = {'SparkSetup' => ['Resources/**/*']}
-        core.source_files  = 'Classes/**/*'
-        core.frameworks    = 'SystemConfiguration', 'Security'
-        core.dependency 'Spark-SDK'
+    s.public_header_files = 'Classes/*.h'
+
+    s.subspec 'Resources' do |resources|
+        resources.resource_bundle = {'SparkSetup' => ['Resources/**/*']}
     end
+
+    s.subspec 'Core' do |core|
+        core.source_files  = 'Classes/User/**/*', 'Classes/UI/**/*'
+        core.dependency 'Spark-SDK'
+        core.dependency 'SparkSetup/Comm'
+        core.dependency 'SparkSetup/Resources'
+        core.frameworks    = 'UIKit'
+    end
+
+    s.subspec 'Comm' do |comm|
+        comm.source_files  = 'Classes/Comm/**/*'
+        comm.frameworks    = 'SystemConfiguration', 'Security'
+    end
+
 
 
 end

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		506C6FE11AD31AFE009D8498 /* SparkSetupCustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 509081E01ACF6AF70014E7DF /* SparkSetupCustomization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		506C6FE21AD31AFE009D8498 /* SparkSetupMainController.h in Headers */ = {isa = PBXBuildFile; fileRef = 509081E21ACF6AF70014E7DF /* SparkSetupMainController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		506C6FE61AD32E1C009D8498 /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */; };
 		509081B21ACF6A8A0014E7DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509081AF1ACF6A8A0014E7DF /* Images.xcassets */; };
 		509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509081B11ACF6A8A0014E7DF /* setup.storyboard */; };
@@ -35,6 +33,7 @@
 		509082001ACF714A0014E7DF /* SparkCloud.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509081FD1ACF714A0014E7DF /* SparkCloud.h */; };
 		509082011ACF714A0014E7DF /* SparkDevice.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509081FE1ACF714A0014E7DF /* SparkDevice.h */; };
 		509082021ACF714A0014E7DF /* Spark-SDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509081FF1ACF714A0014E7DF /* Spark-SDK.h */; };
+		50D095991AD5BB6E008EDBD7 /* SparkSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D095981AD5BB6E008EDBD7 /* SparkSetup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,6 +106,7 @@
 		509081FF1ACF714A0014E7DF /* Spark-SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Spark-SDK.h"; path = "Pods/Spark-SDK/Pod/Classes/Spark-SDK.h"; sourceTree = "<group>"; };
 		50D0955A1AD38CE4008EDBD7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		50D0955B1AD38E2E008EDBD7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		50D095981AD5BB6E008EDBD7 /* SparkSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SparkSetup.h; path = Classes/SparkSetup.h; sourceTree = SOURCE_ROOT; };
 		8D140506C125F8E7CE18E841 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F404D8EB82B123EA6352E8F3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC0ADC41A6CCAF841506DF90 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +171,7 @@
 		509081611ACF66E60014E7DF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				50D095981AD5BB6E008EDBD7 /* SparkSetup.h */,
 				509082031ACF71500014E7DF /* Spark-SDK Headers */,
 				509081B51ACF6AF70014E7DF /* Comm */,
 				509081BE1ACF6AF70014E7DF /* UI */,
@@ -293,8 +294,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				506C6FE11AD31AFE009D8498 /* SparkSetupCustomization.h in Headers */,
-				506C6FE21AD31AFE009D8498 /* SparkSetupMainController.h in Headers */,
+				50D095991AD5BB6E008EDBD7 /* SparkSetup.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
