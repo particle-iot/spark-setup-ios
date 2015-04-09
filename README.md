@@ -2,7 +2,7 @@
 <img src="https://s3.amazonaws.com/spark-website/spark.png" alt="Spark" title="Spark">
 </p>
 
-# SparkSetup
+# SparkSetup (beta)
 The Spark Soft AP setup library is meant for integrating the initial setup process of Spark devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connect products
 powered by a Spark Photon/P0/P1. The setup UI can be easily customized by a customization proxy class available to the user
@@ -74,10 +74,10 @@ and modify its properties -
  CGFloat fontSizeOffset;           // Set offset of font size so small/big fonts can be fine-adjusted
 ```
 
-#### Organizaion:
+#### Organization:
 ```
- BOOL organization;                 // enable invite codes, other organizational APIs
- NSString *organizationName;        // organizational name for API endpoint URL
+ BOOL organization;                 // enable organization mode - activation codes, other organizational APIs
+ NSString *organizationName;        // organization name
 ```
 
 ### Advanced
@@ -89,13 +89,14 @@ You can get an active instance of `SparkDevice` by making your viewcontroller co
 method will be called, if `(result == SparkSetupMainControllerResultSuccess)` the device parameter will contain an active `SparkDevice` instance you can interact with
 using the [Spark-SDK](https://cocoapods.org/pods/Spark-SDK).
 
-### Swift projects
+#### Support for Swift projects
 To use SparkSetup from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), 
 also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on this matter
 
 ## Requirements
 
 iOS 7.1+ supported
+
 Currently wizard works on portait mode only.
 
 ## Installation
