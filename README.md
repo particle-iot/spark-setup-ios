@@ -18,7 +18,7 @@ that includes: look & feel, colors, fonts as well as custom brand logos and inst
 ## Usage
 
 ### Basic
-Import `SparkSetupMainController.h` in your view controller implementation file, and invoke setup wizard by:
+Import `SparkSetup.h` in your view controller implementation file, and invoke setup wizard by:
 ```Objective-C
 SparkSetupMainController *setupController = [SparkSetupMainController new];
 [self presentViewController:setupController animated:YES completion:nil];
@@ -26,12 +26,62 @@ SparkSetupMainController *setupController = [SparkSetupMainController new];
 
 ### Customization
 
-Customize setup look and feel by #importing `SparkSetupCustomization.h`,
-access the SparkSetupCustomization singleton appearance proxy using 
+Customize setup look and feel by accessing the SparkSetupCustomization singleton appearance proxy using 
 ```Objective-C
 [SparkSetupCustomization sharedInstance]
 ```
-and modify its self-explanatory properties.
+and modify its properties -
+
+Product/brand info:
+```
+ NSString *deviceName;          // Device/product name 
+ UIImage *deviceImage;          // Device/product image
+
+ NSString *brandName;           // Your brand name
+ UIImage *brandImage;           // Your brand logo to fit in header of setup wizard screens
+ UIColor *brandImageBackgroundColor;    // brand logo background color
+ NSString *welcomeVideoFilename;        // Welcome screen instructional video
+ NSString *appName;                     // Your setup app name
+```
+
+Technical info:
+```
+ NSString *modeButtonName;              // The mode button name on your product
+ NSString *listenModeLEDColorName;      // The color of the LED when product is in listen mode
+ NSString *networkNamePrefix;           // The SSID prefix of the Soft AP Wi-Fi network of your product while in listen mode
+```
+
+Links for legal/technical stuff:
+```
+ NSURL *termsOfServiceLinkURL; // URL for terms of service of the app/device usage
+ NSURL *privacyPolicyLinkURL;  // URL for privacy policy of the app/device usage
+ NSURL *forgotPasswordLinkURL; // URL for user password reset (non-organization setup app only)
+ NSURL *troubleshootingLinkURL; // URL for troubleshooting text of the app/device usage
+
+ NSString *termsOfServiceHTMLFile; // Static HTML file for terms of service of the app/device usage
+ NSString *privacyPolicyHTMLFile;  // Static HTML file for privacy policy of the app/device usage
+ NSString *forgotPasswordHTMLFile; // Static HTML file for user password reset (non-organization setup app only)
+ NSString *troubleshootingHTMLFile; // Static HTML file for troubleshooting text of the app/device usage
+```
+
+Look & feel:
+```
+ UIColor *pageBackgroundColor;
+ UIColor *normalTextColor;
+ UIColor *linkTextColor;
+ UIColor *errorTextColor;
+ UIColor *elementBackgroundColor;  // Buttons/spinners background color
+ UIColor *elementTextColor;        // Buttons text color
+ NSString *normalTextFontName;     // Customize setup font - include OTF/TTF file in project
+ NSString *boldTextFontName;       // Customize setup font - include OTF/TTF file in project
+ CGFloat fontSizeOffset;           // Set offset of font size so small/big fonts can be fine-adjusted
+```
+
+Organizaion:
+```
+ BOOL organization;                 // enable invite codes, other organizational APIs
+ NSString *organizationName;        // organizational name for API endpoint URL
+```
 
 ### Advanced
 
@@ -39,17 +89,17 @@ You can get an active instance of `SparkDevice` by making your viewcontroller co
 ```Objective-C
 -(void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
 ```
-will be called. and if `(result == SparkSetupMainControllerResultSuccess)` the device parameter will contain an active `SparkDevice` instance you can interact with
-using the Spark-SDK.
-
-(Extended usage instructions coming soon)
+method will be called, if `(result == SparkSetupMainControllerResultSuccess)` the device parameter will contain an active `SparkDevice` instance you can interact with
+using the [Spark-SDK](https://cocoapods.org/pods/Spark-SDK).
 
 ### Swift projects
-To use SparkSetup from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html)
+To use SparkSetup from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), 
+also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on this matter
 
 ## Requirements
 
-(coming soon)
+iOS 7.1+ supported
+Currently wizard works on portait mode only.
 
 ## Installation
 

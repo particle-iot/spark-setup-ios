@@ -44,6 +44,7 @@ typedef NS_ENUM(NSInteger, SparkSetupWifiSecurityType) {
  */
 -(instancetype)initWithNetworkPrefix:(NSString *)networkPrefix;
 
+
 -(void)version:(void(^)(id version, NSError *error))completion;
 -(void)deviceID:(void(^)(id responseDict, NSError *error))completion;
 -(void)scanAP:(void(^)(id scanResponse, NSError *error))completion; 
