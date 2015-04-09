@@ -26,13 +26,10 @@ SparkSetupMainController *setupController = [SparkSetupMainController new];
 
 ### Customization
 
-Customize setup look and feel by accessing the SparkSetupCustomization singleton appearance proxy using 
-```Objective-C
-[SparkSetupCustomization sharedInstance]
-```
+Customize setup look and feel by accessing the SparkSetupCustomization singleton appearance proxy `[SparkSetupCustomization sharedInstance]`
 and modify its properties -
 
-Product/brand info:
+#### Product/brand info:
 ```
  NSString *deviceName;          // Device/product name 
  UIImage *deviceImage;          // Device/product image
@@ -44,14 +41,14 @@ Product/brand info:
  NSString *appName;                     // Your setup app name
 ```
 
-Technical info:
+#### Technical info:
 ```
  NSString *modeButtonName;              // The mode button name on your product
  NSString *listenModeLEDColorName;      // The color of the LED when product is in listen mode
  NSString *networkNamePrefix;           // The SSID prefix of the Soft AP Wi-Fi network of your product while in listen mode
 ```
 
-Links for legal/technical stuff:
+#### Links for legal/technical stuff:
 ```
  NSURL *termsOfServiceLinkURL; // URL for terms of service of the app/device usage
  NSURL *privacyPolicyLinkURL;  // URL for privacy policy of the app/device usage
@@ -64,7 +61,7 @@ Links for legal/technical stuff:
  NSString *troubleshootingHTMLFile; // Static HTML file for troubleshooting text of the app/device usage
 ```
 
-Look & feel:
+#### Look & feel:
 ```
  UIColor *pageBackgroundColor;
  UIColor *normalTextColor;
@@ -77,7 +74,7 @@ Look & feel:
  CGFloat fontSizeOffset;           // Set offset of font size so small/big fonts can be fine-adjusted
 ```
 
-Organizaion:
+#### Organizaion:
 ```
  BOOL organization;                 // enable invite codes, other organizational APIs
  NSString *organizationName;        // organizational name for API endpoint URL
