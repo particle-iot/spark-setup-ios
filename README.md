@@ -30,7 +30,7 @@ Customize setup look and feel by accessing the SparkSetupCustomization singleton
 and modify its properties -
 
 #### Product/brand info:
-```
+```Objective-C
  NSString *deviceName;          // Device/product name 
  UIImage *deviceImage;          // Device/product image
 
@@ -42,14 +42,14 @@ and modify its properties -
 ```
 
 #### Technical info:
-```
+```Objective-C
  NSString *modeButtonName;              // The mode button name on your product
  NSString *listenModeLEDColorName;      // The color of the LED when product is in listen mode
  NSString *networkNamePrefix;           // The SSID prefix of the Soft AP Wi-Fi network of your product while in listen mode
 ```
 
 #### Links for legal/technical stuff:
-```
+```Objective-C
  NSURL *termsOfServiceLinkURL; // URL for terms of service of the app/device usage
  NSURL *privacyPolicyLinkURL;  // URL for privacy policy of the app/device usage
  NSURL *forgotPasswordLinkURL; // URL for user password reset (non-organization setup app only)
@@ -62,7 +62,7 @@ and modify its properties -
 ```
 
 #### Look & feel:
-```
+```Objective-C
  UIColor *pageBackgroundColor;
  UIColor *normalTextColor;
  UIColor *linkTextColor;
@@ -75,7 +75,7 @@ and modify its properties -
 ```
 
 #### Organization:
-```
+```Objective-C
  BOOL organization;                 // enable organization mode - activation codes, other organizational APIs
  NSString *organizationName;        // organization name
 ```
@@ -93,11 +93,11 @@ using the [Spark-SDK](https://cocoapods.org/pods/Spark-SDK).
 To use SparkSetup from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), 
 also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on this matter
 
-## Requirements
+## Requirements / limitations
 
 iOS 7.1+ supported
 
-Currently wizard works on portait mode only.
+Currently setup wizard displays on portait mode only.
 
 ## Installation
 
