@@ -5,8 +5,8 @@ Pod::Spec.new do |s|
     s.description      = <<-DESC
     Spark Soft AP setup module for integrating setup process of Spark devices in your app
     This library will allow you to easily invoke a standalone setup wizard UI for setting up
-    Spark devices from within your app. Setup UI can be easily customized to the look & feel as well as
-    custom brand logos/colors and instructional video.
+    Spark devices from within your app. Setup UI look & feel can be easily customized with custom brand
+    logos/colors/fonts/texts and instructional video.
     DESC
     s.homepage         = "https://github.com/spark/spark-setup-ios"
     # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
