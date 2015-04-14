@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23512E027734886C6DEAAA94 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F404D8EB82B123EA6352E8F3 /* libPods.a */; };
 		506C6FE61AD32E1C009D8498 /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */; };
 		509081B21ACF6A8A0014E7DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509081AF1ACF6A8A0014E7DF /* Images.xcassets */; };
 		509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509081B11ACF6A8A0014E7DF /* setup.storyboard */; };
@@ -118,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23512E027734886C6DEAAA94 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,9 +309,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 509080E01ACF494A0014E7DF /* Build configuration list for PBXNativeTarget "SparkSetupResourceBundle" */;
 			buildPhases = (
+				23858492B0D8D41AFB4EBD24 /* Check Pods Manifest.lock */,
 				509080D81ACF494A0014E7DF /* Sources */,
 				509080D91ACF494A0014E7DF /* Frameworks */,
 				509080DA1ACF494A0014E7DF /* Resources */,
+				E7DC6E904303A6A5CD514CFF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -384,6 +388,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23858492B0D8D41AFB4EBD24 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7DC6E904303A6A5CD514CFF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		509080D81ACF494A0014E7DF /* Sources */ = {
@@ -502,6 +539,7 @@
 		};
 		509080E11ACF494A0014E7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D140506C125F8E7CE18E841 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -520,6 +558,7 @@
 		};
 		509080E21ACF494A0014E7DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC0ADC41A6CCAF841506DF90 /* Pods.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

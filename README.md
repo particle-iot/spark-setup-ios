@@ -91,7 +91,11 @@ using the [Spark-SDK](https://cocoapods.org/pods/Spark-SDK).
 
 #### Support for Swift projects
 To use SparkSetup from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), 
-also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on this matter
+also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on this matter.
+
+### Example
+Usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once 
+setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 ## Requirements / limitations
 
