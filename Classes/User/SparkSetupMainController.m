@@ -27,7 +27,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 //@property (nonatomic, strong) UINavigationController *setupNavController;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (nonatomic, strong) UIViewController *currentVC;
-@property (nonatomic, strong) UIStoryboard *setupStoryboard;
+@property (nonatomic) BOOL authenticationOnly;
 @end
 
 @implementation SparkSetupMainController
@@ -48,7 +48,9 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 -(instancetype)init
 {
-    SparkSetupMainController* mainVC;
+    SparkSetupMainController* mainVC = [super init]; // super init is not actually required
+    self.authenticationOnly = NO;
+    
     @try {
         mainVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"root"];
     }
@@ -56,6 +58,13 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
         return nil;
     }
     
+    return mainVC;
+}
+
+-(instancetype)initAuthentication
+{
+    SparkSetupMainController* mainVC = [self init];
+    self.authenticationOnly = YES;
     return mainVC;
 }
 
@@ -69,7 +78,14 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
     if ([SparkCloud sharedInstance].loggedInUsername)
     {
         // start from discover screen if user is already logged in
-        [self runSetup];
+        if (self.authenticationOnly == NO)
+        {
+            [self runSetup];
+        }
+        else
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultLoggedIn)}];
+        }
     }
     else
     {
@@ -124,7 +140,16 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 #pragma mark SparkUserLoginDelegate methods
 -(void)didFinishUserLogin:(id)sender
 {
-    [self runSetup];
+    if (self.authenticationOnly)
+    {
+        // if authentication only requested than just post a notification to remove modal screen and return to calling app
+        [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultLoggedIn)}];
+    }
+    else
+    {
+        
+        [self runSetup];
+    }
 }
 
 
