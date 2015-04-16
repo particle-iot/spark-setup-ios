@@ -64,7 +64,7 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
  *
  *  @return An inititalized SparkSetupMainController instance ready to be presented.
  */
--(instancetype)initAuthentication;
+-(instancetype)initWithAuthenticationOnly;
 
 /**
  *  Open setup wizard in Signup screen with a pre-filled activation code from a URL scheme which was used to open the app

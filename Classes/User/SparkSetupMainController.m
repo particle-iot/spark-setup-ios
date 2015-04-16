@@ -61,7 +61,8 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
     return mainVC;
 }
 
--(instancetype)initAuthentication
+
+-(instancetype)initWithAuthenticationOnly
 {
     SparkSetupMainController* mainVC = [self init];
     self.authenticationOnly = YES;
@@ -84,7 +85,10 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
         }
         else
         {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultLoggedIn)}];
+            // add a small delay and perform in another thread to let viewDidload finish, otherwise we might get a deadlock black screen
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultLoggedIn)}];
+            });
         }
     }
     else
@@ -143,7 +147,10 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
     if (self.authenticationOnly)
     {
         // if authentication only requested than just post a notification to remove modal screen and return to calling app
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultLoggedIn)}];
+        // add a small delay and perform in another thread to let viewDidload finish (if we're still in it), otherwise we might get a deadlock black screen
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultLoggedIn)}];
+        });
     }
     else
     {
