@@ -141,10 +141,9 @@ pod "SparkSetup"
 - If you **want to contribute**, submit a pull request.
 
 
-## Author
+## Maintainers
 
-Ido Kleinman, `ido@spark.io` 
-Spark
+- [Ido Kleinman](https:/www.github.com/idokleinman)
 
 ## License
 
