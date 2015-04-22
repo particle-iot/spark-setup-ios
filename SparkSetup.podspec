@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "SparkSetup"
-    s.version          = "0.1.3"
+    s.version          = "0.1.4"
     s.summary          = "Spark Device Setup library for integrating soft AP setup process of Spark devices in your app"
     s.description      = <<-DESC
     Spark Device Setup library for integrating setup process of Spark devices in your app
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
     s.homepage         = "https://github.com/spark/spark-setup-ios"
     # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
     s.license          = 'LGPL v3'
-    s.author           = { "Ido Kleinman" => "ido@spark.io" }
+    s.author           = { "Spark" => "ido@spark.io" }
     s.source           = { :git => "https://github.com/spark/spark-setup-ios.git", :tag => s.version.to_s }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 

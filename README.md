@@ -113,6 +113,11 @@ also be sure the check out [Apple documentation](https://developer.apple.com/lib
 Usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once 
 setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
+### Reference
+
+Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
+If Spark Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
+
 ## Requirements / limitations
 
 iOS 7.1+ supported
@@ -138,8 +143,7 @@ pod "SparkSetup"
 
 ## Author
 
-Ido K, ido@spark.io
-
+Ido Kleinman, `ido@spark.io` 
 Spark
 
 ## License
