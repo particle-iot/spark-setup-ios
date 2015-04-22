@@ -48,7 +48,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 -(instancetype)init
 {
-    SparkSetupMainController* mainVC = [super init]; // super init is not actually required
+    SparkSetupMainController* mainVC = [super init]; // super init is not actually required, but supress the warning
     self.authenticationOnly = NO;
     
     @try {
@@ -62,10 +62,10 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 }
 
 
--(instancetype)initWithAuthenticationOnly
+-(instancetype)initWithAuthenticationOnly:(BOOL)yesOrNo;
 {
     SparkSetupMainController* mainVC = [self init];
-    self.authenticationOnly = YES;
+    self.authenticationOnly = yesOrNo;
     return mainVC;
 }
 

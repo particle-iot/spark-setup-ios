@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
     s.name             = "SparkSetup"
-    s.version          = "0.1.2"
-    s.summary          = "Spark soft AP setup library for integrating setup process of Spark devices in your app"
+    s.version          = "0.1.3"
+    s.summary          = "Spark Device Setup library for integrating soft AP setup process of Spark devices in your app"
     s.description      = <<-DESC
-    Spark Soft AP setup module for integrating setup process of Spark devices in your app
+    Spark Device Setup library for integrating setup process of Spark devices in your app
     This library will allow you to easily invoke a standalone setup wizard UI for setting up
     Spark devices from within your app. Setup UI look & feel can be easily customized with custom brand
     logos/colors/fonts/texts and instructional video.

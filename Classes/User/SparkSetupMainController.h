@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, SparkSetupMainControllerResult) {
     SparkSetupMainControllerResultSuccess=1,
     SparkSetupMainControllerResultFailure,
     SparkSetupMainControllerResultUserCancel,
-    SparkSetupMainControllerResultLoggedIn, // relevant to initAuthentication() only
+    SparkSetupMainControllerResultLoggedIn, // relevant to initWithAuthenticationOnly:YES only
 
 };
 
@@ -39,12 +39,10 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
 @end
 
 
-@interface SparkSetupMainController : UIViewController// UINavigationController
+@interface SparkSetupMainController : UIViewController
 
 // Viewcontroller displaying the modal setup UI control
 @property (nonatomic, weak) id<SparkSetupMainControllerDelegate> delegate;
-//@property (nonatomic, strong) SparkSetupCustomization *customization;
-
 
 /**
  *  Entry point for invoking Spark Soft AP setup wizard, use by calling this on your viewController:
@@ -58,13 +56,15 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
 
 /**
  *  Entry point for invoking Spark Cloud authentication (login/signup/password recovery screens) only, use by calling this on your viewController:
- *  SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initAuthentication];
+ *  SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithAuthenticationOnly:YES];
  *  [self presentViewController:setupController animated:YES completion:nil];
  *  After user has successfully logged in or signed up, control will be return to the calling app. If an active user session already exists control will be returned immediately
  *
+ *  @param yesOrNo YES will invoke Authentication wizard only, NO will invoke whole Device Setup process (will skip authentication if user session is active, same as calling -init)
+ *
  *  @return An inititalized SparkSetupMainController instance ready to be presented.
  */
--(instancetype)initWithAuthenticationOnly;
+-(instancetype)initWithAuthenticationOnly:(BOOL)yesOrNo;
 
 /**
  *  Open setup wizard in Signup screen with a pre-filled activation code from a URL scheme which was used to open the app
