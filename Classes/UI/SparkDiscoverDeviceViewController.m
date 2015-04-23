@@ -17,6 +17,7 @@
 #import "SparkSetupUILabel.h"
 //#import "UIViewController+SparkSetupCommManager.h"
 #import "SparkSetupUIElements.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define isiPhone4  ([[UIScreen mainScreen] bounds].size.height == 480) ? YES : NO
 
@@ -45,6 +46,7 @@
 @property (nonatomic) BOOL userAlreadyOwnsDevice;
 @property (nonatomic) BOOL deviceClaimedByUser;
 @property (nonatomic, strong) UIAlertView *changeOwnershipAlertView;
+@property (weak, nonatomic) IBOutlet UIView *wifiView;
 
 @end
 
@@ -79,12 +81,16 @@
     self.brandImage.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImage.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
 
-    self.wifiSignalImageView.image = [UIImage imageNamed:@"wifi3"  inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+//    self.wifiSignalImageView.image = [UIImage imageNamed:@"iosSettingsWifi" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
     self.wifiSignalImageView.hidden = NO;
     self.needToCheckDeviceClaimed = NO;
     
     self.gotPublicKey = NO;
     self.gotOwnershipInfo = NO;
+    
+    self.networkNameLabel.text = [NSString stringWithFormat:@"%@-xxxxxxx",[SparkSetupCustomization sharedInstance].networkNamePrefix];
+    self.wifiView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.wifiView.layer.borderWidth = 1.0f;
 }
 
 
@@ -98,7 +104,7 @@
 {
     // TODO: this is a hack
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.wifiSignalImageView.image = [UIImage imageNamed:@"wifi3" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+//        self.wifiSignalImageView.image = [UIImage imageNamed:@"iosSettingsWifi" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         [self.spinner stopAnimating];
         self.wifiSignalImageView.hidden = NO;
         

@@ -1373,20 +1373,34 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPy-tx-IQo">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{network prefix}-xxxxxxx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qO-43-pbD" customClass="SparkSetupUILabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{network prefix}-xxxxxxx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qO-43-pbD">
                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="230" id="iQn-6f-ng3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="bold"/>
-                                                </userDefinedRuntimeAttributes>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="iQn-6f-ng3"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="iQn-6f-ng3"/>
+                                                    </mask>
+                                                </variation>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="wDi-zZ-kzk">
+                                            <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iosSettingWifi" translatesAutoresizingMaskIntoConstraints="NO" id="wDi-zZ-kzk">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="26" id="0a3-ab-MYk"/>
-                                                    <constraint firstAttribute="width" constant="26" id="aIE-Ds-sbd"/>
+                                                    <constraint firstAttribute="height" constant="26" id="0a3-ab-MYk">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="41"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="width" constant="26" id="aIE-Ds-sbd">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="70"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -1404,8 +1418,12 @@
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="Nop-7n-cfM" customClass="SparkSetupUISpinner">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="26" id="GO3-18-RlK"/>
-                                                    <constraint firstAttribute="width" constant="26" id="j6U-6e-XBr"/>
+                                                    <constraint firstAttribute="height" constant="26" id="GO3-18-RlK">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="width" constant="26" id="j6U-6e-XBr">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="foreground"/>
@@ -1423,31 +1441,67 @@
                                                     </mask>
                                                 </variation>
                                             </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iosCheckmark" translatesAutoresizingMaskIntoConstraints="NO" id="J0J-uO-pjh">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="1P9-Fn-WvY"/>
+                                                    <constraint firstAttribute="width" constant="16" id="Xcr-nm-YZ9"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="1P9-Fn-WvY"/>
+                                                        <exclude reference="Xcr-nm-YZ9"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="1P9-Fn-WvY"/>
+                                                        <include reference="Xcr-nm-YZ9"/>
+                                                    </mask>
+                                                </variation>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerY" secondItem="wDi-zZ-kzk" secondAttribute="centerY" id="9oA-1F-GwW"/>
-                                            <constraint firstItem="9qO-43-pbD" firstAttribute="leading" secondItem="pPy-tx-IQo" secondAttribute="leading" constant="8" id="Bju-0Y-rHd"/>
-                                            <constraint firstAttribute="trailing" secondItem="wDi-zZ-kzk" secondAttribute="trailing" constant="8" id="J5k-WB-eX5"/>
-                                            <constraint firstItem="Nop-7n-cfM" firstAttribute="top" secondItem="pPy-tx-IQo" secondAttribute="top" constant="4" id="SUM-NT-vZd"/>
-                                            <constraint firstAttribute="trailing" secondItem="Nop-7n-cfM" secondAttribute="trailing" constant="8" id="jDk-rP-alk"/>
+                                            <constraint firstItem="9qO-43-pbD" firstAttribute="leading" secondItem="pPy-tx-IQo" secondAttribute="leading" constant="8" id="Bju-0Y-rHd">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="44"/>
+                                            </constraint>
+                                            <constraint firstItem="9qO-43-pbD" firstAttribute="centerY" secondItem="J0J-uO-pjh" secondAttribute="centerY" constant="-1" id="CJA-Co-k5Y">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="wDi-zZ-kzk" secondAttribute="trailing" constant="8" id="J5k-WB-eX5">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                            </constraint>
+                                            <constraint firstItem="Nop-7n-cfM" firstAttribute="top" secondItem="pPy-tx-IQo" secondAttribute="top" constant="4" id="SUM-NT-vZd">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                            </constraint>
+                                            <constraint firstItem="J0J-uO-pjh" firstAttribute="leading" secondItem="pPy-tx-IQo" secondAttribute="leading" constant="16" id="aef-Qe-hhP"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nop-7n-cfM" secondAttribute="trailing" constant="8" id="jDk-rP-alk">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                            </constraint>
                                             <constraint firstAttribute="centerY" secondItem="9qO-43-pbD" secondAttribute="centerY" id="oGJ-mu-OxM"/>
-                                            <constraint firstAttribute="height" constant="34" id="r8g-Q1-RwY"/>
+                                            <constraint firstAttribute="height" constant="34" id="r8g-Q1-RwY">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="41"/>
+                                            </constraint>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="9qO-43-pbD"/>
                                                 <exclude reference="wDi-zZ-kzk"/>
                                                 <exclude reference="Nop-7n-cfM"/>
+                                                <exclude reference="J0J-uO-pjh"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="r8g-Q1-RwY"/>
+                                                <exclude reference="aef-Qe-hhP"/>
                                                 <exclude reference="Bju-0Y-rHd"/>
+                                                <exclude reference="CJA-Co-k5Y"/>
                                                 <exclude reference="oGJ-mu-OxM"/>
-                                                <exclude reference="SUM-NT-vZd"/>
-                                                <exclude reference="jDk-rP-alk"/>
                                                 <exclude reference="9oA-1F-GwW"/>
                                                 <exclude reference="J5k-WB-eX5"/>
+                                                <exclude reference="SUM-NT-vZd"/>
+                                                <exclude reference="jDk-rP-alk"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -1455,15 +1509,18 @@
                                                 <include reference="9qO-43-pbD"/>
                                                 <include reference="wDi-zZ-kzk"/>
                                                 <include reference="Nop-7n-cfM"/>
+                                                <include reference="J0J-uO-pjh"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="r8g-Q1-RwY"/>
+                                                <include reference="aef-Qe-hhP"/>
                                                 <include reference="Bju-0Y-rHd"/>
+                                                <include reference="CJA-Co-k5Y"/>
                                                 <include reference="oGJ-mu-OxM"/>
-                                                <include reference="SUM-NT-vZd"/>
-                                                <include reference="jDk-rP-alk"/>
                                                 <include reference="9oA-1F-GwW"/>
                                                 <include reference="J5k-WB-eX5"/>
+                                                <include reference="SUM-NT-vZd"/>
+                                                <include reference="jDk-rP-alk"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -1765,6 +1822,7 @@
                         <outlet property="troubleShootingButton" destination="mEa-rZ-TUa" id="yLD-YY-OnG"/>
                         <outlet property="view" destination="av0-fS-2U8" id="8rt-vb-lPP"/>
                         <outlet property="wifiSignalImageView" destination="wDi-zZ-kzk" id="OcW-Pe-Hwp"/>
+                        <outlet property="wifiView" destination="pPy-tx-IQo" id="sy5-ao-Eqt"/>
                         <segue destination="HmA-2l-zkq" kind="show" identifier="select_network" id="aJv-Ka-W8I"/>
                     </connections>
                 </viewController>
@@ -1806,7 +1864,8 @@
                                                             <exclude reference="Nsl-NJ-xqf"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="287" y="9" width="26" height="26"/>
                                                         <mask key="constraints">
                                                             <include reference="CjU-Uj-l5K"/>
                                                             <include reference="Nsl-NJ-xqf"/>
@@ -1826,7 +1885,8 @@
                                                             <exclude reference="6uQ-KH-gVe"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="24" y="11" width="232" height="22"/>
                                                         <mask key="constraints">
                                                             <include reference="6uQ-KH-gVe"/>
                                                         </mask>
@@ -1844,7 +1904,8 @@
                                                             <exclude reference="TZM-FV-5Hk"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="259" y="9" width="26" height="26"/>
                                                         <mask key="constraints">
                                                             <include reference="PWe-LU-QKp"/>
                                                             <include reference="TZM-FV-5Hk"/>
@@ -1900,6 +1961,9 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="112" width="368" height="584"/>
+                                </variation>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TR1-ME-BYk" customClass="SparkSetupUIButton">
                                 <rect key="frame" x="36" y="112" width="248" height="32"/>
@@ -1977,6 +2041,9 @@
                                 <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="88" width="368" height="16"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KB8-Fp-xL8" customClass="SparkSetupUIButton">
                                 <rect key="frame" x="36" y="112" width="248" height="32"/>
@@ -3798,6 +3865,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="iosCheckmark" width="32" height="32"/>
+        <image name="iosSettingWifi" width="140" height="82"/>
         <image name="lock" width="512" height="512"/>
         <image name="spinner" width="36" height="36"/>
         <image name="spinner_big" width="64" height="64"/>
