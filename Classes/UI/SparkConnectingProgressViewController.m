@@ -390,14 +390,14 @@ NSInteger const kMaxRetriesReachability = 5;
 {
     // --- Claim device ---
 //    [[SparkCloud sharedInstance] claimDevice:self.deviceID completion:^(NSError *error) {
-    [[SparkCloud sharedInstance] getDevices:^(NSArray *devicesInfo, NSError *error) {
+    [[SparkCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
         BOOL deviceClaimed = NO;
-        if (devicesInfo)
+        if (devices)
         {
-            for (NSDictionary *deviceDict in devicesInfo)
+            for (SparkDevice *device in devices)
             {
-                NSLog(@"list device ID: %@",deviceDict[@"id"]);
-                if ([deviceDict[@"id"] isEqualToString:self.deviceID])
+                NSLog(@"list device ID: %@",device.id);
+                if ([device.id isEqualToString:self.deviceID])
                 {
                     // device now appear's in users claimed devices so it's claimed
                     deviceClaimed = YES;

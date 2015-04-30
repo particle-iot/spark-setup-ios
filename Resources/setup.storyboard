@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -201,7 +200,8 @@
                                                 <exclude reference="YxV-Iw-2yc"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="137" y="49" width="22" height="16"/>
                                             <mask key="constraints">
                                                 <exclude reference="Aaf-IU-iEr"/>
                                                 <exclude reference="YxV-Iw-2yc"/>
@@ -220,6 +220,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="163" y="43" width="85" height="28"/>
+                                        </variation>
                                         <connections>
                                             <action selector="privacyPolicyButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="yVJ-S4-1ZM"/>
                                         </connections>
@@ -233,6 +236,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="33" y="43" width="100" height="28"/>
+                                        </variation>
                                         <connections>
                                             <action selector="termOfServiceButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="5ZZ-Vc-v7y"/>
                                         </connections>
@@ -1494,14 +1500,14 @@
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="r8g-Q1-RwY"/>
-                                                <exclude reference="aef-Qe-hhP"/>
                                                 <exclude reference="Bju-0Y-rHd"/>
                                                 <exclude reference="CJA-Co-k5Y"/>
                                                 <exclude reference="oGJ-mu-OxM"/>
-                                                <exclude reference="9oA-1F-GwW"/>
-                                                <exclude reference="J5k-WB-eX5"/>
+                                                <exclude reference="aef-Qe-hhP"/>
                                                 <exclude reference="SUM-NT-vZd"/>
                                                 <exclude reference="jDk-rP-alk"/>
+                                                <exclude reference="9oA-1F-GwW"/>
+                                                <exclude reference="J5k-WB-eX5"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -1513,14 +1519,14 @@
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="r8g-Q1-RwY"/>
-                                                <include reference="aef-Qe-hhP"/>
                                                 <include reference="Bju-0Y-rHd"/>
                                                 <include reference="CJA-Co-k5Y"/>
                                                 <include reference="oGJ-mu-OxM"/>
-                                                <include reference="9oA-1F-GwW"/>
-                                                <include reference="J5k-WB-eX5"/>
+                                                <include reference="aef-Qe-hhP"/>
                                                 <include reference="SUM-NT-vZd"/>
                                                 <include reference="jDk-rP-alk"/>
+                                                <include reference="9oA-1F-GwW"/>
+                                                <include reference="J5k-WB-eX5"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -1864,8 +1870,7 @@
                                                             <exclude reference="Nsl-NJ-xqf"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="287" y="9" width="26" height="26"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="CjU-Uj-l5K"/>
                                                             <include reference="Nsl-NJ-xqf"/>
@@ -1885,8 +1890,7 @@
                                                             <exclude reference="6uQ-KH-gVe"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="24" y="11" width="232" height="22"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="6uQ-KH-gVe"/>
                                                         </mask>
@@ -1904,8 +1908,7 @@
                                                             <exclude reference="TZM-FV-5Hk"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="259" y="9" width="26" height="26"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="PWe-LU-QKp"/>
                                                             <include reference="TZM-FV-5Hk"/>
@@ -1962,7 +1965,7 @@
                                 </prototypes>
                                 <sections/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="112" width="368" height="584"/>
+                                    <rect key="frame" x="16" y="115" width="368" height="581"/>
                                 </variation>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TR1-ME-BYk" customClass="SparkSetupUIButton">
@@ -2042,7 +2045,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="88" width="368" height="16"/>
+                                    <rect key="frame" x="16" y="88" width="368" height="19"/>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KB8-Fp-xL8" customClass="SparkSetupUIButton">
@@ -2242,6 +2245,9 @@
                                 <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="94" width="368" height="17"/>
+                                </variation>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSID" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="cOI-4H-O0J" customClass="SparkSetupUILabel">
                                 <rect key="frame" x="117" y="291" width="384" height="33"/>
@@ -2251,6 +2257,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="bold"/>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="182" y="119" width="37" height="19"/>
+                                </variation>
                             </label>
                             <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="32" sectionHeaderHeight="20" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="GP5-8v-Doz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -2282,7 +2291,8 @@
                                         <exclude reference="UPJ-9f-yp1"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="170" width="368" height="610"/>
                                     <mask key="constraints">
                                         <exclude reference="UPJ-9f-yp1"/>
                                     </mask>
@@ -2293,6 +2303,9 @@
                                 <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="108" y="145" width="185" height="17"/>
+                                </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="b2A-QU-4k0">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -2306,7 +2319,8 @@
                                         <exclude reference="vfM-SX-d0a"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="151" y="115" width="24" height="24"/>
                                     <mask key="constraints">
                                         <include reference="Mpj-pt-XyB"/>
                                         <include reference="vfM-SX-d0a"/>
@@ -3203,6 +3217,9 @@
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="8" width="368" height="19"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjo-nA-HOv" customClass="SparkSetupUILabel">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -3212,6 +3229,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="bold"/>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="42" y="37" width="108" height="20"/>
+                                        </variation>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="shD-NL-Bfg">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -3225,7 +3245,8 @@
                                                 <exclude reference="jFM-BD-cba"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="8" y="32" width="26" height="26"/>
                                             <mask key="constraints">
                                                 <include reference="Gac-ZX-g9H"/>
                                                 <include reference="jFM-BD-cba"/>
@@ -3237,6 +3258,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="269" y="38" width="91" height="18"/>
+                                        </variation>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7YD-Eu-eRs">
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -3250,7 +3274,8 @@
                                                 <exclude reference="ldg-Fc-YKY"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="8" y="68" width="352" height="32"/>
                                             <mask key="constraints">
                                                 <include reference="ldg-Fc-YKY"/>
                                             </mask>
@@ -3258,6 +3283,9 @@
                                     </textField>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3hV-M8-czG">
                                         <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="8" y="108" width="51" height="31"/>
+                                        </variation>
                                         <connections>
                                             <action selector="showPasswordSwitchTapped:" destination="URz-wL-Fyt" eventType="valueChanged" id="Fb3-BB-MSh"/>
                                         </connections>
@@ -3282,7 +3310,8 @@
                                                 <exclude reference="d7g-GR-8fx"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="60" y="146" width="248" height="32"/>
                                             <mask key="constraints">
                                                 <include reference="28a-px-gad"/>
                                                 <include reference="d7g-GR-8fx"/>
@@ -3312,7 +3341,8 @@
                                                 <exclude reference="kOo-Fh-1if"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="60" y="190" width="248" height="32"/>
                                             <mask key="constraints">
                                                 <include reference="kGU-Dz-l1c"/>
                                                 <include reference="kOo-Fh-1if"/>
@@ -3327,6 +3357,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="65" y="114" width="110" height="20"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3569,6 +3602,9 @@
                                         <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="85" y="8" width="199" height="19"/>
+                                        </variation>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="THZ-lT-daz">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -3582,7 +3618,8 @@
                                                 <exclude reference="X5n-1O-sh2"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="51" y="5" width="26" height="26"/>
                                             <mask key="constraints">
                                                 <include reference="Wdn-gb-WcE"/>
                                                 <include reference="X5n-1O-sh2"/>
@@ -3591,12 +3628,18 @@
                                     </imageView>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kTu-57-lbv">
                                         <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="8" y="91" width="51" height="31"/>
+                                        </variation>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network requires password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd4-RO-nNO" customClass="SparkSetupUILabel">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="65" y="97" width="199" height="20"/>
+                                        </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7A-Fe-1Rf" customClass="SparkSetupUIButton">
                                         <rect key="frame" x="36" y="112" width="248" height="32"/>
@@ -3618,7 +3661,8 @@
                                                 <exclude reference="dE0-mR-C2z"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="60" y="129" width="248" height="32"/>
                                             <mask key="constraints">
                                                 <include reference="OBg-Ky-b5I"/>
                                                 <include reference="dE0-mR-C2z"/>
@@ -3648,7 +3692,8 @@
                                                 <exclude reference="lEZ-At-Pk7"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="60" y="173" width="248" height="32"/>
                                             <mask key="constraints">
                                                 <include reference="f50-Fh-Vdb"/>
                                                 <include reference="lEZ-At-Pk7"/>
@@ -3672,7 +3717,8 @@
                                                 <exclude reference="Tz0-cY-aaW"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="8" y="51" width="352" height="32"/>
                                             <mask key="constraints">
                                                 <include reference="BKt-AW-TLi"/>
                                                 <include reference="Tz0-cY-aaW"/>
