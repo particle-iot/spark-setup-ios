@@ -57,15 +57,19 @@
     self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
     self.emailTextField.delegate = self;
     self.emailTextField.returnKeyType = UIReturnKeyNext;
+    self.emailTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
     self.passwordTextField.leftView = emptyView2;
     self.passwordTextField.leftViewMode = UITextFieldViewModeAlways;
     self.passwordTextField.delegate = self;
     self.passwordTextField.returnKeyType = UIReturnKeyNext;
+    self.passwordTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
     self.passwordVerifyTextField.leftView = emptyView3;
     self.passwordVerifyTextField.leftViewMode = UITextFieldViewModeAlways;
     self.passwordVerifyTextField.delegate = self;
+    self.passwordVerifyTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+
     if ([SparkSetupCustomization sharedInstance].organization)
     {
         self.passwordVerifyTextField.returnKeyType = UIReturnKeyNext;
@@ -74,6 +78,8 @@
         self.activationCodeTextField.leftViewMode = UITextFieldViewModeAlways;
         self.activationCodeTextField.delegate = self;
         self.activationCodeTextField.hidden = NO;
+        self.activationCodeTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+
     }
     else
     {
