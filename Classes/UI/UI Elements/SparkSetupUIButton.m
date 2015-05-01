@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SparkSetupUIButton.h"
 #import "SparkSetupCustomization.h"
+#import <QuartzCore/QuartzCore.h>
+
 @implementation SparkSetupUIButton
 
 /*
@@ -88,13 +90,14 @@
     [self replacePredefinedText];
 
     
-    if ([type isEqualToString:@"action"])
+    if (([type isEqualToString:@"action"]) || ([type isEqualToString:@"primary"]))
     {
         UIFont *boldFont = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
         self.titleLabel.font = boldFont;
         self.titleLabel.textColor = [SparkSetupCustomization sharedInstance].elementTextColor;
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+        self.layer.cornerRadius = 2.0;
         
     }
 
@@ -111,10 +114,30 @@
         self.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:self.titleLabel.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
         self.backgroundColor = [UIColor clearColor];
     }
+    
+    
+    if ([type isEqualToString:@"secondary"])
+    {
+        
+        UIFont *boldFont = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
+        self.titleLabel.font = boldFont;
+        self.titleLabel.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+        
+
+        self.titleLabel.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor clearColor];
+        self.layer.borderColor = [SparkSetupCustomization sharedInstance].normalTextColor.CGColor;
+        self.layer.backgroundColor = [UIColor clearColor].CGColor;
+        self.layer.cornerRadius = 2.0;
+        self.layer.borderWidth = 2.0;
+    }
+
+    
 
     [self setNeedsDisplay];
     [self layoutIfNeeded];
 }
+
 
 
 -(void)setEnabled:(BOOL)enabled

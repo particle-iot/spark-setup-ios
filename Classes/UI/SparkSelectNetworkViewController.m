@@ -50,8 +50,8 @@
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
 
     [self sortWifiList];
-    self.wifiTableView.layer.borderWidth = 0.5;
-    self.wifiTableView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+//    self.wifiTableView.layer.borderWidth = 0.5;
+//    self.wifiTableView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
 
     // temporary test init
     /*

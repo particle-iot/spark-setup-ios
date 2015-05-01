@@ -71,6 +71,7 @@
 
     self.productImageView.image = [SparkSetupCustomization sharedInstance].deviceImage;
     
+
     // apply tint to spinner
     //][self.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 //    self.spinner.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
@@ -129,6 +130,10 @@
         self.productImageHeight.constant = 80; //for 3.5" screen
     else
         self.productImageHeight.constant = 140;
+    
+    self.spinner.image = [self.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.spinner.tintColor = [UIColor blackColor];
+
     
     [self.view layoutIfNeeded];
 

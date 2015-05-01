@@ -37,7 +37,8 @@
     self.networkNameTextField.leftViewMode = UITextFieldViewModeAlways;
     self.networkNameTextField.delegate = self;
     self.networkNameTextField.returnKeyType = UIReturnKeyJoin;
-    
+    self.networkNameTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+
     self.networkRequiresPasswordSwitch.onTintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
     
     // Do any additional setup after loading the view.

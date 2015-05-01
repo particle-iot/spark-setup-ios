@@ -45,22 +45,23 @@
 @property (nonatomic, strong) UIImage *pageBackgroundImage;
 @property (nonatomic, strong) UIColor *normalTextColor;
 @property (nonatomic, strong) UIColor *linkTextColor;
-@property (nonatomic, strong) UIColor *errorTextColor;
 
 @property (nonatomic, strong) UIColor *elementBackgroundColor;  // Buttons/spinners background color
 // TODO: change to:
-@property (nonatomic, strong) UIColor *primaryButtonBackgroundColor;
+@property (nonatomic, strong) UIColor *buttonBackgroundColor; // new
 
 @property (nonatomic, strong) UIColor *elementTextColor;        // Buttons text color
 // TODO: change to:
-@property (nonatomic, strong) UIColor *buttonTextColor;
+@property (nonatomic, strong) UIColor *buttonTextColor; // new
 
 
 @property (nonatomic, strong) NSString *normalTextFontName;     // Customize setup font - include OTF/TTF file in project
-// TODO: change to:
-@property (nonatomic, strong) UIColor *headerTextFontName;
+
+@property (nonatomic, strong) NSString *headerTextFontName; //new
 
 @property (nonatomic, strong) NSString *boldTextFontName;       // Customize setup font - include OTF/TTF file in project
+
+
 @property (nonatomic) CGFloat fontSizeOffset;                   // Set offset of font size so small/big fonts can be fine-adjusted
 
 @property (nonatomic, assign) BOOL organization;                 // enable invite codes, other APIs

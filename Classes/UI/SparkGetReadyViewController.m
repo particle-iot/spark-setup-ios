@@ -32,6 +32,7 @@
 @property (nonatomic, strong) NSString *claimCode;
 @property (nonatomic, strong) NSArray *claimedDevices;
 
+@property (weak, nonatomic) IBOutlet SparkSetupUIButton *logoutButton;
 
 @end
 
@@ -46,6 +47,7 @@
 
     self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
     self.loggedInLabel.alpha = 0.7;
+    self.logoutButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:self.logoutButton.titleLabel.font.pointSize];
 
 }
 

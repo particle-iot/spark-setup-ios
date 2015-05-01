@@ -39,6 +39,8 @@
     self.passwordTextField.delegate = self;
     self.passwordTextField.returnKeyType = UIReturnKeyJoin;
 
+    self.passwordTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+
     self.networkNameLabel.text = self.networkName;
     self.securityTypeLabel.text = [self convertSecurityTypeToString:self.security];
     self.showPasswordSwitch.onTintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
