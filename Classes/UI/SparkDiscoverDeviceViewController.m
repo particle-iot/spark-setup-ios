@@ -89,7 +89,7 @@
     self.gotPublicKey = NO;
     self.gotOwnershipInfo = NO;
     
-    self.networkNameLabel.text = [NSString stringWithFormat:@"%@-xxxxxxx",[SparkSetupCustomization sharedInstance].networkNamePrefix];
+    self.networkNameLabel.text = [NSString stringWithFormat:@"%@-XXXX",[SparkSetupCustomization sharedInstance].networkNamePrefix];
     self.wifiView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.wifiView.layer.borderWidth = 1.0f;
 }
