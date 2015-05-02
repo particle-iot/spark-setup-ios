@@ -145,7 +145,7 @@ NSInteger const kMaxRetriesReachability = 5;
         cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+        cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor; //TODO: add custom point for this?
 
     }
     else
@@ -154,7 +154,7 @@ NSInteger const kMaxRetriesReachability = 5;
         cell.imageView.hidden = NO;
         cell.imageView.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;;
+        cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
         
     }
     

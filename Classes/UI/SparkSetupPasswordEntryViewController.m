@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet SparkSetupUILabel *securityTypeLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *showPasswordSwitch;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
 
 @end
 
@@ -44,6 +45,9 @@
     self.networkNameLabel.text = self.networkName;
     self.securityTypeLabel.text = [self convertSecurityTypeToString:self.security];
     self.showPasswordSwitch.onTintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+    
+    self.wifiSymbolImageView.image = [self.wifiSymbolImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.wifiSymbolImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
     
     // Do any additional setup after loading the view.
 }

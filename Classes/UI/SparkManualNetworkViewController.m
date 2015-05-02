@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (weak, nonatomic) IBOutlet UITextField *networkNameTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *networkRequiresPasswordSwitch;
+@property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
 
 @end
 
@@ -41,7 +42,8 @@
 
     self.networkRequiresPasswordSwitch.onTintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
     
-    // Do any additional setup after loading the view.
+    self.wifiSymbolImageView.image = [self.wifiSymbolImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.wifiSymbolImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
 }
 
 - (void)didReceiveMemoryWarning {

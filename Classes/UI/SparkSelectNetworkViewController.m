@@ -50,6 +50,7 @@
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
 
     [self sortWifiList];
+    self.wifiTableView.separatorColor = [SparkSetupCustomization sharedInstance].normalTextColor;
 //    self.wifiTableView.layer.borderWidth = 0.5;
 //    self.wifiTableView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
 
@@ -119,16 +120,37 @@
         [signalStrengthImageView setImage:[UIImage imageNamed:@"wifi1" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
     }
     
-        
+
+    signalStrengthImageView.image = [signalStrengthImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    signalStrengthImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;;
+
+    
+    
+    
     
 //    UIImageView *secureImageView = (UIImageView *)[cell.contentView viewWithTag:20];
     SparkSetupWifiSecurityType sec = [self.wifiList[row][@"sec"] intValue];
     if (sec != SparkSetupWifiSecurityTypeOpen)
+    {
         [cell.contentView viewWithTag:20].hidden = NO;
+        UIImageView *lock = (UIImageView *)[cell.contentView viewWithTag:20];
+        lock.image = [lock.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        lock.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;;
+    }
     else
+    {
         [cell.contentView viewWithTag:20].hidden = YES;
+    }
     
-    cell.backgroundColor = [UIColor clearColor];
+    if ((indexPath.row % 2) == 0)
+    {
+        cell.backgroundColor = [UIColor colorWithRed: 0.1 green: 0.1 blue: 0.1 alpha: 0.25];
+    }
+    else // clear if even
+    {
+        cell.backgroundColor = [UIColor clearColor];
+    }
+
 
 //    [cell setNeedsLayout];
     return cell;

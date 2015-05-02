@@ -113,7 +113,7 @@
 
 - (CGFloat)keyboardHeightAdjust
 {
-    return 100.0; // TODO: something dynamic
+    return 64.0; // TODO: something dynamic
 }
 
 

@@ -82,6 +82,7 @@
         self.boldTextFontName = @"HelveticaNeue-Bold";
         self.headerTextFontName = @"HelveticaNeue-Light";
         
+        self.tintSetupResultImage = NO;
         return self;
     }
     

@@ -26,6 +26,14 @@
     // set logo
     self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+
+    // TODO: add a customization point for this? (maybe we don't want to tint it always)
+    if ([SparkSetupCustomization sharedInstance].tintSetupResultImage)
+    {
+        self.setupResultImageView.image = [self.setupResultImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.setupResultImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

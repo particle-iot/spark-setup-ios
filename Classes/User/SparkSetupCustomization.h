@@ -53,6 +53,7 @@
 @property (nonatomic, strong) UIColor *elementTextColor;        // Buttons text color
 // TODO: change to:
 @property (nonatomic, strong) UIColor *buttonTextColor; // new
+@property (nonatomic) BOOL tintSetupResultImage; // new // this will tint the checkmark/warning/
 
 
 @property (nonatomic, strong) NSString *normalTextFontName;     // Customize setup font - include OTF/TTF file in project
