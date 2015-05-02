@@ -45,9 +45,9 @@
     if (self = [super init])
     {
         // Defaults
-        self.deviceName = @"Spark device";
+        self.deviceName = @"Particle device";
         self.deviceImage = [UIImage imageNamed:@"photon" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
-        self.brandName = @"Spark";
+        self.brandName = @"Particle";
 //        self.brandImage = [UIImage imageNamed:@"SparkSetup.bundle/spark-logo-head"]; 
         self.brandImage = [UIImage imageNamed:@"spark-logo-head" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
 //        self.brandImageBackgroundColor = [UIColor colorWithRed:0.79f green:0.79f blue:0.79f alpha:1.0f];
@@ -73,13 +73,14 @@
         self.linkTextColor = [UIColor blueColor];
 //        self.linkTextColor = [UIColor colorWithRed:6 green:165 blue:226];
 //        self.errorTextColor = [UIColor redColor];
-        self.errorTextColor = [UIColor colorWithRed:254 green:71 blue:71];
+//        self.errorTextColor = [UIColor colorWithRed:254 green:71 blue:71];
 //        self.elementBackgroundColor = [UIColor colorWithRed:0.84f green:0.32f blue:0.07f alpha:1.0f];
         self.elementBackgroundColor = [UIColor colorWithRed:0 green:165 blue:231];
         self.elementTextColor = [UIColor whiteColor];
         
         self.normalTextFontName = @"HelveticaNeue";
         self.boldTextFontName = @"HelveticaNeue-Bold";
+        self.headerTextFontName = @"HelveticaNeue-Light";
         
         return self;
     }

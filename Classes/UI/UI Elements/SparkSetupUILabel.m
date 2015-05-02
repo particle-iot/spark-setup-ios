@@ -50,6 +50,11 @@
         self.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].boldTextFontName size:self.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
         self.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
     }
+    else if ((type) && ([type isEqualToString:@"header"]))
+    {
+        self.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
+        self.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+    }
     else
     {
         self.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:self.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];

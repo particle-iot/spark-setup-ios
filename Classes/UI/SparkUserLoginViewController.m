@@ -40,14 +40,18 @@
     UIView* emptyView1 = [[UIView alloc] initWithFrame:viewRect];
     UIView* emptyView2 = [[UIView alloc] initWithFrame:viewRect];
     
+    // TODO: make a custom control from all the text fields
     self.emailTextField.leftView = emptyView1;
     self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
     self.emailTextField.delegate = self;
     self.emailTextField.returnKeyType = UIReturnKeyNext;
-    
+    self.emailTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+
     self.passwordTextField.leftView = emptyView2;
     self.passwordTextField.leftViewMode = UITextFieldViewModeAlways;
     self.passwordTextField.delegate = self;
+    self.passwordTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+
 }
 
 - (void)didReceiveMemoryWarning {

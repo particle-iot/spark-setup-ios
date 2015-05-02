@@ -44,10 +44,11 @@
     // Do any additional setup after loading the view.
     self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    
 
     self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
-    self.loggedInLabel.alpha = 0.7;
-    self.logoutButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:self.logoutButton.titleLabel.font.pointSize];
+    self.loggedInLabel.alpha = 0.85;
+    self.logoutButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.logoutButton.titleLabel.font.pointSize];
 
 }
 

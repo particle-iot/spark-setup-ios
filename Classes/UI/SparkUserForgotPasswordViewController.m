@@ -36,6 +36,7 @@
     self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
     self.emailTextField.delegate = self;
     self.emailTextField.returnKeyType = UIReturnKeyGo;
+    self.emailTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
 }
 
