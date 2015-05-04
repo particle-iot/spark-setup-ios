@@ -15,7 +15,7 @@
 #import "SparkDiscoverDeviceViewController.h"
 #import "SparkSetupUIElements.h"
 
-#import "SparkSetupSuccessFailureViewController.h"
+#import "SparkSetupResultViewController.h"
 
 @interface SparkGetReadyViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;

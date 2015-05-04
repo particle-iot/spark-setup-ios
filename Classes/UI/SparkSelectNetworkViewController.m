@@ -51,6 +51,16 @@
 
     [self sortWifiList];
     self.wifiTableView.separatorColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+
+    if ([SparkSetupCustomization sharedInstance].tintSetupImages)
+    {
+        self.wifiTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    else
+    {
+        self.wifiTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
+
 //    self.wifiTableView.layer.borderWidth = 0.5;
 //    self.wifiTableView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
 

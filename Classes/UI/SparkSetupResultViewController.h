@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, SparkSetupResult) {
     SparkSetupResultFailureLostConnectionToDevice
 };
 
-@interface SparkSetupSuccessFailureViewController : SparkSetupUIViewController
+@interface SparkSetupResultViewController : SparkSetupUIViewController
 @property (nonatomic, strong) SparkDevice *device;
 @property (nonatomic) SparkSetupResult setupResult;
 

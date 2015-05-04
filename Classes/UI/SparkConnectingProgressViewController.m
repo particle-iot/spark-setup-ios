@@ -15,14 +15,15 @@
 #import "Reachability.h"
 #import "SparkCloud.h"
 #import "SparkSetupUIElements.h"
-#import "SparkSetupSuccessFailureViewController.h"
+#import "SparkSetupResultViewController.h"
 
 
-NSInteger const kMaxRetriesDisconnectFromDevice = 5;
+NSInteger const kMaxRetriesDisconnectFromDevice = 10;
 NSInteger const kMaxRetriesClaim = 15;
 NSInteger const kMaxRetriesConfigureAP = 5;
 NSInteger const kMaxRetriesConnectAP = 5;
 NSInteger const kMaxRetriesReachability = 5;
+NSInteger const kWaitForCloudConnectionTime = 3;
 
 
 @interface SparkConnectingProgressViewController () <UITableViewDataSource, UITableViewDelegate>//, UIAlertViewDelegate>
@@ -33,6 +34,7 @@ NSInteger const kMaxRetriesReachability = 5;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (weak, nonatomic) IBOutlet UIButton *troubleshootingButton;
 @property (strong, nonatomic) SparkDevice *device;
+@property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
 
 @property (strong, nonatomic) Reachability *hostReachability;
 @property (nonatomic) BOOL hostReachable;
@@ -68,6 +70,11 @@ NSInteger const kMaxRetriesReachability = 5;
     self.connectAPsent = NO;
     self.disconnectedFromDevice = NO;
 
+    if ([SparkSetupCustomization sharedInstance].tintSetupImages)
+    {
+        self.wifiSymbolImageView.image = [self.wifiSymbolImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.wifiSymbolImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
+    }
 }
 
 
@@ -112,7 +119,10 @@ NSInteger const kMaxRetriesReachability = 5;
 
 
 
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 36.0;
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -197,7 +207,7 @@ NSInteger const kMaxRetriesReachability = 5;
 {
     if ([segue.identifier isEqualToString:@"done"])
     {
-        SparkSetupSuccessFailureViewController *resultVC = segue.destinationViewController;
+        SparkSetupResultViewController *resultVC = segue.destinationViewController;
         resultVC.device = self.device;
         resultVC.setupResult = self.setupResult;
     }
@@ -252,6 +262,7 @@ NSInteger const kMaxRetriesReachability = 5;
 {
     // --- Connect-AP ---
     SparkSetupCommManager *managerForConnect = [[SparkSetupCommManager alloc] init];
+    self.connectAPsent = YES;
     if (!self.disconnectedFromDevice)
         [managerForConnect connectAP:^(id responseCode, NSError *error) {
             //        if ((error) || ([responseCode intValue]!=0))
@@ -274,7 +285,6 @@ NSInteger const kMaxRetriesReachability = 5;
             //        if (!self.connectAPsent)
             //        {
             NSLog(@"connectAP sent");
-            self.connectAPsent = YES;
             
             while (([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix]) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
             {
@@ -320,7 +330,7 @@ NSInteger const kMaxRetriesReachability = 5;
     
     NSLog(@"Waiting for 5 seconds");
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kWaitForCloudConnectionTime * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self updateProgressStep:@"Check for internet connectivity"];
         [self checkForInternetConnectivity];
 
@@ -512,7 +522,15 @@ NSInteger const kMaxRetriesReachability = 5;
         else
             cell.imageView.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+        if ([SparkSetupCustomization sharedInstance].tintSetupImages)
+        {
+            cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+        }
+        else
+        {
+            cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+        }
+        
         [cell setNeedsDisplay];
 
     });

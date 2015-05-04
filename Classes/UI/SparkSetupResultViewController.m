@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 spark. All rights reserved.
 //
 
-#import "SparkSetupSuccessFailureViewController.h"
+#import "SparkSetupResultViewController.h"
 #import "SparkSetupUIElements.h"
 #import "SparkSetupMainController.h"
 #import "SparkSetupWebViewController.h"
 
-@interface SparkSetupSuccessFailureViewController ()
+@interface SparkSetupResultViewController ()
 @property (weak, nonatomic) IBOutlet SparkSetupUILabel *shortMessageLabel;
 @property (weak, nonatomic) IBOutlet SparkSetupUILabel *longMessageLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *setupResultImageView;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation SparkSetupSuccessFailureViewController
+@implementation SparkSetupResultViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,11 +28,7 @@
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
 
     // TODO: add a customization point for this? (maybe we don't want to tint it always)
-    if ([SparkSetupCustomization sharedInstance].tintSetupResultImage)
-    {
-        self.setupResultImageView.image = [self.setupResultImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        self.setupResultImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
-    }
+    
 
 }
 
@@ -90,6 +86,18 @@
     }
     
     [self.longMessageLabel setType:@"normal"];
+    
+    if ([SparkSetupCustomization sharedInstance].tintSetupImages)
+    {
+        NSLog(@"# tinting setup result icon!");
+        self.setupResultImageView.image = [self.setupResultImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.setupResultImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
+    }
+    else
+    {
+        NSLog(@"# NOT tinting setup result icon!");
+    }
+
 }
 
 

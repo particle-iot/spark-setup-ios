@@ -128,7 +128,7 @@
         self.backgroundColor = [UIColor clearColor];
         self.layer.borderColor = [SparkSetupCustomization sharedInstance].normalTextColor.CGColor;
         self.layer.backgroundColor = [UIColor clearColor].CGColor;
-        self.layer.cornerRadius = 2.0;
+        self.layer.cornerRadius = 3.0;
         self.layer.borderWidth = 2.0;
     }
 
