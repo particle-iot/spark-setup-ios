@@ -2,8 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "spinner_big-1.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

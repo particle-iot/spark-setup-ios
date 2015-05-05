@@ -151,24 +151,28 @@
 -(void)checkDeviceWifiConnection:(id)sender
 {
 //    printf("Detect device timer\n");
-    if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
-    {
-        [self.checkConnectionTimer invalidate];
-        
-        // UI activity indicator
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.wifiSignalImageView.hidden = YES;
-            [self.spinner startAnimating];
-            
-            
-        });
-        
-        // Start connection command chain process with a small delay
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self getDeviceID];
-        });
 
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+        if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+        {
+            [self.checkConnectionTimer invalidate];
+            
+            // UI activity indicator
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.wifiSignalImageView.hidden = YES;
+                [self.spinner startAnimating];
+                
+                
+            });
+            
+            // Start connection command chain process with a small delay
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self getDeviceID];
+            });
+
+        }
+    });
 }
 
 

@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *showPasswordSwitch;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+
 
 @end
 
@@ -48,7 +50,10 @@
     
     self.wifiSymbolImageView.image = [self.wifiSymbolImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.wifiSymbolImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
-    
+
+    self.backButton.imageView.image = [self.backButton.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.backButton.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+
     // Do any additional setup after loading the view.
 }
 

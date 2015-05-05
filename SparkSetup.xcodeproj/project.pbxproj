@@ -21,7 +21,6 @@
 		509081EB1ACF6AF70014E7DF /* SparkManualNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081C61ACF6AF70014E7DF /* SparkManualNetworkViewController.m */; };
 		509081EC1ACF6AF70014E7DF /* SparkSelectNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081C81ACF6AF70014E7DF /* SparkSelectNetworkViewController.m */; };
 		509081ED1ACF6AF70014E7DF /* SparkSetupPasswordEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081CA1ACF6AF70014E7DF /* SparkSetupPasswordEntryViewController.m */; };
-		509081EE1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081CC1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.m */; };
 		509081F01ACF6AF70014E7DF /* SparkSetupWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081D01ACF6AF70014E7DF /* SparkSetupWebViewController.m */; };
 		509081F11ACF6AF70014E7DF /* SparkUserForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081D21ACF6AF70014E7DF /* SparkUserForgotPasswordViewController.m */; };
 		509081F21ACF6AF70014E7DF /* SparkUserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081D41ACF6AF70014E7DF /* SparkUserLoginViewController.m */; };
@@ -81,8 +80,6 @@
 		509081C81ACF6AF70014E7DF /* SparkSelectNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSelectNetworkViewController.m; sourceTree = "<group>"; };
 		509081C91ACF6AF70014E7DF /* SparkSetupPasswordEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupPasswordEntryViewController.h; sourceTree = "<group>"; };
 		509081CA1ACF6AF70014E7DF /* SparkSetupPasswordEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupPasswordEntryViewController.m; sourceTree = "<group>"; };
-		509081CB1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupSuccessFailureViewController.h; sourceTree = "<group>"; };
-		509081CC1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupSuccessFailureViewController.m; sourceTree = "<group>"; };
 		509081CF1ACF6AF70014E7DF /* SparkSetupWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupWebViewController.h; sourceTree = "<group>"; };
 		509081D01ACF6AF70014E7DF /* SparkSetupWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupWebViewController.m; sourceTree = "<group>"; };
 		509081D11ACF6AF70014E7DF /* SparkUserForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkUserForgotPasswordViewController.h; sourceTree = "<group>"; };
@@ -214,8 +211,6 @@
 		509081BE1ACF6AF70014E7DF /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				509081CB1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.h */,
-				509081CC1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.m */,
 				509081BF1ACF6AF70014E7DF /* SparkConnectingProgressViewController.h */,
 				509081C01ACF6AF70014E7DF /* SparkConnectingProgressViewController.m */,
 				509081C11ACF6AF70014E7DF /* SparkDiscoverDeviceViewController.h */,
@@ -452,7 +447,6 @@
 				509081E71ACF6AF70014E7DF /* SparkSetupSecurityManager.m in Sources */,
 				509081EA1ACF6AF70014E7DF /* SparkGetReadyViewController.m in Sources */,
 				509081ED1ACF6AF70014E7DF /* SparkSetupPasswordEntryViewController.m in Sources */,
-				509081EE1ACF6AF70014E7DF /* SparkSetupSuccessFailureViewController.m in Sources */,
 				509081E91ACF6AF70014E7DF /* SparkDiscoverDeviceViewController.m in Sources */,
 				509081F31ACF6AF70014E7DF /* SparkUserSignupViewController.m in Sources */,
 			);

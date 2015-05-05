@@ -141,7 +141,6 @@ NSInteger const kWaitForCloudConnectionTime = 3;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:cell.textLabel.font.pointSize]; //+[SparkSetupCustomization sharedInstance].fontSizeOffset];
     
-    
     if (indexPath.row+1 == self.connectionProgressTextList.count)
     {
  
@@ -161,6 +160,8 @@ NSInteger const kWaitForCloudConnectionTime = 3;
     else
     {
         [self stopAnimatingSpinner:cell.imageView];
+        CGRect f = cell.imageView.frame;
+        f.origin.x -= 2;
         cell.imageView.hidden = NO;
         cell.imageView.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -350,7 +351,11 @@ NSInteger const kWaitForCloudConnectionTime = 3;
             if (![SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
             {
                 [[SparkCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
-                    NSLog(@"getDevices completed - to wake radio up");
+                    if (!error)
+                    {
+                        NSLog(@"getDevices completed - to wake radio up");
+                        self.hostReachable = YES;
+                    }
                 }];
             }
             
@@ -361,7 +366,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
             }
             else
             {
-                [NSThread sleepForTimeInterval:1.0];
+                [NSThread sleepForTimeInterval:2.0];
             }
         }
     }
@@ -445,6 +450,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
                 if (!error)
                 {
                     self.device = device;
+                    NSLog(@"claimed device: %@",device);
 //                    self.doneButton.enabled = YES;
                     [self setStateForCellOfProgressStep:4 error:NO];
                     
