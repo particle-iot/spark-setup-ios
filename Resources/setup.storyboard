@@ -2828,7 +2828,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="normal"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set up your {device}" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BuU-tM-s28" customClass="SparkSetupUILabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Set up your {device}" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BuU-tM-s28" customClass="SparkSetupUILabel">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         <nil key="highlightedColor"/>
@@ -2845,8 +2845,8 @@
                                     <constraint firstAttribute="trailing" secondItem="H3B-3P-vOh" secondAttribute="trailing" id="DKu-ms-GlY"/>
                                     <constraint firstItem="H3B-3P-vOh" firstAttribute="width" secondItem="nhB-4z-mFy" secondAttribute="width" id="Hzz-cN-FUe"/>
                                     <constraint firstItem="BuU-tM-s28" firstAttribute="leading" secondItem="nhB-4z-mFy" secondAttribute="leading" constant="8" id="QIJ-qV-zmh"/>
-                                    <constraint firstAttribute="height" priority="750" constant="467" id="Sje-gb-Mex">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="172"/>
+                                    <constraint firstAttribute="height" constant="244" id="VYw-nm-7lW">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="170"/>
                                     </constraint>
                                     <constraint firstItem="H3B-3P-vOh" firstAttribute="top" secondItem="BuU-tM-s28" secondAttribute="bottom" constant="14" id="ZbV-Gn-5nw">
                                         <variation key="heightClass=regular-widthClass=compact" constant="8"/>
@@ -2863,7 +2863,7 @@
                                         <exclude reference="BuU-tM-s28"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="Sje-gb-Mex"/>
+                                        <exclude reference="VYw-nm-7lW"/>
                                         <exclude reference="QIJ-qV-zmh"/>
                                         <exclude reference="fUa-mh-88q"/>
                                         <exclude reference="i7U-AP-a8s"/>
@@ -2880,7 +2880,7 @@
                                         <include reference="BuU-tM-s28"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="Sje-gb-Mex"/>
+                                        <include reference="VYw-nm-7lW"/>
                                         <include reference="QIJ-qV-zmh"/>
                                         <include reference="fUa-mh-88q"/>
                                         <include reference="i7U-AP-a8s"/>
@@ -2938,23 +2938,18 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGt-Rw-WeK" userLabel="Video View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QGt-Rw-WeK" secondAttribute="height" multiplier="9:16" id="9F1-Bc-ydd"/>
-                                    <constraint firstAttribute="width" constant="270" id="QaY-k4-ywc">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="300"/>
-                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="9F1-Bc-ydd"/>
-                                        <exclude reference="QaY-k4-ywc"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="9F1-Bc-ydd"/>
-                                        <exclude reference="QaY-k4-ywc"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -2971,7 +2966,7 @@
                             <constraint firstItem="QGt-Rw-WeK" firstAttribute="top" secondItem="ldG-Y4-BA3" secondAttribute="bottom" constant="8" id="6vN-us-J7W"/>
                             <constraint firstItem="Ald-Di-X3r" firstAttribute="centerY" secondItem="UNy-JD-Bob" secondAttribute="centerY" id="76c-HT-3ca"/>
                             <constraint firstItem="oPA-ZW-0I7" firstAttribute="top" secondItem="nhB-4z-mFy" secondAttribute="bottom" constant="46" id="9IH-9z-Ebh">
-                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="4"/>
                             </constraint>
                             <constraint firstItem="oPA-ZW-0I7" firstAttribute="top" secondItem="nhB-4z-mFy" secondAttribute="bottom" constant="13" id="D5c-z0-YJO"/>
                             <constraint firstItem="BuU-tM-s28" firstAttribute="top" secondItem="QGt-Rw-WeK" secondAttribute="bottom" constant="279" id="Gx9-l0-Dva">
@@ -3083,7 +3078,7 @@
                                 <include reference="1bF-QT-2mN"/>
                                 <include reference="XNK-ex-yc6"/>
                                 <exclude reference="ZSK-fU-jhb"/>
-                                <include reference="gcz-eQ-OE6"/>
+                                <exclude reference="gcz-eQ-OE6"/>
                                 <exclude reference="3Va-lL-5PM"/>
                                 <exclude reference="Gx9-l0-Dva"/>
                                 <include reference="9IH-9z-Ebh"/>
@@ -3107,13 +3102,12 @@
                     <connections>
                         <outlet property="brandImageView" destination="ldG-Y4-BA3" id="sqF-IY-JPh"/>
                         <outlet property="instructionsLabel" destination="H3B-3P-vOh" id="YIF-fk-fUs"/>
-                        <outlet property="instructionsScrollViewHeightConstraints" destination="Sje-gb-Mex" id="IaK-iY-xBR"/>
                         <outlet property="loggedInLabel" destination="oPA-ZW-0I7" id="I69-20-CsW"/>
                         <outlet property="logoutButton" destination="kZE-3U-nVp" id="Cqh-kc-kZa"/>
                         <outlet property="readyButton" destination="UNy-JD-Bob" id="rdb-Dm-3Vu"/>
+                        <outlet property="scrollViewHeight" destination="VYw-nm-7lW" id="bGo-TE-ryN"/>
                         <outlet property="spinner" destination="Ald-Di-X3r" id="GZr-Bj-RKk"/>
-                        <outlet property="videoView" destination="QGt-Rw-WeK" id="wrM-3l-ZIW"/>
-                        <outlet property="videoViewWidth" destination="QaY-k4-ywc" id="3qs-qV-Lwa"/>
+                        <outlet property="videoView" destination="QGt-Rw-WeK" id="Xze-mM-5ur"/>
                         <outlet property="view" destination="xP3-D7-C6C" id="T4Z-8r-EFD"/>
                         <segue destination="DQd-hP-ryy" kind="show" identifier="discover" id="gy6-c9-WWy"/>
                     </connections>

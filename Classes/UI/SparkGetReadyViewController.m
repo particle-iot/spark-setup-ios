@@ -22,8 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (weak, nonatomic) IBOutlet UIButton *readyButton;
 @property (weak, nonatomic) IBOutlet UIView *videoView;
-@property (weak, nonatomic) IBOutlet UILabel *getReadyLabel;
-@property (weak, nonatomic) IBOutlet UIButton *troubleShootingButton;
 @property (strong, nonatomic) MPMoviePlayerController *videoPlayer;
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 
@@ -33,10 +31,8 @@
 // new claiming process
 @property (nonatomic, strong) NSString *claimCode;
 @property (nonatomic, strong) NSArray *claimedDevices;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionsScrollViewHeightConstraints;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeight;
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *logoutButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *videoViewWidth;
 
 @end
 
@@ -53,8 +49,6 @@
     self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
     self.loggedInLabel.alpha = 0.85;
     self.logoutButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.logoutButton.titleLabel.font.pointSize];
-    self.videoView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.videoView.layer.borderWidth = 0.5;
     self.videoView.translatesAutoresizingMaskIntoConstraints = NO;
 
     
@@ -87,7 +81,12 @@
     if (isiPhone4)
     {
         self.instructionsLabel.text = [NSString stringWithFormat:@"Scroll down for more instructions:\n%@",self.instructionsLabel.text];
-        [self.view layoutIfNeeded];
+        _scrollViewHeight.constant = 100;
+        [self.view setNeedsUpdateConstraints];
+        
+        [UIView animateWithDuration:0.25f animations:^{
+            [self.view layoutIfNeeded];
+        }];
     }
     NSString *videoFileName = [SparkSetupCustomization sharedInstance].welcomeVideoFilename;
     if (videoFileName)
@@ -108,6 +107,8 @@
             self.videoPlayer.controlStyle = MPMovieControlStyleNone;
             [self.videoView addSubview:self.videoPlayer.view];
             [self.videoPlayer play];
+            self.videoView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            self.videoView.layer.borderWidth = 0.5;
 
         }
     }
