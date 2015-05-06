@@ -164,7 +164,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
                         
                         if ([SparkSetupSecurityManager setPublicKey:pubKey])
                         {
-                            NSLog(@"Public key stored in keychain successfully");
+//                            NSLog(@"Public key stored in keychain successfully");
                             self.commandCompletionBlock(response[@"r"],nil);
                         }
                         else

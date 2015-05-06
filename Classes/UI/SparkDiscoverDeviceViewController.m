@@ -112,7 +112,7 @@
 
 -(void)restartDeviceDetectionTimer
 {
-    NSLog(@"restartDeviceDetectionTimer called");
+//    NSLog(@"restartDeviceDetectionTimer called");
     [self.checkConnectionTimer invalidate];
     self.checkConnectionTimer = nil;
     
@@ -209,13 +209,13 @@
                  self.detectedDeviceID = [self.detectedDeviceID lowercaseString];
                  self.isDetectedDeviceClaimed = [deviceResponseDict[@"c"] boolValue];
                  [self photonPublicKey];
-                 NSLog(@"Got device ID: %@",deviceResponseDict);
+//                 NSLog(@"Got device ID: %@",deviceResponseDict);
              }
          }];
     }
     else
     {
-        NSLog(@"getDeviceID called again");
+//        NSLog(@"getDeviceID called again");
         [self photonPublicKey];
     }
 }
@@ -240,7 +240,7 @@
                 if (scanResponse)
                 {
                     self.scannedWifiList = scanResponse;
-                    NSLog(@"Scan data:\n%@",self.scannedWifiList);
+//                    NSLog(@"Scan data:\n%@",self.scannedWifiList);
                     [self checkDeviceOwnershipChange];
                     
                 }

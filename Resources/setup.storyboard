@@ -5,6 +5,7 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Gotham-Book.otf">
@@ -2839,7 +2840,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="H3B-3P-vOh" secondAttribute="bottom" constant="260" id="1g9-xi-Gma">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="1"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="H3B-3P-vOh" secondAttribute="trailing" id="DKu-ms-GlY"/>
                                     <constraint firstItem="H3B-3P-vOh" firstAttribute="width" secondItem="nhB-4z-mFy" secondAttribute="width" id="Hzz-cN-FUe"/>
@@ -2879,7 +2880,7 @@
                                         <include reference="BuU-tM-s28"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="Sje-gb-Mex"/>
+                                        <exclude reference="Sje-gb-Mex"/>
                                         <include reference="QIJ-qV-zmh"/>
                                         <include reference="fUa-mh-88q"/>
                                         <include reference="i7U-AP-a8s"/>
@@ -2939,16 +2940,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="QGt-Rw-WeK" secondAttribute="height" multiplier="9:16" priority="250" id="ul7-oU-VWD"/>
+                                    <constraint firstAttribute="width" secondItem="QGt-Rw-WeK" secondAttribute="height" multiplier="9:16" id="9F1-Bc-ydd"/>
+                                    <constraint firstAttribute="width" constant="270" id="QaY-k4-ywc">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="300"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="ul7-oU-VWD"/>
+                                        <exclude reference="9F1-Bc-ydd"/>
+                                        <exclude reference="QaY-k4-ywc"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="ul7-oU-VWD"/>
+                                        <include reference="9F1-Bc-ydd"/>
+                                        <exclude reference="QaY-k4-ywc"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -2958,6 +2964,7 @@
                             <constraint firstItem="nhB-4z-mFy" firstAttribute="top" secondItem="QGt-Rw-WeK" secondAttribute="bottom" constant="8" id="1MY-pm-lQp"/>
                             <constraint firstItem="nhB-4z-mFy" firstAttribute="trailing" secondItem="xP3-D7-C6C" secondAttribute="trailingMargin" id="1bF-QT-2mN"/>
                             <constraint firstItem="QGt-Rw-WeK" firstAttribute="leading" secondItem="xP3-D7-C6C" secondAttribute="leadingMargin" id="1fo-Zh-3eT"/>
+                            <constraint firstItem="BuU-tM-s28" firstAttribute="height" secondItem="xP3-D7-C6C" secondAttribute="height" multiplier="0.3" id="3Va-lL-5PM"/>
                             <constraint firstAttribute="centerX" secondItem="UNy-JD-Bob" secondAttribute="centerX" constant="18" id="6LE-Fl-8tf">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -2985,6 +2992,7 @@
                             </constraint>
                             <constraint firstItem="ldG-Y4-BA3" firstAttribute="leading" secondItem="xP3-D7-C6C" secondAttribute="leading" id="Zdg-d4-5e4"/>
                             <constraint firstItem="UNy-JD-Bob" firstAttribute="top" secondItem="kZE-3U-nVp" secondAttribute="bottom" constant="8" id="cjH-6G-4ld"/>
+                            <constraint firstItem="nhB-4z-mFy" firstAttribute="height" secondItem="xP3-D7-C6C" secondAttribute="height" multiplier="0.305" id="gcz-eQ-OE6"/>
                             <constraint firstAttribute="centerX" secondItem="kZE-3U-nVp" secondAttribute="centerX" id="gv3-gO-MrM"/>
                             <constraint firstItem="evs-MU-1zL" firstAttribute="top" secondItem="UNy-JD-Bob" secondAttribute="bottom" constant="180" id="kxC-aR-8MR">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
@@ -3030,6 +3038,8 @@
                                 <exclude reference="1bF-QT-2mN"/>
                                 <exclude reference="XNK-ex-yc6"/>
                                 <exclude reference="ZSK-fU-jhb"/>
+                                <exclude reference="gcz-eQ-OE6"/>
+                                <exclude reference="3Va-lL-5PM"/>
                                 <exclude reference="Gx9-l0-Dva"/>
                                 <exclude reference="9IH-9z-Ebh"/>
                                 <exclude reference="D5c-z0-YJO"/>
@@ -3073,6 +3083,8 @@
                                 <include reference="1bF-QT-2mN"/>
                                 <include reference="XNK-ex-yc6"/>
                                 <exclude reference="ZSK-fU-jhb"/>
+                                <include reference="gcz-eQ-OE6"/>
+                                <exclude reference="3Va-lL-5PM"/>
                                 <exclude reference="Gx9-l0-Dva"/>
                                 <include reference="9IH-9z-Ebh"/>
                                 <exclude reference="D5c-z0-YJO"/>
@@ -3095,12 +3107,13 @@
                     <connections>
                         <outlet property="brandImageView" destination="ldG-Y4-BA3" id="sqF-IY-JPh"/>
                         <outlet property="instructionsLabel" destination="H3B-3P-vOh" id="YIF-fk-fUs"/>
-                        <outlet property="instructionsScrollViewHeightConstraints" destination="Sje-gb-Mex" id="nVh-Bd-Xfz"/>
+                        <outlet property="instructionsScrollViewHeightConstraints" destination="Sje-gb-Mex" id="IaK-iY-xBR"/>
                         <outlet property="loggedInLabel" destination="oPA-ZW-0I7" id="I69-20-CsW"/>
                         <outlet property="logoutButton" destination="kZE-3U-nVp" id="Cqh-kc-kZa"/>
                         <outlet property="readyButton" destination="UNy-JD-Bob" id="rdb-Dm-3Vu"/>
                         <outlet property="spinner" destination="Ald-Di-X3r" id="GZr-Bj-RKk"/>
                         <outlet property="videoView" destination="QGt-Rw-WeK" id="wrM-3l-ZIW"/>
+                        <outlet property="videoViewWidth" destination="QaY-k4-ywc" id="3qs-qV-Lwa"/>
                         <outlet property="view" destination="xP3-D7-C6C" id="T4Z-8r-EFD"/>
                         <segue destination="DQd-hP-ryy" kind="show" identifier="discover" id="gy6-c9-WWy"/>
                     </connections>

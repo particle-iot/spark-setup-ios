@@ -162,7 +162,7 @@ char *const kSparkSetupSecurityPublicKeystore = "kSparkSetupSecurityPublicKeysto
     cipherBuffer = (uint8_t *)calloc(cipherBufferSize, sizeof(uint8_t));
     
     size_t keyBlockSize = SecKeyGetBlockSize(pubKey);
-    NSLog(@"SecKeyGetBlockSize() public = %lu",keyBlockSize);
+//    NSLog(@"SecKeyGetBlockSize() public = %lu",keyBlockSize);
 
     if (plainText.length > keyBlockSize)
     {

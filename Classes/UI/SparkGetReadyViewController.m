@@ -36,6 +36,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionsScrollViewHeightConstraints;
 
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *videoViewWidth;
 
 @end
 
@@ -72,20 +73,22 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    if (isiPhone4)
-    {
-        self.instructionsScrollViewHeightConstraints.constant = 80;
-        self.instructionsLabel.text = [NSString stringWithFormat:@"Scroll down for more instructions:\n%@",self.instructionsLabel.text];
-        [self.videoView layoutIfNeeded];
-    }
 
     
 }
 
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+//    self.videoViewWidth.constant = ((self.videoView.frame.size.height * 9.0)/16.0);
+ 
+
+    if (isiPhone4)
+    {
+        self.instructionsLabel.text = [NSString stringWithFormat:@"Scroll down for more instructions:\n%@",self.instructionsLabel.text];
+        [self.view layoutIfNeeded];
+    }
     NSString *videoFileName = [SparkSetupCustomization sharedInstance].welcomeVideoFilename;
     if (videoFileName)
     {
@@ -105,8 +108,12 @@
             self.videoPlayer.controlStyle = MPMovieControlStyleNone;
             [self.videoView addSubview:self.videoPlayer.view];
             [self.videoPlayer play];
+
         }
     }
+
+    
+
 }
 
 - (IBAction)troubleShootingButtonTapped:(id)sender

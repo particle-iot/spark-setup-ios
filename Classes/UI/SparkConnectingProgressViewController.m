@@ -91,20 +91,20 @@ NSInteger const kWaitForCloudConnectionTime = 3;
     {
         case NotReachable:
         {
-            NSLog(@"reachabilityChanged -- NO");
+//            NSLog(@"reachabilityChanged -- NO");
             self.hostReachable = NO;
             break;
         }
             
         case ReachableViaWWAN:
         {
-            NSLog(@"reachabilityChanged -- YES 3G");
+//            NSLog(@"reachabilityChanged -- YES 3G");
             self.hostReachable = YES; // we want to make sure device changed wifis
             break;
         }
         case ReachableViaWiFi:
         {
-            NSLog(@"reachabilityChanged -- YES WiFi");
+//            NSLog(@"reachabilityChanged -- YES WiFi");
             self.hostReachable = YES;
             break;
         }
@@ -223,7 +223,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
     __block SparkSetupCommManager *managerForConfigure = [[SparkSetupCommManager alloc] init];
     
     [managerForConfigure configureAP:self.networkName passcode:self.password security:self.security channel:self.channel completion:^(id responseCode, NSError *error) {
-        NSLog(@"configureAP sent");
+//        NSLog(@"configureAP sent");
         if ((error) || ([responseCode intValue]!=0))
         {
             if (!self.connectAPsent)
@@ -290,7 +290,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
             // TODO: something less hacky to disregard dual callback (check why)
             //        if (!self.connectAPsent)
             //        {
-            NSLog(@"connectAP sent");
+//            NSLog(@"connectAP sent");
             
             while (([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix]) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
             {
@@ -320,7 +320,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
                 if (!self.disconnectedFromDevice) // assuring one time call (TODO: find out why this gets called many times)
                 {
                     self.disconnectedFromDevice = YES;
-                    NSLog(@"OK disconnected from photon, continuing after %ld x %ld tries",(long)self.connectAPRetries,(long)self.disconnectRetries);
+//                    NSLog(@"OK disconnected from photon, continuing after %ld x %ld tries",(long)self.connectAPRetries,(long)self.disconnectRetries);
                     [self updateProgressStep:@"Wait for device cloud connection"];
                     [self waitForCloudConnection];
                 }
@@ -334,7 +334,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 -(void)waitForCloudConnection
 {
     
-    NSLog(@"Waiting for 5 seconds");
+//    NSLog(@"Waiting for 5 seconds");
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kWaitForCloudConnectionTime * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self updateProgressStep:@"Check for internet connectivity"];
@@ -358,7 +358,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
                 [[SparkCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
                     if (!error)
                     {
-                        NSLog(@"getDevices completed - to wake radio up");
+//                        NSLog(@"getDevices completed - to wake radio up");
                         self.apiReachable = YES;
                     }
                 }];
@@ -416,20 +416,20 @@ NSInteger const kWaitForCloudConnectionTime = 3;
         {
             for (SparkDevice *device in devices)
             {
-                NSLog(@"list device ID: %@",device.id);
+//                NSLog(@"list device ID: %@",device.id);
                 if ([device.id isEqualToString:self.deviceID])
                 {
                     // device now appear's in users claimed devices so it's claimed
                     deviceClaimed = YES;
                 }
             }
-            NSLog(@"--------");
+//            NSLog(@"--------");
         }
         
         if ((error) || (!deviceClaimed))
         {
             self.claimRetries++;
-            NSLog(@"Claim try %ld",(long)self.claimRetries);
+//            NSLog(@"Claim try %ld",(long)self.claimRetries);
             if (self.claimRetries >= kMaxRetriesClaim-1)
             {
                 [self setStateForCellOfProgressStep:4 error:YES];
@@ -448,14 +448,14 @@ NSInteger const kWaitForCloudConnectionTime = 3;
         }
         else
         {
-            NSLog(@"Claim success");
+//            NSLog(@"Claim success");
             // get the claimed device to report it back to the user
             [[SparkCloud sharedInstance] getDevice:self.deviceID completion:^(SparkDevice *device, NSError *error) {
                 // --- Done ---
                 if (!error)
                 {
                     self.device = device;
-                    NSLog(@"claimed device: %@",device);
+//                    NSLog(@"claimed device: %@",device);
 //                    self.doneButton.enabled = YES;
                     [self setStateForCellOfProgressStep:4 error:NO];
                     
@@ -489,7 +489,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
     [self setStateForCellOfProgressStep:self.connectionProgressTextList.count error:NO]; // set V to the previous cell
     // check that SSID disappears here and didn't come back
     [self.connectionProgressTextList addObject:stepText];
-    NSLog(@" + updateProgressStep: %@",stepText);
+//    NSLog(@" + updateProgressStep: %@",stepText);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.connectingProgressTableView reloadData];

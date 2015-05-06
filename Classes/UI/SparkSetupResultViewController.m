@@ -89,13 +89,8 @@
     
     if ([SparkSetupCustomization sharedInstance].tintSetupImages)
     {
-        NSLog(@"# tinting setup result icon!");
         self.setupResultImageView.image = [self.setupResultImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         self.setupResultImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
-    }
-    else
-    {
-        NSLog(@"# NOT tinting setup result icon!");
     }
 
 }
