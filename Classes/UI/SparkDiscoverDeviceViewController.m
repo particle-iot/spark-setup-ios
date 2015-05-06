@@ -19,8 +19,6 @@
 #import "SparkSetupUIElements.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define isiPhone4  ([[UIScreen mainScreen] bounds].size.height == 480) ? YES : NO
-
 @interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) NSTimer *checkConnectionTimer;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
@@ -126,17 +124,9 @@
 {
     [super viewWillAppear:animated];
     // TODO: solve this via autolayout?
-    if (isiPhone4)
-        self.productImageHeight.constant = 80; //for 3.5" screen
-    else
-        self.productImageHeight.constant = 140;
     
     self.spinner.image = [self.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.spinner.tintColor = [UIColor blackColor];
-
-    
-    [self.view layoutIfNeeded];
-
 }
 
 -(void)viewDidAppear:(BOOL)animated

@@ -17,9 +17,6 @@
 
 #import "SparkSetupResultViewController.h"
 
-#define isiPhone4  ([[UIScreen mainScreen] bounds].size.height == 480) ? YES : NO
-
-
 
 @interface SparkGetReadyViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
@@ -57,7 +54,7 @@
     self.logoutButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.logoutButton.titleLabel.font.pointSize];
     self.videoView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.videoView.layer.borderWidth = 0.5;
-//    self.videoView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.videoView.translatesAutoresizingMaskIntoConstraints = NO;
 
     
 }
@@ -78,7 +75,7 @@
     if (isiPhone4)
     {
         self.instructionsScrollViewHeightConstraints.constant = 80;
-        self.instructionsLabel.text = [NSString stringWithFormat:@" • Scroll down for more instructions:\n%@",self.instructionsLabel.text];
+        self.instructionsLabel.text = [NSString stringWithFormat:@"Scroll down for more instructions:\n%@",self.instructionsLabel.text];
         [self.videoView layoutIfNeeded];
     }
 
@@ -148,8 +145,8 @@
         {
             self.claimCode = claimCode;
             self.claimedDevices = userClaimedDeviceIDs;
-            NSLog(@"Got claim code: %@",self.claimCode);
-            NSLog(@"Devices IDs owned by user: %@",self.claimedDevices);
+//            NSLog(@"Got claim code: %@",self.claimCode);
+//            NSLog(@"Devices IDs owned by user: %@",self.claimedDevices);
             [self performSegueWithIdentifier:@"discover" sender:self];
             
         }

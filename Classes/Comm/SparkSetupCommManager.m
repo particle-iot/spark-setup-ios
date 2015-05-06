@@ -94,7 +94,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
     }
     
     NSString *SSID = info[@"SSID"];
-    NSLog(@"currently connected SSID: %@",SSID);
+//    NSLog(@"currently connected SSID: %@",SSID);
 //    if ([SSID hasPrefix:[SparkSetupCustomization sharedInstance].networkNamePrefix])
     if ([SSID hasPrefix:networkPrefix])
     {
@@ -146,7 +146,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
                     
                 case SparkSetupCommandTypePublicKey:
                     // handle key storage
-                    NSLog(@"SparkSetupCommandTypePublicKey response is:\n%@",response);
+//                    NSLog(@"SparkSetupCommandTypePublicKey response is:\n%@",response);
                     
                     responseCode = (NSNumber *)response[@"r"];
                     if (responseCode.intValue != 0)
@@ -200,7 +200,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
     
     switch (state) {
         case SparkSetupConnectionStateClosed:
-            NSLog(@"Connection to spark device closed");
+//            NSLog(@"Connection to spark device closed");
             [self.sendCommandTimeoutTimer invalidate];
             break;
             
@@ -215,12 +215,12 @@ int const kSparkSetupConnectionEndpointPort = 5609;
             break;
             
         case SparkSetupConnectionStateOpened:
-            NSLog(@"Connection to spark device opened");
+//            NSLog(@"Connection to spark device opened");
             if (self.commandSendBlock)
             {
                 self.sendCommandTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(sendCommandTimeoutHandler:) userInfo:nil repeats:NO];
                 self.commandSendBlock();
-                NSLog(@"Command %ld sent to spark device",(long)self.commandType);
+//                NSLog(@"Command %ld sent to spark device",(long)self.commandType);
             }
             break;
         case SparkSetupConnectionStateError:
@@ -431,7 +431,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
                     {
                         // encode the encrypted data to a hex string
                         hexEncodedEncryptedPasscodeStr = [SparkSetupSecurityManager encodeDataToHexString:cipherTextData];
-                        NSLog(@"plaintext: %@\nCiphertext:\n%@",passcodeTruncated,hexEncodedEncryptedPasscodeStr);
+//                        NSLog(@"plaintext: %@\nCiphertext:\n%@",passcodeTruncated,hexEncodedEncryptedPasscodeStr);
                         requestDataDict = @{@"idx":@0, @"ssid":ssid, @"pwd":hexEncodedEncryptedPasscodeStr, @"sec":securityType, @"ch":channel};
                     }
                     else
@@ -602,7 +602,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 
 -(void)dealloc
 {
-    NSLog(@"SparkSetupCommManager %@ dealloced!",self);
+//    NSLog(@"SparkSetupCommManager %@ dealloced!",self);
     
     self.commandSendBlock = nil;
     self.commandCompletionBlock = nil;
