@@ -38,6 +38,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 
 @property (strong, nonatomic) Reachability *hostReachability;
 @property (nonatomic) BOOL hostReachable;
+@property (nonatomic) BOOL apiReachable;
 @property (nonatomic) NSInteger claimRetries;
 @property (nonatomic) NSInteger configureRetries;
 @property (nonatomic) NSInteger connectAPRetries;
@@ -63,6 +64,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
     
     self.hostReachable = NO;
+    self.apiReachable = NO;
     self.hostReachability = [Reachability reachabilityWithHostName:@"www.spark.io"]; //TODO: change to https://api...
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     [self.hostReachability startNotifier];
@@ -224,19 +226,22 @@ NSInteger const kWaitForCloudConnectionTime = 3;
         NSLog(@"configureAP sent");
         if ((error) || ([responseCode intValue]!=0))
         {
-            self.configureRetries++;
-            if (self.configureRetries >= kMaxRetriesConfigureAP-1)
+            if (!self.connectAPsent)
             {
-                [self setStateForCellOfProgressStep:0 error:YES];
-                [self finishSetupWithResult:SparkSetupResultFailureConfigure];
-//                self.errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//                self.errorAlertView.delegate = self;
-//                [self.errorAlertView show];
-                
-            }
-            else
-            {
-                [self configureDeviceNetworkCredentials];
+                self.configureRetries++;
+                if (self.configureRetries >= kMaxRetriesConfigureAP-1)
+                {
+                    [self setStateForCellOfProgressStep:0 error:YES];
+                    [self finishSetupWithResult:SparkSetupResultFailureConfigure];
+    //                self.errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //                self.errorAlertView.delegate = self;
+    //                [self.errorAlertView show];
+                    
+                }
+                else
+                {
+                    [self configureDeviceNetworkCredentials];
+                }
             }
         }
         else
@@ -354,7 +359,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
                     if (!error)
                     {
                         NSLog(@"getDevices completed - to wake radio up");
-                        self.hostReachable = YES;
+                        self.apiReachable = YES;
                     }
                 }];
             }
@@ -371,7 +376,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
         }
     }
     
-    if (self.hostReachable)
+    if ((self.hostReachable) || (self.apiReachable))
     {
         self.claimRetries = 0;
         // check that SSID disappears here and didn't come back

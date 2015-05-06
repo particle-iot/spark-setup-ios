@@ -17,6 +17,10 @@
 
 #import "SparkSetupResultViewController.h"
 
+#define isiPhone4  ([[UIScreen mainScreen] bounds].size.height == 480) ? YES : NO
+
+
+
 @interface SparkGetReadyViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (weak, nonatomic) IBOutlet UIButton *readyButton;
@@ -27,10 +31,12 @@
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 
 @property (weak, nonatomic) IBOutlet UILabel *loggedInLabel;
+@property (weak, nonatomic) IBOutlet SparkSetupUILabel *instructionsLabel;
 
 // new claiming process
 @property (nonatomic, strong) NSString *claimCode;
 @property (nonatomic, strong) NSArray *claimedDevices;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionsScrollViewHeightConstraints;
 
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *logoutButton;
 
@@ -49,7 +55,11 @@
     self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
     self.loggedInLabel.alpha = 0.85;
     self.logoutButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.logoutButton.titleLabel.font.pointSize];
+    self.videoView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.videoView.layer.borderWidth = 0.5;
+//    self.videoView.translatesAutoresizingMaskIntoConstraints = NO;
 
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +69,19 @@
     [self.videoPlayer stop];
     [self.videoPlayer.view removeFromSuperview];
     self.videoPlayer = nil;
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (isiPhone4)
+    {
+        self.instructionsScrollViewHeightConstraints.constant = 80;
+        self.instructionsLabel.text = [NSString stringWithFormat:@" • Scroll down for more instructions:\n%@",self.instructionsLabel.text];
+        [self.videoView layoutIfNeeded];
+    }
+
     
 }
 
