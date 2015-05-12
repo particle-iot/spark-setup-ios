@@ -50,7 +50,7 @@
 {
     [self.view endEditing:YES];
     [self.spinner startAnimating];
-    if ([SparkSetupCustomization sharedInstance].organization)
+    if ([SparkSetupCustomization sharedInstance].organization) // TODO: fix that so it'll work for non-org too
     {
         if ([self isValidEmail:self.emailTextField.text])
         {

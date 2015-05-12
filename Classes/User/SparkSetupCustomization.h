@@ -31,6 +31,7 @@
 @property (nonatomic, strong) NSString *networkNamePrefix;
 @property (nonatomic, strong) NSString *appName;
 
+// TODO: kill forgot password links
 @property (nonatomic, strong) NSURL *termsOfServiceLinkURL; // URL for terms of service of the app/device usage
 @property (nonatomic, strong) NSURL *privacyPolicyLinkURL;  // URL for privacy policy of the app/device usage
 @property (nonatomic, strong) NSURL *forgotPasswordLinkURL; // URL for user password reset (non-organization setup app only)
@@ -67,7 +68,7 @@
 
 @property (nonatomic, assign) BOOL organization;                 // enable invite codes, other APIs
 @property (nonatomic, strong) NSString *organizationName;        // organizational name for API endpoint URL
-@property (nonatomic, strong) NSString *getReadyVideoFilePath;   // video in get ready screen
+//@property (nonatomic, strong) NSString *getReadyVideoFilePath;   // video in get ready screen
 //@property (nonatomic, strong) NSString *discoverVideoFilePath; // video in device discovery screen
 
 
