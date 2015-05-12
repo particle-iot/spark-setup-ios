@@ -59,6 +59,7 @@
     {
         self.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:self.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
         self.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+        
     }
     [self replacePredefinedText];
     
@@ -66,6 +67,5 @@
     [self layoutIfNeeded];
   
 }
-
 
 @end

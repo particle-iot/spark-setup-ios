@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SparkSetupUILabel : UILabel
-@property (nonatomic, strong) NSString *type; // "bold" or nothing
+@property (nonatomic, strong) NSString *type;// "bold" or nothing
 @end
