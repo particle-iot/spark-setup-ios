@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -197,8 +198,7 @@
                                                 <exclude reference="YxV-Iw-2yc"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="137" y="51" width="22" height="29"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <exclude reference="Aaf-IU-iEr"/>
                                                 <exclude reference="YxV-Iw-2yc"/>
@@ -217,9 +217,6 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="163" y="52" width="85" height="28"/>
-                                        </variation>
                                         <connections>
                                             <action selector="privacyPolicyButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="yVJ-S4-1ZM"/>
                                         </connections>
@@ -233,9 +230,6 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="33" y="52" width="100" height="28"/>
-                                        </variation>
                                         <connections>
                                             <action selector="termOfServiceButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="5ZZ-Vc-v7y"/>
                                         </connections>
@@ -1425,9 +1419,11 @@
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="SHOW ME HOW"/>
+                                <state key="normal" title="SHOW ME HOW">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="action"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="secondary"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1536,10 +1532,6 @@
                                             <mask key="constraints">
                                                 <exclude reference="96I-Nl-tbF"/>
                                                 <exclude reference="abv-dK-VvD"/>
-                                                <exclude reference="7KQ-Cc-dTz"/>
-                                                <exclude reference="bSf-GY-fS5"/>
-                                                <exclude reference="qOy-dh-3nZ"/>
-                                                <exclude reference="z9X-js-tQO"/>
                                                 <exclude reference="MAI-k7-lF3"/>
                                                 <exclude reference="NbP-Tv-Gxg"/>
                                                 <exclude reference="RWI-Ji-u9T"/>
@@ -1547,6 +1539,10 @@
                                                 <exclude reference="jvT-A1-Xxd"/>
                                                 <exclude reference="kST-yg-PE3"/>
                                                 <exclude reference="xPd-WE-rma"/>
+                                                <exclude reference="7KQ-Cc-dTz"/>
+                                                <exclude reference="bSf-GY-fS5"/>
+                                                <exclude reference="qOy-dh-3nZ"/>
+                                                <exclude reference="z9X-js-tQO"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -1557,10 +1553,6 @@
                                             <mask key="constraints">
                                                 <exclude reference="96I-Nl-tbF"/>
                                                 <exclude reference="abv-dK-VvD"/>
-                                                <include reference="7KQ-Cc-dTz"/>
-                                                <include reference="bSf-GY-fS5"/>
-                                                <exclude reference="qOy-dh-3nZ"/>
-                                                <exclude reference="z9X-js-tQO"/>
                                                 <exclude reference="MAI-k7-lF3"/>
                                                 <include reference="NbP-Tv-Gxg"/>
                                                 <exclude reference="RWI-Ji-u9T"/>
@@ -1568,6 +1560,10 @@
                                                 <include reference="jvT-A1-Xxd"/>
                                                 <exclude reference="kST-yg-PE3"/>
                                                 <include reference="xPd-WE-rma"/>
+                                                <include reference="7KQ-Cc-dTz"/>
+                                                <include reference="bSf-GY-fS5"/>
+                                                <exclude reference="qOy-dh-3nZ"/>
+                                                <exclude reference="z9X-js-tQO"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -1764,7 +1760,6 @@
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXX will be a unique 4-digit code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gki-aR-4fS" customClass="SparkSetupUILabel">
                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -3263,7 +3258,8 @@
                                                 <exclude reference="opQ-P2-YbG"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="177" width="368" height="178"/>
                                             <mask key="subviews">
                                                 <include reference="esE-Ik-2G5"/>
                                                 <include reference="oHW-yI-y9u"/>
@@ -3349,7 +3345,8 @@
                                                 <exclude reference="iVW-cu-eu1"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="355" width="368" height="177"/>
                                             <mask key="subviews">
                                                 <include reference="itK-fn-V8g"/>
                                                 <include reference="y1h-An-sff"/>
@@ -3468,7 +3465,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="READY"/>
+                                <state key="normal" title="READY">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="action"/>
                                 </userDefinedRuntimeAttributes>
