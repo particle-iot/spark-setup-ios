@@ -21,8 +21,8 @@
 
 @interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) NSTimer *checkConnectionTimer;
-@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
-@property (weak, nonatomic) IBOutlet UIButton *settingsLinkButton;
+//@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
+//@property (weak, nonatomic) IBOutlet UIButton *settingsLinkButton;
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSignalImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *networkNameLabel;
@@ -67,7 +67,7 @@
     
 
 
-    self.productImageView.image = [SparkSetupCustomization sharedInstance].deviceImage;
+//    self.productImageView.image = [SparkSetupCustomization sharedInstance].deviceImage;
     
 
     // apply tint to spinner
@@ -90,6 +90,10 @@
     self.networkNameLabel.text = [NSString stringWithFormat:@"%@-XXXX",[SparkSetupCustomization sharedInstance].networkNamePrefix];
     self.wifiView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.wifiView.layer.borderWidth = 1.0f;
+    
+//    self.cancelSetupButton. // customize color too
+    self.self.cancelSetupButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.self.cancelSetupButton.titleLabel.font.pointSize];
+
 }
 
 
@@ -441,6 +445,7 @@
     
 }
 
+/*
 - (IBAction)settingsButton:(id)sender
 {
 
@@ -451,7 +456,10 @@
     }
 }
 
+*/
 
+- (IBAction)showMeHowButtonTapped:(id)sender {
+}
 
 
 

@@ -68,6 +68,10 @@
     {
         UIColor *color = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
         self.backgroundColor = [self darkerColorForColor:color];
+
+//        self.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+        self.layer.shadowOpacity = 0;
+
     }
     [self setNeedsDisplay];
 
@@ -78,6 +82,10 @@
     if ([self.type isEqualToString:@"action"])
     {
         self.backgroundColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+        
+//        self.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
+        self.layer.shadowOpacity = 0.3;
+
     }
     [self setNeedsDisplay];
     
@@ -94,11 +102,15 @@
     {
         UIFont *boldFont = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
         self.titleLabel.font = boldFont;
-        self.titleLabel.textColor = [SparkSetupCustomization sharedInstance].elementTextColor;
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
-        self.layer.cornerRadius = 2.0;
+        self.layer.cornerRadius = 3.0;
+        [self setTitleColor:[SparkSetupCustomization sharedInstance].elementTextColor forState:UIControlStateNormal];
         
+        self.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.layer.shadowOpacity = 0.3;
+        self.layer.shadowRadius = 2;
+        self.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
     }
 
     if ([type isEqualToString:@"link"])
@@ -111,6 +123,8 @@
 
         [self setAttributedTitle:s forState:UIControlStateNormal];
         self.titleLabel.textColor = [SparkSetupCustomization sharedInstance].linkTextColor;
+        [self setTitleColor:[SparkSetupCustomization sharedInstance].linkTextColor forState:UIControlStateNormal];
+
         self.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:self.titleLabel.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
         self.backgroundColor = [UIColor clearColor];
     }
@@ -121,15 +135,17 @@
         
         UIFont *boldFont = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
         self.titleLabel.font = boldFont;
-        self.titleLabel.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+//        self.titleLabel.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+        [self setTitleColor:[SparkSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
         
-
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [UIColor clearColor];
         self.layer.borderColor = [SparkSetupCustomization sharedInstance].normalTextColor.CGColor;
         self.layer.backgroundColor = [UIColor clearColor].CGColor;
         self.layer.cornerRadius = 3.0;
         self.layer.borderWidth = 2.0;
+        
+
     }
 
     
