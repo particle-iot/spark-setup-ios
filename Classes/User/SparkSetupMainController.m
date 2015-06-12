@@ -203,7 +203,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
     self.currentVC = viewController;
     [self.containerView endEditing:YES];
     [self addChildViewController:viewController];
-    viewController.view.frame = self.containerView.frame; 
+    viewController.view.frame = self.containerView.bounds;
     [self.containerView addSubview:viewController.view];
     [viewController didMoveToParentViewController:self];
 }
