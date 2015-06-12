@@ -77,6 +77,10 @@
     [super viewDidAppear:animated];
 //    self.videoViewWidth.constant = ((self.videoView.frame.size.height * 9.0)/16.0);
  
+    UIUserNotificationType types = UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    
 
     if (isiPhone4)
     {

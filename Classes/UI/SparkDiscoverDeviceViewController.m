@@ -38,6 +38,10 @@
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *productImageHeight;
 
+// new background local notification feature
+@property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
+@property (nonatomic, strong) NSTimer *backgroundTaskTimer;
+
 // new claiming process
 @property (nonatomic) BOOL isDetectedDeviceClaimed;
 @property (nonatomic) BOOL needToCheckDeviceClaimed;
@@ -59,6 +63,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.backgroundTask = UIBackgroundTaskInvalid;
     
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -92,7 +98,9 @@
     self.wifiView.layer.borderWidth = 1.0f;
     
 //    self.cancelSetupButton. // customize color too
-    self.self.cancelSetupButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.self.cancelSetupButton.titleLabel.font.pointSize];
+    self.cancelSetupButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.self.cancelSetupButton.titleLabel.font.pointSize];
+    
+    
 
 }
 
@@ -131,6 +139,8 @@
     
     self.spinner.image = [self.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.spinner.tintColor = [UIColor blackColor];
+    [self scheduleBackgroundTask];
+
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -139,6 +149,40 @@
     
     [self restartDeviceDetectionTimer];
 }
+
+-(void)checkDeviceConnectionForNotification:(NSTimer *)timer
+{
+    if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+    {
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.alertAction = @"Connected";
+        localNotification.alertBody = @"Your phone has connected to Photon. Tap to return to Setup app";
+        localNotification.alertAction = @"open"; // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+        localNotification.soundName = UILocalNotificationDefaultSoundName; // play default sound
+        localNotification.fireDate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        [timer invalidate];
+    }
+    
+}
+
+-(void)scheduleBackgroundTask
+{
+    self.backgroundTaskTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                                target:self
+                                                              selector:@selector(checkDeviceConnectionForNotification:)
+                                                              userInfo:nil
+                                                               repeats:YES];
+    
+    
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        NSLog(@"Background handler called. Not running background tasks anymore.");
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
+    
+}
+
 
 
 
