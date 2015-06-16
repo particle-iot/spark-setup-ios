@@ -24,7 +24,7 @@
 @property (nonatomic, strong) NSString *brandName;
 @property (nonatomic, strong) UIImage *brandImage;
 @property (nonatomic, strong) UIColor *brandImageBackgroundColor;
-@property (nonatomic, strong) NSString *welcomeVideoFilename;
+@property (nonatomic, strong) NSString *instructionalVideoFilename;
 
 @property (nonatomic, strong) NSString *modeButtonName;
 @property (nonatomic, strong) NSString *listenModeLEDColorName;

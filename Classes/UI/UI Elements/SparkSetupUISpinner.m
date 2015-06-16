@@ -39,16 +39,21 @@
 
 -(void)startAnimating
 {
-    self.hidden = NO;
-    CABasicAnimation *rotation;
-    rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    rotation.fromValue = [NSNumber numberWithFloat:0];
-    rotation.toValue = [NSNumber numberWithFloat:(2*M_PI)];
-    rotation.duration = 1.1; // Speed
-    rotation.repeatCount = HUGE_VALF; // Repeat forever. Can be a finite number.
-    [self.layer addAnimation:rotation forKey:@"Spin"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        self.hidden = NO;
+        CABasicAnimation *rotation;
+        rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+        rotation.fromValue = [NSNumber numberWithFloat:0];
+        rotation.toValue = [NSNumber numberWithFloat:(2*M_PI)];
+        rotation.duration = 1.11; // Speed
+        rotation.repeatCount = HUGE_VALF; // Repeat forever. Can be a finite number.
+        [self.layer addAnimation:rotation forKey:@"Spin"];
+    });
 }
 
+                   
+                   
 
 -(void)stopAnimating
 {

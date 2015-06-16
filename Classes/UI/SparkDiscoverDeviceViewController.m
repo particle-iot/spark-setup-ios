@@ -17,6 +17,7 @@
 #import "SparkSetupUILabel.h"
 //#import "UIViewController+SparkSetupCommManager.h"
 #import "SparkSetupUIElements.h"
+#import "SparkSetupVideoViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate>
@@ -37,6 +38,7 @@
 @property (nonatomic) BOOL gotOwnershipInfo;
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *productImageHeight;
+@property (weak, nonatomic) IBOutlet SparkSetupUIButton *showMeHowButton;
 
 // new background local notification feature
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
@@ -65,6 +67,7 @@
     [super viewDidLoad];
     
     self.backgroundTask = UIBackgroundTaskInvalid;
+    self.showMeHowButton.hidden = [SparkSetupCustomization sharedInstance].instructionalVideoFilename ? NO : YES;
     
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -168,6 +171,7 @@
 
 -(void)scheduleBackgroundTask
 {
+    [self.backgroundTaskTimer invalidate];
     self.backgroundTaskTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                                                 target:self
                                                               selector:@selector(checkDeviceConnectionForNotification:)
@@ -197,12 +201,8 @@
             [self.checkConnectionTimer invalidate];
             
             // UI activity indicator
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.wifiSignalImageView.hidden = YES;
-                [self.spinner startAnimating];
-                
-                
-            });
+            self.wifiSignalImageView.hidden = YES;
+            [self.spinner startAnimating];
             
             // Start connection command chain process with a small delay
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -231,6 +231,12 @@
         vc.deviceID = self.detectedDeviceID;
         vc.needToClaimDevice = self.needToCheckDeviceClaimed;
     }
+    else if ([segue.identifier isEqualToString:@"video"])
+    {
+        SparkSetupVideoViewController *vc = segue.destinationViewController;
+        vc.videoFilePath = [SparkSetupCustomization sharedInstance].instructionalVideoFilename;
+    }
+    
 }
 
 
@@ -501,10 +507,6 @@
 }
 
 */
-
-- (IBAction)showMeHowButtonTapped:(id)sender {
-}
-
 
 
 

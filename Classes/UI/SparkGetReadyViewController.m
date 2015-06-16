@@ -21,8 +21,6 @@
 @interface SparkGetReadyViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (weak, nonatomic) IBOutlet UIButton *readyButton;
-@property (weak, nonatomic) IBOutlet UIView *videoView;
-@property (strong, nonatomic) MPMoviePlayerController *videoPlayer;
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 
 @property (weak, nonatomic) IBOutlet UILabel *loggedInLabel;
@@ -49,7 +47,6 @@
     self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
     self.loggedInLabel.alpha = 0.85;
     self.logoutButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.logoutButton.titleLabel.font.pointSize];
-    self.videoView.translatesAutoresizingMaskIntoConstraints = NO;
 
     
 }
@@ -57,17 +54,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-    [self.videoPlayer stop];
-    [self.videoPlayer.view removeFromSuperview];
-    self.videoPlayer = nil;
-    
-    
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-
     
 }
 
@@ -92,31 +78,6 @@
             [self.view layoutIfNeeded];
         }];
     }
-    NSString *videoFileName = [SparkSetupCustomization sharedInstance].welcomeVideoFilename;
-    if (videoFileName)
-    {
-        NSArray *videoFilenameArr = [videoFileName componentsSeparatedByString:@"."];
-        NSString *path = [[NSBundle mainBundle] pathForResource:videoFilenameArr[0] ofType:videoFilenameArr[1]];
-        
-        if (path)
-            self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
-        if (self.videoPlayer)
-        {
-            self.videoPlayer.shouldAutoplay = YES;
-            self.videoPlayer.view.frame = self.videoView.bounds;
-            self.videoPlayer.repeatMode = MPMovieRepeatModeOne;
-            self.videoPlayer.fullscreen = NO;
-            self.videoPlayer.movieSourceType = MPMovieSourceTypeFile;
-            self.videoPlayer.scalingMode = MPMovieScalingModeAspectFit;
-            self.videoPlayer.controlStyle = MPMovieControlStyleNone;
-            [self.videoView addSubview:self.videoPlayer.view];
-            [self.videoPlayer play];
-            self.videoView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-            self.videoView.layer.borderWidth = 0.5;
-
-        }
-    }
-
     
 
 }
@@ -131,8 +92,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [self.videoPlayer stop];
-    
     if ([[segue identifier] isEqualToString:@"discover"])
     {
         SparkDiscoverDeviceViewController *vc = [segue destinationViewController];
