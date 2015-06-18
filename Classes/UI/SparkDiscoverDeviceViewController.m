@@ -51,6 +51,7 @@
 @property (nonatomic) BOOL deviceClaimedByUser;
 @property (nonatomic, strong) UIAlertView *changeOwnershipAlertView;
 @property (weak, nonatomic) IBOutlet UIView *wifiView;
+@property (nonatomic) BOOL didGoToWifiListScreen;
 
 @end
 
@@ -65,6 +66,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.didGoToWifiListScreen = NO;
     
     self.backgroundTask = UIBackgroundTaskInvalid;
     self.showMeHowButton.hidden = [SparkSetupCustomization sharedInstance].instructionalVideoFilename ? NO : YES;
@@ -73,17 +75,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(viewDidAppear:)
                                                  name:UIApplicationDidBecomeActiveNotification object:nil];
-    
-
-
-//    self.productImageView.image = [SparkSetupCustomization sharedInstance].deviceImage;
-    
-
-    // apply tint to spinner
-    //][self.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//    self.spinner.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
-    //    self.spinner.color = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
-
     
     // customize logo
     self.brandImage.image = [SparkSetupCustomization sharedInstance].brandImage;
@@ -116,12 +107,11 @@
 
 -(void)resetWifiSignalIconWithDelay
 {
-    // TODO: this is a hack
+    // TODO: this is a little bit of a hack
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        self.wifiSignalImageView.image = [UIImage imageNamed:@"iosSettingsWifi" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         [self.spinner stopAnimating];
         self.wifiSignalImageView.hidden = NO;
-        
     });
 }
 
@@ -133,6 +123,18 @@
     
     self.checkConnectionTimer = [NSTimer scheduledTimerWithTimeInterval:2.5f target:self selector:@selector(checkDeviceWifiConnection:) userInfo:nil repeats:YES];
 }
+
+-(void)goToWifiListScreen
+{
+    if (self.didGoToWifiListScreen == NO)
+    {
+        self.didGoToWifiListScreen = YES;
+        [self performSegueWithIdentifier:@"select_network" sender:self];
+    }
+}
+
+
+
 
 
 -(void)viewWillAppear:(BOOL)animated
@@ -180,7 +182,7 @@
     
     
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        NSLog(@"Background handler called. Not running background tasks anymore.");
+//        NSLog(@"Background handler called. Not running background tasks anymore.");
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
@@ -355,7 +357,7 @@
             else
             {
                 // no need to set claim code because the device is owned by current user
-                [self performSegueWithIdentifier:@"select_network" sender:self];
+                [self goToWifiListScreen];
             }
             
         }
@@ -373,8 +375,8 @@
                 [self setDeviceClaimCode];
         }
         else
-            [self performSegueWithIdentifier:@"select_network" sender:self];
-            
+            [self goToWifiListScreen];
+        
     }
     
     
@@ -394,7 +396,7 @@
         else
         {
             self.needToCheckDeviceClaimed = NO;
-            [self performSegueWithIdentifier:@"select_network" sender:self];
+            [self goToWifiListScreen];
         }
     }
 }
@@ -456,7 +458,7 @@
         {
             NSLog(@"Set device claim code %@",self.claimCode);
             // finished - segue
-            [self performSegueWithIdentifier:@"select_network" sender:self];
+            [self goToWifiListScreen];
 
         }
     }];
