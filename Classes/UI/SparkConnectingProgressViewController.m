@@ -106,6 +106,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     self.currentStateView.label.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
     self.currentStateView.label.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
     [self startAnimatingSpinner:self.currentStateView.spinner];
+    [self tintConnectionProgressStateSpinner];
     
 }
 
