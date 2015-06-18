@@ -19,7 +19,7 @@
 + (instancetype)sharedInstance;
 
 @property (nonatomic, strong) NSString *deviceName;
-@property (nonatomic, strong) UIImage *deviceImage;
+//@property (nonatomic, strong) UIImage *deviceImage; // deprecated
 
 @property (nonatomic, strong) NSString *brandName;
 @property (nonatomic, strong) UIImage *brandImage;
@@ -49,11 +49,11 @@
 
 @property (nonatomic, strong) UIColor *elementBackgroundColor;  // Buttons/spinners background color
 // TODO: change to:
-@property (nonatomic, strong) UIColor *buttonBackgroundColor; // new
+//@property (nonatomic, strong) UIColor *buttonBackgroundColor; // new
 
 @property (nonatomic, strong) UIColor *elementTextColor;        // Buttons text color
 // TODO: change to:
-@property (nonatomic, strong) UIColor *buttonTextColor; // new
+//@property (nonatomic, strong) UIColor *buttonTextColor; // new
 @property (nonatomic) BOOL tintSetupImages; // new // this will tint the checkmark/warning/ wifi symbols
 
 
@@ -68,8 +68,6 @@
 
 @property (nonatomic, assign) BOOL organization;                 // enable invite codes, other APIs
 @property (nonatomic, strong) NSString *organizationName;        // organizational name for API endpoint URL
-//@property (nonatomic, strong) NSString *getReadyVideoFilePath;   // video in get ready screen
-//@property (nonatomic, strong) NSString *discoverVideoFilePath; // video in device discovery screen
 
 
 @end
