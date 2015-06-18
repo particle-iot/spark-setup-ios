@@ -25,10 +25,27 @@ NSInteger const kMaxRetriesConnectAP = 5;
 NSInteger const kMaxRetriesReachability = 5;
 NSInteger const kWaitForCloudConnectionTime = 3;
 
+typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
+    SparkSetupConnectionProgressStateConfigureCredentials = 0,
+    SparkSetupConnectionProgressStateConnectToWifi,
+    SparkSetupConnectionProgressStateWaitForCloudConnection,
+    SparkSetupConnectionProgressStateCheckInternetConnectivity,
+    SparkSetupConnectionProgressStateVerifyDeviceOwnership,
+    __SparkSetupConnectionProgressStateLast
+};
 
-@interface SparkConnectingProgressViewController () <UITableViewDataSource, UITableViewDelegate>//, UIAlertViewDelegate>
+@interface SparkConnectingProgressView : UIView
+@property (nonatomic, weak) IBOutlet UILabel *label;
+@property (nonatomic, weak) IBOutlet UIImageView *spinner;
+@end
+
+@implementation SparkConnectingProgressView
+
+@end
+
+
+@interface SparkConnectingProgressViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *ssidLabel;
-@property (weak, nonatomic) IBOutlet UITableView *connectingProgressTableView;
 @property (nonatomic, strong) NSMutableArray *connectionProgressTextList;
 @property (weak, nonatomic) IBOutlet UILabel *deviceIsConnectingLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
@@ -44,8 +61,12 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 @property (nonatomic) NSInteger connectAPRetries;
 @property (nonatomic) NSInteger disconnectRetries;
 @property (nonatomic, strong) UIAlertView *errorAlertView;
-@property (nonatomic) BOOL connectAPsent, disconnectedFromDevice;
+//@property (nonatomic) BOOL connectAPsent, disconnectedFromDevice;
 @property (nonatomic) SparkSetupResult setupResult;
+@property (nonatomic) SparkSetupConnectionProgressState currentState;
+@property (nonatomic, strong) SparkConnectingProgressView *currentStateView;
+@property (strong, nonatomic) IBOutletCollection(SparkConnectingProgressView) NSArray *progressViews;
+
 @end
 
 @implementation SparkConnectingProgressViewController
@@ -53,10 +74,9 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.ssidLabel.text = self.networkName;
-    self.connectingProgressTableView.delegate = self;
-    self.connectingProgressTableView.dataSource = self;
+    self.currentState = 0;
     
+    self.ssidLabel.text = self.networkName;
     self.connectionProgressTextList = [[NSMutableArray alloc] init];
     
     // set logo
@@ -65,18 +85,28 @@ NSInteger const kWaitForCloudConnectionTime = 3;
     
     self.hostReachable = NO;
     self.apiReachable = NO;
-    self.hostReachability = [Reachability reachabilityWithHostName:@"www.spark.io"]; //TODO: change to https://api...
+    self.hostReachability = [Reachability reachabilityWithHostName:@"api.spark.io"]; //TODO: change to https://api...
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     [self.hostReachability startNotifier];
     
-    self.connectAPsent = NO;
-    self.disconnectedFromDevice = NO;
+//    self.connectAPsent = NO;
+//    self.disconnectedFromDevice = NO;
 
     if ([SparkSetupCustomization sharedInstance].tintSetupImages)
     {
         self.wifiSymbolImageView.image = [self.wifiSymbolImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         self.wifiSymbolImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.currentStateView = self.progressViews[self.currentState];
+    self.currentStateView.hidden = NO;
+    self.currentStateView.label.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+    self.currentStateView.label.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+    [self startAnimatingSpinner:self.currentStateView.spinner];
+    
 }
 
 
@@ -121,64 +151,45 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 
 
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)setCurrentConnectionProgressStateError:(BOOL)isError
 {
-    return 36.0;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self stopAnimatingSpinner:self.currentStateView.spinner];
+        NSString *stateImageName = (isError) ? @"x" : @"checkmark";
+        self.currentStateView.spinner.image = [UIImage imageNamed:stateImageName inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+        self.currentStateView.spinner.image = [self.currentStateView.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [self tintConnectionProgressStateSpinner];
+    });
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifer = @"connectingCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer forIndexPath:indexPath];
-    
-    // Using a cell identifier will allow your app to reuse cells as they come and go from the screen.
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifer];
-    }
-    
-   
-    NSString *text = self.connectionProgressTextList[indexPath.row];
-    cell.textLabel.text = text;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:cell.textLabel.font.pointSize]; //+[SparkSetupCustomization sharedInstance].fontSizeOffset];
-    
-    if (indexPath.row+1 == self.connectionProgressTextList.count)
-    {
- 
-        cell.imageView.image = [UIImage imageNamed:@"spinner_big" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
-        [self startAnimatingSpinner:cell.imageView];
-        CGSize itemSize = CGSizeMake(30, 30);
-        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
-        CGRect imageRect = CGRectMake(0, 0, itemSize.width, itemSize.height);
-        [cell.imageView.image drawInRect:imageRect];
-        cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor; //TODO: add custom point for this?
 
+-(void)tintConnectionProgressStateSpinner
+{
+    if ([SparkSetupCustomization sharedInstance].tintSetupImages)
+    {
+        self.currentStateView.spinner.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;
     }
     else
     {
-        [self stopAnimatingSpinner:cell.imageView];
-        CGRect f = cell.imageView.frame;
-        f.origin.x -= 2;
-        cell.imageView.hidden = NO;
-        cell.imageView.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
-        cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
-        
+        self.currentStateView.spinner.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
     }
-    
-    cell.textLabel.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
-    return cell;
+
 }
 
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(void)nextConnectionProgressState
 {
-    return self.connectionProgressTextList.count;
+    [self stopAnimatingSpinner:self.currentStateView.spinner];
+    self.currentStateView.spinner.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+    [self tintConnectionProgressStateSpinner];
+    self.currentState++;
+    if (self.currentState < __SparkSetupConnectionProgressStateLast)
+    {
+        self.currentStateView = self.progressViews[self.currentState];
+        self.currentStateView.hidden = NO;
+        self.currentStateView.label.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+        self.currentStateView.label.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+        [self startAnimatingSpinner:self.currentStateView.spinner];
+    }
 }
 
 
@@ -190,7 +201,6 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self updateProgressStep:@"Configure device Wi-fi credentials"];
         [self configureDeviceNetworkCredentials];
     });
                    
@@ -200,7 +210,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 -(void)finishSetupWithResult:(SparkSetupResult)result
 {
     self.setupResult = result;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self performSegueWithIdentifier:@"done" sender:self];
     });
@@ -226,17 +236,13 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 //        NSLog(@"configureAP sent");
         if ((error) || ([responseCode intValue]!=0))
         {
-            if (!self.connectAPsent)
+            if (self.currentState == SparkSetupConnectionProgressStateConfigureCredentials)
             {
                 self.configureRetries++;
                 if (self.configureRetries >= kMaxRetriesConfigureAP-1)
                 {
-                    [self setStateForCellOfProgressStep:0 error:YES];
+                    [self setCurrentConnectionProgressStateError:YES];
                     [self finishSetupWithResult:SparkSetupResultFailureConfigure];
-    //                self.errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    //                self.errorAlertView.delegate = self;
-    //                [self.errorAlertView show];
-                    
                 }
                 else
                 {
@@ -246,9 +252,9 @@ NSInteger const kWaitForCloudConnectionTime = 3;
         }
         else
         {
-            if (!self.connectAPsent)
+            if (self.currentState == SparkSetupConnectionProgressStateConfigureCredentials)
             {
-                [self updateProgressStep:@"Connect to Wi-fi network"];
+                [self nextConnectionProgressState];
                 self.connectAPRetries = 0;
                 self.disconnectRetries = 0;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -268,30 +274,11 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 {
     // --- Connect-AP ---
     SparkSetupCommManager *managerForConnect = [[SparkSetupCommManager alloc] init];
-    self.connectAPsent = YES;
-    if (!self.disconnectedFromDevice)
+//    self.connectAPsent = YES;
+//    if (!self.disconnectedFromDevice)
+    if (self.currentState == SparkSetupConnectionProgressStateConnectToWifi)
+
         [managerForConnect connectAP:^(id responseCode, NSError *error) {
-            //        if ((error) || ([responseCode intValue]!=0))
-            //        {
-            //            NSLog(@"connectAP response %ld error details %@", [responseCode intValue],error.description);
-            //            if (self.connectRetries++ >= kMaxRetriesConnectAP-1)
-            //            {
-            //                [self setStateForCellOfProgressStep:1 error:YES];
-            //                self.errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            //                [self.errorAlertView show];
-            //                self.errorAlertView.delegate = self;
-            //            }
-            //            else
-            //                [self connectDeviceToNetwork];
-            //        }
-            //        else
-            //        {
-            // ignoring errors on connect-ap per Mat request (device drops connection before close socket)
-            // TODO: something less hacky to disregard dual callback (check why)
-            //        if (!self.connectAPsent)
-            //        {
-//            NSLog(@"connectAP sent");
-            
             while (([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix]) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
             {
                 [NSThread sleepForTimeInterval:2.0];
@@ -303,11 +290,8 @@ NSInteger const kWaitForCloudConnectionTime = 3;
             {
                 if (self.connectAPRetries++ >= kMaxRetriesConnectAP)
                 {
-                    [self setStateForCellOfProgressStep:1 error:YES];
+                    [self setCurrentConnectionProgressStateError:YES];
                     [self finishSetupWithResult:SparkSetupResultFailureCannotDisconnectFromDevice];
-//                    self.errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed disconnecting from device" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//                    self.errorAlertView.delegate = self;
-//                    [self.errorAlertView show];
                 }
                 else
                 {
@@ -317,15 +301,12 @@ NSInteger const kWaitForCloudConnectionTime = 3;
             }
             else
             {
-                if (!self.disconnectedFromDevice) // assuring one time call (TODO: find out why this gets called many times)
+                if (self.currentState == SparkSetupConnectionProgressStateConnectToWifi)
                 {
-                    self.disconnectedFromDevice = YES;
-//                    NSLog(@"OK disconnected from photon, continuing after %ld x %ld tries",(long)self.connectAPRetries,(long)self.disconnectRetries);
-                    [self updateProgressStep:@"Wait for device cloud connection"];
+                    [self nextConnectionProgressState];
                     [self waitForCloudConnection];
                 }
             }
-            // --- Wait ---
         }];
     
 }
@@ -333,11 +314,8 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 
 -(void)waitForCloudConnection
 {
-    
-//    NSLog(@"Waiting for 5 seconds");
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kWaitForCloudConnectionTime * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self updateProgressStep:@"Check for internet connectivity"];
+        [self nextConnectionProgressState];
         [self checkForInternetConnectivity];
 
     });
@@ -382,26 +360,21 @@ NSInteger const kWaitForCloudConnectionTime = 3;
         // check that SSID disappears here and didn't come back
         if (self.needToClaimDevice)
         {
-            [self updateProgressStep:@"Verify product ownership"];
+            [self nextConnectionProgressState];
             [self checkDeviceIsClaimed];
         }
         else
         {
             // finished
-            [self setStateForCellOfProgressStep:3 error:NO];
+            [self setCurrentConnectionProgressStateError:NO];
             [self finishSetupWithResult:SparkSetupResultSuccessUnknown];
             
         }
     }
     else
     {
-        [self setStateForCellOfProgressStep:3 error:YES];
+        [self setCurrentConnectionProgressStateError:YES];
         [self finishSetupWithResult:SparkSetupResultFailureCannotDisconnectFromDevice];
-//        self.errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Cannot re-connect to the internet" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        self.errorAlertView.delegate = self;
-//        [self.errorAlertView show];
-        
-//        [self.navigationController popViewControllerAnimated:YES];
     }
     
 }
@@ -423,7 +396,6 @@ NSInteger const kWaitForCloudConnectionTime = 3;
                     deviceClaimed = YES;
                 }
             }
-//            NSLog(@"--------");
         }
         
         if ((error) || (!deviceClaimed))
@@ -432,11 +404,8 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 //            NSLog(@"Claim try %ld",(long)self.claimRetries);
             if (self.claimRetries >= kMaxRetriesClaim-1)
             {
-                [self setStateForCellOfProgressStep:4 error:YES];
+                [self setCurrentConnectionProgressStateError:YES];
                 [self finishSetupWithResult:SparkSetupResultFailureClaiming];
-//                self.errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not verify device ownership." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//                self.errorAlertView.delegate = self;
-//                [self.errorAlertView show];
             }
             else
             {
@@ -455,9 +424,7 @@ NSInteger const kWaitForCloudConnectionTime = 3;
                 if (!error)
                 {
                     self.device = device;
-//                    NSLog(@"claimed device: %@",device);
-//                    self.doneButton.enabled = YES;
-                    [self setStateForCellOfProgressStep:4 error:NO];
+                    [self nextConnectionProgressState];
                     
                     self.setupResult = SparkSetupResultSuccess;
                     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
@@ -467,13 +434,8 @@ NSInteger const kWaitForCloudConnectionTime = 3;
                 }
                 else
                 {
-                    [self setStateForCellOfProgressStep:4 error:YES];
+                    [self setCurrentConnectionProgressStateError:YES];
                     [self finishSetupWithResult:SparkSetupResultFailureClaiming];
-
-//                    self.errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Could not get owned device from cloud.\n\n(%@)",error.localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//                    self.errorAlertView.delegate = self;
-//                    [self.errorAlertView show];
-                    
                 }
             }];
 
@@ -482,22 +444,6 @@ NSInteger const kWaitForCloudConnectionTime = 3;
     }];
     
 }
-
-
--(void)updateProgressStep:(NSString *)stepText
-{
-    [self setStateForCellOfProgressStep:self.connectionProgressTextList.count error:NO]; // set V to the previous cell
-    // check that SSID disappears here and didn't come back
-    [self.connectionProgressTextList addObject:stepText];
-//    NSLog(@" + updateProgressStep: %@",stepText);
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.connectingProgressTableView reloadData];
-        [self.connectingProgressTableView setNeedsDisplay];
-    });
-
-}
-
 
 
 
@@ -521,34 +467,6 @@ NSInteger const kWaitForCloudConnectionTime = 3;
 }
 
 
--(void)setStateForCellOfProgressStep:(NSInteger)row error:(BOOL)error
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-        UITableViewCell *cell = [self.connectingProgressTableView cellForRowAtIndexPath:indexPath];
-        [self stopAnimatingSpinner:cell.imageView];
-        cell.imageView.hidden = NO;
-        if (error)
-            cell.imageView.image = [UIImage imageNamed:@"x" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
-        else
-            cell.imageView.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
-        cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        if ([SparkSetupCustomization sharedInstance].tintSetupImages)
-        {
-            cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;
-        }
-        else
-        {
-            cell.imageView.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
-        }
-        
-        [cell setNeedsDisplay];
-
-    });
-}
-
-
-// TODO: try again to make a custom cell with SparkSetupUISpinner + imageview + label + autolayout and remove this dup code-
 -(void)startAnimatingSpinner:(UIImageView *)spinner
 {
     spinner.hidden = NO;
