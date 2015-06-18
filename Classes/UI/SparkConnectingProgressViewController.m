@@ -74,7 +74,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.currentState = 0;
+    self.currentState = SparkSetupConnectionProgressStateConfigureCredentials;
     
     self.ssidLabel.text = self.networkName;
     self.connectionProgressTextList = [[NSMutableArray alloc] init];
