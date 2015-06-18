@@ -1,21 +1,21 @@
 Pod::Spec.new do |s|
     s.name             = "SparkSetup"
-    s.version          = "0.1.4"
-    s.summary          = "Spark Device Setup library for integrating soft AP setup process of Spark devices in your app"
+    s.version          = "0.2.0"
+    s.summary          = "Particle iOS Device Setup library for easy integration of setup process for Particle devices in your app"
     s.description      = <<-DESC
-    Spark Device Setup library for integrating setup process of Spark devices in your app
-    This library will allow you to easily invoke a standalone setup wizard UI for setting up
-    Spark devices from within your app. Setup UI look & feel can be easily customized with custom brand
-    logos/colors/fonts/texts and instructional video.
-    DESC
+                        Particle (formerly Spark) Device Setup library for integrating setup process of Particle devices in your app
+                        This library will allow you to easily invoke a standalone setup wizard UI for setting up
+                        Particle devices (photon) from within your app. Setup UI look & feel can be easily customized with custom brand
+                        logos/colors/fonts/texts and instructional video.
+                        DESC
     s.homepage         = "https://github.com/spark/spark-setup-ios"
-    # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-    s.license          = 'LGPL v3'
-    s.author           = { "Spark" => "ido@spark.io" }
+    s.screenshots      = "http://i58.tinypic.com/15yhdeb.jpg"
+    s.license          = 'Apache 2.0'
+    s.author           = { "Particle" => "ido@particle.io" }
     s.source           = { :git => "https://github.com/spark/spark-setup-ios.git", :tag => s.version.to_s }
-    # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+    s.social_media_url = 'https://twitter.com/particle'
 
-    s.platform     = :ios, '7.1'
+    s.platform     = :ios, '8.0'
     s.requires_arc = true
 
     s.public_header_files = 'Classes/*.h'

@@ -1,12 +1,16 @@
 <p align="center" >
-<img src="https://s3.amazonaws.com/spark-website/spark.png" alt="Spark" title="Spark">
+<img src="http://oi60.tinypic.com/116jd51.jpg" alt="Particle" title="Particle">
 </p>
 
 # Spark Device Setup library (beta)
-The Spark Device Setup library is meant for integrating the initial setup process of Spark devices in your app.
+The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connect products
-powered by a Spark Photon/P0/P1. The setup UI can be easily customized by a customization proxy class available to the user
-that includes: look & feel, colors, fonts as well as custom brand logos and instructional video for your product.
+powered by a Photon/P0/P1. The setup UI can be easily customized by a customization proxy class available to the user
+that includes: look & feel, colors, fonts as well as custom brand logos and instructional video for your product. There are good defaults if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
+
+As you may have heard, the wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used Smart Config, the Photon uses what we call “soft AP” — the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
+
+With the Device Setup library, you make one simple call from your app, for example when the user hits a “setup my device” button, and a whole series of screens then guides the user through the soft AP setup process. When the process finishes, the user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
 
 <!---
 [![CI Status](http://img.shields.io/travis/spark/SparkSetup.svg?style=flat)](https://travis-ci.org/spark/SparkSetup)
@@ -15,21 +19,33 @@ that includes: look & feel, colors, fonts as well as custom brand logos and inst
 [![Platform](https://img.shields.io/cocoapods/p/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
 -->
 
+**Rebranding notice**
+
+Spark has been recently rebranded as Particle. 
+Code currently contains `SparkSetup` keyword as classes prefixes. this will soon be replaced with `ParticleDeviceSetup`. A new Cocoapod library will be published and current one will be depracated and point to the new one. This should not bother or affect your code in any way.
+
+**Beta notice**
+
+This library is still under development and is currently released as Beta, although tested, bugs and issues may be present, some code might require cleanups.
+
 ## Usage
 
 ### Basic
 Import `SparkSetup.h` in your view controller implementation file, and invoke the device setup wizard by:
-```Objective-C
+
+```objc
 SparkSetupMainController *setupController = [[SparkSetupMainController alloc] init];
 [self presentViewController:setupController animated:YES completion:nil];
 ```
 
-Alternatively if your app requires separation between the Spark cloud authentication process and the device setup process you can call:
-```Objective-C
+Alternatively if your app requires separation between the Particle cloud authentication process and the device setup process you can call:
+
+```objc
 SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithAuthenticationOnly:YES];
 [self presentViewController:setupController animated:YES completion:nil];
 ```
-This will invoke Spark Cloud authentication (login/signup/password recovery screens) only, 
+
+This will invoke Particle Cloud authentication (login/signup/password recovery screens) only 
 after user has successfully logged in or signed up, control will be returned to the calling app. 
 If an active user session already exists control will be returned immediately.
 
@@ -37,32 +53,30 @@ If an active user session already exists control will be returned immediately.
 ### Customization
 
 Customize setup look and feel by accessing the SparkSetupCustomization singleton appearance proxy `[SparkSetupCustomization sharedInstance]`
-and modify its properties. All properties are optional. 
+and modify its default properties. Modifying properties is optional. 
 
 #### Product/brand info:
 
-```Objective-C
+```objc
  NSString *deviceName;          // Device/product name 
- UIImage *deviceImage;          // Device/product image
-
- NSString *brandName;           // Your brand name
- UIImage *brandImage;           // Your brand logo to fit in header of setup wizard screens
+ NSString *brandName;                   // Your brand name
+ UIImage *brandImage;                   // Your brand logo to fit in header of setup wizard screens
  UIColor *brandImageBackgroundColor;    // brand logo background color
- NSString *welcomeVideoFilename;        // Welcome screen instructional video
+ NSString *instructionalVideoFilename;  // Instructional video shown when "show me how" button pressed
  NSString *appName;                     // Your setup app name
 ```
 
-#### Technical info:
+#### Technical data:
 
-```Objective-C
+```objc
  NSString *modeButtonName;              // The mode button name on your product
  NSString *listenModeLEDColorName;      // The color of the LED when product is in listen mode
  NSString *networkNamePrefix;           // The SSID prefix of the Soft AP Wi-Fi network of your product while in listen mode
 ```
 
-#### Links for legal/technical stuff:
+#### Links for legal/technical info:
 
-```Objective-C
+```objc
  NSURL *termsOfServiceLinkURL; // URL for terms of service of the app/device usage
  NSURL *privacyPolicyLinkURL;  // URL for privacy policy of the app/device usage
  NSURL *forgotPasswordLinkURL; // URL for user password reset (non-organization setup app only)
@@ -76,7 +90,7 @@ and modify its properties. All properties are optional.
 
 #### Look & feel:
 
-```Objective-C
+```objc
  UIColor *pageBackgroundColor;     // setup screens background color
  UIImage *pageBackgroundImage;     // optional background image for setup screens
  UIColor *normalTextColor;         // normal text color
@@ -86,11 +100,12 @@ and modify its properties. All properties are optional.
  NSString *normalTextFontName;     // Customize setup font - include OTF/TTF file in project
  NSString *boldTextFontName;       // Customize setup font - include OTF/TTF file in project
  CGFloat fontSizeOffset;           // Set offset of font size so small/big fonts can be fine-adjusted
+ BOOL tintSetupImages;             // This will tint the checkmark/warning/wifi symbols in the setup process to match text color (useful for dark backgrounds)
 ```
 
 #### Organization:
 
-```Objective-C
+```objc
  BOOL organization;                 // enable organization mode - activation codes, other organizational APIs
  NSString *organizationName;        // organization name
 ```
@@ -99,14 +114,14 @@ and modify its properties. All properties are optional.
 
 You can get an active instance of `SparkDevice` by making your viewcontroller conform to protocol `<SparkSetupMainControllerDelegate>` when setup wizard completes:
 
-```Objective-C
+```objc
 -(void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
 ```
 method will be called, if `(result == SparkSetupMainControllerResultSuccess)` the device parameter will contain an active `SparkDevice` instance you can interact with
 using the [Spark Cloud SDK](https://cocoapods.org/pods/Spark-SDK).
 
 #### Support for Swift projects
-To use SparkSetup from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), 
+To use Particle Device Setup library from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), 
 also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on this matter.
 
 ### Example
@@ -120,14 +135,13 @@ If Spark Device Setup library installation completed successfully - you should b
 
 ## Requirements / limitations
 
-iOS 7.1+ supported
-
-Currently setup wizard displays on portait mode only.
+- iOS 8.0 and up supported
+- Currently setup wizard displays on portait mode only.
+- XCode 6.0 and up is required
 
 ## Installation
 
-Spark-Setup is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+Particle Device Setup library is available through [CocoaPods](http://cocoapods.org) under the pod name `SparkSetup`. To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "SparkSetup"
@@ -143,8 +157,8 @@ pod "SparkSetup"
 
 ## Maintainers
 
-- [Ido Kleinman](https:/www.github.com/idokleinman)
+- [Ido Kleinman](https://www.github.com/idokleinman)
 
 ## License
 
-SparkSetup is available under the LGPL v3 license. See the LICENSE file for more info.
+Particle Device Setup library is available under the Apache license 2.0. See the LICENSE file for more info.
