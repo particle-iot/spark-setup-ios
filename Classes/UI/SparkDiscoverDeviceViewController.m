@@ -200,15 +200,18 @@
         {
             [self.checkConnectionTimer invalidate];
             
-            // UI activity indicator
-            self.wifiSignalImageView.hidden = YES;
-            [self.spinner startAnimating];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                // UI activity indicator
+                self.wifiSignalImageView.hidden = YES;
+                [self.spinner startAnimating];
+            });
             
             // Start connection command chain process with a small delay
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self getDeviceID];
             });
-
+            
         }
     });
 }

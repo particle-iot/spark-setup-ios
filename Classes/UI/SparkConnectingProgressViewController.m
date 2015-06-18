@@ -63,7 +63,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 @property (nonatomic, strong) UIAlertView *errorAlertView;
 //@property (nonatomic) BOOL connectAPsent, disconnectedFromDevice;
 @property (nonatomic) SparkSetupResult setupResult;
-@property (nonatomic) SparkSetupConnectionProgressState currentState;
+@property (atomic) SparkSetupConnectionProgressState currentState;
 @property (nonatomic, strong) SparkConnectingProgressView *currentStateView;
 @property (strong, nonatomic) IBOutletCollection(SparkConnectingProgressView) NSArray *progressViews;
 
@@ -157,7 +157,6 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
         [self stopAnimatingSpinner:self.currentStateView.spinner];
         NSString *stateImageName = (isError) ? @"x" : @"checkmark";
         self.currentStateView.spinner.image = [UIImage imageNamed:stateImageName inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
-        self.currentStateView.spinner.image = [self.currentStateView.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [self tintConnectionProgressStateSpinner];
     });
 }
@@ -165,6 +164,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 
 -(void)tintConnectionProgressStateSpinner
 {
+    self.currentStateView.spinner.image = [self.currentStateView.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     if ([SparkSetupCustomization sharedInstance].tintSetupImages)
     {
         self.currentStateView.spinner.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;
@@ -178,18 +178,25 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 
 -(void)nextConnectionProgressState
 {
-    [self stopAnimatingSpinner:self.currentStateView.spinner];
-    self.currentStateView.spinner.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
-    [self tintConnectionProgressStateSpinner];
-    self.currentState++;
-    if (self.currentState < __SparkSetupConnectionProgressStateLast)
-    {
-        self.currentStateView = self.progressViews[self.currentState];
-        self.currentStateView.hidden = NO;
-        self.currentStateView.label.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
-        self.currentStateView.label.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
-        [self startAnimatingSpinner:self.currentStateView.spinner];
-    }
+    NSLog(@"nextConnectionProgressState called, current state: %ld",(long)self.currentState);
+    
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self stopAnimatingSpinner:self.currentStateView.spinner];
+        self.currentStateView.spinner.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+        [self tintConnectionProgressStateSpinner];
+        self.currentState++;
+        if (self.currentState < __SparkSetupConnectionProgressStateLast)
+        {
+            self.currentStateView = self.progressViews[self.currentState];
+            self.currentStateView.hidden = NO;
+            self.currentStateView.label.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+            self.currentStateView.label.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+            [self tintConnectionProgressStateSpinner];
+            [self startAnimatingSpinner:self.currentStateView.spinner];
+        }
+    });
 }
 
 
@@ -200,11 +207,9 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     self.configureRetries = 0;
 
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    dispatch_async(dispatch_get_main_queue(), ^{
         [self configureDeviceNetworkCredentials];
-    });
-                   
-   }
+    
+}
 
 
 -(void)finishSetupWithResult:(SparkSetupResult)result
@@ -226,14 +231,14 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     }
 }
 
--(void)configureDeviceNetworkCredentials
+-(void)configureDeviceNetworkCredentials // step 0
 {
     
     // --- Configure-AP ---
     __block SparkSetupCommManager *managerForConfigure = [[SparkSetupCommManager alloc] init];
     
     [managerForConfigure configureAP:self.networkName passcode:self.password security:self.security channel:self.channel completion:^(id responseCode, NSError *error) {
-//        NSLog(@"configureAP sent");
+        NSLog(@"configureAP sent");
         if ((error) || ([responseCode intValue]!=0))
         {
             if (self.currentState == SparkSetupConnectionProgressStateConfigureCredentials)
@@ -270,14 +275,14 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 
 
 
--(void)connectDeviceToNetwork
+-(void)connectDeviceToNetwork // step 1
 {
     // --- Connect-AP ---
     SparkSetupCommManager *managerForConnect = [[SparkSetupCommManager alloc] init];
 //    self.connectAPsent = YES;
 //    if (!self.disconnectedFromDevice)
     if (self.currentState == SparkSetupConnectionProgressStateConnectToWifi)
-
+    {
         [managerForConnect connectAP:^(id responseCode, NSError *error) {
             while (([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix]) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
             {
@@ -308,11 +313,12 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
                 }
             }
         }];
+    }
     
 }
 
 
--(void)waitForCloudConnection
+-(void)waitForCloudConnection // step 2
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kWaitForCloudConnectionTime * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self nextConnectionProgressState];
@@ -323,7 +329,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 
 }
 
--(void)checkForInternetConnectivity
+-(void)checkForInternetConnectivity // step 3
 {
     
     // --- reachability check ---
@@ -379,7 +385,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     
 }
 
--(void)checkDeviceIsClaimed
+-(void)checkDeviceIsClaimed // step 4
 {
     // --- Claim device ---
 //    [[SparkCloud sharedInstance] claimDevice:self.deviceID completion:^(NSError *error) {
@@ -483,7 +489,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 -(void)stopAnimatingSpinner:(UIImageView *)spinner
 
 {
-    spinner.hidden = YES;
+//    spinner.hidden = YES;
     [spinner.layer removeAllAnimations];
 }
 

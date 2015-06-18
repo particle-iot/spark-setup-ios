@@ -3044,7 +3044,7 @@
                                     <outlet property="spinner" destination="gd0-Tt-HYj" id="AMZ-u7-Fkg"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3W-op-31b" customClass="SparkConnectingProgressView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3W-op-31b" customClass="SparkConnectingProgressView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="HhJ-5t-crK">
@@ -4046,7 +4046,7 @@
                                     <action selector="logoutButtonTouched:" destination="Z3p-Ig-NCk" eventType="touchUpInside" id="p4W-4M-Tjf"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Connect-to-Power" translatesAutoresizingMaskIntoConstraints="NO" id="Dom-kg-WP6">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="connect-to-power" translatesAutoresizingMaskIntoConstraints="NO" id="Dom-kg-WP6">
                                 <rect key="frame" x="0.0" y="-94" width="392" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="b6Q-1R-18e">
@@ -5156,7 +5156,7 @@
         <image name="1" width="200" height="200"/>
         <image name="2" width="200" height="200"/>
         <image name="3" width="200" height="200"/>
-        <image name="Connect-to-Power" width="540" height="133"/>
+        <image name="connect-to-power" width="540" height="133"/>
         <image name="connect-to-wifi" width="300" height="72"/>
         <image name="iosCheckmark" width="16" height="16"/>
         <image name="iosSettingWifi" width="70" height="41"/>
