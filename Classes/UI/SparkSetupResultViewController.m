@@ -61,7 +61,7 @@
     [self disableKeyboardMovesViewUp];
     if (self.setupResult == SparkSetupResultSuccess)
     {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.75 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.nameDeviceTextField becomeFirstResponder];
         });
     }
@@ -146,6 +146,7 @@
 {
     if (textField == self.nameDeviceTextField)
     {
+        [textField resignFirstResponder];
         [self.device rename:textField.text completion:^(NSError *error) {
             [self doneButtonTapped:self];
         }];
@@ -177,7 +178,6 @@
                                                         object:nil
                                                       userInfo:userInfo];
 
-    
 }
 
 
@@ -191,16 +191,5 @@
 }
 
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
