@@ -31,6 +31,9 @@
     // set logo
     self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    
+    self.nameDeviceLabel.hidden = YES;
+    self.nameDeviceTextField.hidden = YES;
 
     // Trick to add an inset from the left of the text fields
     CGRect  viewRect = CGRectMake(0, 0, 10, 32);
@@ -55,7 +58,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
+    [self disableKeyboardMovesViewUp];
     if (self.setupResult == SparkSetupResultSuccess)
     {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.75 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
