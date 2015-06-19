@@ -25,13 +25,15 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *loggedInLabel;
 @property (weak, nonatomic) IBOutlet SparkSetupUILabel *instructionsLabel;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeight;
+
 
 // new claiming process
 @property (nonatomic, strong) NSString *claimCode;
 @property (nonatomic, strong) NSArray *claimedDevices;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeight;
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *logoutButton;
-
+@property (weak, nonatomic) IBOutlet UIButton *cancelSetupButton;
+@property (weak, nonatomic) IBOutlet SparkSetupUILabel *loggedInUserLabel;
 @end
 
 @implementation SparkGetReadyViewController
@@ -47,14 +49,24 @@
     self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
     self.loggedInLabel.alpha = 0.85;
     self.logoutButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.logoutButton.titleLabel.font.pointSize];
+    [self.logoutButton setTitleColor:[SparkSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
 
-    
+    //    self.cancelSetupButton. // customize color too
+    self.cancelSetupButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.self.cancelSetupButton.titleLabel.font.pointSize];
+    [self.cancelSetupButton setTitleColor:[SparkSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
+
+    self.loggedInLabel.text = [SparkCloud sharedInstance].loggedInUsername;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
+}
+
+- (IBAction)cancelSetup:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultUserCancel)}];
+
 }
 
 
@@ -71,7 +83,6 @@
     if (isiPhone4)
     {
         self.instructionsLabel.text = [NSString stringWithFormat:@"Scroll down for more instructions:\n%@",self.instructionsLabel.text];
-        _scrollViewHeight.constant = 100;
         [self.view setNeedsUpdateConstraints];
         
         [UIView animateWithDuration:0.25f animations:^{

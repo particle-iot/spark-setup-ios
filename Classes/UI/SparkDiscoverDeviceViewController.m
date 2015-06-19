@@ -21,37 +21,33 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate>
-@property (strong, nonatomic) NSTimer *checkConnectionTimer;
-//@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
-//@property (weak, nonatomic) IBOutlet UIButton *settingsLinkButton;
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSignalImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *networkNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *troubleShootingButton;
-
 @property (weak, nonatomic) IBOutlet UIImageView *brandImage;
 @property (strong, nonatomic) NSArray *scannedWifiList;
 @property (weak, nonatomic) IBOutlet UIButton *cancelSetupButton;
-@property (nonatomic, strong) NSString *detectedDeviceID;
 
-@property (nonatomic) BOOL gotPublicKey;
-@property (nonatomic) BOOL gotOwnershipInfo;
+
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productImageHeight;
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *showMeHowButton;
 
 // new background local notification feature
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @property (nonatomic, strong) NSTimer *backgroundTaskTimer;
 
-// new claiming process
+@property (strong, nonatomic) NSTimer *checkConnectionTimer;
+@property (atomic, strong) NSString *detectedDeviceID;
+@property (atomic) BOOL gotPublicKey;
+@property (atomic) BOOL gotOwnershipInfo;
+@property (atomic) BOOL didGoToWifiListScreen;
 @property (nonatomic) BOOL isDetectedDeviceClaimed;
 @property (nonatomic) BOOL needToCheckDeviceClaimed;
 @property (nonatomic) BOOL userAlreadyOwnsDevice;
 @property (nonatomic) BOOL deviceClaimedByUser;
 @property (nonatomic, strong) UIAlertView *changeOwnershipAlertView;
 @property (weak, nonatomic) IBOutlet UIView *wifiView;
-@property (nonatomic) BOOL didGoToWifiListScreen;
 
 @end
 
@@ -93,7 +89,8 @@
     
 //    self.cancelSetupButton. // customize color too
     self.cancelSetupButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.self.cancelSetupButton.titleLabel.font.pointSize];
-    
+    [self.cancelSetupButton setTitleColor:[SparkSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
+
     
 
 }
@@ -120,8 +117,9 @@
 //    NSLog(@"restartDeviceDetectionTimer called");
     [self.checkConnectionTimer invalidate];
     self.checkConnectionTimer = nil;
-    
-    self.checkConnectionTimer = [NSTimer scheduledTimerWithTimeInterval:2.5f target:self selector:@selector(checkDeviceWifiConnection:) userInfo:nil repeats:YES];
+
+    if (!self.didGoToWifiListScreen)
+        self.checkConnectionTimer = [NSTimer scheduledTimerWithTimeInterval:2.5f target:self selector:@selector(checkDeviceWifiConnection:) userInfo:nil repeats:YES];
 }
 
 -(void)goToWifiListScreen
@@ -161,7 +159,8 @@
     {
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         localNotification.alertAction = @"Connected";
-        localNotification.alertBody = @"Your phone has connected to Photon. Tap to return to Setup app";
+        NSString *notifText = [NSString stringWithFormat:@"Your phone has connected to %@. Tap to continue Setup.",[SparkSetupCustomization sharedInstance].deviceName];
+        localNotification.alertBody = notifText;
         localNotification.alertAction = @"open"; // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
         localNotification.soundName = UILocalNotificationDefaultSoundName; // play default sound
         localNotification.fireDate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
@@ -210,7 +209,7 @@
             });
             
             // Start connection command chain process with a small delay
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self getDeviceID];
             });
             
@@ -249,7 +248,8 @@
 {
     if (!self.detectedDeviceID)
     {
-        
+        NSLog(@"DeviceID sent");
+
         SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
         [self.checkConnectionTimer invalidate];
         [manager deviceID:^(id deviceResponseDict, NSError *error)
@@ -263,7 +263,8 @@
              }
              else
              {
-                 
+                 NSLog(@"DeviceID response received");
+
                  self.detectedDeviceID = (NSString *)deviceResponseDict[@"id"]; //TODO: fix that dict interpretation is done in comm manager (layer completion)
                  self.detectedDeviceID = [self.detectedDeviceID lowercaseString];
                  self.isDetectedDeviceClaimed = [deviceResponseDict[@"c"] boolValue];
@@ -287,6 +288,7 @@
     if (!self.scannedWifiList)
     {
         SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
+        NSLog(@"ScanAP sent");
         [manager scanAP:^(id scanResponse, NSError *error) {
             if (error)
             {
@@ -298,6 +300,7 @@
             {
                 if (scanResponse)
                 {
+                    NSLog(@"ScanAP response received");
                     self.scannedWifiList = scanResponse;
 //                    NSLog(@"Scan data:\n%@",self.scannedWifiList);
                     [self checkDeviceOwnershipChange];
@@ -348,11 +351,15 @@
             
             if ((self.isDetectedDeviceClaimed == YES) && (self.deviceClaimedByUser == NO))
             {
-                // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
-                NSString *messageStr = [NSString stringWithFormat:@"This %@ is owned by another user, do you wish to change ownership to %@?",[SparkSetupCustomization sharedInstance].deviceName,[SparkCloud sharedInstance].loggedInUsername];
-                self.changeOwnershipAlertView = [[UIAlertView alloc] initWithTitle:@"Product ownership" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
-                [self.checkConnectionTimer invalidate];
-                [self.changeOwnershipAlertView show];
+                if (!self.didGoToWifiListScreen)
+                {
+
+                    // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
+                    NSString *messageStr = [NSString stringWithFormat:@"This %@ is owned by another user, do you wish to change ownership to %@?",[SparkSetupCustomization sharedInstance].deviceName,[SparkCloud sharedInstance].loggedInUsername];
+                    self.changeOwnershipAlertView = [[UIAlertView alloc] initWithTitle:@"Product ownership" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
+                    [self.checkConnectionTimer invalidate];
+                    [self.changeOwnershipAlertView show];
+                }
             }
             else
             {
@@ -408,6 +415,7 @@
 {
     if (!self.gotPublicKey)
     {
+        NSLog(@"PublicKey sent");
         SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
         [self.checkConnectionTimer invalidate];
         [manager publicKey:^(id responseCode, NSError *error) {
@@ -416,6 +424,7 @@
                 NSLog(@"Error sending public-key command to target: %@",error.localizedDescription);
                 [self restartDeviceDetectionTimer]; // TODO: better error handling
                 [self resetWifiSignalIconWithDelay];
+                
             }
             else
             {
@@ -429,6 +438,7 @@
                 }
                 else
                 {
+                    NSLog(@"PublicKey response received");
                     self.gotPublicKey = YES;
                     [self photonScanAP];
                 }
@@ -448,6 +458,7 @@
 {
     SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
     [self.checkConnectionTimer invalidate];
+    NSLog(@"Claim code - trying to set");
     [manager setClaimCode:self.claimCode completion:^(id responseCode, NSError *error) {
         if (error)
         {
@@ -456,7 +467,7 @@
         }
         else
         {
-            NSLog(@"Set device claim code %@",self.claimCode);
+            NSLog(@"Device claim code set successfully: %@",self.claimCode);
             // finished - segue
             [self goToWifiListScreen];
 
@@ -494,24 +505,9 @@
     self.checkConnectionTimer = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultUserCancel)}];
     
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        [self.setupController.delegate sparkSetupViewController:self.setupController didFinishWithResult:SparkSetupMainControllerResultUserCancel error:nil];
-//    }];
     
 }
 
-/*
-- (IBAction)settingsButton:(id)sender
-{
-
-    BOOL canOpenSettings = (UIApplicationOpenSettingsURLString != NULL); // TODO: find iOS 7 solution
-    if (canOpenSettings) {
-        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-        [[UIApplication sharedApplication] openURL:url];
-    }
-}
-
-*/
 
 
 

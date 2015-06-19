@@ -199,8 +199,7 @@
                                                 <exclude reference="YxV-Iw-2yc"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="137" y="51" width="22" height="29"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <exclude reference="Aaf-IU-iEr"/>
                                                 <exclude reference="YxV-Iw-2yc"/>
@@ -219,9 +218,6 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="163" y="52" width="85" height="28"/>
-                                        </variation>
                                         <connections>
                                             <action selector="privacyPolicyButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="yVJ-S4-1ZM"/>
                                         </connections>
@@ -235,9 +231,6 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="33" y="52" width="100" height="28"/>
-                                        </variation>
                                         <connections>
                                             <action selector="termOfServiceButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="5ZZ-Vc-v7y"/>
                                         </connections>
@@ -765,14 +758,18 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="header"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="Imh-oc-1kL" customClass="SparkSetupUISpinner">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="Imh-oc-1kL" customClass="SparkSetupUISpinner">
                                         <rect key="frame" x="36" y="112" width="32" height="32"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="dyQ-gB-YJi"/>
-                                            <constraint firstAttribute="width" constant="32" id="iE6-Oo-UGw"/>
+                                            <constraint firstAttribute="height" constant="32" id="dyQ-gB-YJi">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="32" id="iE6-Oo-UGw">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                            </constraint>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="type" value="background"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="type" value="foreground"/>
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -1417,45 +1414,6 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTu-2T-JYm">
-                                <rect key="frame" x="80" y="228" width="248" height="32"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="Ird-Un-OuQ"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="MBk-in-GWn"/>
-                                    <constraint firstAttribute="height" constant="26" id="dLn-LH-QvJ"/>
-                                    <constraint firstAttribute="width" constant="248" id="fLD-iy-vGR"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="qsi-ye-1H6"/>
-                                    <constraint firstAttribute="width" constant="120" id="yWW-IO-iRn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Ird-Un-OuQ"/>
-                                        <exclude reference="MBk-in-GWn"/>
-                                        <exclude reference="dLn-LH-QvJ"/>
-                                        <exclude reference="fLD-iy-vGR"/>
-                                        <exclude reference="qsi-ye-1H6"/>
-                                        <exclude reference="yWW-IO-iRn"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <exclude reference="Ird-Un-OuQ"/>
-                                        <exclude reference="MBk-in-GWn"/>
-                                        <exclude reference="dLn-LH-QvJ"/>
-                                        <exclude reference="fLD-iy-vGR"/>
-                                        <exclude reference="qsi-ye-1H6"/>
-                                        <exclude reference="yWW-IO-iRn"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="cancelButtonTouched:" destination="DQd-hP-ryy" eventType="touchUpInside" id="zUZ-h3-5rX"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpC-uh-IqQ" customClass="SparkSetupUIButton">
                                 <rect key="frame" x="80" y="228" width="248" height="32"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2147,6 +2105,45 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTu-2T-JYm">
+                                <rect key="frame" x="80" y="228" width="248" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Ird-Un-OuQ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="MBk-in-GWn"/>
+                                    <constraint firstAttribute="height" constant="26" id="dLn-LH-QvJ"/>
+                                    <constraint firstAttribute="width" constant="248" id="fLD-iy-vGR"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="qsi-ye-1H6"/>
+                                    <constraint firstAttribute="width" constant="120" id="yWW-IO-iRn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ird-Un-OuQ"/>
+                                        <exclude reference="MBk-in-GWn"/>
+                                        <exclude reference="dLn-LH-QvJ"/>
+                                        <exclude reference="fLD-iy-vGR"/>
+                                        <exclude reference="qsi-ye-1H6"/>
+                                        <exclude reference="yWW-IO-iRn"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="Ird-Un-OuQ"/>
+                                        <exclude reference="MBk-in-GWn"/>
+                                        <exclude reference="dLn-LH-QvJ"/>
+                                        <exclude reference="fLD-iy-vGR"/>
+                                        <exclude reference="qsi-ye-1H6"/>
+                                        <exclude reference="yWW-IO-iRn"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelButtonTouched:" destination="DQd-hP-ryy" eventType="touchUpInside" id="zUZ-h3-5rX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -2189,9 +2186,9 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="yjq-4r-6tw"/>
-                                <exclude reference="DTu-2T-JYm"/>
                                 <exclude reference="fpC-uh-IqQ"/>
                                 <exclude reference="iXX-Qf-QZC"/>
+                                <exclude reference="DTu-2T-JYm"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="1Jw-6D-q2R"/>
@@ -2216,9 +2213,9 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="yjq-4r-6tw"/>
-                                <include reference="DTu-2T-JYm"/>
                                 <include reference="fpC-uh-IqQ"/>
                                 <include reference="iXX-Qf-QZC"/>
+                                <include reference="DTu-2T-JYm"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="1Jw-6D-q2R"/>
@@ -2343,7 +2340,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your Wi-Fi network:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cXr-RN-psz" customClass="SparkSetupUILabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your Wi-Fi network" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cXr-RN-psz" customClass="SparkSetupUILabel">
                                 <rect key="frame" x="117" y="291" width="384" height="33"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2388,7 +2385,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wifiCell" rowHeight="44" id="Zt9-Gu-dqE">
@@ -2409,8 +2406,7 @@
                                                             <exclude reference="Nsl-NJ-xqf"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="287" y="9" width="26" height="26"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="CjU-Uj-l5K"/>
                                                             <include reference="Nsl-NJ-xqf"/>
@@ -2430,8 +2426,7 @@
                                                             <exclude reference="6uQ-KH-gVe"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="24" y="11" width="232" height="22"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="6uQ-KH-gVe"/>
                                                         </mask>
@@ -2449,8 +2444,7 @@
                                                             <exclude reference="TZM-FV-5Hk"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="259" y="9" width="26" height="26"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="PWe-LU-QKp"/>
                                                             <include reference="TZM-FV-5Hk"/>
@@ -3632,10 +3626,10 @@
             </objects>
             <point key="canvasLocation" x="411" y="-112"/>
         </scene>
-        <!--Title-->
+        <!--Spark Get Ready View Controller-->
         <scene sceneID="uDk-Ph-8Sm">
             <objects>
-                <viewController storyboardIdentifier="get_ready" id="Z3p-Ig-NCk" customClass="SparkGetReadyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="get_ready" title="Spark Get Ready View Controller" id="Z3p-Ig-NCk" customClass="SparkGetReadyViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vUh-Wu-dKe"/>
                         <viewControllerLayoutGuide type="bottom" id="evs-MU-1zL"/>
@@ -3715,8 +3709,7 @@
                                                 <exclude reference="opQ-P2-YbG"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="177" width="368" height="177"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="esE-Ik-2G5"/>
                                                 <include reference="oHW-yI-y9u"/>
@@ -3802,8 +3795,7 @@
                                                 <exclude reference="iVW-cu-eu1"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="354" width="368" height="178"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="itK-fn-V8g"/>
                                                 <include reference="y1h-An-sff"/>
@@ -4074,7 +4066,7 @@
                                     <constraint firstAttribute="height" constant="26" id="dGN-yA-Lwa"/>
                                     <constraint firstAttribute="width" constant="120" id="hLY-dp-gyL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -4131,7 +4123,7 @@
                                     <constraint firstAttribute="width" constant="120" id="RSi-0V-kVA"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="hzG-Zc-ONa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -4157,8 +4149,15 @@
                                 </variation>
                                 <connections>
                                     <action selector="cancelButtonTouched:" destination="DQd-hP-ryy" eventType="touchUpInside" id="7FV-d8-8if"/>
+                                    <action selector="cancelSetup:" destination="Z3p-Ig-NCk" eventType="touchUpInside" id="3YB-XC-VhV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in as:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ys-oq-6AP" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -4167,7 +4166,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="UNy-JD-Bob" firstAttribute="top" secondItem="0dN-4C-Qip" secondAttribute="bottom" constant="8" id="3bd-Mk-KSK">
-                                <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="32"/>
                             </constraint>
                             <constraint firstItem="Dom-kg-WP6" firstAttribute="trailing" secondItem="xP3-D7-C6C" secondAttribute="trailingMargin" id="4Ra-NF-ZeN"/>
                             <constraint firstItem="NXe-vV-Moq" firstAttribute="top" secondItem="ldG-Y4-BA3" secondAttribute="bottom" constant="-36" id="4t6-GS-9V9"/>
@@ -4187,8 +4186,10 @@
                             <constraint firstItem="ldG-Y4-BA3" firstAttribute="leading" secondItem="NXe-vV-Moq" secondAttribute="trailing" constant="-64" id="MGv-px-6yP"/>
                             <constraint firstItem="ldG-Y4-BA3" firstAttribute="top" secondItem="xP3-D7-C6C" secondAttribute="top" id="Ohc-oK-fzm"/>
                             <constraint firstItem="Dom-kg-WP6" firstAttribute="leading" secondItem="xP3-D7-C6C" secondAttribute="leadingMargin" id="Yau-dy-lFo"/>
+                            <constraint firstAttribute="centerX" secondItem="2ys-oq-6AP" secondAttribute="centerX" id="b55-e2-WTK"/>
                             <constraint firstItem="UNy-JD-Bob" firstAttribute="top" secondItem="kZE-3U-nVp" secondAttribute="bottom" constant="8" id="cjH-6G-4ld"/>
                             <constraint firstAttribute="centerX" secondItem="kZE-3U-nVp" secondAttribute="centerX" id="gv3-gO-MrM"/>
+                            <constraint firstItem="UNy-JD-Bob" firstAttribute="top" secondItem="2ys-oq-6AP" secondAttribute="bottom" constant="8" id="j9v-OG-VVk"/>
                             <constraint firstItem="evs-MU-1zL" firstAttribute="top" secondItem="UNy-JD-Bob" secondAttribute="bottom" constant="180" id="kxC-aR-8MR">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
@@ -4200,7 +4201,11 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="Ald-Di-X3r" firstAttribute="leading" secondItem="UNy-JD-Bob" secondAttribute="leading" id="tHe-bM-L5Y"/>
+                            <constraint firstItem="NXe-vV-Moq" firstAttribute="leading" secondItem="xP3-D7-C6C" secondAttribute="leadingMargin" constant="5" id="teM-uq-SgN">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
+                            </constraint>
                             <constraint firstItem="0dN-4C-Qip" firstAttribute="trailing" secondItem="xP3-D7-C6C" secondAttribute="trailingMargin" id="y2z-6K-YrV"/>
+                            <constraint firstItem="NXe-vV-Moq" firstAttribute="top" secondItem="vUh-Wu-dKe" secondAttribute="bottom" constant="8" id="yrB-AV-Pv8"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -4211,17 +4216,22 @@
                                 <exclude reference="kZE-3U-nVp"/>
                                 <exclude reference="Dom-kg-WP6"/>
                                 <exclude reference="NXe-vV-Moq"/>
+                                <exclude reference="2ys-oq-6AP"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="b55-e2-WTK"/>
                                 <exclude reference="12i-hG-M1u"/>
                                 <exclude reference="4Ra-NF-ZeN"/>
                                 <exclude reference="Yau-dy-lFo"/>
                                 <exclude reference="kxC-aR-8MR"/>
                                 <exclude reference="4t6-GS-9V9"/>
+                                <exclude reference="teM-uq-SgN"/>
+                                <exclude reference="yrB-AV-Pv8"/>
                                 <exclude reference="3bd-Mk-KSK"/>
                                 <exclude reference="6LE-Fl-8tf"/>
                                 <exclude reference="HIC-F5-0Zs"/>
                                 <exclude reference="cjH-6G-4ld"/>
+                                <exclude reference="j9v-OG-VVk"/>
                                 <exclude reference="INY-dG-Ke2"/>
                                 <exclude reference="gv3-gO-MrM"/>
                                 <exclude reference="qcX-hF-K7F"/>
@@ -4247,24 +4257,29 @@
                                 <include reference="kZE-3U-nVp"/>
                                 <include reference="Dom-kg-WP6"/>
                                 <include reference="NXe-vV-Moq"/>
+                                <include reference="2ys-oq-6AP"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="b55-e2-WTK"/>
                                 <include reference="12i-hG-M1u"/>
                                 <include reference="4Ra-NF-ZeN"/>
                                 <include reference="Yau-dy-lFo"/>
                                 <include reference="kxC-aR-8MR"/>
-                                <include reference="4t6-GS-9V9"/>
+                                <exclude reference="4t6-GS-9V9"/>
+                                <include reference="teM-uq-SgN"/>
+                                <include reference="yrB-AV-Pv8"/>
                                 <include reference="3bd-Mk-KSK"/>
                                 <include reference="6LE-Fl-8tf"/>
                                 <exclude reference="HIC-F5-0Zs"/>
                                 <exclude reference="cjH-6G-4ld"/>
+                                <include reference="j9v-OG-VVk"/>
                                 <include reference="INY-dG-Ke2"/>
                                 <exclude reference="gv3-gO-MrM"/>
                                 <include reference="qcX-hF-K7F"/>
                                 <include reference="5cJ-Ic-2eu"/>
                                 <exclude reference="ADu-92-mEK"/>
                                 <include reference="EiR-Ug-m8r"/>
-                                <include reference="MGv-px-6yP"/>
+                                <exclude reference="MGv-px-6yP"/>
                                 <exclude reference="Ohc-oK-fzm"/>
                                 <include reference="oGF-pD-zfD"/>
                                 <include reference="76c-HT-3ca"/>
@@ -4278,6 +4293,9 @@
                     <navigationItem key="navigationItem" title="Title" id="d7I-xe-QAk"/>
                     <connections>
                         <outlet property="brandImageView" destination="ldG-Y4-BA3" id="F24-3R-Y9R"/>
+                        <outlet property="cancelSetupButton" destination="NXe-vV-Moq" id="yPK-ux-Mbh"/>
+                        <outlet property="loggedInLabel" destination="2ys-oq-6AP" id="ffy-Z0-AGK"/>
+                        <outlet property="loggedInUserLabel" destination="2ys-oq-6AP" id="JEj-QU-quu"/>
                         <outlet property="logoutButton" destination="kZE-3U-nVp" id="Cqh-kc-kZa"/>
                         <outlet property="readyButton" destination="UNy-JD-Bob" id="rdb-Dm-3Vu"/>
                         <outlet property="spinner" destination="Ald-Di-X3r" id="GZr-Bj-RKk"/>
@@ -4972,8 +4990,6 @@
                                 <exclude reference="p7A-Fe-1Rf"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="hkI-XL-vbU"/>
-                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="KRG-Dw-b8X"/>
                                 <exclude reference="Utz-vd-AQS"/>
                                 <exclude reference="Ygq-PO-miY"/>
@@ -4987,7 +5003,9 @@
                                 <exclude reference="zgk-pY-Ygm"/>
                                 <exclude reference="CpA-V9-uBo"/>
                                 <exclude reference="XJL-4L-gPc"/>
+                                <exclude reference="hkI-XL-vbU"/>
                                 <exclude reference="tpJ-VB-RSM"/>
+                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>
@@ -5008,8 +5026,6 @@
                                 <include reference="pY6-oD-PoU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="hkI-XL-vbU"/>
-                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="KRG-Dw-b8X"/>
                                 <include reference="Utz-vd-AQS"/>
                                 <exclude reference="Ygq-PO-miY"/>
@@ -5023,7 +5039,9 @@
                                 <include reference="zgk-pY-Ygm"/>
                                 <exclude reference="CpA-V9-uBo"/>
                                 <include reference="XJL-4L-gPc"/>
+                                <exclude reference="hkI-XL-vbU"/>
                                 <include reference="tpJ-VB-RSM"/>
+                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>
@@ -5224,7 +5242,7 @@
         <image name="wifi3" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c4T-fL-kLE"/>
-        <segue reference="LMP-8O-ZPP"/>
+        <segue reference="MPJ-t5-PGI"/>
+        <segue reference="dk3-1h-vwt"/>
     </inferredMetricsTieBreakers>
 </document>

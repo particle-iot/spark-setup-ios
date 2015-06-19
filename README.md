@@ -30,6 +30,8 @@ This library is still under development and is currently released as Beta, altho
 
 ## Usage
 
+Official documentation can be found in [Particle docs website](http://docs.particle.io/photon/ios/).
+
 ### Basic
 Import `SparkSetup.h` in your view controller implementation file, and invoke the device setup wizard by:
 
@@ -58,7 +60,7 @@ and modify its default properties. Modifying properties is optional.
 #### Product/brand info:
 
 ```objc
- NSString *deviceName;          // Device/product name 
+ NSString *deviceName;                  // Device/product name 
  NSString *brandName;                   // Your brand name
  UIImage *brandImage;                   // Your brand logo to fit in header of setup wizard screens
  UIColor *brandImageBackgroundColor;    // brand logo background color
@@ -77,14 +79,14 @@ and modify its default properties. Modifying properties is optional.
 #### Links for legal/technical info:
 
 ```objc
- NSURL *termsOfServiceLinkURL; // URL for terms of service of the app/device usage
- NSURL *privacyPolicyLinkURL;  // URL for privacy policy of the app/device usage
- NSURL *forgotPasswordLinkURL; // URL for user password reset (non-organization setup app only)
- NSURL *troubleshootingLinkURL; // URL for troubleshooting text of the app/device usage
+ NSURL *termsOfServiceLinkURL;      // URL for terms of service of the app/device usage
+ NSURL *privacyPolicyLinkURL;       // URL for privacy policy of the app/device usage
+ NSURL *forgotPasswordLinkURL;      // URL for user password reset (non-organization setup app only)
+ NSURL *troubleshootingLinkURL;     // URL for troubleshooting text of the app/device usage
 
- NSString *termsOfServiceHTMLFile; // Static HTML file for terms of service of the app/device usage
- NSString *privacyPolicyHTMLFile;  // Static HTML file for privacy policy of the app/device usage
- NSString *forgotPasswordHTMLFile; // Static HTML file for user password reset (non-organization setup app only)
+ NSString *termsOfServiceHTMLFile;  // Static HTML file for terms of service of the app/device usage
+ NSString *privacyPolicyHTMLFile;   // Static HTML file for privacy policy of the app/device usage
+ NSString *forgotPasswordHTMLFile;  // Static HTML file for user password reset (non-organization setup app only)
  NSString *troubleshootingHTMLFile; // Static HTML file for troubleshooting text of the app/device usage
 ```
 
