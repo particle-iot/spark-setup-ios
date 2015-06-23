@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "SparkSetupUIViewController.h"
 
+@protocol SparkSelectNetworkViewControllerDelegate <NSObject>
+
+-(void)willPopBackToDeviceDiscovery;
+
+@end
+
 @interface SparkSelectNetworkViewController : SparkSetupUIViewController
 @property (nonatomic, strong) NSArray *wifiList;
 @property (nonatomic, strong) NSString *deviceID;
 @property (nonatomic) BOOL needToClaimDevice;
-
+@property (nonatomic, weak) id <SparkSelectNetworkViewControllerDelegate> delegate;
 @end

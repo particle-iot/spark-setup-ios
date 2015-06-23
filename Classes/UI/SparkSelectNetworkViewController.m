@@ -173,6 +173,7 @@
     if (![SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
     {
         [self.checkConnectionTimer invalidate];
+        [self.delegate willPopBackToDeviceDiscovery];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

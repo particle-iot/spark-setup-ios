@@ -20,7 +20,7 @@
 #import "SparkSetupVideoViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate>
+@interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate, SparkSelectNetworkViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSignalImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *networkNameLabel;
@@ -132,6 +132,13 @@
 }
 
 
+-(void)willPopBackToDeviceDiscovery
+{
+    NSLog(@"willPopBackToDeviceDiscovery");
+    self.didGoToWifiListScreen = NO;
+    [self restartDeviceDetectionTimer];
+}
+
 
 
 
@@ -233,6 +240,7 @@
         SparkSelectNetworkViewController *vc = [segue destinationViewController];
         [vc setWifiList:self.scannedWifiList];
         vc.deviceID = self.detectedDeviceID;
+        vc.delegate = self;
         vc.needToClaimDevice = self.needToCheckDeviceClaimed;
     }
     else if ([segue.identifier isEqualToString:@"video"])
