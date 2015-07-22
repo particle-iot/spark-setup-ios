@@ -18,20 +18,33 @@
 @implementation SparkSetupUIViewController
 
 #pragma mark view controller life cycle
-- (void)viewDidLoad {
+
+-(void)viewDidLoad {
     [super viewDidLoad];
-
-    self.view.backgroundColor = [SparkSetupCustomization sharedInstance].pageBackgroundColor;
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[SparkSetupCustomization sharedInstance].pageBackgroundImage];
-    backgroundImage.frame = [UIScreen mainScreen].bounds;
     
-    backgroundImage.contentMode = UIViewContentModeScaleToFill;
+    //    self.view.backgroundColor = [SparkSetupCustomization sharedInstance].pageBackgroundColor;
+    if ([SparkSetupCustomization sharedInstance].pageBackgroundImage)
+    {
+        UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[SparkSetupCustomization sharedInstance].pageBackgroundImage];
+        backgroundImage.frame = [UIScreen mainScreen].bounds;
+        backgroundImage.contentMode = UIViewContentModeScaleToFill;
+        [self.view addSubview:backgroundImage];
+        [self.view sendSubviewToBack:backgroundImage];
+    }
     
-    [self.view addSubview:backgroundImage];
-    [self.view sendSubviewToBack:backgroundImage];
-
+    
+    if ([SparkSetupCustomization sharedInstance].pageBackgroundColor) //TODO: check this
+    {
+        UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        view.backgroundColor = [SparkSetupCustomization sharedInstance].pageBackgroundColor;
+        [self.view addSubview:view];
+        [self.view sendSubviewToBack:view];
+    }
+    
+   
     // do customization
 }
+
 
 
 - (void)viewWillAppear:(BOOL)animated

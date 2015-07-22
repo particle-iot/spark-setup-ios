@@ -167,13 +167,14 @@
 - (IBAction)signupButton:(id)sender
 {
     [self.view endEditing:YES];
+    __block NSString *email = [self.emailTextField.text lowercaseString];
     
     if (![self.passwordTextField.text isEqualToString:self.passwordVerifyTextField.text])
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Passwords do not match" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
-    else if ([self isValidEmail:self.emailTextField.text])
+    else if ([self isValidEmail:email])
     {
         BOOL orgMode = [SparkSetupCustomization sharedInstance].organization;
         if (orgMode)
@@ -189,11 +190,11 @@
                 [self.spinner startAnimating];
                 
                 // Sign up and then login
-                [[SparkCloud sharedInstance] signupWithOrganizationalUser:self.emailTextField.text password:self.passwordTextField.text inviteCode:self.activationCodeTextField.text orgName:[SparkSetupCustomization sharedInstance].organizationName completion:^(NSError *error)
+                [[SparkCloud sharedInstance] signupWithOrganizationalUser:email password:self.passwordTextField.text inviteCode:self.activationCodeTextField.text orgName:[SparkSetupCustomization sharedInstance].organizationName completion:^(NSError *error)
                 {
                     if (!error)
                     {
-                        [[SparkCloud sharedInstance] loginWithUser:self.emailTextField.text password:self.passwordTextField.text completion:^(NSError *error) {
+                        [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
                             [self.spinner stopAnimating];
                             if (!error)
                             {
@@ -209,6 +210,7 @@
                     else
                     {
                         [self.spinner stopAnimating];
+                        NSLog(@"Error signing up: %@",error.localizedDescription);
                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not signup" message:@"Make sure your user email does not already exist and that you have entered the activation code correctly and that it was not already used"/*error.localizedDescription*/ delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                         [alert show];
                         
@@ -223,10 +225,10 @@
             [self.spinner startAnimating];
             
             // Sign up and then login
-            [[SparkCloud sharedInstance] signupWithUser:self.emailTextField.text password:self.passwordTextField.text completion:^(NSError *error) {
+            [[SparkCloud sharedInstance] signupWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
                 if (!error)
                 {
-                    [[SparkCloud sharedInstance] loginWithUser:self.emailTextField.text password:self.passwordTextField.text completion:^(NSError *error) {
+                    [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
                         [self.spinner stopAnimating];
                         if (!error)
                         {
@@ -243,6 +245,7 @@
                 else
                 {
                     [self.spinner stopAnimating];
+                    NSLog(@"Error signing up: %@",error.localizedDescription);
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
                     

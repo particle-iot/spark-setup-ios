@@ -102,12 +102,12 @@
         return;
     }
     
+    NSString *email = self.emailTextField.text.lowercaseString;
     
-    
-    if ([self isValidEmail:self.emailTextField.text])
+    if ([self isValidEmail:email])
     {
         [self.spinner startAnimating];
-         [[SparkCloud sharedInstance] loginWithUser:self.emailTextField.text password:self.passwordTextField.text completion:^(NSError *error) {
+         [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
              [self.spinner stopAnimating];
              if (!error)
              {
