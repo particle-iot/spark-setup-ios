@@ -2,7 +2,10 @@
 <img src="http://oi60.tinypic.com/116jd51.jpg" alt="Particle" title="Particle">
 </p>
 
-# Spark Device Setup library (beta)
+# Particle Device Setup library (beta)
+
+[![Platform](https://img.shields.io/badge/platform-iOS-10a4fa.svg)]() [![license](https://img.shields.io/hexpm/l/plug.svg)]() [![version](https://img.shields.io/badge/pod-0.2.1-green.svg)]() 
+
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connect products
 powered by a Photon/P0/P1. The setup UI can be easily customized by a customization proxy class available to the user
@@ -16,7 +19,7 @@ With the Device Setup library, you make one simple call from your app, for examp
 [![CI Status](http://img.shields.io/travis/spark/SparkSetup.svg?style=flat)](https://travis-ci.org/spark/SparkSetup)
 [![Version](https://img.shields.io/cocoapods/v/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
 [![License](https://img.shields.io/cocoapods/l/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
-[![Platform](https://img.shields.io/cocoapods/p/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
+
 -->
 
 **Rebranding notice**
@@ -24,27 +27,46 @@ With the Device Setup library, you make one simple call from your app, for examp
 Spark has been recently rebranded as Particle. 
 Code currently contains `SparkSetup` keyword as classes prefixes. this will soon be replaced with `ParticleDeviceSetup`. A new Cocoapod library will be published and current one will be depracated and point to the new one. This should not bother or affect your code in any way.
 
-**Beta notice**
-
-This library is still under development and is currently released as Beta, although tested, bugs and issues may be present, some code might require cleanups.
-
 ## Usage
 
-Official documentation can be found in [Particle docs website](http://docs.particle.io/photon/ios/).
+Full documentation can be found in [Particle docs website](http://docs.particle.io/photon/ios/).
 
 ### Basic
 Import `SparkSetup.h` in your view controller implementation file, and invoke the device setup wizard by:
 
+**Objective-C**
+
 ```objc
 SparkSetupMainController *setupController = [[SparkSetupMainController alloc] init];
+setupController.delegate = self; // why? see "Advanced" section below 
 [self presentViewController:setupController animated:YES completion:nil];
+```
+
+**Swift**
+
+```swift
+if let setupController = SparkSetupMainController()
+{
+    setupController.delegate = self
+    self.presentViewController(setupController, animated: true, completion: nil)
+}
 ```
 
 Alternatively if your app requires separation between the Particle cloud authentication process and the device setup process you can call:
 
+**Objective-C**
+
 ```objc
 SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithAuthenticationOnly:YES];
 [self presentViewController:setupController animated:YES completion:nil];
+```
+
+**Swift**
+```swift
+if let setupController = SparkSetupMainController(authenticationOnly: true)
+{
+    self.presentViewController(setupController, animated: true, completion: nil)
+}
 ```
 
 This will invoke Particle Cloud authentication (login/signup/password recovery screens) only 
@@ -55,7 +77,7 @@ If an active user session already exists control will be returned immediately.
 ### Customization
 
 Customize setup look and feel by accessing the SparkSetupCustomization singleton appearance proxy `[SparkSetupCustomization sharedInstance]`
-and modify its default properties. Modifying properties is optional. 
+and modify its default properties. Modifying properties is optional. (Replace NSString with String for Swift projects)
 
 #### Product/brand info:
 
@@ -119,8 +141,13 @@ You can get an active instance of `SparkDevice` by making your viewcontroller co
 ```objc
 -(void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
 ```
-method will be called, if `(result == SparkSetupMainControllerResultSuccess)` the device parameter will contain an active `SparkDevice` instance you can interact with
-using the [Spark Cloud SDK](https://cocoapods.org/pods/Spark-SDK).
+
+```swift
+func sparkSetupViewController(controller: SparkSetupMainController!, didFinishWithResult result: SparkSetupMainControllerResult, device: SparkDevice!);
+```
+
+method will be called, if `(result == SparkSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `SparkDevice` instance you can interact with
+using the [iOS Cloud SDK](https://cocoapods.org/pods/Spark-SDK). 
 
 #### Support for Swift projects
 To use Particle Device Setup library from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), 
@@ -133,7 +160,7 @@ setup wizard completes (delegate). Feel free to contribute to the example by sub
 ### Reference
 
 Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
-If Spark Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
+If the Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ## Requirements / limitations
 
@@ -143,7 +170,8 @@ If Spark Device Setup library installation completed successfully - you should b
 
 ## Installation
 
-Particle Device Setup library is available through [CocoaPods](http://cocoapods.org) under the pod name `SparkSetup`. To install it, simply add the following line to your Podfile:
+Particle Device Setup library is available through [CocoaPods](http://cocoapods.org) under the pod name `SparkSetup`. 
+To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "SparkSetup"
