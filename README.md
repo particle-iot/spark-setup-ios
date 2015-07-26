@@ -7,20 +7,13 @@
 [![Platform](https://img.shields.io/badge/platform-iOS-10a4fa.svg)]() [![license](https://img.shields.io/hexpm/l/plug.svg)]() [![version](https://img.shields.io/badge/pod-0.2.1-green.svg)]() 
 
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
-This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connect products
-powered by a Photon/P0/P1. The setup UI can be easily customized by a customization proxy class available to the user
-that includes: look & feel, colors, fonts as well as custom brand logos and instructional video for your product. There are good defaults if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
+This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products
+powered by a Particle device (Photon, P0, P1). The setup UI can be easily customized by a customization proxy class,
+that includes: look & feel, colors, texts and fonts as well as custom brand logos and custom instructional video for your product. There are good defaults in place if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
 
-As you may have heard, the wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used Smart Config, the Photon uses what we call “soft AP” — the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
+The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call “soft AP” — i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
 
-With the Device Setup library, you make one simple call from your app, for example when the user hits a “setup my device” button, and a whole series of screens then guides the user through the soft AP setup process. When the process finishes, the user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
-
-<!---
-[![CI Status](http://img.shields.io/travis/spark/SparkSetup.svg?style=flat)](https://travis-ci.org/spark/SparkSetup)
-[![Version](https://img.shields.io/cocoapods/v/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
-[![License](https://img.shields.io/cocoapods/l/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
-
--->
+With the Device Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
 
 **Rebranding notice**
 
@@ -29,9 +22,10 @@ Code currently contains `SparkSetup` keyword as classes prefixes. this will soon
 
 ## Usage
 
-Full documentation can be found in [Particle docs website](http://docs.particle.io/photon/ios/).
+Official documentation can be found in [Particle docs website](http://docs.particle.io/photon/ios/).
 
 ### Basic
+
 Import `SparkSetup.h` in your view controller implementation file, and invoke the device setup wizard by:
 
 **Objective-C**
@@ -76,8 +70,8 @@ If an active user session already exists control will be returned immediately.
 
 ### Customization
 
-Customize setup look and feel by accessing the SparkSetupCustomization singleton appearance proxy `[SparkSetupCustomization sharedInstance]`
-and modify its default properties. Modifying properties is optional. (Replace NSString with String for Swift projects)
+Customize setup look and feel by accessing the `SparkSetupCustomization` singleton appearance proxy `[SparkSetupCustomization sharedInstance]`
+and modify its default properties. Setting the properties in this class is optional. *(Replace NSString with String for Swift projects)*
 
 #### Product/brand info:
 
