@@ -12,6 +12,9 @@
 #import "SparkSetupWebViewController.h"
 #import "SparkUserLoginViewController.h"
 #import "SparkSetupUIElements.h"
+#ifdef ANALYTICS
+#import <Mixpanel.h>
+#endif
 
 @interface SparkUserForgotPasswordViewController () <UIAlertViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -89,6 +92,14 @@
     }
 
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Forgot Password Screen"];
+#endif
+}
+
 
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

@@ -11,6 +11,10 @@
 #import "SparkSetupCustomization.h"
 #import "SparkSetupUIElements.h"
 #import "Spark-SDK.h"
+#ifdef ANALYTICS
+#import "Mixpanel.h"
+#endif
+
 
 @interface SparkUserLoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -90,6 +94,14 @@
 {
     [self.delegate didRequestPasswordReset:self];
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Login Screen"];
+#endif
+}
+
 
 
 - (IBAction)loginButton:(id)sender

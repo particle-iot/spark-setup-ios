@@ -9,7 +9,9 @@
 #import "SparkSetupVideoViewController.h"
 #import "SparkSetupCustomization.h"
 #import <MediaPlayer/MediaPlayer.h>
-
+#if ANALYTICS
+#import <Mixpanel.h>
+#endif
 
 @interface SparkSetupVideoViewController ()
 @property (weak, nonatomic) IBOutlet UIView *videoView;
@@ -43,6 +45,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)viewWillAppear:(BOOL)animated
+{
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Setup How-To Video Screen"];
+#endif
+}
 
 
 -(void)viewDidAppear:(BOOL)animated

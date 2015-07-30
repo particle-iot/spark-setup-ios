@@ -9,7 +9,7 @@
 #ifndef SparkSetup_SparkSetup_h
 #define SparkSetup_SparkSetup_h
 
-#import "SparkSetupCustomization.h"
-#import "SparkSetupMainController.h"
+#import <SparkSetupCustomization.h>
+#import <SparkSetupMainController.h>
 
 #endif

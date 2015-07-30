@@ -16,7 +16,9 @@
 #import "SparkCloud.h"
 #import "SparkSetupUIElements.h"
 #import "SparkSetupResultViewController.h"
-
+#ifdef ANALYTICS
+#import "Mixpanel.h"
+#endif
 
 NSInteger const kMaxRetriesDisconnectFromDevice = 10;
 NSInteger const kMaxRetriesClaim = 15;
@@ -85,7 +87,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     
     self.hostReachable = NO;
     self.apiReachable = NO;
-    self.hostReachability = [Reachability reachabilityWithHostName:@"api.spark.io"]; //TODO: change to https://api...
+    self.hostReachability = [Reachability reachabilityWithHostName:@"api.particle.io"]; //TODO: change to https://api...
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     [self.hostReachability startNotifier];
     
@@ -107,8 +109,14 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     self.currentStateView.label.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
     [self startAnimatingSpinner:self.currentStateView.spinner];
     [self tintConnectionProgressStateSpinner];
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Setup Connecting Progress Screen"];
+#endif
     
 }
+
+
+
 
 
 

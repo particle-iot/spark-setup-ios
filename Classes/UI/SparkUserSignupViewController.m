@@ -12,6 +12,9 @@
 #import "SparkSetupWebViewController.h"
 #import "SparkSetupCustomization.h"
 #import "SparkSetupUIElements.h"
+#ifdef ANALYTICS
+#import <Mixpanel.h>
+#endif
 
 @interface SparkUserSignupViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
@@ -159,10 +162,19 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Sign Up Screen"];
+#endif
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 - (IBAction)signupButton:(id)sender
 {
@@ -191,32 +203,36 @@
                 
                 // Sign up and then login
                 [[SparkCloud sharedInstance] signupWithOrganizationalUser:email password:self.passwordTextField.text inviteCode:self.activationCodeTextField.text orgName:[SparkSetupCustomization sharedInstance].organizationName completion:^(NSError *error)
-                {
-                    if (!error)
-                    {
-                        [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
-                            [self.spinner stopAnimating];
-                            if (!error)
-                            {
-                                [self.delegate didFinishUserLogin:self];
-                            }
-                            else
-                            {
-                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not login" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                                [alert show];
-                            }
-                        }];
-                    }
-                    else
-                    {
-                        [self.spinner stopAnimating];
-                        NSLog(@"Error signing up: %@",error.localizedDescription);
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not signup" message:@"Make sure your user email does not already exist and that you have entered the activation code correctly and that it was not already used"/*error.localizedDescription*/ delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        [alert show];
-                        
-                    }
-                }];
-
+                 {
+                     if (!error)
+                     {
+#ifdef ANALYTICS
+                         [[Mixpanel sharedInstance] track:@"Signed Up Organizational"];
+#endif
+                         
+                         [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
+                             [self.spinner stopAnimating];
+                             if (!error)
+                             {
+                                 [self.delegate didFinishUserLogin:self];
+                             }
+                             else
+                             {
+                                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not login" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                 [alert show];
+                             }
+                         }];
+                     }
+                     else
+                     {
+                         [self.spinner stopAnimating];
+                         NSLog(@"Error signing up: %@",error.localizedDescription);
+                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not signup" message:@"Make sure your user email does not already exist and that you have entered the activation code correctly and that it was not already used"/*error.localizedDescription*/ delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                         [alert show];
+                         
+                     }
+                 }];
+                
             }
         }
         else
@@ -228,6 +244,10 @@
             [[SparkCloud sharedInstance] signupWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
                 if (!error)
                 {
+#ifdef ANALYTICS
+                    [[Mixpanel sharedInstance] track:@"Signed Up"];
+#endif
+
                     [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
                         [self.spinner stopAnimating];
                         if (!error)

@@ -10,6 +10,9 @@
 #import "SparkSetupCustomization.h"
 #import <UIKit/UIKit.h>
 #import "SparkSetupUIElements.h"
+#ifdef ANALYTICS
+#import <Mixpanel.h>
+#endif
 
 //#import "UIViewController+SparkSetupMainController.h"
 
@@ -92,5 +95,13 @@
     
     
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Webview Screen"];
+#endif
+}
+
 
 @end

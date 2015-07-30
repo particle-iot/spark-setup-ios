@@ -10,7 +10,10 @@
 #import "SparkSetupUIElements.h"
 #import "SparkSetupMainController.h"
 #import "SparkSetupWebViewController.h"
-
+#import "SparkSetupCustomization.h"
+#ifdef ANALYTICS
+#import <Mixpanel.h>
+#endif
 
 @interface SparkSetupResultViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet SparkSetupUILabel *shortMessageLabel;
@@ -71,6 +74,11 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Setup Result Screen"];
+#endif
+
+    
     [super viewWillAppear:animated];
     
     switch (self.setupResult) {
@@ -85,6 +93,10 @@
             NSString *randomDeviceName1 = self.randomDeviceNamesArray[arc4random_uniform((UInt32)self.randomDeviceNamesArray.count)];
             NSString *randomDeviceName2 = self.randomDeviceNamesArray[arc4random_uniform((UInt32)self.randomDeviceNamesArray.count)];
             self.nameDeviceTextField.text = [NSString stringWithFormat:@"%@_%@",randomDeviceName1,randomDeviceName2];
+#ifdef ANALYTICS
+            [[Mixpanel sharedInstance] track:@"Setup Device Success"];
+#endif
+
             break;
         }
             
@@ -93,7 +105,13 @@
             self.setupResultImageView.image = [UIImage imageNamed:@"success" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
             self.shortMessageLabel.text = @"Setup completed!";
             self.longMessageLabel.text = @"Setup was successful, but since you do not own this device we cannot know if the {device} has connected to the Internet. If you see the LED breathing cyan this means it worked! If not, please restart the setup process.";
+            
+#ifdef ANALYTICS
+            [[Mixpanel sharedInstance] track:@"Setup Device Success"];
+            [[Mixpanel sharedInstance] track:@"Setup Device Success: Not claimed"];
+#endif
             break;
+            
         }
             
         case SparkSetupResultFailureClaiming:
@@ -103,6 +121,10 @@
             // TODO: add customization point for custom troubleshoot texts
 //            self.longMessageLabel.text = @"Setup process failed at claiming your {device}, if your {device} LED is blinking in blue or green this means that you provided wrong Wi-Fi credentials. If {device} LED is breathing cyan an internal cloud issue occured - please contact product support.";
             self.longMessageLabel.text = @"Setup process failed at claiming your {device}, if your {device} LED is blinking in blue or green this means that you provided wrong Wi-Fi credentials, please try setup process again.";
+#ifdef ANALYTICS
+            [[Mixpanel sharedInstance] track:@"Setup Device Failure"];
+            [[Mixpanel sharedInstance] track:@"Setup Device Failure: Claiming"];
+#endif
 
             break;
         }
@@ -112,6 +134,11 @@
             self.setupResultImageView.image = [UIImage imageNamed:@"failure" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
             self.shortMessageLabel.text = @"Oops!";
             self.longMessageLabel.text = @"Setup process couldn't disconnect from the {device} Wi-fi network. This is an internal problem with the device, so please try running setup again after resetting your {device} and putting it back in listen mode (blinking blue LED) if needed.";
+#ifdef ANALYTICS
+            [[Mixpanel sharedInstance] track:@"Setup Device Failure"];
+            [[Mixpanel sharedInstance] track:@"Setup Device Failure: Disconnect"];
+#endif
+
             break;
         }
             
@@ -120,6 +147,11 @@
             self.setupResultImageView.image = [UIImage imageNamed:@"failure" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
             self.shortMessageLabel.text = @"Uh oh!";
             self.longMessageLabel.text = @"Setup process couldn't disconnect from the {device} Wi-fi network. This is an internal problem with the device, so please try running setup again after resetting your {device} and putting it back in blinking blue listen mode if needed.";
+#ifdef ANALYTICS
+            [[Mixpanel sharedInstance] track:@"Setup Device Failure"];
+            [[Mixpanel sharedInstance] track:@"Setup Device Failure: Configure"];
+#endif
+
             break;
         }
             
@@ -128,6 +160,12 @@
             self.setupResultImageView.image = [UIImage imageNamed:@"failure" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
             self.shortMessageLabel.text = @"Error!";
             self.longMessageLabel.text = @"Setup process couldn't configure the Wi-Fi credentials for your {device}, please try running setup again after resetting your {device} and putting it back in blinking blue listen mode if needed.";
+#ifdef ANALYTICS
+            [[Mixpanel sharedInstance] track:@"Setup Device Failed"];
+            [[Mixpanel sharedInstance] track:@"Setup Device Failure: Lost connection"];
+
+#endif
+
             break;
         }
             
@@ -156,6 +194,7 @@
     
     return YES;
 }
+
 
 
 

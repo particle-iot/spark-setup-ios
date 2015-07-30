@@ -12,6 +12,10 @@
 #import "SparkConnectingProgressViewController.h"
 #import "SparkSetupCommManager.h"
 #import "SparkSetupPasswordEntryViewController.h"
+#import "SparkSetupCustomization.h"
+#ifdef ANALYTICS
+#import <Mixpanel.h>
+#endif
 
 @interface SparkManualNetworkViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
@@ -55,6 +59,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Setup Manual Network Entry Screen"];
+#endif
+}
+
 
 /*
 #pragma mark - Navigation

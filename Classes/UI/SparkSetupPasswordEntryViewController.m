@@ -11,6 +11,10 @@
 #import "SparkSetupCustomization.h"
 #import "SparkConnectingProgressViewController.h"
 #import "SparkSetupCommManager.h"
+#import "SparkSetupCustomization.h"
+#ifdef ANALYTICS
+#import <Mixpanel.h>
+#endif
 
 @interface SparkSetupPasswordEntryViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -71,6 +75,14 @@
     self.passwordTextField.text = @" ";
     self.passwordTextField.text = tmp;
     
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Setup Password Entry Screen"];
+#endif
 }
 
 

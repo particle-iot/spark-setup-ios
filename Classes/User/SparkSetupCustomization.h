@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define ANALYTICS   1
+
 @interface SparkSetupCustomization : NSObject
 
 /**

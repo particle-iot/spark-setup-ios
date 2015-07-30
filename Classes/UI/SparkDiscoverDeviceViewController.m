@@ -11,7 +11,6 @@
 #import "SparkSetupCommManager.h"
 #import "SparkSelectNetworkViewController.h"
 #import <Foundation/Foundation.h>
-#import "SparkSetupCustomization.h"
 #import "SparkCloud.h"
 #import "SparkSetupSecurityManager.h"
 #import "SparkSetupUILabel.h"
@@ -19,6 +18,10 @@
 #import "SparkSetupUIElements.h"
 #import "SparkSetupVideoViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SparkSetupCustomization.h"
+#ifdef ANALYTICS
+#import <Mixpanel.h>
+#endif
 
 @interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate, SparkSelectNetworkViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSignalImageView;
@@ -146,7 +149,11 @@
 {
     [super viewWillAppear:animated];
     // TODO: solve this via autolayout?
-    
+
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Setup Discover Device Screen"];
+#endif
+
     self.spinner.image = [self.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.spinner.tintColor = [UIColor blackColor];
     [self scheduleBackgroundTask];

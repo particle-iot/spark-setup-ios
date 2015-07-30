@@ -8,14 +8,16 @@
 
 #import "SparkGetReadyViewController.h"
 #import "SparkSetupWebViewController.h"
-#import "SparkSetupCustomization.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "SparkCloud.h"
 #import "SparkSetupMainController.h"
 #import "SparkDiscoverDeviceViewController.h"
 #import "SparkSetupUIElements.h"
-
 #import "SparkSetupResultViewController.h"
+#import "SparkSetupCustomization.h"
+#ifdef ANALYTICS
+#import <Mixpanel.h>
+#endif
 
 
 @interface SparkGetReadyViewController ()
@@ -155,6 +157,15 @@
     
 
 }
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Setup Get Ready Screen"];
+#endif
+}
+
 
 
 - (IBAction)logoutButtonTouched:(id)sender

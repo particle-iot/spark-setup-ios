@@ -14,6 +14,10 @@
 #import "SparkSetupUIElements.h"
 #import "SparkManualNetworkViewController.h"
 #import "SparkSetupMainController.h"
+#import "SparkSetupCustomization.h"
+#ifdef ANALYTICS
+#import <Mixpanel.h>
+#endif
 
 // TODO: move it somewhere else
 #define kSparkWifiRSSIThresholdStrong   -56
@@ -296,6 +300,15 @@
 {
     
 }
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Setup Select Network Screen"];
+#endif
+}
+
 
 
 -(void)photonScanAP
