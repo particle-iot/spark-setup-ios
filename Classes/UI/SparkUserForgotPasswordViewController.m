@@ -62,6 +62,10 @@
                 
                 if (!error)
                 {
+#ifdef ANALYTICS
+                    [[Mixpanel sharedInstance] track:@"Auth: Org user request password reset"];
+#endif
+
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset password" message:@"Instuctions how to reset your password will be sent to the provided email address. Please check your email and continue according to instructions." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     alert.delegate = self;
                     [alert show];
@@ -86,6 +90,10 @@
     {
         [self.spinner stopAnimating];
         // TODO: should be in first screen - see what is the endpoint for non-org users
+#ifdef ANALYTICS
+        [[Mixpanel sharedInstance] track:@"Auth: User request password reset"];
+#endif
+
         SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
         webVC.link = [SparkSetupCustomization sharedInstance].forgotPasswordLinkURL;
         [self presentViewController:webVC animated:YES completion:nil];
@@ -96,7 +104,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Forgot Password Screen"];
+    [[Mixpanel sharedInstance] track:@"Auth: Forgot password screen"];
 #endif
 }
 

@@ -162,7 +162,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Setup Get Ready Screen"];
+    [[Mixpanel sharedInstance] track:@"Device Setup: Get ready screen"];
 #endif
 }
 

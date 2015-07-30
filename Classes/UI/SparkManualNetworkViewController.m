@@ -65,7 +65,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Setup Manual Network Entry Screen"];
+    [[Mixpanel sharedInstance] track:@"Device Setup: Manual network entry screen"];
 #endif
 }
 
@@ -117,14 +117,18 @@
         [self.view endEditing:YES];
         if (self.networkRequiresPasswordSwitch.isOn)
         {
+            [[Mixpanel sharedInstance] track:@"Device Setup: Selected secured network"];
             [self performSegueWithIdentifier:@"require_password" sender:self];
         }
         else
         {
+            [[Mixpanel sharedInstance] track:@"Device Setup: Selected open network"];
             [self performSegueWithIdentifier:@"connect" sender:self];
             
         }
     }
+    
+    
     
 }
 

@@ -49,10 +49,18 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Setup How-To Video Screen"];
+    [[Mixpanel sharedInstance] timeEvent:@"Device Setup: How-To video screen activity"];
 #endif
 }
 
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Device Setup: How-To video screen activity"];
+#endif
+    
+}
 
 -(void)viewDidAppear:(BOOL)animated
 {

@@ -81,7 +81,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Setup Password Entry Screen"];
+    [[Mixpanel sharedInstance] track:@"Device Setup: Password Entry Screen"];
 #endif
 }
 

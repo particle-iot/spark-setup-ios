@@ -110,12 +110,10 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     [self startAnimatingSpinner:self.currentStateView.spinner];
     [self tintConnectionProgressStateSpinner];
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Setup Connecting Progress Screen"];
+    [[Mixpanel sharedInstance] timeEvent:@"Device Setup: Connecting progress screen activity"];
 #endif
     
 }
-
-
 
 
 
@@ -478,6 +476,10 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     [super viewWillDisappear:animated];
 //    NSLog(@"-- removed kReachabilityChangedNotification");
     [self.hostReachability stopNotifier];
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] track:@"Device Setup: Connecting progress screen activity"];
+#endif
+
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
 }
 

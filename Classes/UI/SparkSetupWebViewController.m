@@ -99,7 +99,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Webview Screen"];
+    [[Mixpanel sharedInstance] track:@"Device Setup: Webview Screen"];
 #endif
 }
 

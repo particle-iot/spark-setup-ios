@@ -95,6 +95,10 @@
     [self.cancelSetupButton setTitleColor:[SparkSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
 
     
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] timeEvent:@"Device Setup: Device discovery screen activity"];
+#endif
+
 
 }
 
@@ -150,9 +154,6 @@
     [super viewWillAppear:animated];
     // TODO: solve this via autolayout?
 
-#ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Setup Discover Device Screen"];
-#endif
 
     self.spinner.image = [self.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.spinner.tintColor = [UIColor blackColor];
@@ -242,6 +243,10 @@
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"select_network"])
     {
+#ifdef ANALYTICS
+        [[Mixpanel sharedInstance] track:@"Device Setup: Device discovery screen activity"];
+#endif
+
         [self.checkConnectionTimer invalidate];
         // Get reference to the destination view controller
         SparkSelectNetworkViewController *vc = [segue destinationViewController];

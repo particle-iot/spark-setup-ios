@@ -275,9 +275,16 @@
     [self.checkConnectionTimer invalidate];
     
     if (secInt == SparkSetupWifiSecurityTypeOpen)
+    {
+        [[Mixpanel sharedInstance] track:@"Device Setup: Selected open network"];
         [self performSegueWithIdentifier:@"connect" sender:self];
+        
+    }
     else
+    {
+        [[Mixpanel sharedInstance] track:@"Device Setup: Selected secured network"];
         [self performSegueWithIdentifier:@"require_password" sender:self];
+    }
   
 }
 
@@ -305,7 +312,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Setup Select Network Screen"];
+    [[Mixpanel sharedInstance] track:@"Device Setup: Select Network Screen"];
 #endif
 }
 

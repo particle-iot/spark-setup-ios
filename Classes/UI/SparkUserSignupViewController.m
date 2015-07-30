@@ -165,7 +165,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Sign Up Screen"];
+    [[Mixpanel sharedInstance] track:@"Auth: Sign Up screen"];
 #endif
 }
 
@@ -207,7 +207,7 @@
                      if (!error)
                      {
 #ifdef ANALYTICS
-                         [[Mixpanel sharedInstance] track:@"Signed Up Organizational"];
+                         [[Mixpanel sharedInstance] track:@"Auth: Signed Up Organizational"];
 #endif
                          
                          [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
@@ -245,7 +245,7 @@
                 if (!error)
                 {
 #ifdef ANALYTICS
-                    [[Mixpanel sharedInstance] track:@"Signed Up"];
+                    [[Mixpanel sharedInstance] track:@"Auth: Signed Up"];
 #endif
 
                     [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {

@@ -98,7 +98,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Login Screen"];
+    [[Mixpanel sharedInstance] track:@"Auth: Login Screen"];
 #endif
 }
 
@@ -123,6 +123,10 @@
              [self.spinner stopAnimating];
              if (!error)
              {
+#ifdef ANALYTICS
+                 [[Mixpanel sharedInstance] track:@"Auth: Login success"];
+#endif
+
                  // dismiss modal view and call main controller delegate to go on to setup process since login is complete
 //                 [self dismissViewControllerAnimated:YES completion:^{
                      [self.delegate didFinishUserLogin:self];
@@ -131,6 +135,10 @@
              else
              {
                  NSString *errorText;
+#ifdef ANALYTICS
+                 [[Mixpanel sharedInstance] track:@"Auth: Login failure"];
+#endif
+
 //                 if ([error.localizedDescription containsString:@"(400)"]) // TODO: fix this hack to something nicer
                  if ([error.localizedDescription rangeOfString:@"(400)"].length > 0) //iOS7 way to do it (still need to do something nicer here)
                      errorText = @"Incorrect username and/or password";
