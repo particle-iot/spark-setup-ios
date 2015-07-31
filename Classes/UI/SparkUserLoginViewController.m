@@ -16,7 +16,7 @@
 #endif
 
 
-@interface SparkUserLoginViewController () <UITextFieldDelegate>
+@interface SparkUserLoginViewController () <UITextFieldDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *forgotButton;
@@ -24,7 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *brandImage;
 @property (weak, nonatomic) IBOutlet UIButton *noAccountButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+@property (strong, nonatomic) UIAlertView *skipAuthAlertView;
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
+@property (weak, nonatomic) IBOutlet SparkSetupUIButton *skipAuthButton;
 @end
 
 @implementation SparkUserLoginViewController
@@ -55,6 +57,8 @@
     self.passwordTextField.leftViewMode = UITextFieldViewModeAlways;
     self.passwordTextField.delegate = self;
     self.passwordTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+
+    self.skipAuthButton.hidden = !([SparkSetupCustomization sharedInstance].allowSkipAuthentication);
 
 }
 
@@ -172,5 +176,13 @@
 }
 
 
+- (IBAction)skipAuthButtonTapped:(id)sender {
+    
+    // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
+    NSString *messageStr = @"Skipping authentication will allow you to configure Wi-Fi credentials to your device but you cannot claim it nor interact with any existing devices. Are you sure you want to skip authentication?";
+    self.skipAuthAlertView = [[UIAlertView alloc] initWithTitle:@"Skip authentication" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
+
+    
+}
 
 @end

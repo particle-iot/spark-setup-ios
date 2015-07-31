@@ -16,6 +16,7 @@ typedef NS_ENUM(NSInteger, SparkSetupMainControllerResult) {
     SparkSetupMainControllerResultFailure,
     SparkSetupMainControllerResultUserCancel,
     SparkSetupMainControllerResultLoggedIn, // relevant to initWithAuthenticationOnly:YES only
+    SparkSetupMainControllerResultSkippedAuth, // relevant to initWithAuthenticationOnly:YES only
 
 };
 

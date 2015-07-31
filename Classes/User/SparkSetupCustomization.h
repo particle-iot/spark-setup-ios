@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define ANALYTICS   1
+//#define ANALYTICS   1
 
 @interface SparkSetupCustomization : NSObject
 
@@ -70,6 +70,8 @@
 
 @property (nonatomic, assign) BOOL organization;                 // enable invite codes, other APIs
 @property (nonatomic, strong) NSString *organizationName;        // organizational name for API endpoint URL
+
+@property (nonatomic, assign) BOOL allowSkipAuthentication;      // allow user to skip authentication 
 
 
 @end

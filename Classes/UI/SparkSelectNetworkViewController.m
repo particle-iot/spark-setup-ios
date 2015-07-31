@@ -276,13 +276,17 @@
     
     if (secInt == SparkSetupWifiSecurityTypeOpen)
     {
+#ifdef ANALYTICS
         [[Mixpanel sharedInstance] track:@"Device Setup: Selected open network"];
+#endif
         [self performSegueWithIdentifier:@"connect" sender:self];
         
     }
     else
     {
+#ifdef ANALYTICS
         [[Mixpanel sharedInstance] track:@"Device Setup: Selected secured network"];
+#endif
         [self performSegueWithIdentifier:@"require_password" sender:self];
     }
   

@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *haveAccountButton;
 @property (weak, nonatomic) IBOutlet UILabel *createAccountLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *signupButtonSpace;
+@property (weak, nonatomic) IBOutlet SparkSetupUIButton *skipAuthButton;
 
 
 @end
@@ -93,6 +94,8 @@
     self.activationCodeTextField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     self.activationCodeTextField.delegate = self;
     
+
+    
     if ((self.predefinedActivationCode) && (self.predefinedActivationCode.length >= 4))
     {
         // trim white space, set string max length to 4 chars and uppercase it
@@ -104,6 +107,8 @@
         NSString *shortActCode = [codeWhiteSpaceTrimmed substringWithRange:stringRange];
         self.activationCodeTextField.text = [shortActCode uppercaseString];
     }
+    
+    self.skipAuthButton.hidden = !([SparkSetupCustomization sharedInstance].allowSkipAuthentication);
 
 }
 
@@ -316,5 +321,7 @@
      */
 }
 
+- (IBAction)skipAuthButtonTapped:(id)sender {
+}
 
 @end
