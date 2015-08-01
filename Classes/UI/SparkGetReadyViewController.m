@@ -48,7 +48,10 @@
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
     
 
-    self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
+    if ([SparkCloud sharedInstance].loggedInUsername)
+        self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
+    else
+        self.loggedInLabel.text = @"";
     self.loggedInLabel.alpha = 0.85;
     self.logoutButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.logoutButton.titleLabel.font.pointSize];
     [self.logoutButton setTitleColor:[SparkSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
@@ -118,44 +121,51 @@
     [self.spinner startAnimating];
     self.readyButton.userInteractionEnabled = NO;
     
-    
-    [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
-    //  [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
-    
-        self.readyButton.userInteractionEnabled = YES;
-        [self.spinner stopAnimating];
-        
-        if (!error)
-        {
-            self.claimCode = claimCode;
-            self.claimedDevices = userClaimedDeviceIDs;
-//            NSLog(@"Got claim code: %@",self.claimCode);
-//            NSLog(@"Devices IDs owned by user: %@",self.claimedDevices);
-            [self performSegueWithIdentifier:@"discover" sender:self];
+    if ([SparkCloud sharedInstance].loggedInUsername)
+    {
+        [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
+            //  [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
             
-        }
-        else
-        {
-            if (error.code == 401)// localizedDescription containsString:@"unauthorized"])
+            self.readyButton.userInteractionEnabled = YES;
+            [self.spinner stopAnimating];
+            
+            if (!error)
             {
-                NSString *errStr = [NSString stringWithFormat:@"Sorry, you must be logged in as a %@ customer.",[SparkSetupCustomization sharedInstance].brandName];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Access denied" message:errStr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert show];
-                [[SparkCloud sharedInstance] logout];
-                // call main delegate or post notification
-                [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidLogoutNotification object:nil userInfo:nil];
+                self.claimCode = claimCode;
+                self.claimedDevices = userClaimedDeviceIDs;
+                //            NSLog(@"Got claim code: %@",self.claimCode);
+                //            NSLog(@"Devices IDs owned by user: %@",self.claimedDevices);
+                [self performSegueWithIdentifier:@"discover" sender:self];
+                
             }
             else
             {
-                NSString *errStr = [NSString stringWithFormat:@"Could not communicate with Spark cloud. Make sure your iOS device is connected to the internet and retry.\n\n(%@)",error.localizedDescription];
-                UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errStr delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                errorAlertView.delegate = self;
-                [errorAlertView show];
+                if (error.code == 401)// localizedDescription containsString:@"unauthorized"])
+                {
+                    NSString *errStr = [NSString stringWithFormat:@"Sorry, you must be logged in as a %@ customer.",[SparkSetupCustomization sharedInstance].brandName];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Access denied" message:errStr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                    [[SparkCloud sharedInstance] logout];
+                    // call main delegate or post notification
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidLogoutNotification object:nil userInfo:nil];
+                }
+                else
+                {
+                    NSString *errStr = [NSString stringWithFormat:@"Could not communicate with Spark cloud. Make sure your iOS device is connected to the internet and retry.\n\n(%@)",error.localizedDescription];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errStr delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    errorAlertView.delegate = self;
+                    [errorAlertView show];
+                }
             }
-        }
-    }];
+        }];
+    }
+    else
+    {
+        // user skipped authentication - no claim code needed
+        [self performSegueWithIdentifier:@"discover" sender:self];
+    }
     
-
+    
 }
 
 

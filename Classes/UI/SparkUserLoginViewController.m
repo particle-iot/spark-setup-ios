@@ -133,7 +133,7 @@
 
                  // dismiss modal view and call main controller delegate to go on to setup process since login is complete
 //                 [self dismissViewControllerAnimated:YES completion:^{
-                     [self.delegate didFinishUserLogin:self];
+                 [self.delegate didFinishUserAuthentication:self loggedIn:YES];
 //                 }];
              }
              else
@@ -176,12 +176,26 @@
 }
 
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView == self.skipAuthAlertView)
+    {
+        if (buttonIndex == 0) //YES
+        {
+#ifdef ANALYTICS
+            [[Mixpanel sharedInstance] track:@"Auth: Auth skipped"];
+#endif
+            [self.delegate didFinishUserAuthentication:self loggedIn:NO];
+        }
+    }
+}
+
 - (IBAction)skipAuthButtonTapped:(id)sender {
     
     // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
-    NSString *messageStr = @"Skipping authentication will allow you to configure Wi-Fi credentials to your device but you cannot claim it nor interact with any existing devices. Are you sure you want to skip authentication?";
+    NSString *messageStr = @"Skipping authentication will allow you to configure Wi-Fi credentials to your device but it will not be claimed to your account. Are you sure you want to skip authentication?";
     self.skipAuthAlertView = [[UIAlertView alloc] initWithTitle:@"Skip authentication" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
-
+    [self.skipAuthAlertView show];
     
 }
 

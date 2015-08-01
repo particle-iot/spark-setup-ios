@@ -142,14 +142,19 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 }
 
 #pragma mark SparkUserLoginDelegate methods
--(void)didFinishUserLogin:(id)sender
+//-(void)didFinishUserLogin:(id)sender
+-(void)didFinishUserAuthentication:(id)sender loggedIn:(BOOL)loggedIn;
 {
     if (self.authenticationOnly)
     {
         // if authentication only requested than just post a notification to remove modal screen and return to calling app
         // add a small delay and perform in another thread to let viewDidload finish (if we're still in it), otherwise we might get a deadlock black screen
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultLoggedIn)}];
+            if (loggedIn)
+                [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultLoggedIn)}];
+            else
+                [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultSkippedAuth)}];
+            
         });
     }
     else

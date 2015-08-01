@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *createAccountLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *signupButtonSpace;
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *skipAuthButton;
-
+@property (strong, nonatomic) UIAlertView *skipAuthAlertView;
 
 @end
 
@@ -219,7 +219,7 @@
                              [self.spinner stopAnimating];
                              if (!error)
                              {
-                                 [self.delegate didFinishUserLogin:self];
+                                 [self.delegate didFinishUserAuthentication:self loggedIn:YES];
                              }
                              else
                              {
@@ -258,7 +258,7 @@
                         if (!error)
                         {
                             //                        [self performSegueWithIdentifier:@"discover" sender:self];
-                            [self.delegate didFinishUserLogin:self];
+                            [self.delegate didFinishUserAuthentication:self loggedIn:YES];
                         }
                         else
                         {
@@ -322,6 +322,27 @@
 }
 
 - (IBAction)skipAuthButtonTapped:(id)sender {
+    // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
+    NSString *messageStr = @"Skipping authentication will allow you to configure Wi-Fi credentials to your device but it will not be claimed to your account. Are you sure you want to skip authentication?";
+    self.skipAuthAlertView = [[UIAlertView alloc] initWithTitle:@"Skip authentication" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
+    [self.skipAuthAlertView show];
+
 }
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView == self.skipAuthAlertView)
+    {
+        if (buttonIndex == 0) //YES
+        {
+#ifdef ANALYTICS
+            [[Mixpanel sharedInstance] track:@"Auth: Auth skipped"];
+#endif
+            [self.delegate didFinishUserAuthentication:self loggedIn:NO];
+        }
+    }
+}
+
 
 @end

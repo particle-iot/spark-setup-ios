@@ -11,7 +11,7 @@
 
 @protocol SparkUserLoginDelegate <NSObject>
 @required
--(void)didFinishUserLogin:(id)sender;
+-(void)didFinishUserAuthentication:(id)sender loggedIn:(BOOL)loggedIn;
 -(void)didRequestUserSignup:(id)sender;
 -(void)didRequestUserLogin:(id)sender;
 -(void)didRequestPasswordReset:(id)sender;
