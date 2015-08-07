@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordVerifyTextField;
-@property (weak, nonatomic) IBOutlet UITextField *activationCodeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UIButton *termsButton;
 @property (weak, nonatomic) IBOutlet UIButton *privacyButton;
@@ -54,7 +53,7 @@
     UIView* emptyView1 = [[UIView alloc] initWithFrame:viewRect];
     UIView* emptyView2 = [[UIView alloc] initWithFrame:viewRect];
     UIView* emptyView3 = [[UIView alloc] initWithFrame:viewRect];
-    UIView* emptyView4 = [[UIView alloc] initWithFrame:viewRect];
+//    UIView* emptyView4 = [[UIView alloc] initWithFrame:viewRect];
     
     self.emailTextField.leftView = emptyView1;
     self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
@@ -73,6 +72,7 @@
     self.passwordVerifyTextField.delegate = self;
     self.passwordVerifyTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
+    /*
     if ([SparkSetupCustomization sharedInstance].organization)
     {
         self.passwordVerifyTextField.returnKeyType = UIReturnKeyNext;
@@ -82,17 +82,16 @@
         self.activationCodeTextField.delegate = self;
         self.activationCodeTextField.hidden = NO;
         self.activationCodeTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+        self.activationCodeTextField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+        self.activationCodeTextField.delegate = self;
 
-    }
     else
-    {
+    {*/
         // make sign up button be closer to verify password textfield (no activation code field)
         self.signupButtonSpace.constant = 16;
-    }
     
-    self.activationCodeTextField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-    self.activationCodeTextField.delegate = self;
     
+    /*
     if ((self.predefinedActivationCode) && (self.predefinedActivationCode.length >= 4))
     {
         // trim white space, set string max length to 4 chars and uppercase it
@@ -104,10 +103,13 @@
         NSString *shortActCode = [codeWhiteSpaceTrimmed substringWithRange:stringRange];
         self.activationCodeTextField.text = [shortActCode uppercaseString];
     }
+     */
 
 }
 
 
+// removed activation code
+/*
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     
@@ -134,6 +136,7 @@
     
     return YES;
 }
+ */
 
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -148,15 +151,15 @@
     }
     if (textField == self.passwordVerifyTextField)
     {
-        if ([SparkSetupCustomization sharedInstance].organization)
-            [self.activationCodeTextField becomeFirstResponder];
-        else
+//        if ([SparkSetupCustomization sharedInstance].organization)
+//            [self.activationCodeTextField becomeFirstResponder];
+//        else
             [self signupButton:self];
     }
-    if (textField == self.activationCodeTextField)
-    {
-        [self signupButton:self];
-    }
+//    if (textField == self.activationCodeTextField)
+//    {
+//        [self signupButton:self];
+//    }
     
     return YES;
     
@@ -191,58 +194,47 @@
         BOOL orgMode = [SparkSetupCustomization sharedInstance].organization;
         if (orgMode)
         {
-            if (self.activationCodeTextField.text.length < 4)
-            {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Activation code" message:@"Activation code should be at least 4 characters long" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert show];
-            }
-            else
-            {
-                // org user sign up
-                [self.spinner startAnimating];
-                
-                // Sign up and then login
-                [[SparkCloud sharedInstance] signupWithOrganizationalUser:email password:self.passwordTextField.text inviteCode:self.activationCodeTextField.text orgName:[SparkSetupCustomization sharedInstance].organizationName completion:^(NSError *error)
-                 {
-                     if (!error)
-                     {
-#ifdef ANALYTICS
-                         [[Mixpanel sharedInstance] track:@"Auth: Signed Up Organizational"];
-#endif
-                         
-                         [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
-                             [self.spinner stopAnimating];
-                             if (!error)
-                             {
-                                 [self.delegate didFinishUserLogin:self];
-                             }
-                             else
-                             {
-                                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not login" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                                 [alert show];
-                             }
-                         }];
-                     }
-                     else
-                     {
-                         [self.spinner stopAnimating];
-                         NSLog(@"Error signing up: %@",error.localizedDescription);
-                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not signup" message:@"Make sure your user email does not already exist and that you have entered the activation code correctly and that it was not already used"/*error.localizedDescription*/ delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                         [alert show];
-                         
-                     }
-                 }];
-                
-            }
-        }
-        else
-        {
-            // normal user sign up
+            // org user sign up
             [self.spinner startAnimating];
             
             // Sign up and then login
-            [[SparkCloud sharedInstance] signupWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
+            [[SparkCloud sharedInstance] signupWithCustomer:email password:self.passwordTextField.text orgSlug:[SparkSetupCustomization sharedInstance].organizationSlug completion:^(NSError *error) {
                 if (!error)
+                {
+#ifdef ANALYTICS
+                    [[Mixpanel sharedInstance] track:@"Auth: Signed Up Organizational"];
+#endif
+                    [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
+                        [self.spinner stopAnimating];
+                        if (!error)
+                        {
+                            [self.delegate didFinishUserLogin:self];
+                        }
+                        else
+                        {
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not login" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                            [alert show];
+                        }
+                    }];
+                }
+                else
+                {
+                    [self.spinner stopAnimating];
+                    NSLog(@"Error signing up: %@",error.localizedDescription);
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not signup" message:@"Make sure your user email does not already exist and that you have entered the activation code correctly and that it was not already used"/*error.localizedDescription*/ delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                }
+                
+            }];
+        }
+             else
+             {
+                 // normal user sign up
+                 [self.spinner startAnimating];
+                 
+                 // Sign up and then login
+                 [[SparkCloud sharedInstance] signupWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
+                     if (!error)
                 {
 #ifdef ANALYTICS
                     [[Mixpanel sharedInstance] track:@"Auth: Signed Up"];

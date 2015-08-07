@@ -56,7 +56,6 @@
         self.modeButtonName = @"mode button";
         self.networkNamePrefix = @"Photon";
         self.listenModeLEDColorName = @"blue";
-        self.organization = NO;
         self.appName = self.brandName;// @"SparkSetup";
         self.fontSizeOffset = 0;
         
@@ -83,6 +82,13 @@
         self.headerTextFontName = @"HelveticaNeue-Light";
         
         self.tintSetupImages = NO;
+        
+        self.organization = NO;
+        self.organizationSlug = @"particle";
+        self.organizationName = @"Particle";
+        self.productSlug = @"photon";
+        self.productName = @"Photon";
+        
         return self;
     }
     

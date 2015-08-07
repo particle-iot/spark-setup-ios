@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define ANALYTICS   1
+//#define ANALYTICS   1
 
 @interface SparkSetupCustomization : NSObject
 
@@ -21,7 +21,7 @@
 + (instancetype)sharedInstance;
 
 @property (nonatomic, strong) NSString *deviceName;
-//@property (nonatomic, strong) UIImage *deviceImage; // deprecated
+@property (nonatomic, strong) UIImage *productImage;
 
 @property (nonatomic, strong) NSString *brandName;
 @property (nonatomic, strong) UIImage *brandImage;
@@ -68,8 +68,11 @@
 
 @property (nonatomic) CGFloat fontSizeOffset;                   // Set offset of font size so small/big fonts can be fine-adjusted
 
-@property (nonatomic, assign) BOOL organization;                 // enable invite codes, other APIs
-@property (nonatomic, strong) NSString *organizationName;        // organizational name for API endpoint URL
+@property (nonatomic, assign) BOOL organization;        // enable organizational mode
+@property (nonatomic, strong) NSString *organizationName;        // organization display name
+@property (nonatomic, strong) NSString *organizationSlug;        // organizational name for API endpoint URL - must specify for orgMode
+@property (nonatomic, strong) NSString *productSlug;    // product display name
+@property (nonatomic, strong) NSString *productName;    // product string for API endpoint URL - must specify for orgMode
 
 
 @end

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -15,7 +16,6 @@
             <string>Gotham-Book</string>
         </mutableArray>
         <mutableArray key="Reader-Regular.otf">
-            <string>Reader</string>
             <string>Reader</string>
             <string>Reader</string>
             <string>Reader</string>
@@ -366,30 +366,6 @@
                                     <action selector="haveAnAccountButtonTouched:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="tjc-Eu-fRW"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="activation code" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZtB-5L-bLk">
-                                <rect key="frame" x="176" y="308" width="248" height="32"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="248" id="FnN-fZ-vB5"/>
-                                    <constraint firstAttribute="height" constant="32" id="mak-JC-xgO">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
-                                    </constraint>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Reader" family="Reader" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="FnN-fZ-vB5"/>
-                                        <exclude reference="mak-JC-xgO"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="FnN-fZ-vB5"/>
-                                        <include reference="mak-JC-xgO"/>
-                                    </mask>
-                                </variation>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hTx-ZG-e7U" customClass="SparkSetupUIButton">
                                 <rect key="frame" x="176" y="348" width="248" height="32"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -440,7 +416,6 @@
                             <constraint firstItem="XMC-K5-EOR" firstAttribute="top" secondItem="K4G-ia-1Un" secondAttribute="bottom" constant="98" id="Mbz-fB-d1m">
                                 <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                             </constraint>
-                            <constraint firstAttribute="centerX" secondItem="ZtB-5L-bLk" secondAttribute="centerX" id="Odt-hR-wWP"/>
                             <constraint firstItem="HXM-Qh-9kM" firstAttribute="top" secondItem="ZJd-3i-xnf" secondAttribute="bottom" constant="232" id="PyB-9A-uzQ">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
@@ -457,9 +432,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="ZJd-3i-xnf" firstAttribute="top" secondItem="QFf-6f-5yx" secondAttribute="bottom" constant="-3" id="W6p-lQ-cun"/>
-                            <constraint firstItem="ZtB-5L-bLk" firstAttribute="top" secondItem="fIF-uh-IUN" secondAttribute="bottom" constant="8" id="YB0-vj-lxC">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="ZJd-3i-xnf" secondAttribute="centerX" id="a4y-3b-BEv"/>
                             <constraint firstItem="HXM-Qh-9kM" firstAttribute="top" secondItem="ZJd-3i-xnf" secondAttribute="bottom" constant="298" id="cdt-H7-Mf7"/>
                             <constraint firstItem="xbQ-5h-nSM" firstAttribute="top" secondItem="hTx-ZG-e7U" secondAttribute="top" id="dWl-xT-Drg"/>
@@ -479,16 +451,12 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
                             </constraint>
                             <constraint firstItem="hTx-ZG-e7U" firstAttribute="top" secondItem="fIF-uh-IUN" secondAttribute="bottom" constant="52" id="y2O-2m-bM0"/>
-                            <constraint firstItem="hTx-ZG-e7U" firstAttribute="top" secondItem="ZtB-5L-bLk" secondAttribute="bottom" constant="13" id="zwf-C9-8fx">
-                                <variation key="heightClass=regular-widthClass=compact" constant="12"/>
-                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="K4G-ia-1Un"/>
                                 <exclude reference="fIF-uh-IUN"/>
                                 <exclude reference="vg2-z0-M92"/>
-                                <exclude reference="ZtB-5L-bLk"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="eIO-VM-kFj"/>
@@ -506,7 +474,6 @@
                                 <exclude reference="jG6-JC-y2R"/>
                                 <exclude reference="lRT-Ud-ot4"/>
                                 <exclude reference="y2O-2m-bM0"/>
-                                <exclude reference="zwf-C9-8fx"/>
                                 <exclude reference="dWl-xT-Drg"/>
                                 <exclude reference="p6x-z1-eXT"/>
                                 <exclude reference="GMW-US-fXN"/>
@@ -519,8 +486,6 @@
                                 <exclude reference="nzt-C1-3ye"/>
                                 <exclude reference="PyB-9A-uzQ"/>
                                 <exclude reference="cdt-H7-Mf7"/>
-                                <exclude reference="Odt-hR-wWP"/>
-                                <exclude reference="YB0-vj-lxC"/>
                                 <exclude reference="QRY-dI-zCY"/>
                                 <exclude reference="lqX-CO-RDc"/>
                             </mask>
@@ -530,7 +495,6 @@
                                 <include reference="K4G-ia-1Un"/>
                                 <include reference="fIF-uh-IUN"/>
                                 <include reference="vg2-z0-M92"/>
-                                <include reference="ZtB-5L-bLk"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="eIO-VM-kFj"/>
@@ -548,7 +512,6 @@
                                 <include reference="jG6-JC-y2R"/>
                                 <include reference="lRT-Ud-ot4"/>
                                 <exclude reference="y2O-2m-bM0"/>
-                                <exclude reference="zwf-C9-8fx"/>
                                 <include reference="dWl-xT-Drg"/>
                                 <include reference="p6x-z1-eXT"/>
                                 <include reference="GMW-US-fXN"/>
@@ -561,8 +524,6 @@
                                 <exclude reference="nzt-C1-3ye"/>
                                 <include reference="PyB-9A-uzQ"/>
                                 <exclude reference="cdt-H7-Mf7"/>
-                                <include reference="Odt-hR-wWP"/>
-                                <include reference="YB0-vj-lxC"/>
                                 <include reference="QRY-dI-zCY"/>
                                 <include reference="lqX-CO-RDc"/>
                             </mask>
@@ -570,7 +531,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="rfy-cP-RR6"/>
                     <connections>
-                        <outlet property="activationCodeTextField" destination="ZtB-5L-bLk" id="q12-cb-IkM"/>
                         <outlet property="createAccountLabel" destination="vg2-z0-M92" id="Zla-5D-Z1B"/>
                         <outlet property="emailTextField" destination="XMC-K5-EOR" id="ctZ-P3-ZOW"/>
                         <outlet property="haveAccountButton" destination="QFf-6f-5yx" id="VoY-uJ-HEB"/>
@@ -2406,7 +2366,8 @@
                                                             <exclude reference="Nsl-NJ-xqf"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="287" y="9" width="26" height="26"/>
                                                         <mask key="constraints">
                                                             <include reference="CjU-Uj-l5K"/>
                                                             <include reference="Nsl-NJ-xqf"/>
@@ -2426,7 +2387,8 @@
                                                             <exclude reference="6uQ-KH-gVe"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="24" y="11" width="232" height="22"/>
                                                         <mask key="constraints">
                                                             <include reference="6uQ-KH-gVe"/>
                                                         </mask>
@@ -2444,7 +2406,8 @@
                                                             <exclude reference="TZM-FV-5Hk"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="259" y="9" width="26" height="26"/>
                                                         <mask key="constraints">
                                                             <include reference="PWe-LU-QKp"/>
                                                             <include reference="TZM-FV-5Hk"/>
@@ -3412,7 +3375,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name your new device:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkc-Z7-m2G" customClass="SparkSetupUILabel">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="normal"/>
@@ -4155,7 +4118,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in as:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ys-oq-6AP" customClass="SparkSetupUILabel">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -4297,6 +4260,7 @@
                         <outlet property="loggedInLabel" destination="2ys-oq-6AP" id="ffy-Z0-AGK"/>
                         <outlet property="loggedInUserLabel" destination="2ys-oq-6AP" id="JEj-QU-quu"/>
                         <outlet property="logoutButton" destination="kZE-3U-nVp" id="Cqh-kc-kZa"/>
+                        <outlet property="productImageView" destination="Dom-kg-WP6" id="MaW-SP-VoF"/>
                         <outlet property="readyButton" destination="UNy-JD-Bob" id="rdb-Dm-3Vu"/>
                         <outlet property="spinner" destination="Ald-Di-X3r" id="GZr-Bj-RKk"/>
                         <outlet property="view" destination="xP3-D7-C6C" id="T4Z-8r-EFD"/>
