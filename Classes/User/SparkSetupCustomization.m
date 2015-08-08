@@ -56,7 +56,7 @@
         self.modeButtonName = @"mode button";
         self.networkNamePrefix = @"Photon";
         self.listenModeLEDColorName = @"blue";
-        self.appName = self.brandName;// @"SparkSetup";
+//        self.appName = self.brandName;// @"SparkSetup";
         self.fontSizeOffset = 0;
         
         self.privacyPolicyLinkURL = [NSURL URLWithString:@"https://www.spark.io/privacy"];

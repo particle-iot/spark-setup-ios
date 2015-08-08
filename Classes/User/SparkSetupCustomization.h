@@ -31,7 +31,6 @@
 @property (nonatomic, strong) NSString *modeButtonName;
 @property (nonatomic, strong) NSString *listenModeLEDColorName;
 @property (nonatomic, strong) NSString *networkNamePrefix;
-@property (nonatomic, strong) NSString *appName;
 
 // TODO: kill forgot password links
 @property (nonatomic, strong) NSURL *termsOfServiceLinkURL; // URL for terms of service of the app/device usage
@@ -71,8 +70,8 @@
 @property (nonatomic, assign) BOOL organization;        // enable organizational mode
 @property (nonatomic, strong) NSString *organizationName;        // organization display name
 @property (nonatomic, strong) NSString *organizationSlug;        // organizational name for API endpoint URL - must specify for orgMode
-@property (nonatomic, strong) NSString *productSlug;    // product display name
-@property (nonatomic, strong) NSString *productName;    // product string for API endpoint URL - must specify for orgMode
+@property (nonatomic, strong) NSString *productName;    // product display name
+@property (nonatomic, strong) NSString *productSlug;    // product string for API endpoint URL - must specify for orgMode
 
 
 @end

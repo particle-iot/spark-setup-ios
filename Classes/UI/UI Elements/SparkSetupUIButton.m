@@ -45,7 +45,6 @@
     self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{color}" withString:[SparkSetupCustomization sharedInstance].listenModeLEDColorName];
     self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{mode button}" withString:[SparkSetupCustomization sharedInstance].modeButtonName];
     self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{network prefix}" withString:[SparkSetupCustomization sharedInstance].networkNamePrefix];
-    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{app name}" withString:[SparkSetupCustomization sharedInstance].appName];
 }
 
 

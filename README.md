@@ -77,11 +77,11 @@ and modify its default properties. Setting the properties in this class is optio
 
 ```objc
  NSString *deviceName;                  // Device/product name 
+ UIImage *productImage;                 // Custom product image to display in "Get ready" screen *new*
  NSString *brandName;                   // Your brand name
  UIImage *brandImage;                   // Your brand logo to fit in header of setup wizard screens
  UIColor *brandImageBackgroundColor;    // brand logo background color
  NSString *instructionalVideoFilename;  // Instructional video shown when "show me how" button pressed
- NSString *appName;                     // Your setup app name
 ```
 
 #### Technical data:
@@ -97,12 +97,12 @@ and modify its default properties. Setting the properties in this class is optio
 ```objc
  NSURL *termsOfServiceLinkURL;      // URL for terms of service of the app/device usage
  NSURL *privacyPolicyLinkURL;       // URL for privacy policy of the app/device usage
- NSURL *forgotPasswordLinkURL;      // URL for user password reset (non-organization setup app only)
+ NSURL *forgotPasswordLinkURL;      // URL for user password reset (non-organization setup app only) - to be disabled soon
  NSURL *troubleshootingLinkURL;     // URL for troubleshooting text of the app/device usage
 
  NSString *termsOfServiceHTMLFile;  // Static HTML file for terms of service of the app/device usage
  NSString *privacyPolicyHTMLFile;   // Static HTML file for privacy policy of the app/device usage
- NSString *forgotPasswordHTMLFile;  // Static HTML file for user password reset (non-organization setup app only)
+ NSString *forgotPasswordHTMLFile;  // Static HTML file for user password reset (non-organization setup app only) - to be disabled soon
  NSString *troubleshootingHTMLFile; // Static HTML file for troubleshooting text of the app/device usage
 ```
 
@@ -123,9 +123,14 @@ and modify its default properties. Setting the properties in this class is optio
 
 #### Organization:
 
+*New fields here for v0.2.2*
+
 ```objc
- BOOL organization;                 // enable organization mode - activation codes, other organizational APIs
- NSString *organizationName;        // organization name
+ BOOL organization;             // enable organizational mode
+ NSString *organizationName;    // organization display name
+ NSString *organizationSlug;    // organizational name for API endpoint URL - must specify for orgMode *new*
+ NSString *productName;         // product display name *new*
+ NSString *productSlug;         // product string for API endpoint URL - must specify for orgMode *new*
 ```
 
 ### Advanced
