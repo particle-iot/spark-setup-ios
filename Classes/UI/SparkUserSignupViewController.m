@@ -83,18 +83,19 @@
         self.activationCodeTextField.delegate = self;
         self.activationCodeTextField.hidden = NO;
         self.activationCodeTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
-        self.activationCodeTextField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-        self.activationCodeTextField.delegate = self;
-
-    else
-    {*/
-        // make sign up button be closer to verify password textfield (no activation code field)
-        self.signupButtonSpace.constant = 16;
+     self.activationCodeTextField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+     self.activationCodeTextField.delegate = self;
+     
+     else
+     {*/
+    // make sign up button be closer to verify password textfield (no activation code field)
+    self.signupButtonSpace.constant = 16;
+    self.skipAuthButton.hidden = !([SparkSetupCustomization sharedInstance].allowSkipAuthentication);
     
     
     /*
-    if ((self.predefinedActivationCode) && (self.predefinedActivationCode.length >= 4))
-    {
+     if ((self.predefinedActivationCode) && (self.predefinedActivationCode.length >= 4))
+     {
         // trim white space, set string max length to 4 chars and uppercase it
         NSString *code = self.predefinedActivationCode;
         NSString *codeWhiteSpaceTrimmed = [code stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -104,9 +105,9 @@
         NSString *shortActCode = [codeWhiteSpaceTrimmed substringWithRange:stringRange];
         self.activationCodeTextField.text = [shortActCode uppercaseString];
     }
-    
-    self.skipAuthButton.hidden = !([SparkSetupCustomization sharedInstance].allowSkipAuthentication);
+
      */
+   
 
 }
 

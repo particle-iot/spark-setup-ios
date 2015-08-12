@@ -164,13 +164,21 @@
         }
     };
     
-    if ([SparkSetupCustomization sharedInstance].organization)
+    if ([SparkCloud sharedInstance].isLoggedIn)
     {
-        [[SparkCloud sharedInstance] generateClaimCodeForOrganization:[SparkSetupCustomization sharedInstance].organizationSlug andProduct:[SparkSetupCustomization sharedInstance].productSlug withActivationCode:nil completion:claimCodeCompletionBlock];
+        if ([SparkSetupCustomization sharedInstance].organization)
+        {
+            [[SparkCloud sharedInstance] generateClaimCodeForOrganization:[SparkSetupCustomization sharedInstance].organizationSlug andProduct:[SparkSetupCustomization sharedInstance].productSlug withActivationCode:nil completion:claimCodeCompletionBlock];
+        }
+        else
+        {
+            [[SparkCloud sharedInstance] generateClaimCode:claimCodeCompletionBlock];
+        }
     }
     else
     {
-        [[SparkCloud sharedInstance] generateClaimCode:claimCodeCompletionBlock];
+        // authentication skipped by user
+        [self performSegueWithIdentifier:@"discover" sender:self];
     }
     
     
