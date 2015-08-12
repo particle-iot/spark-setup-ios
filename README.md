@@ -67,7 +67,7 @@ This will invoke Particle Cloud authentication (login/signup/password recovery s
 after user has successfully logged in or signed up, control will be returned to the calling app. 
 If an active user session already exists control will be returned immediately.
 
-**Configure device Wi-Fi credentials without claiming it**
+####Configure device Wi-Fi credentials without claiming it
 
 If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via `initWithSetupOnly`, 
 and by allowing your users to skip authentication (see `allowSkipAuthentication` flag in customization section) if you present the authentication stage.
