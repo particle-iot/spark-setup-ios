@@ -193,7 +193,7 @@
 - (IBAction)skipAuthButtonTapped:(id)sender {
     
     // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
-    NSString *messageStr = @"Skipping authentication will allow you to configure Wi-Fi credentials to your device but it will not be claimed to your account. Are you sure you want to skip authentication?";
+    NSString *messageStr = [SparkSetupCustomization sharedInstance].skipAuthenticationMessage;
     self.skipAuthAlertView = [[UIAlertView alloc] initWithTitle:@"Skip authentication" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
     [self.skipAuthAlertView show];
     

@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, SparkSetupMainControllerResult) {
     SparkSetupMainControllerResultUserCancel,
     SparkSetupMainControllerResultLoggedIn, // relevant to initWithAuthenticationOnly:YES only
     SparkSetupMainControllerResultSkippedAuth, // relevant to initWithAuthenticationOnly:YES only
+    SparkSetupMainControllerResultSuccessNotClaimed
 
 };
 
@@ -61,9 +62,11 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
  *  [self presentViewController:setupController animated:YES completion:nil];
  *  After user has successfully logged in or signed up, control will be return to the calling app. If an active user session already exists control will be returned immediately
  *
+ *  @param yesOrNo YES will invoke Authentication wizard only, NO will invoke whole Device Setup process (will skip authentication if user session is active, same as calling -init)
+ *
  *  @return An inititalized SparkSetupMainController instance ready to be presented.
  */
--(instancetype)initWithAuthenticationOnly;
+-(instancetype)initWithAuthenticationOnly:(BOOL)yesOrNo;
 
 
 /**
@@ -75,9 +78,11 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
  *  [self presentViewController:setupController animated:YES completion:nil];
  *  After user has successfully logged in or signed up, control will be return to the calling app. If an active user session already exists control will be returned immediately
  *
+ *  @param yesOrNo YES will invoke Setup wizard only, NO will invoke whole Device Setup process (will skip authentication if user session is active, same as calling -init)
+ *
  *  @return An inititalized SparkSetupMainController instance ready to be presented.
  */
--(instancetype)initWithSetupOnly;
+-(instancetype)initWithSetupOnly:(BOOL)yesOrNo;
 
 
 /**

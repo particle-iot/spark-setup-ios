@@ -69,7 +69,7 @@
     }
     else
     {
-        self.logoutButton.titleLabel.text = @"Log In";
+        [self.logoutButton setTitle:@"Log in" forState:UIControlStateNormal];
         self.loggedInLabel.text = @"";
     }
 }

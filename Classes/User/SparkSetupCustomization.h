@@ -74,6 +74,6 @@
 @property (nonatomic, strong) NSString *productSlug;    // product string for API endpoint URL - must specify for orgMode
 
 @property (nonatomic, assign) BOOL allowSkipAuthentication;      // allow user to skip authentication 
-
+@property (nonatomic, strong) NSString *skipAuthenticationMessage;    // Prompt to display to user when he's requesting to skip authentication
 
 @end

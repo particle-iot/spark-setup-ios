@@ -31,6 +31,8 @@
 		509081F71ACF6AF70014E7DF /* SparkSetupCustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081E11ACF6AF70014E7DF /* SparkSetupCustomization.m */; };
 		509081F81ACF6AF70014E7DF /* SparkSetupMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081E31ACF6AF70014E7DF /* SparkSetupMainController.m */; };
 		50D095991AD5BB6E008EDBD7 /* SparkSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D095981AD5BB6E008EDBD7 /* SparkSetup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50E01B041B7AFC510020714F /* SparkSetupResultViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E01B021B7AFC510020714F /* SparkSetupResultViewController.h */; };
+		50E01B051B7AFC510020714F /* SparkSetupResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E01B031B7AFC510020714F /* SparkSetupResultViewController.m */; };
 		50E508971B754C01008EB036 /* Spark-SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E508941B754C01008EB036 /* Spark-SDK.h */; };
 		50E508981B754C01008EB036 /* SparkCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E508951B754C01008EB036 /* SparkCloud.h */; };
 		50E508991B754C01008EB036 /* SparkDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E508961B754C01008EB036 /* SparkDevice.h */; };
@@ -100,6 +102,8 @@
 		50D0955A1AD38CE4008EDBD7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		50D0955B1AD38E2E008EDBD7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		50D095981AD5BB6E008EDBD7 /* SparkSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SparkSetup.h; path = Classes/SparkSetup.h; sourceTree = SOURCE_ROOT; };
+		50E01B021B7AFC510020714F /* SparkSetupResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupResultViewController.h; sourceTree = "<group>"; };
+		50E01B031B7AFC510020714F /* SparkSetupResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupResultViewController.m; sourceTree = "<group>"; };
 		50E508941B754C01008EB036 /* Spark-SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Spark-SDK.h"; path = "../spark-sdk-ios/Pod/Classes/Spark-SDK.h"; sourceTree = "<group>"; };
 		50E508951B754C01008EB036 /* SparkCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SparkCloud.h; path = "../spark-sdk-ios/Pod/Classes/SDK/SparkCloud.h"; sourceTree = "<group>"; };
 		50E508961B754C01008EB036 /* SparkDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SparkDevice.h; path = "../spark-sdk-ios/Pod/Classes/SDK/SparkDevice.h"; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 		509081BE1ACF6AF70014E7DF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				50E01B021B7AFC510020714F /* SparkSetupResultViewController.h */,
+				50E01B031B7AFC510020714F /* SparkSetupResultViewController.m */,
 				509081BF1ACF6AF70014E7DF /* SparkConnectingProgressViewController.h */,
 				509081C01ACF6AF70014E7DF /* SparkConnectingProgressViewController.m */,
 				509081C11ACF6AF70014E7DF /* SparkDiscoverDeviceViewController.h */,
@@ -290,6 +296,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E01B041B7AFC510020714F /* SparkSetupResultViewController.h in Headers */,
 				50E508991B754C01008EB036 /* SparkDevice.h in Headers */,
 				50D095991AD5BB6E008EDBD7 /* SparkSetup.h in Headers */,
 				50E508981B754C01008EB036 /* SparkCloud.h in Headers */,
@@ -436,6 +443,7 @@
 				509081F61ACF6AF70014E7DF /* SparkSetupUISpinner.m in Sources */,
 				509081F81ACF6AF70014E7DF /* SparkSetupMainController.m in Sources */,
 				509081F11ACF6AF70014E7DF /* SparkUserForgotPasswordViewController.m in Sources */,
+				50E01B051B7AFC510020714F /* SparkSetupResultViewController.m in Sources */,
 				509081F41ACF6AF70014E7DF /* SparkSetupUIButton.m in Sources */,
 				509081EB1ACF6AF70014E7DF /* SparkManualNetworkViewController.m in Sources */,
 				506C6FE61AD32E1C009D8498 /* SparkSetupUIViewController.m in Sources */,

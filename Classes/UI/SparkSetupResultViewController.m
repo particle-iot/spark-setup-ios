@@ -193,10 +193,8 @@
 
 - (IBAction)doneButtonTapped:(id)sender
 {
-    
-    
     NSMutableDictionary *userInfo = [NSMutableDictionary new];
-    if ((self.setupResult == SparkSetupResultSuccess) || (self.setupResult == SparkSetupResultSuccessUnknown))
+    if (self.setupResult == SparkSetupResultSuccess)
     {
         // Update zero notice to user
         // TODO: condition message only if its really getting update zero
@@ -204,8 +202,13 @@
         [alert show];
 
         userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultSuccess);
+        
         if (self.device)
             userInfo[kSparkSetupDidFinishDeviceKey] = self.device;
+    }
+    else if (self.setupResult == SparkSetupResultSuccessUnknown)
+    {
+        userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultSuccessNotClaimed);
     }
     else
     {

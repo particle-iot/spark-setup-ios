@@ -63,18 +63,18 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 }
 
 
--(instancetype)initWithSetupOnly
+-(instancetype)initWithSetupOnly:(BOOL)yesOrNo
 {
     SparkSetupMainController* mainVC = [self init];
-    self.setupOnly = YES;
+    self.setupOnly = yesOrNo;
     return mainVC;
 }
 
 
--(instancetype)initWithAuthenticationOnly
+-(instancetype)initWithAuthenticationOnly:(BOOL)yesOrNo
 {
     SparkSetupMainController* mainVC = [self init];
-    self.authenticationOnly = YES;
+    self.authenticationOnly = yesOrNo;
     return mainVC;
 }
 
