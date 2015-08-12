@@ -229,6 +229,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"sparkSelectNetworkVC prepareForSegue : %@",segue.identifier);
     [self.checkConnectionTimer invalidate];
 
     if ([[segue identifier] isEqualToString:@"connect"])
@@ -242,7 +243,7 @@
         vc.deviceID = self.deviceID; // propagate device ID
         vc.needToClaimDevice = self.needToClaimDevice;
     }
-    if ([[segue identifier] isEqualToString:@"require_password"]) // prompt user for password
+    else if ([[segue identifier] isEqualToString:@"require_password"]) // prompt user for password
     {
         // Get reference to the destination view controller
         SparkSetupPasswordEntryViewController *vc = [segue destinationViewController];
@@ -252,7 +253,7 @@
         vc.deviceID = self.deviceID; // propagate device ID
         vc.needToClaimDevice = self.needToClaimDevice;
     }
-    if ([[segue identifier] isEqualToString:@"manual_network"]) // prompt user for password
+    else if ([[segue identifier] isEqualToString:@"manual_network"]) // prompt user for password
     {
         // Get reference to the destination view controller
         SparkManualNetworkViewController *vc = [segue destinationViewController];
