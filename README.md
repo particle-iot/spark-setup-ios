@@ -67,6 +67,28 @@ This will invoke Particle Cloud authentication (login/signup/password recovery s
 after user has successfully logged in or signed up, control will be returned to the calling app. 
 If an active user session already exists control will be returned immediately.
 
+**Configure device Wi-Fi credentials without claiming it**
+
+If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via `initWithSetupOnly`, 
+and by allowing your users to skip authentication (see `allowSkipAuthentication` flag in customization section) if you present the authentication stage.
+If an active user session exists - it'll be used and device will be claimed, otherwise it won't. 
+So invoking setup without an active user session will go thru the setup steps required for configuring device Wi-Fi credentials but not for claiming it. 
+However, calling `-initWithSetupOnly:` method with an active user session is essentially the same as calling `-init:`.
+Usage:
+
+```objc
+SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithSetupOnly:YES];
+[self presentViewController:setupController animated:YES completion:nil];
+```
+
+**Swift**
+```swift
+if let setupController = SparkSetupMainController(setupOnly: true)
+{
+    self.presentViewController(setupController, animated: true, completion: nil)
+}
+```
+
 
 ### Customization
 
@@ -123,7 +145,7 @@ and modify its default properties. Setting the properties in this class is optio
 
 #### Organization:
 
-*New fields here for v0.2.2*
+*New fields since v0.2.2*
 
 ```objc
  BOOL organization;             // enable organizational mode
@@ -131,6 +153,15 @@ and modify its default properties. Setting the properties in this class is optio
  NSString *organizationSlug;    // organizational name for API endpoint URL - must specify for orgMode *new*
  NSString *productName;         // product display name *new*
  NSString *productSlug;         // product string for API endpoint URL - must specify for orgMode *new*
+```
+
+#### Skipping authentication:
+
+*New since v0.3.0*
+
+```objc
+ BOOL allowSkipAuthentication;          // Allow user to skip authentication (skip button will appear on signup and login screens)
+ NSString *skipAuthenticationMessage;   // Message to display to user when she's requesting to skip authentication (Yes/No question)
 ```
 
 ### Advanced
