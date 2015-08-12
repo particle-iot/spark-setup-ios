@@ -63,7 +63,15 @@
     self.cancelSetupButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.self.cancelSetupButton.titleLabel.font.pointSize];
     [self.cancelSetupButton setTitleColor:[SparkSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
 
-    self.loggedInLabel.text = [SparkCloud sharedInstance].loggedInUsername;
+    if ([SparkCloud sharedInstance].isLoggedIn)
+    {
+        self.loggedInLabel.text = [SparkCloud sharedInstance].loggedInUsername;
+    }
+    else
+    {
+        self.logoutButton.titleLabel.text = @"Log In";
+        self.loggedInLabel.text = @"";
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -57,22 +57,36 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
 
 /**
  *  Entry point for invoking Spark Cloud authentication (login/signup/password recovery screens) only, use by calling this on your viewController:
- *  SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithAuthenticationOnly:YES];
+ *  SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithAuthenticationOnly];
  *  [self presentViewController:setupController animated:YES completion:nil];
  *  After user has successfully logged in or signed up, control will be return to the calling app. If an active user session already exists control will be returned immediately
  *
- *  @param yesOrNo YES will invoke Authentication wizard only, NO will invoke whole Device Setup process (will skip authentication if user session is active, same as calling -init)
+ *  @return An inititalized SparkSetupMainController instance ready to be presented.
+ */
+-(instancetype)initWithAuthenticationOnly;
+
+
+/**
+ *  Entry point for invoking Spark Cloud setup process only - used for configuring device Wi-Fi credentials without changing its ownership.
+ *  If active user session exists - it'll be used and device will be claimed, otherwise no. Calling -initWithSetupOnly: method with an active user session is
+ *  essentially the same as calling -init:
+ *  use by calling this on your viewController:
+ *  SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithSetupOnly];
+ *  [self presentViewController:setupController animated:YES completion:nil];
+ *  After user has successfully logged in or signed up, control will be return to the calling app. If an active user session already exists control will be returned immediately
  *
  *  @return An inititalized SparkSetupMainController instance ready to be presented.
  */
--(instancetype)initWithAuthenticationOnly:(BOOL)yesOrNo;
+-(instancetype)initWithSetupOnly;
+
 
 /**
- *  Open setup wizard in Signup screen with a pre-filled activation code from a URL scheme which was used to open the app
+ *  Open setup wizard in Signup screen with a pre-filled activation code from a URL scheme which was used to open the app.
+ *  Deprecated since
  *
  *  @param activationCode Activation code string
  */
--(void)showSignupWithPredefinedActivationCode:(NSString *)activationCode;
+-(void)showSignupWithPredefinedActivationCode:(NSString *)activationCode __deprecated;
 
 /**
  *  Get default resource bundle for Spark Soft AP setup wizard assets

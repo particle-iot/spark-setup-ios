@@ -28,6 +28,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (nonatomic, strong) UIViewController *currentVC;
 @property (nonatomic) BOOL authenticationOnly;
+@property (nonatomic) BOOL setupOnly;
 @end
 
 @implementation SparkSetupMainController
@@ -62,10 +63,18 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 }
 
 
--(instancetype)initWithAuthenticationOnly:(BOOL)yesOrNo;
+-(instancetype)initWithSetupOnly
 {
     SparkSetupMainController* mainVC = [self init];
-    self.authenticationOnly = yesOrNo;
+    self.setupOnly = YES;
+    return mainVC;
+}
+
+
+-(instancetype)initWithAuthenticationOnly
+{
+    SparkSetupMainController* mainVC = [self init];
+    self.authenticationOnly = YES;
     return mainVC;
 }
 
@@ -76,7 +85,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidFinishObserver:) name:kSparkSetupDidFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidLogoutObserver:) name:kSparkSetupDidLogoutNotification object:nil];
     
-    if ([SparkCloud sharedInstance].loggedInUsername)
+    if ([SparkCloud sharedInstance].isLoggedIn)
     {
         // start from discover screen if user is already logged in
         if (self.authenticationOnly == NO)
@@ -93,8 +102,10 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
     }
     else
     {
-        // else login
-        [self showSignup];
+        if (self.setupOnly)
+            [self runSetup];
+        else
+            [self showSignup];
     }
 
 
@@ -108,13 +119,17 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 -(void)showSignup
 {
-    [self showSignupWithPredefinedActivationCode:nil];
+    SparkUserSignupViewController *signupVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
+    signupVC.delegate = self;
+    [self showViewController:signupVC];
 }
+
 
 -(void)showSignupWithPredefinedActivationCode:(NSString *)activationCode;
 {
+    // __deprecated
     SparkUserSignupViewController *signupVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
-    signupVC.predefinedActivationCode = activationCode;
+//    signupVC.predefinedActivationCode = activationCode;
     signupVC.delegate = self;
     [self showViewController:signupVC];
 }
