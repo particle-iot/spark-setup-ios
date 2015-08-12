@@ -28,7 +28,9 @@
     self.text = [self.text stringByReplacingOccurrencesOfString:@"{color}" withString:[SparkSetupCustomization sharedInstance].listenModeLEDColorName];
     self.text = [self.text stringByReplacingOccurrencesOfString:@"{mode button}" withString:[SparkSetupCustomization sharedInstance].modeButtonName];
     self.text = [self.text stringByReplacingOccurrencesOfString:@"{network prefix}" withString:[SparkSetupCustomization sharedInstance].networkNamePrefix];
-    self.text = [self.text stringByReplacingOccurrencesOfString:@"{app name}" withString:[SparkSetupCustomization sharedInstance].appName];
+    self.text = [self.text stringByReplacingOccurrencesOfString:@"{product}" withString:[SparkSetupCustomization sharedInstance].productName];
+
+    //    self.text = [self.text stringByReplacingOccurrencesOfString:@"{app name}" withString:[SparkSetupCustomization sharedInstance].appName];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder

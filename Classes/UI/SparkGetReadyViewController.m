@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet SparkSetupUILabel *instructionsLabel;
 //@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeight;
 
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
 
 // new claiming process
 @property (nonatomic, strong) NSString *claimCode;
@@ -36,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelSetupButton;
 @property (weak, nonatomic) IBOutlet SparkSetupUILabel *loggedInUserLabel;
+
 @end
 
 @implementation SparkGetReadyViewController
@@ -46,7 +48,8 @@
     // Do any additional setup after loading the view.
     self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
-    
+    if ([SparkSetupCustomization sharedInstance].productImage)
+        self.productImageView.image = [SparkSetupCustomization sharedInstance].productImage;
 
     if ([SparkCloud sharedInstance].loggedInUsername)
         self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
@@ -116,58 +119,62 @@
     }
 }
 
+
 - (IBAction)readyButtonTapped:(id)sender
 {
     [self.spinner startAnimating];
     self.readyButton.userInteractionEnabled = NO;
     
-    if ([SparkCloud sharedInstance].loggedInUsername)
-    {
-        [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
-            //  [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
+    
+    
+    //    [[SparkCloud sharedInstance] generateClaimCode
+    void (^claimCodeCompletionBlock)(NSString *, NSArray *, NSError *) = ^void(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
+        //  [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
+        
+        self.readyButton.userInteractionEnabled = YES;
+        [self.spinner stopAnimating];
+        
+        if (!error)
+        {
+            self.claimCode = claimCode;
+            self.claimedDevices = userClaimedDeviceIDs;
+            //            NSLog(@"Got claim code: %@",self.claimCode);
+            //            NSLog(@"Devices IDs owned by user: %@",self.claimedDevices);
+            [self performSegueWithIdentifier:@"discover" sender:self];
             
-            self.readyButton.userInteractionEnabled = YES;
-            [self.spinner stopAnimating];
-            
-            if (!error)
+        }
+        else
+        {
+            if (error.code == 401)// localizedDescription containsString:@"unauthorized"])
             {
-                self.claimCode = claimCode;
-                self.claimedDevices = userClaimedDeviceIDs;
-                //            NSLog(@"Got claim code: %@",self.claimCode);
-                //            NSLog(@"Devices IDs owned by user: %@",self.claimedDevices);
-                [self performSegueWithIdentifier:@"discover" sender:self];
-                
+                NSString *errStr = [NSString stringWithFormat:@"Sorry, you must be logged in as a %@ customer.",[SparkSetupCustomization sharedInstance].brandName];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Access denied" message:errStr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                [[SparkCloud sharedInstance] logout];
+                // call main delegate or post notification
+                [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidLogoutNotification object:nil userInfo:nil];
             }
             else
             {
-                if (error.code == 401)// localizedDescription containsString:@"unauthorized"])
-                {
-                    NSString *errStr = [NSString stringWithFormat:@"Sorry, you must be logged in as a %@ customer.",[SparkSetupCustomization sharedInstance].brandName];
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Access denied" message:errStr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert show];
-                    [[SparkCloud sharedInstance] logout];
-                    // call main delegate or post notification
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidLogoutNotification object:nil userInfo:nil];
-                }
-                else
-                {
-                    NSString *errStr = [NSString stringWithFormat:@"Could not communicate with Spark cloud. Make sure your iOS device is connected to the internet and retry.\n\n(%@)",error.localizedDescription];
-                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errStr delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    errorAlertView.delegate = self;
-                    [errorAlertView show];
-                }
+                NSString *errStr = [NSString stringWithFormat:@"Could not communicate with Particle cloud. Make sure your iOS device is connected to the internet and retry.\n\n(%@)",error.localizedDescription];
+                UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errStr delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                errorAlertView.delegate = self;
+                [errorAlertView show];
             }
-        }];
+        }
+    };
+    
+    if ([SparkSetupCustomization sharedInstance].organization)
+    {
+        [[SparkCloud sharedInstance] generateClaimCodeForOrganization:[SparkSetupCustomization sharedInstance].organizationSlug andProduct:[SparkSetupCustomization sharedInstance].productSlug withActivationCode:nil completion:claimCodeCompletionBlock];
     }
     else
     {
-        // user skipped authentication - no claim code needed
-        [self performSegueWithIdentifier:@"discover" sender:self];
+        [[SparkCloud sharedInstance] generateClaimCode:claimCodeCompletionBlock];
     }
     
     
 }
-
 
 -(void)viewWillAppear:(BOOL)animated
 {
