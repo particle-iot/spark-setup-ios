@@ -87,7 +87,7 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
 
 /**
  *  Open setup wizard in Signup screen with a pre-filled activation code from a URL scheme which was used to open the app.
- *  Deprecated since
+ *  Deprecated since pod v0.3.0
  *
  *  @param activationCode Activation code string
  */
