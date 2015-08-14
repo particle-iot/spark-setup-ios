@@ -21,3 +21,5 @@
 @property (nonatomic) BOOL needToClaimDevice;
 @property (nonatomic, weak) id <SparkSelectNetworkViewControllerDelegate> delegate;
 @end
+
+

@@ -15,6 +15,8 @@
 #import "SparkManualNetworkViewController.h"
 #import "SparkSetupMainController.h"
 #import "SparkSetupCustomization.h"
+#import "SparkSetupWifiTableViewCell.h"
+
 #ifdef ANALYTICS
 #import <Mixpanel.h>
 #endif
@@ -105,7 +107,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifer = @"wifiCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer forIndexPath:indexPath];
+    SparkSetupWifiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer forIndexPath:indexPath];
     
     // Using a cell identifier will allow your app to reuse cells as they come and go from the screen.
 //    if (cell == nil)
@@ -115,45 +117,46 @@
 //    
     NSUInteger row = [indexPath row];
     
-    UILabel *textLabel = (UILabel *)[cell.contentView viewWithTag:10];
-    textLabel.text = self.wifiList[row][@"ssid"];
-    textLabel.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+//    UILabel *textLabel = (UILabel *)[cell.contentView viewWithTag:10];
+    cell.ssidLabel.text = self.wifiList[row][@"ssid"];
+//    textLabel.text
+    cell.ssidLabel.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
     
-    UIImageView *signalStrengthImageView = (UIImageView *)[cell.contentView viewWithTag:30];
+//    UIImageView *signalStrengthImageView = cell.wifiStrengthImageView; // (UIImageView *)[cell.contentView viewWithTag:30];
+    
     int rssi = [self.wifiList[row][@"rssi"] intValue];
     if (rssi > kSparkWifiRSSIThresholdStrong)
     {
-        [signalStrengthImageView setImage:[UIImage imageNamed:@"wifi3" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
+        [cell.wifiStrengthImageView setImage:[UIImage imageNamed:@"wifi3" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
     }
     else if (rssi > kSparkWifiRSSIThresholdWeak)
     {
-        [signalStrengthImageView setImage:[UIImage imageNamed:@"wifi2" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
+        [cell.wifiStrengthImageView setImage:[UIImage imageNamed:@"wifi2" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
     }
     else
     {
-        [signalStrengthImageView setImage:[UIImage imageNamed:@"wifi1" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
+        [cell.wifiStrengthImageView setImage:[UIImage imageNamed:@"wifi1" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
     }
     
 
-    signalStrengthImageView.image = [signalStrengthImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    signalStrengthImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;;
+    cell.wifiStrengthImageView.image = [cell.wifiStrengthImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    cell.wifiStrengthImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;;
 
-    
-    
-    
-    
+   
 //    UIImageView *secureImageView = (UIImageView *)[cell.contentView viewWithTag:20];
     SparkSetupWifiSecurityType sec = [self.wifiList[row][@"sec"] intValue];
     if (sec != SparkSetupWifiSecurityTypeOpen)
     {
-        [cell.contentView viewWithTag:20].hidden = NO;
-        UIImageView *lock = (UIImageView *)[cell.contentView viewWithTag:20];
-        lock.image = [lock.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        lock.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;;
+//        [cell.contentView viewWithTag:20].hidden = NO;
+//        UIImageView *lock = cell.securedNetworkIconImageView; //(UIImageView *)[cell.contentView viewWithTag:20];
+        cell.securedNetworkIconImageView.hidden = NO;
+        cell.securedNetworkIconImageView.image = [cell.securedNetworkIconImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        cell.securedNetworkIconImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;;
     }
     else
     {
-        [cell.contentView viewWithTag:20].hidden = YES;
+        cell.securedNetworkIconImageView.hidden = YES;
+//        [cell.contentView viewWithTag:20].hidden = YES;
     }
     
     if ((indexPath.row % 2) == 0)

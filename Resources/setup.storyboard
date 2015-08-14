@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -209,7 +209,7 @@
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRd-ei-guU" customClass="SparkSetupUIButton">
                                         <rect key="frame" x="150" y="20" width="84" height="24"/>
                                         <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" none="YES" button="YES" link="YES"/>
+                                            <accessibilityTraits key="traits" button="YES" link="YES"/>
                                         </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Privacy Policy">
@@ -1490,7 +1490,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bH6-hD-cea" userLabel="Instructions View">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bH6-hD-cea" userLabel="Instructions View">
                                 <rect key="frame" x="-4" y="224" width="406" height="280"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TV-C6-fe7" userLabel="1View">
@@ -2414,9 +2414,10 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wifiCell" rowHeight="44" id="Zt9-Gu-dqE">
+                                    <tableViewCell contentMode="scaleAspectFit" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wifiCell" rowHeight="44" id="Zt9-Gu-dqE" customClass="SparkSetupWifiTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zt9-Gu-dqE" id="eac-hz-gRp">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="OgY-i7-QNc">
@@ -2432,8 +2433,7 @@
                                                             <exclude reference="Nsl-NJ-xqf"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="287" y="9" width="26" height="26"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="CjU-Uj-l5K"/>
                                                             <include reference="Nsl-NJ-xqf"/>
@@ -2453,10 +2453,9 @@
                                                             <exclude reference="6uQ-KH-gVe"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="24" y="11" width="232" height="22"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="6uQ-KH-gVe"/>
+                                                            <exclude reference="6uQ-KH-gVe"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
@@ -2472,8 +2471,7 @@
                                                             <exclude reference="TZM-FV-5Hk"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="259" y="9" width="26" height="26"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="PWe-LU-QKp"/>
                                                             <include reference="TZM-FV-5Hk"/>
@@ -2482,14 +2480,17 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="OgY-i7-QNc" firstAttribute="top" secondItem="eac-hz-gRp" secondAttribute="topMargin" constant="1" id="47u-y7-KyG"/>
                                                 <constraint firstItem="OgY-i7-QNc" firstAttribute="leading" secondItem="W9e-jb-Dgx" secondAttribute="trailing" constant="2" id="6zA-d1-WND"/>
-                                                <constraint firstItem="OgY-i7-QNc" firstAttribute="trailing" secondItem="eac-hz-gRp" secondAttribute="trailingMargin" constant="1" id="Idh-r1-Bvy"/>
-                                                <constraint firstItem="W9e-jb-Dgx" firstAttribute="top" secondItem="eac-hz-gRp" secondAttribute="topMargin" constant="1" id="W1m-eL-J92"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="W9e-jb-Dgx" secondAttribute="bottom" constant="1" id="We2-1U-wOh"/>
-                                                <constraint firstItem="gZH-8h-xTS" firstAttribute="top" secondItem="eac-hz-gRp" secondAttribute="topMargin" constant="3" id="hMf-J2-e49"/>
-                                                <constraint firstItem="W9e-jb-Dgx" firstAttribute="leading" secondItem="gZH-8h-xTS" secondAttribute="trailing" constant="3" id="myj-eS-hip"/>
-                                                <constraint firstItem="gZH-8h-xTS" firstAttribute="leading" secondItem="eac-hz-gRp" secondAttribute="leadingMargin" constant="16" id="osE-QJ-L7R"/>
+                                                <constraint firstItem="OgY-i7-QNc" firstAttribute="trailing" secondItem="eac-hz-gRp" secondAttribute="trailingMargin" constant="1" id="Idh-r1-Bvy">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                                </constraint>
+                                                <constraint firstItem="gZH-8h-xTS" firstAttribute="leading" secondItem="eac-hz-gRp" secondAttribute="leadingMargin" constant="16" id="Sah-b4-M7e"/>
+                                                <constraint firstItem="gZH-8h-xTS" firstAttribute="centerY" secondItem="eac-hz-gRp" secondAttribute="centerY" id="euE-Fo-5bM"/>
+                                                <constraint firstItem="W9e-jb-Dgx" firstAttribute="leading" secondItem="gZH-8h-xTS" secondAttribute="trailing" constant="3" id="myj-eS-hip">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="4"/>
+                                                </constraint>
+                                                <constraint firstItem="W9e-jb-Dgx" firstAttribute="centerY" secondItem="eac-hz-gRp" secondAttribute="centerY" id="olb-XY-Ii0"/>
+                                                <constraint firstItem="OgY-i7-QNc" firstAttribute="centerY" secondItem="eac-hz-gRp" secondAttribute="centerY" id="xe4-L7-851"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -2498,14 +2499,13 @@
                                                     <exclude reference="W9e-jb-Dgx"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="hMf-J2-e49"/>
-                                                    <exclude reference="osE-QJ-L7R"/>
-                                                    <exclude reference="47u-y7-KyG"/>
+                                                    <exclude reference="Sah-b4-M7e"/>
+                                                    <exclude reference="euE-Fo-5bM"/>
+                                                    <exclude reference="myj-eS-hip"/>
+                                                    <exclude reference="olb-XY-Ii0"/>
                                                     <exclude reference="6zA-d1-WND"/>
                                                     <exclude reference="Idh-r1-Bvy"/>
-                                                    <exclude reference="W1m-eL-J92"/>
-                                                    <exclude reference="We2-1U-wOh"/>
-                                                    <exclude reference="myj-eS-hip"/>
+                                                    <exclude reference="xe4-L7-851"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -2515,17 +2515,21 @@
                                                     <include reference="W9e-jb-Dgx"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="hMf-J2-e49"/>
-                                                    <include reference="osE-QJ-L7R"/>
-                                                    <include reference="47u-y7-KyG"/>
+                                                    <include reference="Sah-b4-M7e"/>
+                                                    <include reference="euE-Fo-5bM"/>
+                                                    <include reference="myj-eS-hip"/>
+                                                    <include reference="olb-XY-Ii0"/>
                                                     <include reference="6zA-d1-WND"/>
                                                     <include reference="Idh-r1-Bvy"/>
-                                                    <include reference="W1m-eL-J92"/>
-                                                    <exclude reference="We2-1U-wOh"/>
-                                                    <include reference="myj-eS-hip"/>
+                                                    <include reference="xe4-L7-851"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="securedNetworkIconImageView" destination="W9e-jb-Dgx" id="zYe-Hm-fIl"/>
+                                            <outlet property="ssidLabel" destination="gZH-8h-xTS" id="jkH-T3-pgw"/>
+                                            <outlet property="wifiStrengthImageView" destination="OgY-i7-QNc" id="Z8m-6i-IUC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>

@@ -1,18 +1,24 @@
 //
 //  SparkSetupManager.m
-//  mobile-sdk-ios
+//  spark-setup-ios
 //
 //  Created by Ido Kleinman on 11/20/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
-//  This class implements the Spark Soft-AP protocol specified in
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
+//  This class implements the Particle Soft-AP protocol specified in
 //  https://github.com/spark/photon-wiced/blob/master/soft-ap.md
 //
 
 #import "SparkSetupCommManager.h"
 #import "SparkSetupConnection.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
-//#import "SparkSetupCustomization.h"
 #import "SparkSetupSecurityManager.h"
+#import <NetworkExtension/NetworkExtension.h>
+
+// new iOS 9 requirements:
+#import "Reachability.h"
+@import UIKit;
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #define ENCRYPT_PWD     1
 
@@ -29,6 +35,7 @@ typedef NS_ENUM(NSInteger, SparkSetupCommandType) {
 
 
 NSString *const kSparkSetupConnectionEndpointAddress = @"192.168.0.1";
+int const kSparkSetupConnectionEndpointAddressHex = 0xC0A80001;
 int const kSparkSetupConnectionEndpointPort = 5609;
 
 
@@ -84,24 +91,53 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 
 +(BOOL)checkSparkDeviceWifiConnection:(NSString *)networkPrefix
 {
-    NSArray *ifs = (__bridge_transfer NSArray *)CNCopySupportedInterfaces();
-    //    NSLog(@"Supported interfaces: %@", ifs);
-    NSDictionary *info;
-    for (NSString *ifnam in ifs) {
-        info = (__bridge_transfer NSDictionary *)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam);
-        //        NSLog(@"%@ => %@", ifnam, info);
-        if (info && [info count]) { break; }
-    }
-    
-    NSString *SSID = info[@"SSID"];
-//    NSLog(@"currently connected SSID: %@",SSID);
-//    if ([SSID hasPrefix:[SparkSetupCustomization sharedInstance].networkNamePrefix])
-    if ([SSID hasPrefix:networkPrefix])
+    // starting iOS 9:
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
     {
-        return YES;
-        // TODO: add notification or delegate method
-        // TODO: add reachability change detection
+//        NSArray * networkInterfaces = [NEHotspotHelper supportedNetworkInterfaces];
+//        NSLog(@"Networks %@",networkInterfaces);
         
+        // check for internet connection
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+        
+        struct sockaddr_in ip4addr;
+//        const char *photonIPaddr = [kSparkSetupConnectionEndpointAddress cStringUsingEncoding:NSUTF8StringEncoding];
+        ip4addr.sin_family = AF_INET;
+        ip4addr.sin_port = htons(kSparkSetupConnectionEndpointPort);
+        ip4addr.sin_len = 16;
+        struct in_addr address;
+        address.s_addr = htons(kSparkSetupConnectionEndpointAddressHex);
+        ip4addr.sin_addr = address;
+        
+        Reachability *photonReachable = [Reachability reachabilityWithAddress:&ip4addr];
+        if (photonReachable.currentReachabilityStatus != NotReachable)
+            return YES;
+        else
+            return NO;
+    }
+    else
+    {
+        
+        // for iOS 8:
+        NSArray *ifs = (__bridge_transfer NSArray *)CNCopySupportedInterfaces();
+        //    NSLog(@"Supported interfaces: %@", ifs);
+        NSDictionary *info;
+        for (NSString *ifnam in ifs) {
+            info = (__bridge_transfer NSDictionary *)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam);
+            //        NSLog(@"%@ => %@", ifnam, info);
+            if (info && [info count]) { break; }
+        }
+        
+        NSString *SSID = info[@"SSID"];
+        //    NSLog(@"currently connected SSID: %@",SSID);
+        //    if ([SSID hasPrefix:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+        if ([SSID hasPrefix:networkPrefix])
+        {
+            return YES;
+            // TODO: add notification or delegate method
+            // TODO: add reachability change detection
+            
+        }
     }
     
     return NO;
