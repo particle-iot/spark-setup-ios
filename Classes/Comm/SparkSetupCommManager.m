@@ -93,8 +93,8 @@ int const kSparkSetupConnectionEndpointPort = 5609;
     // starting iOS 9:
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
     {
-//        NSArray * networkInterfaces = [NEHotspotHelper supportedNetworkInterfaces];
-//        NSLog(@"Networks %@",networkInterfaces);
+        //        NSArray * networkInterfaces = [NEHotspotHelper supportedNetworkInterfaces];
+        //        NSLog(@"Networks %@",networkInterfaces);
         
         struct sockaddr_in serv_addr;
         //        const char *photonIPaddr = [kSparkSetupConnectionEndpointAddress cStringUsingEncoding:NSUTF8StringEncoding];
@@ -102,43 +102,65 @@ int const kSparkSetupConnectionEndpointPort = 5609;
         serv_addr.sin_port = htons(kSparkSetupConnectionEndpointPort);
         serv_addr.sin_len = 16;
         struct in_addr address;
-        address.s_addr = htons(kSparkSetupConnectionEndpointAddressHex);
+        address.s_addr = htonl(kSparkSetupConnectionEndpointAddressHex);
         serv_addr.sin_addr = address;
         
         
-        int sockfd;
+        int sockfd, valopt;
         
         sockfd = socket(AF_INET, SOCK_STREAM, 0);
         if (sockfd < 0)
             NSLog(@"ERROR opening socket");
+        
+        // Set non-blocking
+        long arg = fcntl(sockfd, F_GETFL, NULL);
+        arg |= O_NONBLOCK;
+        fcntl(sockfd, F_SETFL, arg);
+        
+        int res = connect(sockfd,(struct sockaddr *) &serv_addr,sizeof(serv_addr));
+        struct timeval tv;
+        fd_set myset;
+        socklen_t lon;
 
-        if (connect(sockfd,(struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0)
-        {
-            close(sockfd);
-            return NO;
-        }
-        else
-        {
-            close(sockfd);
-            return YES;
+        if (res < 0) {
+            if (errno == EINPROGRESS) {
+                tv.tv_sec = 1;
+                tv.tv_usec = 0;
+                FD_ZERO(&myset);
+                FD_SET(sockfd, &myset);
+                if (select(sockfd+1, NULL, &myset, NULL, &tv) > 0) {
+                    lon = sizeof(int);
+                    getsockopt(sockfd, SOL_SOCKET, SO_ERROR, (void*)(&valopt), &lon);
+                    if (valopt) {
+                        fprintf(stderr, "Error in connection() %d - %s\n", valopt, strerror(valopt));
+                        return NO;
+                    }
+                }
+                else {
+                    close(sockfd);
+                    fprintf(stderr, "Timeout or error() %d - %s\n", valopt, strerror(valopt));
+                    return NO;
+                }
+            }
+            else {
+                fprintf(stderr, "Error connecting %d - %s\n", errno, strerror(errno));
+                return NO;
+            }
         }
         
-    }
-    
-    
-    
-    
-    
-    Reachability *photonReachable = [Reachability reachabilityWithAddress:&ip4addr];
-    if (photonReachable.currentReachabilityStatus != NotReachable)
+        close(sockfd);
         return YES;
+//        // Set to blocking mode again...
+//        arg = fcntl(sockfd, F_GETFL, NULL);
+//        arg &= (~O_NONBLOCK);
+//        fcntl(sockfd, F_SETFL, arg);
+        
+        // I hope that is all
+    }
     else
-        return NO;
-}
-else
-{
-    
-    // for iOS 8:
+    {
+        
+        // for iOS 8:
         NSArray *ifs = (__bridge_transfer NSArray *)CNCopySupportedInterfaces();
         //    NSLog(@"Supported interfaces: %@", ifs);
         NSDictionary *info;
