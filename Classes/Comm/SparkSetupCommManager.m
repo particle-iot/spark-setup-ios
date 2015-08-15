@@ -18,7 +18,6 @@
 #import "Reachability.h"
 @import UIKit;
 
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #define ENCRYPT_PWD     1
 
@@ -97,28 +96,49 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 //        NSArray * networkInterfaces = [NEHotspotHelper supportedNetworkInterfaces];
 //        NSLog(@"Networks %@",networkInterfaces);
         
-        // check for internet connection
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
-        
-        struct sockaddr_in ip4addr;
-//        const char *photonIPaddr = [kSparkSetupConnectionEndpointAddress cStringUsingEncoding:NSUTF8StringEncoding];
-        ip4addr.sin_family = AF_INET;
-        ip4addr.sin_port = htons(kSparkSetupConnectionEndpointPort);
-        ip4addr.sin_len = 16;
+        struct sockaddr_in serv_addr;
+        //        const char *photonIPaddr = [kSparkSetupConnectionEndpointAddress cStringUsingEncoding:NSUTF8StringEncoding];
+        serv_addr.sin_family = AF_INET;
+        serv_addr.sin_port = htons(kSparkSetupConnectionEndpointPort);
+        serv_addr.sin_len = 16;
         struct in_addr address;
         address.s_addr = htons(kSparkSetupConnectionEndpointAddressHex);
-        ip4addr.sin_addr = address;
+        serv_addr.sin_addr = address;
         
-        Reachability *photonReachable = [Reachability reachabilityWithAddress:&ip4addr];
-        if (photonReachable.currentReachabilityStatus != NotReachable)
-            return YES;
-        else
+        
+        int sockfd;
+        
+        sockfd = socket(AF_INET, SOCK_STREAM, 0);
+        if (sockfd < 0)
+            NSLog(@"ERROR opening socket");
+
+        if (connect(sockfd,(struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0)
+        {
+            close(sockfd);
             return NO;
-    }
-    else
-    {
+        }
+        else
+        {
+            close(sockfd);
+            return YES;
+        }
         
-        // for iOS 8:
+    }
+    
+    
+    
+    
+    
+    Reachability *photonReachable = [Reachability reachabilityWithAddress:&ip4addr];
+    if (photonReachable.currentReachabilityStatus != NotReachable)
+        return YES;
+    else
+        return NO;
+}
+else
+{
+    
+    // for iOS 8:
         NSArray *ifs = (__bridge_transfer NSArray *)CNCopySupportedInterfaces();
         //    NSLog(@"Supported interfaces: %@", ifs);
         NSDictionary *info;
