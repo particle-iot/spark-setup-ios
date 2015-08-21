@@ -57,7 +57,7 @@
     {
         if ([self isValidEmail:self.emailTextField.text])
         {
-            [[SparkCloud sharedInstance] requestPasswordReset:[SparkSetupCustomization sharedInstance].organizationName email:self.emailTextField.text completion:^(NSError *error) {
+            [[SparkCloud sharedInstance] requestPasswordResetForCustomer:[SparkSetupCustomization sharedInstance].organizationName email:self.emailTextField.text completion:^(NSError *error) {
                 [self.spinner stopAnimating];
                 
                 if (!error)

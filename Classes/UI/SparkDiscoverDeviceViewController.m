@@ -288,11 +288,12 @@
              }
              else
              {
-                 NSLog(@"DeviceID response received");
 
                  self.detectedDeviceID = (NSString *)deviceResponseDict[@"id"]; //TODO: fix that dict interpretation is done in comm manager (layer completion)
                  self.detectedDeviceID = [self.detectedDeviceID lowercaseString];
                  self.isDetectedDeviceClaimed = [deviceResponseDict[@"c"] boolValue];
+                 NSLog(@"DeviceID response received: %@",self.detectedDeviceID );
+
                  [self photonPublicKey];
 //                 NSLog(@"Got device ID: %@",deviceResponseDict);
              }
