@@ -88,6 +88,45 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 
 #pragma mark Spark photon device wifi connection detection methods
 
+int wait_on_sock(int sock, long timeout, int r, int w)
+{
+    struct timeval tv = {0,0};
+    fd_set fdset;
+    fd_set *rfds, *wfds;
+    int n, so_error;
+    unsigned so_len;
+    
+    FD_ZERO (&fdset);
+    tv.tv_sec = timeout;
+    tv.tv_usec = 0;
+    
+//    TRACES ("wait in progress tv={%ld,%ld} ...\n",
+//            tv.tv_sec, tv.tv_usec);
+    
+    if (r) rfds = &fdset; else rfds = NULL;
+    if (w) wfds = &fdset; else wfds = NULL;
+    
+    n = select (sock+1, rfds, wfds, NULL, &tv);
+    switch (n) {
+        case 0:
+//            ERROR ("wait timed out\n");
+            return -errno;
+        case -1:
+//            ERROR_SYS ("error during wait\n");
+            return -errno;
+        default:
+            // select tell us that sock is ready, test it
+            so_len = sizeof(so_error);
+            so_error = 0;
+            getsockopt (sock, SOL_SOCKET, SO_ERROR, &so_error, &so_len);
+            if (so_error == 0)
+                return 0;
+            errno = so_error;
+//            ERROR_SYS ("wait failed\n");
+            return -errno;
+    }
+}
+
 +(BOOL)checkSparkDeviceWifiConnection:(NSString *)networkPrefix
 {
     // starting iOS 9:
@@ -148,12 +187,12 @@ int const kSparkSetupConnectionEndpointPort = 5609;
             }
         }
         
+        fprintf(stderr, "Connection successful! %d - %s\n", errno, strerror(errno));
+        arg = fcntl(sockfd, F_GETFL, NULL);
+        arg &= (~O_NONBLOCK);
+        fcntl(sockfd, F_SETFL, arg);
         close(sockfd);
         return YES;
-//        // Set to blocking mode again...
-//        arg = fcntl(sockfd, F_GETFL, NULL);
-//        arg &= (~O_NONBLOCK);
-//        fcntl(sockfd, F_SETFL, arg);
         
         // I hope that is all
     }
