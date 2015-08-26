@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     s.source_files  = 'Classes/*.h'
     
     s.subspec 'Resources' do |resources|
-        resources.resource_bundle = {'SparkSetup' => ['Resources/**/*']}
+        resources.resource_bundle = {'SparkSetup' => ['Resources/**/*.{png,storyboard}']}
     end
 
     s.subspec 'Core' do |core|
