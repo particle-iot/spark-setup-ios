@@ -19,11 +19,14 @@
 #import "SparkSetupVideoViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SparkSetupCustomization.h"
+#import "SparkSetupConnection.h"
+#import "SparkSetupCommManager.h"
+
 #ifdef ANALYTICS
 #import <Mixpanel.h>
 #endif
 
-@interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate, SparkSelectNetworkViewControllerDelegate>
+@interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate, SparkSelectNetworkViewControllerDelegate, SparkSetupConnectionDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSignalImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *networkNameLabel;
@@ -31,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *brandImage;
 @property (strong, nonatomic) NSArray *scannedWifiList;
 @property (weak, nonatomic) IBOutlet UIButton *cancelSetupButton;
+@property (weak, nonatomic) IBOutlet SparkSetupUILabel *step3Label;
+@property (weak, nonatomic) IBOutlet SparkSetupUIButton *readyButton;
 
 
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
@@ -51,7 +56,7 @@
 @property (nonatomic) BOOL deviceClaimedByUser;
 @property (nonatomic, strong) UIAlertView *changeOwnershipAlertView;
 @property (weak, nonatomic) IBOutlet UIView *wifiView;
-
+@property (nonatomic, strong) SparkSetupConnection *tryConn;
 @end
 
 @implementation SparkDiscoverDeviceViewController
@@ -146,6 +151,10 @@
     [self restartDeviceDetectionTimer];
 }
 
+- (IBAction)readyButton:(id)sender
+{
+    
+}
 
 
 
@@ -170,25 +179,30 @@
 
 -(void)checkDeviceConnectionForNotification:(NSTimer *)timer
 {
-    if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+    if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
     {
-        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        localNotification.alertAction = @"Connected";
-        NSString *notifText = [NSString stringWithFormat:@"Your phone has connected to %@. Tap to continue Setup.",[SparkSetupCustomization sharedInstance].deviceName];
-        localNotification.alertBody = notifText;
-        localNotification.alertAction = @"open"; // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-        localNotification.soundName = UILocalNotificationDefaultSoundName; // play default sound
-        localNotification.fireDate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        [timer invalidate];
+        NSLog(@"checkDeviceConnectionForNotification (background)");
+
+        if (NO)//([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+        {
+            UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+            localNotification.alertAction = @"Connected";
+            NSString *notifText = [NSString stringWithFormat:@"Your phone has connected to %@. Tap to continue Setup.",[SparkSetupCustomization sharedInstance].deviceName];
+            localNotification.alertBody = notifText;
+            localNotification.alertAction = @"open"; // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+            localNotification.soundName = UILocalNotificationDefaultSoundName; // play default sound
+            localNotification.fireDate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+            [timer invalidate];
+        }
     }
-    
 }
 
 -(void)scheduleBackgroundTask
 {
     [self.backgroundTaskTimer invalidate];
-    self.backgroundTaskTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
+    self.backgroundTaskTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
                                                                 target:self
                                                               selector:@selector(checkDeviceConnectionForNotification:)
                                                               userInfo:nil
@@ -205,37 +219,65 @@
 
 
 
+-(void)SparkSetupConnection:(SparkSetupConnection *)connection didUpdateState:(SparkSetupConnectionState)state error:(NSError *)error
+{
+    if (state == SparkSetupConnectionStateOpened)
+    {
+        NSLog(@"Photon detected!");
+        [connection close];
+        [self startPhotonQuery];
+    }
+}
+
+-(void)startPhotonQuery
+{
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
+    {
+        [self.checkConnectionTimer invalidate];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // UI activity indicator
+            self.wifiSignalImageView.hidden = YES;
+            [self.spinner startAnimating];
+        });
+        
+        // Start connection command chain process with a small delay
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self getDeviceID];
+        });
+        
+    }
+
+}
+
 
 -(void)checkDeviceWifiConnection:(id)sender
 {
     //    printf("Detect device timer\n");
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-       
+    
+    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+    if (state == UIApplicationStateActive)
+    {
+        NSLog(@"SparkDiscover -> checkDeviceWifiConnection timer");
         
-        if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
         {
-            if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
-            {
-                
-                [self.checkConnectionTimer invalidate];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    // UI activity indicator
-                    self.wifiSignalImageView.hidden = YES;
-                    [self.spinner startAnimating];
-                });
-                
-                // Start connection command chain process with a small delay
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self getDeviceID];
-                });
-                
-            }
-            
+            self.tryConn = [[SparkSetupConnection alloc] initWithIPAddress:kSparkSetupConnectionEndpointAddress port:kSparkSetupConnectionEndpointPort];
+            self.tryConn.delegate = self;
         }
-    });
+        else
+        {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+                {
+                    [self startPhotonQuery];
+                }
+            });
+        }
+    }
+    
 }
 
 

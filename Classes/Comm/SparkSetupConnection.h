@@ -34,6 +34,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionState) {
 @interface SparkSetupConnection : NSObject
 -(instancetype)initWithIPAddress:(NSString *)IPAddr port:(int)port NS_DESIGNATED_INITIALIZER;
 -(id)init __attribute__((unavailable("Must use -initWithIPAddress:port:")));
+-(void)close;
 
 @property (nonatomic, strong) id<SparkSetupConnectionDelegate>delegate;
 @property (nonatomic, readonly) SparkSetupConnectionState state;

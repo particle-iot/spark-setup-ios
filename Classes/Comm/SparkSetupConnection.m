@@ -233,9 +233,12 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
 
 
 
-
-
 -(void)dealloc
+{
+    [self close];
+}
+
+-(void)close
 {
     [self.socketOpenTimeoutTimer invalidate];
     
