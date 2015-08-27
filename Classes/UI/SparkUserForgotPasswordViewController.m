@@ -53,51 +53,51 @@
 {
     [self.view endEditing:YES];
     [self.spinner startAnimating];
-    if ([SparkSetupCustomization sharedInstance].organization) // TODO: fix that so it'll work for non-org too
-    {
-        if ([self isValidEmail:self.emailTextField.text])
+    
+    void (^passwordResetCallback)(NSError *) = ^void(NSError *error) {
+        
+        [self.spinner stopAnimating];
+        
+        if (!error)
         {
-            [[SparkCloud sharedInstance] requestPasswordResetForCustomer:[SparkSetupCustomization sharedInstance].organizationName email:self.emailTextField.text completion:^(NSError *error) {
-                [self.spinner stopAnimating];
-                
-                if (!error)
-                {
 #ifdef ANALYTICS
-                    [[Mixpanel sharedInstance] track:@"Auth: Org user request password reset"];
+            [[Mixpanel sharedInstance] track:@"Auth: Request password reset"];
 #endif
-
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset password" message:@"Instuctions how to reset your password will be sent to the provided email address. Please check your email and continue according to instructions." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    alert.delegate = self;
-                    [alert show];
-                }
-                else
-                {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset password" message:@"Could not find a user with supplied email address, please check the address supplied or create a new user via signup screen" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert show];
-   
-                }
-            }];
             
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset password" message:@"Instuctions how to reset your password will be sent to the provided email address. Please check your email and continue according to instructions." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            alert.delegate = self;
+            [alert show];
         }
         else
         {
-            [self.spinner stopAnimating];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset password" message:@"Invalid email address" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset password" message:@"Could not find a user with supplied email address, please check the address supplied or create a new user via signup screen" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
+            
+        }
+    };
+    
+    if ([self isValidEmail:self.emailTextField.text])
+    {
+        if ([SparkSetupCustomization sharedInstance].organization) // TODO: fix that so it'll work for non-org too
+        {
+            [[SparkCloud sharedInstance] requestPasswordResetForCustomer:[SparkSetupCustomization sharedInstance].organizationName email:self.emailTextField.text completion:passwordResetCallback];
+        }
+        else
+        {
+            [[SparkCloud sharedInstance] requestPasswordResetForUser:self.emailTextField.text completion:passwordResetCallback];
         }
     }
     else
     {
         [self.spinner stopAnimating];
-        // TODO: should be in first screen - see what is the endpoint for non-org users
-#ifdef ANALYTICS
-        [[Mixpanel sharedInstance] track:@"Auth: User request password reset"];
-#endif
-
-        SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
-        webVC.link = [SparkSetupCustomization sharedInstance].forgotPasswordLinkURL;
-        [self presentViewController:webVC animated:YES completion:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset password" message:@"Invalid email address" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
     }
+
+
+//        SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
+//        webVC.link = [SparkSetupCustomization sharedInstance].forgotPasswordLinkURL;
+//        [self presentViewController:webVC animated:YES completion:nil];
 
 }
 
