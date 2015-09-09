@@ -207,20 +207,11 @@
                 if (!error)
                 {
 #ifdef ANALYTICS
-                    [[Mixpanel sharedInstance] track:@"Auth: Signed Up Organizational"];
+                    [[Mixpanel sharedInstance] track:@"Auth: Signed Up New Customer"];
 #endif
-                    [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
-                        [self.spinner stopAnimating];
-                        if (!error)
-                        {
-                            [self.delegate didFinishUserAuthentication:self loggedIn:YES];
-                        }
-                        else
-                        {
-                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not login" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                            [alert show];
-                        }
-                    }];
+                    
+                    [self.delegate didFinishUserAuthentication:self loggedIn:YES];
+
                 }
                 else
                 {
@@ -242,7 +233,7 @@
                 if (!error)
                 {
 #ifdef ANALYTICS
-                    [[Mixpanel sharedInstance] track:@"Auth: Signed Up"];
+                    [[Mixpanel sharedInstance] track:@"Auth: Signed Up New User"];
 #endif
                     
                     [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
