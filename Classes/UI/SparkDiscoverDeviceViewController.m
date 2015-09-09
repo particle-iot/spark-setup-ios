@@ -262,12 +262,12 @@
     {
         NSLog(@"SparkDiscover -> checkDeviceWifiConnection timer");
         
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
-        {
-            self.tryConn = [[SparkSetupConnection alloc] initWithIPAddress:kSparkSetupConnectionEndpointAddress port:kSparkSetupConnectionEndpointPort];
-            self.tryConn.delegate = self;
-        }
-        else
+//        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
+//        {
+//            self.tryConn = [[SparkSetupConnection alloc] initWithIPAddress:kSparkSetupConnectionEndpointAddress port:kSparkSetupConnectionEndpointPort];
+//            self.tryConn.delegate = self;
+//        }
+//        else
         {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])

@@ -13,6 +13,7 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import "SparkSetupSecurityManager.h"
 #import <NetworkExtension/NetworkExtension.h>
+#import "FastSocket.h"
 
 // new iOS 9 requirements:
 #import "Reachability.h"
@@ -34,6 +35,7 @@ typedef NS_ENUM(NSInteger, SparkSetupCommandType) {
 
 
 NSString *const kSparkSetupConnectionEndpointAddress = @"192.168.0.1";
+NSString *const kSparkSetupConnectionEndpointPortString = @"5609";
 int const kSparkSetupConnectionEndpointAddressHex = 0xC0A80001;
 int const kSparkSetupConnectionEndpointPort = 5609;
 
@@ -132,69 +134,8 @@ int wait_on_sock(int sock, long timeout, int r, int w)
     // starting iOS 9:
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
     {
-        //        NSArray * networkInterfaces = [NEHotspotHelper supportedNetworkInterfaces];
-        //        NSLog(@"Networks %@",networkInterfaces);
-        
-        struct sockaddr_in serv_addr;
-        //        const char *photonIPaddr = [kSparkSetupConnectionEndpointAddress cStringUsingEncoding:NSUTF8StringEncoding];
-        serv_addr.sin_family = AF_INET;
-        serv_addr.sin_port = htons(kSparkSetupConnectionEndpointPort);
-        serv_addr.sin_len = 16;
-        struct in_addr address;
-        address.s_addr = htonl(kSparkSetupConnectionEndpointAddressHex);
-        serv_addr.sin_addr = address;
-        
-        
-        int sockfd, valopt;
-        
-        sockfd = socket(AF_INET, SOCK_STREAM, 0);
-        if (sockfd < 0)
-            NSLog(@"ERROR opening socket");
-        
-        // Set non-blocking
-        long arg = fcntl(sockfd, F_GETFL, NULL);
-        arg |= O_NONBLOCK;
-        fcntl(sockfd, F_SETFL, arg);
-        
-        int res = connect(sockfd,(struct sockaddr *) &serv_addr,sizeof(serv_addr));
-        struct timeval tv;
-        fd_set myset;
-        socklen_t lon;
-
-        if (res < 0) {
-            if (errno == EINPROGRESS) {
-                tv.tv_sec = 1;
-                tv.tv_usec = 0;
-                FD_ZERO(&myset);
-                FD_SET(sockfd, &myset);
-                if (select(sockfd+1, NULL, &myset, NULL, &tv) > 0) {
-                    lon = sizeof(int);
-                    getsockopt(sockfd, SOL_SOCKET, SO_ERROR, (void*)(&valopt), &lon);
-                    if (valopt) {
-                        fprintf(stderr, "Error in connection() %d - %s\n", valopt, strerror(valopt));
-                        return NO;
-                    }
-                }
-                else {
-                    close(sockfd);
-                    fprintf(stderr, "Timeout or error() %d - %s\n", valopt, strerror(valopt));
-                    return NO;
-                }
-            }
-            else {
-                fprintf(stderr, "Error connecting %d - %s\n", errno, strerror(errno));
-                return NO;
-            }
-        }
-        
-        fprintf(stderr, "Connection successful! %d - %s\n", errno, strerror(errno));
-        arg = fcntl(sockfd, F_GETFL, NULL);
-        arg &= (~O_NONBLOCK);
-        fcntl(sockfd, F_SETFL, arg);
-        close(sockfd);
-        return YES;
-        
-        // I hope that is all
+        FastSocket *socket = [[FastSocket alloc] initWithHost:kSparkSetupConnectionEndpointAddress andPort:kSparkSetupConnectionEndpointPortString];
+        return [socket connect];
     }
     else
     {
