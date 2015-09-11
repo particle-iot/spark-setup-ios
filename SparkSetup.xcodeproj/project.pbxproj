@@ -10,6 +10,7 @@
 		23512E027734886C6DEAAA94 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F404D8EB82B123EA6352E8F3 /* libPods.a */; };
 		50139EAE1B9FD09400B900EF /* FastSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 50139EAD1B9FD09400B900EF /* FastSocket.h */; };
 		50139EAF1BA209B100B900EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509081FB1ACF707C0014E7DF /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		50139EB31BA26F0200B900EF /* FastSocket.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50139EB21BA26F0200B900EF /* FastSocket.h */; };
 		506C6FE61AD32E1C009D8498 /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */; };
 		509081B21ACF6A8A0014E7DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509081AF1ACF6A8A0014E7DF /* Images.xcassets */; };
 		509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509081B11ACF6A8A0014E7DF /* setup.storyboard */; };
@@ -47,6 +48,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 10;
 			files = (
+				50139EB31BA26F0200B900EF /* FastSocket.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		50139EAD1B9FD09400B900EF /* FastSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FastSocket.h; path = Pods/FastSocket/FastSocket.h; sourceTree = "<group>"; };
+		50139EB21BA26F0200B900EF /* FastSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FastSocket.h; path = Pods/FastSocket/FastSocket.h; sourceTree = "<group>"; };
 		5018DC4A1ADC862E00ADD403 /* SparkSetup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SparkSetup-Bridging-Header.h"; path = "Classes/SparkSetup-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		506C6FE31AD32E1C009D8498 /* SparkSetupUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupUIViewController.h; sourceTree = "<group>"; };
 		506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupUIViewController.m; sourceTree = "<group>"; };
@@ -154,6 +157,7 @@
 		509080B51ACF46600014E7DF = {
 			isa = PBXGroup;
 			children = (
+				50139EB21BA26F0200B900EF /* FastSocket.h */,
 				509080BF1ACF46600014E7DF /* Products */,
 				50D0955C1AD38E35008EDBD7 /* Pod metadata */,
 				509081611ACF66E60014E7DF /* Classes */,
