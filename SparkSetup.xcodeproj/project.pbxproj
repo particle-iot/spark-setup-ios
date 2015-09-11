@@ -10,7 +10,6 @@
 		23512E027734886C6DEAAA94 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F404D8EB82B123EA6352E8F3 /* libPods.a */; };
 		50139EAE1B9FD09400B900EF /* FastSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 50139EAD1B9FD09400B900EF /* FastSocket.h */; };
 		50139EAF1BA209B100B900EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509081FB1ACF707C0014E7DF /* Info.plist */; settings = {ASSET_TAGS = (); }; };
-		50139EB31BA26F0200B900EF /* FastSocket.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50139EB21BA26F0200B900EF /* FastSocket.h */; };
 		506C6FE61AD32E1C009D8498 /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */; };
 		509081B21ACF6A8A0014E7DF /* setup.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509081AF1ACF6A8A0014E7DF /* setup.xcassets */; };
 		509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509081B11ACF6A8A0014E7DF /* setup.storyboard */; };
@@ -33,6 +32,8 @@
 		509081F61ACF6AF70014E7DF /* SparkSetupUISpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081DE1ACF6AF70014E7DF /* SparkSetupUISpinner.m */; };
 		509081F71ACF6AF70014E7DF /* SparkSetupCustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081E11ACF6AF70014E7DF /* SparkSetupCustomization.m */; };
 		509081F81ACF6AF70014E7DF /* SparkSetupMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081E31ACF6AF70014E7DF /* SparkSetupMainController.m */; };
+		50CAA4C31BA27D70002FEF0F /* SparkSetupWifiTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 50CAA4C11BA27D70002FEF0F /* SparkSetupWifiTableViewCell.h */; settings = {ASSET_TAGS = (); }; };
+		50CAA4C41BA27D70002FEF0F /* SparkSetupWifiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CAA4C21BA27D70002FEF0F /* SparkSetupWifiTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		50D095991AD5BB6E008EDBD7 /* SparkSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D095981AD5BB6E008EDBD7 /* SparkSetup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50E01B041B7AFC510020714F /* SparkSetupResultViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E01B021B7AFC510020714F /* SparkSetupResultViewController.h */; };
 		50E01B051B7AFC510020714F /* SparkSetupResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E01B031B7AFC510020714F /* SparkSetupResultViewController.m */; };
@@ -48,7 +49,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 10;
 			files = (
-				50139EB31BA26F0200B900EF /* FastSocket.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +56,6 @@
 
 /* Begin PBXFileReference section */
 		50139EAD1B9FD09400B900EF /* FastSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FastSocket.h; path = Pods/FastSocket/FastSocket.h; sourceTree = "<group>"; };
-		50139EB21BA26F0200B900EF /* FastSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FastSocket.h; path = Pods/FastSocket/FastSocket.h; sourceTree = "<group>"; };
 		5018DC4A1ADC862E00ADD403 /* SparkSetup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SparkSetup-Bridging-Header.h"; path = "Classes/SparkSetup-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		506C6FE31AD32E1C009D8498 /* SparkSetupUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupUIViewController.h; sourceTree = "<group>"; };
 		506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupUIViewController.m; sourceTree = "<group>"; };
@@ -105,6 +104,8 @@
 		509081E21ACF6AF70014E7DF /* SparkSetupMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupMainController.h; sourceTree = "<group>"; };
 		509081E31ACF6AF70014E7DF /* SparkSetupMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupMainController.m; sourceTree = "<group>"; };
 		509081FB1ACF707C0014E7DF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50CAA4C11BA27D70002FEF0F /* SparkSetupWifiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupWifiTableViewCell.h; sourceTree = "<group>"; };
+		50CAA4C21BA27D70002FEF0F /* SparkSetupWifiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupWifiTableViewCell.m; sourceTree = "<group>"; };
 		50D0955A1AD38CE4008EDBD7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		50D0955B1AD38E2E008EDBD7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		50D095981AD5BB6E008EDBD7 /* SparkSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SparkSetup.h; path = Classes/SparkSetup.h; sourceTree = SOURCE_ROOT; };
@@ -157,7 +158,6 @@
 		509080B51ACF46600014E7DF = {
 			isa = PBXGroup;
 			children = (
-				50139EB21BA26F0200B900EF /* FastSocket.h */,
 				509080BF1ACF46600014E7DF /* Products */,
 				50D0955C1AD38E35008EDBD7 /* Pod metadata */,
 				509081611ACF66E60014E7DF /* Classes */,
@@ -250,6 +250,8 @@
 		509081D71ACF6AF70014E7DF /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				50CAA4C11BA27D70002FEF0F /* SparkSetupWifiTableViewCell.h */,
+				50CAA4C21BA27D70002FEF0F /* SparkSetupWifiTableViewCell.m */,
 				506C6FE31AD32E1C009D8498 /* SparkSetupUIViewController.h */,
 				506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */,
 				509081D81ACF6AF70014E7DF /* SparkSetupUIButton.h */,
@@ -305,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E01B041B7AFC510020714F /* SparkSetupResultViewController.h in Headers */,
+				50CAA4C31BA27D70002FEF0F /* SparkSetupWifiTableViewCell.h in Headers */,
 				50139EAE1B9FD09400B900EF /* FastSocket.h in Headers */,
 				50E508991B754C01008EB036 /* SparkDevice.h in Headers */,
 				50D095991AD5BB6E008EDBD7 /* SparkSetup.h in Headers */,
@@ -448,6 +451,7 @@
 			files = (
 				509081E41ACF6AF70014E7DF /* Reachability.m in Sources */,
 				509081EC1ACF6AF70014E7DF /* SparkSelectNetworkViewController.m in Sources */,
+				50CAA4C41BA27D70002FEF0F /* SparkSetupWifiTableViewCell.m in Sources */,
 				509081F71ACF6AF70014E7DF /* SparkSetupCustomization.m in Sources */,
 				509081F21ACF6AF70014E7DF /* SparkUserLoginViewController.m in Sources */,
 				509081F61ACF6AF70014E7DF /* SparkSetupUISpinner.m in Sources */,

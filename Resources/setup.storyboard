@@ -2414,7 +2414,7 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wifiCell" rowHeight="44" id="Zt9-Gu-dqE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wifiCell" rowHeight="44" id="Zt9-Gu-dqE" customClass="SparkSetupWifiTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zt9-Gu-dqE" id="eac-hz-gRp">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2433,8 +2433,7 @@
                                                             <exclude reference="Nsl-NJ-xqf"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="287" y="9" width="26" height="26"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="CjU-Uj-l5K"/>
                                                             <include reference="Nsl-NJ-xqf"/>
@@ -2454,8 +2453,7 @@
                                                             <exclude reference="6uQ-KH-gVe"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="24" y="11" width="232" height="22"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="6uQ-KH-gVe"/>
                                                         </mask>
@@ -2473,8 +2471,7 @@
                                                             <exclude reference="TZM-FV-5Hk"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="259" y="9" width="26" height="26"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="PWe-LU-QKp"/>
                                                             <include reference="TZM-FV-5Hk"/>
@@ -2527,6 +2524,11 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="securedNetworkIconImageView" destination="W9e-jb-Dgx" id="AFA-1O-i1v"/>
+                                            <outlet property="ssidLabel" destination="gZH-8h-xTS" id="l7c-UX-Vqn"/>
+                                            <outlet property="wifiStrengthImageView" destination="OgY-i7-QNc" id="xG6-3c-SST"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -5021,22 +5023,22 @@
                                 <exclude reference="p7A-Fe-1Rf"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="hkI-XL-vbU"/>
-                                <exclude reference="tpJ-VB-RSM"/>
-                                <exclude reference="KRG-Dw-b8X"/>
                                 <exclude reference="Utz-vd-AQS"/>
                                 <exclude reference="Ygq-PO-miY"/>
                                 <exclude reference="itu-8k-fCM"/>
                                 <exclude reference="WmV-f6-Q0Q"/>
                                 <exclude reference="2eE-h0-Qu8"/>
                                 <exclude reference="JX6-rL-YwW"/>
-                                <exclude reference="K0q-c5-kUL"/>
-                                <exclude reference="ih7-z5-R8M"/>
-                                <exclude reference="nS0-oc-Sr4"/>
                                 <exclude reference="zgk-pY-Ygm"/>
                                 <exclude reference="CpA-V9-uBo"/>
                                 <exclude reference="XJL-4L-gPc"/>
+                                <exclude reference="hkI-XL-vbU"/>
+                                <exclude reference="tpJ-VB-RSM"/>
                                 <exclude reference="yVZ-j1-6KF"/>
+                                <exclude reference="KRG-Dw-b8X"/>
+                                <exclude reference="K0q-c5-kUL"/>
+                                <exclude reference="ih7-z5-R8M"/>
+                                <exclude reference="nS0-oc-Sr4"/>
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>
@@ -5057,22 +5059,22 @@
                                 <include reference="pY6-oD-PoU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="hkI-XL-vbU"/>
-                                <include reference="tpJ-VB-RSM"/>
-                                <exclude reference="KRG-Dw-b8X"/>
                                 <include reference="Utz-vd-AQS"/>
                                 <exclude reference="Ygq-PO-miY"/>
                                 <exclude reference="itu-8k-fCM"/>
                                 <include reference="WmV-f6-Q0Q"/>
                                 <include reference="2eE-h0-Qu8"/>
                                 <exclude reference="JX6-rL-YwW"/>
-                                <exclude reference="K0q-c5-kUL"/>
-                                <exclude reference="ih7-z5-R8M"/>
-                                <include reference="nS0-oc-Sr4"/>
                                 <include reference="zgk-pY-Ygm"/>
                                 <exclude reference="CpA-V9-uBo"/>
                                 <include reference="XJL-4L-gPc"/>
+                                <exclude reference="hkI-XL-vbU"/>
+                                <include reference="tpJ-VB-RSM"/>
                                 <exclude reference="yVZ-j1-6KF"/>
+                                <exclude reference="KRG-Dw-b8X"/>
+                                <exclude reference="K0q-c5-kUL"/>
+                                <exclude reference="ih7-z5-R8M"/>
+                                <include reference="nS0-oc-Sr4"/>
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>
