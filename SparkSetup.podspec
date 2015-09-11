@@ -35,6 +35,7 @@ Pod::Spec.new do |s|
 
     s.subspec 'Comm' do |comm|
         comm.source_files  = 'Classes/Comm/**/*'
+        comm.dependency 'FastSocket'
         comm.ios.frameworks    = 'SystemConfiguration', 'Security'
     end
 

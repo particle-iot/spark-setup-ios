@@ -13,7 +13,7 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import "SparkSetupSecurityManager.h"
 #import <NetworkExtension/NetworkExtension.h>
-#import <FastSocket.h>
+#import "FastSocket.h"
 
 // new iOS 9 requirements:
 #import "Reachability.h"

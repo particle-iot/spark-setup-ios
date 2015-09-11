@@ -12,7 +12,7 @@
 		50139EAF1BA209B100B900EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509081FB1ACF707C0014E7DF /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		50139EB31BA26F0200B900EF /* FastSocket.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50139EB21BA26F0200B900EF /* FastSocket.h */; };
 		506C6FE61AD32E1C009D8498 /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */; };
-		509081B21ACF6A8A0014E7DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509081AF1ACF6A8A0014E7DF /* Images.xcassets */; };
+		509081B21ACF6A8A0014E7DF /* setup.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509081AF1ACF6A8A0014E7DF /* setup.xcassets */; };
 		509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509081B11ACF6A8A0014E7DF /* setup.storyboard */; };
 		509081E41ACF6AF70014E7DF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081B71ACF6AF70014E7DF /* Reachability.m */; };
 		509081E51ACF6AF70014E7DF /* SparkSetupCommManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081B91ACF6AF70014E7DF /* SparkSetupCommManager.m */; };
@@ -63,7 +63,7 @@
 		509080DC1ACF494A0014E7DF /* SparkSetup.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkSetup.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		509080E71ACF49660014E7DF /* libSparkSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSparkSetup.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		509081AC1ACF69720014E7DF /* SparkSetup.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = SparkSetup.podspec; sourceTree = "<group>"; };
-		509081AF1ACF6A8A0014E7DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		509081AF1ACF6A8A0014E7DF /* setup.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = setup.xcassets; sourceTree = "<group>"; };
 		509081B11ACF6A8A0014E7DF /* setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = setup.storyboard; sourceTree = "<group>"; };
 		509081B61ACF6AF70014E7DF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		509081B71ACF6AF70014E7DF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				509081FB1ACF707C0014E7DF /* Info.plist */,
-				509081AF1ACF6A8A0014E7DF /* Images.xcassets */,
+				509081AF1ACF6A8A0014E7DF /* setup.xcassets */,
 				509081B11ACF6A8A0014E7DF /* setup.storyboard */,
 			);
 			path = Resources;
@@ -394,7 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */,
-				509081B21ACF6A8A0014E7DF /* Images.xcassets in Resources */,
+				509081B21ACF6A8A0014E7DF /* setup.xcassets in Resources */,
 				50139EAF1BA209B100B900EF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
