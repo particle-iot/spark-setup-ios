@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "connect-to-wifi_02.png"
+      "filename" : "connect-to-wifi_02.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "connect-to-wifi_02-1.png"
+      "filename" : "connect-to-wifi_02-1.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

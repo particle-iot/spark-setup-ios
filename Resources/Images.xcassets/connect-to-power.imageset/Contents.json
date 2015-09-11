@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "connect-to-power.png"
+      "filename" : "connect-to-power.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "connect-to-power-1.png"
+      "filename" : "connect-to-power-1.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

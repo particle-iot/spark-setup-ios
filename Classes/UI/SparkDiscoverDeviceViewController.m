@@ -26,7 +26,7 @@
 #import <Mixpanel.h>
 #endif
 
-@interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate, SparkSelectNetworkViewControllerDelegate, SparkSetupConnectionDelegate>
+@interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate, SparkSelectNetworkViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSignalImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *networkNameLabel;
@@ -184,7 +184,7 @@
     {
         NSLog(@"checkDeviceConnectionForNotification (background)");
 
-        if (NO)//([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+        if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
         {
             UILocalNotification *localNotification = [[UILocalNotification alloc] init];
             localNotification.alertAction = @"Connected";

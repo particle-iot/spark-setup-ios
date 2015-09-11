@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "lock-1.png"
+      "filename" : "lock-1.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "lock-1-1.png"
+      "filename" : "lock-1-1.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

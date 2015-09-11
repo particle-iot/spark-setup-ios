@@ -2530,9 +2530,6 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="4" y="108" width="392" height="591"/>
-                                </variation>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

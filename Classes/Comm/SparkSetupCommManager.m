@@ -131,11 +131,17 @@ int wait_on_sock(int sock, long timeout, int r, int w)
 
 +(BOOL)checkSparkDeviceWifiConnection:(NSString *)networkPrefix
 {
-    // starting iOS 9:
+    // starting iOS 9: just try to open socket to photon - networkPrefix is ignored
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
     {
         FastSocket *socket = [[FastSocket alloc] initWithHost:kSparkSetupConnectionEndpointAddress andPort:kSparkSetupConnectionEndpointPortString];
-        return [socket connect];
+        if ([socket connect])
+        {
+            [socket close];
+            return YES;
+        }
+        else
+            return NO;
     }
     else
     {

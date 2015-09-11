@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		23512E027734886C6DEAAA94 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F404D8EB82B123EA6352E8F3 /* libPods.a */; };
 		50139EAE1B9FD09400B900EF /* FastSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 50139EAD1B9FD09400B900EF /* FastSocket.h */; };
+		50139EAF1BA209B100B900EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509081FB1ACF707C0014E7DF /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		506C6FE61AD32E1C009D8498 /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */; };
 		509081B21ACF6A8A0014E7DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509081AF1ACF6A8A0014E7DF /* Images.xcassets */; };
 		509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509081B11ACF6A8A0014E7DF /* setup.storyboard */; };
@@ -390,6 +391,7 @@
 			files = (
 				509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */,
 				509081B21ACF6A8A0014E7DF /* Images.xcassets in Resources */,
+				50139EAF1BA209B100B900EF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
