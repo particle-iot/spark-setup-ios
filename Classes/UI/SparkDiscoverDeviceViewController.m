@@ -202,11 +202,11 @@
 -(void)scheduleBackgroundTask
 {
     [self.backgroundTaskTimer invalidate];
-    self.backgroundTaskTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
-                                                                target:self
-                                                              selector:@selector(checkDeviceConnectionForNotification:)
-                                                              userInfo:nil
-                                                               repeats:YES];
+//    self.backgroundTaskTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
+//                                                                target:self
+//                                                              selector:@selector(checkDeviceConnectionForNotification:)
+//                                                              userInfo:nil
+//                                                               repeats:YES];
     
     
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{

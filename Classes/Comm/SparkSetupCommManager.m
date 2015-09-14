@@ -95,14 +95,26 @@ int const kSparkSetupConnectionEndpointPort = 5609;
     // starting iOS 9: just try to open socket to photon - networkPrefix is ignored
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
     {
+        static BOOL bOpeningSocket = NO;
+        
+        if (bOpeningSocket)
+            return NO;
+        
+        
+        bOpeningSocket = YES;
         FastSocket *socket = [[FastSocket alloc] initWithHost:kSparkSetupConnectionEndpointAddress andPort:kSparkSetupConnectionEndpointPortString];
+        
         if ([socket connect])
         {
             [socket close];
+            bOpeningSocket = NO;
             return YES;
         }
         else
+        {
+            bOpeningSocket = NO;
             return NO;
+        }
     }
     else
     {
