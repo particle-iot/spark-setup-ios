@@ -21,15 +21,17 @@ Pod::Spec.new do |s|
     s.public_header_files = 'Classes/*.h'
     s.source_files  = 'Classes/*.h'
     
-    s.subspec 'Resources' do |resources|
-        resources.resource_bundle = {'SparkSetup' => ['Resources/**/*.{xcassets,storyboard}']}
-    end
+#    s.subspec 'Resources' do |resources|
+#        resources.resource_bundle = {'SparkSetup' => ['Resources/**/*.{xcassets,storyboard}']}
+    s.resource_bundle = {'SparkSetup' => ['Resources/**/*.{xcassets,storyboard}']}
+
+#    end
 
     s.subspec 'Core' do |core|
         core.source_files  = 'Classes/User/**/*.{h,m}', 'Classes/UI/**/*'
         core.dependency 'Spark-SDK'
         core.dependency 'SparkSetup/Comm'
-        core.dependency 'SparkSetup/Resources'
+#        core.dependency 'SparkSetup/Resources'
         core.ios.frameworks    = 'UIKit'
     end
 
