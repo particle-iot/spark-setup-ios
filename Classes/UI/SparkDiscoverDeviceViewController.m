@@ -280,14 +280,14 @@
 //            self.tryConn.delegate = self;
 //        }
 //        else
-        {
+//        {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
                 {
                     [self startPhotonQuery];
                 }
             });
-        }
+//        }
     }
     
 }

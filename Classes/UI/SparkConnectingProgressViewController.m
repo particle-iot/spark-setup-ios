@@ -69,6 +69,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 @property (nonatomic, strong) SparkConnectingProgressView *currentStateView;
 @property (strong, nonatomic) IBOutletCollection(SparkConnectingProgressView) NSArray *progressViews;
 
+@property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
 @end
 
 @implementation SparkConnectingProgressViewController
@@ -84,6 +85,8 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     // set logo
     self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    
+    self.wifiSymbolImageView = [SparkSetupMainController loadImageFromResourceBundle:@"wifi3"];
     
     self.hostReachable = NO;
     self.apiReachable = NO;

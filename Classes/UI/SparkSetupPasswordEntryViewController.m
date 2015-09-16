@@ -12,6 +12,7 @@
 #import "SparkConnectingProgressViewController.h"
 #import "SparkSetupCommManager.h"
 #import "SparkSetupCustomization.h"
+#import "SparkSetupMainController.h"
 #ifdef ANALYTICS
 #import <Mixpanel.h>
 #endif
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 
+@property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
 
 @end
 
@@ -36,6 +38,9 @@
     // move to super viewdidload?
     self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    
+    // force load images from resource bundle
+    self.wifiSymbolImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"wifi3"];
     
     // Trick to add an inset from the left of the text fields
     CGRect  viewRect = CGRectMake(0, 0, 10, 32);

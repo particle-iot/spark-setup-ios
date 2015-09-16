@@ -127,15 +127,15 @@
     int rssi = [self.wifiList[row][@"rssi"] intValue];
     if (rssi > kSparkWifiRSSIThresholdStrong)
     {
-        [cell.wifiStrengthImageView setImage:[UIImage imageNamed:@"wifi3" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
+        [cell.wifiStrengthImageView setImage:[SparkSetupMainController loadImageFromResourceBundle:@"wifi3"]];
     }
     else if (rssi > kSparkWifiRSSIThresholdWeak)
     {
-        [cell.wifiStrengthImageView setImage:[UIImage imageNamed:@"wifi2" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
+        [cell.wifiStrengthImageView setImage:[SparkSetupMainController loadImageFromResourceBundle:@"wifi2"]];
     }
     else
     {
-        [cell.wifiStrengthImageView setImage:[UIImage imageNamed:@"wifi1" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]]; // TODO: make iOS7 compatible];
+        [cell.wifiStrengthImageView setImage:[SparkSetupMainController loadImageFromResourceBundle:@"wifi1"]];
     }
     
 
@@ -150,6 +150,7 @@
 //        [cell.contentView viewWithTag:20].hidden = NO;
 //        UIImageView *lock = cell.securedNetworkIconImageView; //(UIImageView *)[cell.contentView viewWithTag:20];
         cell.securedNetworkIconImageView.hidden = NO;
+        [cell.securedNetworkIconImageView setImage:[SparkSetupMainController loadImageFromResourceBundle:@"lock"]];
         cell.securedNetworkIconImageView.image = [cell.securedNetworkIconImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         cell.securedNetworkIconImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;;
     }

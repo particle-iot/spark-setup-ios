@@ -93,6 +93,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 +(BOOL)checkSparkDeviceWifiConnection:(NSString *)networkPrefix
 {
     // starting iOS 9: just try to open socket to photon - networkPrefix is ignored
+    /*
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
     {
         static BOOL bOpeningSocket = NO;
@@ -116,9 +117,9 @@ int const kSparkSetupConnectionEndpointPort = 5609;
             return NO;
         }
     }
-    else
-    {
-        
+    else*/
+//    {
+    
         // for iOS 8:
         NSArray *ifs = (__bridge_transfer NSArray *)CNCopySupportedInterfaces();
         //    NSLog(@"Supported interfaces: %@", ifs);
@@ -139,7 +140,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
             // TODO: add reachability change detection
             
         }
-    }
+//    }
     
     return NO;
     

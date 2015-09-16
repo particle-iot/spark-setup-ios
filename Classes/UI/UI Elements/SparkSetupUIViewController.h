@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #define SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER  @"io.spark.SparkSetup"
-#define isiPhone4  ([[UIScreen mainScreen] bounds].size.height == 480) ? YES : NO
 
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define isiPhone4  ([[UIScreen mainScreen] bounds].size.height == 480) ? YES : NO
+#define isiPhone5 (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 568.0)
 
 @interface SparkSetupUIViewController : UIViewController
 

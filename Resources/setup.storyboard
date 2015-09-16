@@ -3311,7 +3311,7 @@
                         <outlet property="brandImageView" destination="eud-gX-Qzz" id="je9-gh-haS"/>
                         <outlet property="deviceIsConnectingLabel" destination="sVc-hH-dHk" id="cNs-Bf-Wwe"/>
                         <outlet property="ssidLabel" destination="cOI-4H-O0J" id="b6R-CN-JVt"/>
-                        <outlet property="wifiSymbolImageView" destination="b2A-QU-4k0" id="Pco-Fg-j7C"/>
+                        <outlet property="wifiSymbolImageView" destination="b2A-QU-4k0" id="jzA-Wb-ux5"/>
                         <outletCollection property="progressViews" destination="R3W-op-31b" id="oEf-Q2-IWd"/>
                         <outletCollection property="progressViews" destination="l7F-fD-FkN" id="41W-Qg-JDG"/>
                         <outletCollection property="progressViews" destination="c42-pG-Oeu" id="Uhs-mZ-aBx"/>
@@ -4725,7 +4725,7 @@
                         <outlet property="passwordTextField" destination="7YD-Eu-eRs" id="nHX-wk-q1Q"/>
                         <outlet property="securityTypeLabel" destination="r1M-iA-Igy" id="Cma-AD-hTb"/>
                         <outlet property="showPasswordSwitch" destination="3hV-M8-czG" id="1dz-gX-Ebr"/>
-                        <outlet property="wifiSymbolImageView" destination="shD-NL-Bfg" id="3cN-pi-ak8"/>
+                        <outlet property="wifiSymbolImageView" destination="shD-NL-Bfg" id="1zF-EL-WNk"/>
                         <segue destination="lWW-BP-U6f" kind="show" identifier="connect" id="Lg4-P5-Mxv"/>
                     </connections>
                 </viewController>
@@ -5277,7 +5277,7 @@
         <image name="wifi3" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MPJ-t5-PGI"/>
         <segue reference="dk3-1h-vwt"/>
+        <segue reference="Lg4-P5-Mxv"/>
     </inferredMetricsTieBreakers>
 </document>
