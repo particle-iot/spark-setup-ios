@@ -1472,7 +1472,7 @@
                                     <segue destination="TSc-Cc-JEA" kind="presentation" identifier="video" id="5M4-3W-ntI"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="connect-to-wifi" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-Qf-QZC">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="connect-to-wifi.png" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-Qf-QZC">
                                 <rect key="frame" x="0.0" y="-187" width="600" height="187"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="187" id="1yO-kO-rOR">
@@ -4067,7 +4067,7 @@
                                     <action selector="readyButtonTapped:" destination="Z3p-Ig-NCk" eventType="touchUpInside" id="O4v-Zq-VIx"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="Ald-Di-X3r" customClass="SparkSetupUISpinner">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ald-Di-X3r" customClass="SparkSetupUISpinner">
                                 <rect key="frame" x="176" y="348" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="mst-fn-d3A"/>
@@ -4128,7 +4128,7 @@
                                     <action selector="logoutButtonTouched:" destination="Z3p-Ig-NCk" eventType="touchUpInside" id="p4W-4M-Tjf"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="connect-to-power" translatesAutoresizingMaskIntoConstraints="NO" id="Dom-kg-WP6">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="connect-to-power.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dom-kg-WP6">
                                 <rect key="frame" x="0.0" y="-94" width="392" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="b6Q-1R-18e">
@@ -5262,22 +5262,23 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="200" height="200"/>
-        <image name="2" width="200" height="200"/>
-        <image name="3" width="200" height="200"/>
-        <image name="connect-to-power" width="540" height="133"/>
-        <image name="connect-to-wifi" width="300" height="72"/>
-        <image name="iosCheckmark" width="16" height="16"/>
-        <image name="iosSettingWifi" width="70" height="41"/>
-        <image name="leftChevron" width="64" height="64"/>
-        <image name="lock" width="256" height="256"/>
+        <image name="1" width="400" height="400"/>
+        <image name="2" width="400" height="400"/>
+        <image name="3" width="400" height="400"/>
+        <image name="connect-to-power.png" width="1080" height="267"/>
+        <image name="connect-to-wifi.png" width="600" height="144"/>
+        <image name="iosCheckmark" width="32" height="32"/>
+        <image name="iosSettingWifi" width="140" height="82"/>
+        <image name="leftChevron" width="128" height="128"/>
+        <image name="lock" width="512" height="512"/>
         <image name="spinner" width="18" height="18"/>
-        <image name="spinner_big" width="36" height="36"/>
-        <image name="success" width="256" height="256"/>
-        <image name="wifi3" width="64" height="64"/>
+        <image name="spinner.png" width="36" height="36"/>
+        <image name="spinner_big" width="72" height="72"/>
+        <image name="success" width="512" height="512"/>
+        <image name="wifi3" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="MPJ-t5-PGI"/>
         <segue reference="dk3-1h-vwt"/>
-        <segue reference="Lg4-P5-Mxv"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -49,7 +49,8 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 +(UIImage *)loadImageFromResourceBundle:(NSString *)imageName
 {
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]]; // Any class in the lib can be used here, I just went for the current class
+//    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SparkSetup" withExtension:@"bundle"]];
     NSString *imageFileName = [NSString stringWithFormat:@"%@.png",imageName];
     UIImage *image = [UIImage imageNamed:imageFileName inBundle:bundle compatibleWithTraitCollection:nil];
     return image;

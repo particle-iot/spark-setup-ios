@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "wifi3.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "wifi3-1.png",
+      "filename" : "wifi3.png",
       "scale" : "2x"
     },
     {

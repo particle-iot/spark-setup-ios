@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "spark-logo-head.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "spark-logo-head-1.png",
+      "filename" : "spark-logo-head.png",
       "scale" : "2x"
     },
     {
