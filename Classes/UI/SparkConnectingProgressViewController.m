@@ -51,9 +51,8 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 @property (nonatomic, strong) NSMutableArray *connectionProgressTextList;
 @property (weak, nonatomic) IBOutlet UILabel *deviceIsConnectingLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
-@property (weak, nonatomic) IBOutlet UIButton *troubleshootingButton;
+//@property (weak, nonatomic) IBOutlet UIButton *troubleshootingButton;
 @property (strong, nonatomic) SparkDevice *device;
-@property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
 
 @property (strong, nonatomic) Reachability *hostReachability;
 @property (nonatomic) BOOL hostReachable;
@@ -86,7 +85,8 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
     
-    self.wifiSymbolImageView = [SparkSetupMainController loadImageFromResourceBundle:@"wifi3"];
+    // force load from resource bundle
+    self.wifiSymbolImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"wifi3"];
     
     self.hostReachable = NO;
     self.apiReachable = NO;

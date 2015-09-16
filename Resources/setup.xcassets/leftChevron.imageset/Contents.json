@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "leftChevron.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "leftChevron.png",
       "scale" : "2x"
     },
     {

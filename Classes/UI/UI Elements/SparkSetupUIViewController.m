@@ -130,7 +130,9 @@
 
 - (CGFloat)keyboardHeightAdjust
 {
-    return 64.0; // TODO: something dynamic
+    if (isiPhone4) return 64.0;
+    else if (isiPhone5) return 48.0;
+    else return 32.0;
 }
 
 

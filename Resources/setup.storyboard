@@ -1769,11 +1769,11 @@
                                                         <exclude reference="Bju-0Y-rHd"/>
                                                         <exclude reference="CJA-Co-k5Y"/>
                                                         <exclude reference="oGJ-mu-OxM"/>
-                                                        <exclude reference="aef-Qe-hhP"/>
                                                         <exclude reference="SUM-NT-vZd"/>
                                                         <exclude reference="jDk-rP-alk"/>
                                                         <exclude reference="9oA-1F-GwW"/>
                                                         <exclude reference="J5k-WB-eX5"/>
+                                                        <exclude reference="aef-Qe-hhP"/>
                                                     </mask>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -1789,11 +1789,11 @@
                                                         <include reference="Bju-0Y-rHd"/>
                                                         <include reference="CJA-Co-k5Y"/>
                                                         <include reference="oGJ-mu-OxM"/>
-                                                        <include reference="aef-Qe-hhP"/>
                                                         <include reference="SUM-NT-vZd"/>
                                                         <include reference="jDk-rP-alk"/>
                                                         <include reference="9oA-1F-GwW"/>
                                                         <include reference="J5k-WB-eX5"/>
+                                                        <include reference="aef-Qe-hhP"/>
                                                     </mask>
                                                 </variation>
                                             </view>
@@ -5025,6 +5025,9 @@
                                 <exclude reference="p7A-Fe-1Rf"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="hkI-XL-vbU"/>
+                                <exclude reference="tpJ-VB-RSM"/>
+                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="KRG-Dw-b8X"/>
                                 <exclude reference="Utz-vd-AQS"/>
                                 <exclude reference="Ygq-PO-miY"/>
@@ -5038,9 +5041,6 @@
                                 <exclude reference="zgk-pY-Ygm"/>
                                 <exclude reference="CpA-V9-uBo"/>
                                 <exclude reference="XJL-4L-gPc"/>
-                                <exclude reference="hkI-XL-vbU"/>
-                                <exclude reference="tpJ-VB-RSM"/>
-                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>
@@ -5061,6 +5061,9 @@
                                 <include reference="pY6-oD-PoU"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="hkI-XL-vbU"/>
+                                <include reference="tpJ-VB-RSM"/>
+                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="KRG-Dw-b8X"/>
                                 <include reference="Utz-vd-AQS"/>
                                 <exclude reference="Ygq-PO-miY"/>
@@ -5074,9 +5077,6 @@
                                 <include reference="zgk-pY-Ygm"/>
                                 <exclude reference="CpA-V9-uBo"/>
                                 <include reference="XJL-4L-gPc"/>
-                                <exclude reference="hkI-XL-vbU"/>
-                                <include reference="tpJ-VB-RSM"/>
-                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>

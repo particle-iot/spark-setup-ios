@@ -26,8 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 
-@property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
-
 @end
 
 @implementation SparkSetupPasswordEntryViewController

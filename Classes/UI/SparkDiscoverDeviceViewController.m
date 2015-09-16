@@ -194,7 +194,7 @@
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
     if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
     {
-        NSLog(@"checkDeviceConnectionForNotification (background)");
+//        NSLog(@"checkDeviceConnectionForNotification (background)");
 
         if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
         {
@@ -214,11 +214,11 @@
 -(void)scheduleBackgroundTask
 {
     [self.backgroundTaskTimer invalidate];
-//    self.backgroundTaskTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
-//                                                                target:self
-//                                                              selector:@selector(checkDeviceConnectionForNotification:)
-//                                                              userInfo:nil
-//                                                               repeats:YES];
+    self.backgroundTaskTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
+                                                                target:self
+                                                              selector:@selector(checkDeviceConnectionForNotification:)
+                                                              userInfo:nil
+                                                               repeats:YES];
     
     
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -235,7 +235,7 @@
 {
     if (state == SparkSetupConnectionStateOpened)
     {
-        NSLog(@"Photon detected!");
+//        NSLog(@"Photon detected!");
         [connection close];
         [self startPhotonQuery];
     }
@@ -272,22 +272,14 @@
     UIApplicationState state = [[UIApplication sharedApplication] applicationState];
     if (state == UIApplicationStateActive)
     {
-        NSLog(@"SparkDiscover -> checkDeviceWifiConnection timer");
+        //        NSLog(@"SparkDiscover -> checkDeviceWifiConnection timer");
         
-//        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0"))
-//        {
-//            self.tryConn = [[SparkSetupConnection alloc] initWithIPAddress:kSparkSetupConnectionEndpointAddress port:kSparkSetupConnectionEndpointPort];
-//            self.tryConn.delegate = self;
-//        }
-//        else
-//        {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
-                {
-                    [self startPhotonQuery];
-                }
-            });
-//        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+            {
+                [self startPhotonQuery];
+            }
+        });
     }
     
 }

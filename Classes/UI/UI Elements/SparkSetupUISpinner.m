@@ -32,6 +32,7 @@
     {
 //        self.image = [UIImage imageNamed:@"spinner" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         self.image = [SparkSetupMainController loadImageFromResourceBundle:@"spinner"];
+        NSLog(@"spinner: %@",self.image);
     }
     
     [self setNeedsDisplay];
