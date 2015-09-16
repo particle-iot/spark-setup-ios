@@ -37,10 +37,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="xbQ-5h-nSM" customClass="SparkSetupUISpinner">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="spinner.png" translatesAutoresizingMaskIntoConstraints="NO" id="xbQ-5h-nSM" customClass="SparkSetupUISpinner">
                                 <rect key="frame" x="176" y="348" width="32" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="9FB-2T-EpT"/>
+                                    <constraint firstAttribute="width" constant="32" id="9FB-2T-EpT">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="40" id="KfG-7n-NS3">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="32" id="hVq-cd-gXr"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -49,12 +54,14 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="9FB-2T-EpT"/>
+                                        <exclude reference="KfG-7n-NS3"/>
                                         <exclude reference="hVq-cd-gXr"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="9FB-2T-EpT"/>
+                                        <include reference="KfG-7n-NS3"/>
                                         <exclude reference="hVq-cd-gXr"/>
                                     </mask>
                                 </variation>
@@ -441,7 +448,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="ZJd-3i-xnf" firstAttribute="leading" secondItem="cHI-Ng-RbQ" secondAttribute="leadingMargin" constant="44" id="SAn-BV-4H6"/>
-                            <constraint firstItem="hTx-ZG-e7U" firstAttribute="leading" secondItem="xbQ-5h-nSM" secondAttribute="trailing" constant="-32" id="TFl-Im-piK"/>
+                            <constraint firstItem="hTx-ZG-e7U" firstAttribute="leading" secondItem="xbQ-5h-nSM" secondAttribute="trailing" constant="-32" id="TFl-Im-piK">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-24"/>
+                            </constraint>
                             <constraint firstItem="hTx-ZG-e7U" firstAttribute="top" secondItem="fIF-uh-IUN" secondAttribute="bottom" constant="8" id="UF3-zm-GHQ">
                                 <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                             </constraint>
@@ -533,7 +542,7 @@
                                 <include reference="jG6-JC-y2R"/>
                                 <include reference="lRT-Ud-ot4"/>
                                 <exclude reference="y2O-2m-bM0"/>
-                                <include reference="dWl-xT-Drg"/>
+                                <exclude reference="dWl-xT-Drg"/>
                                 <include reference="p6x-z1-eXT"/>
                                 <include reference="GMW-US-fXN"/>
                                 <include reference="RbJ-ih-tjl"/>
@@ -742,7 +751,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="header"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="Imh-oc-1kL" customClass="SparkSetupUISpinner">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="spinner.png" translatesAutoresizingMaskIntoConstraints="NO" id="Imh-oc-1kL" customClass="SparkSetupUISpinner">
                                         <rect key="frame" x="36" y="112" width="32" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="dyQ-gB-YJi">
@@ -1090,11 +1099,15 @@
                                             <action selector="loginButton:" destination="aoV-ks-Ppc" eventType="touchUpInside" id="bBQ-YO-cMN"/>
                                         </connections>
                                     </button>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="VOF-kh-r3G" customClass="SparkSetupUISpinner">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner.png" translatesAutoresizingMaskIntoConstraints="NO" id="VOF-kh-r3G" customClass="SparkSetupUISpinner">
                                         <rect key="frame" x="36" y="112" width="32" height="32"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="AUL-Kj-9IG"/>
-                                            <constraint firstAttribute="width" constant="32" id="nQO-dD-GsA"/>
+                                            <constraint firstAttribute="height" constant="32" id="AUL-Kj-9IG">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="32" id="nQO-dD-GsA">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                            </constraint>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="background"/>
@@ -1148,7 +1161,7 @@
                                     </constraint>
                                     <constraint firstAttribute="centerX" secondItem="vEF-rf-PHn" secondAttribute="centerX" id="h7E-iB-rzD"/>
                                     <constraint firstItem="l3y-XJ-EXr" firstAttribute="leading" secondItem="VOF-kh-r3G" secondAttribute="trailing" constant="-32" id="inq-xg-5ge">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="-32"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="-24"/>
                                     </constraint>
                                     <constraint firstItem="8jW-zN-6UE" firstAttribute="top" secondItem="DBd-QT-spH" secondAttribute="top" constant="36" id="kdG-fT-X05">
                                         <variation key="heightClass=regular-widthClass=compact" constant="8"/>
@@ -2346,11 +2359,15 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="TPt-BY-VBm" customClass="SparkSetupUISpinner">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner.png" translatesAutoresizingMaskIntoConstraints="NO" id="TPt-BY-VBm" customClass="SparkSetupUISpinner">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="D9u-bw-TxD"/>
-                                    <constraint firstAttribute="height" constant="32" id="IGw-nY-yEI"/>
+                                    <constraint firstAttribute="width" constant="32" id="D9u-bw-TxD">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="32" id="IGw-nY-yEI">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                    </constraint>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="background"/>
@@ -2539,7 +2556,7 @@
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TR1-ME-BYk" firstAttribute="leading" secondItem="TPt-BY-VBm" secondAttribute="trailing" constant="-32" id="1FU-oQ-S1o">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-36"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-24"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="TR1-ME-BYk" secondAttribute="centerX" id="1t8-NG-lHa"/>
                             <constraint firstItem="TR1-ME-BYk" firstAttribute="top" secondItem="KB8-Fp-xL8" secondAttribute="bottom" constant="14" id="5fH-Ou-iEO">
@@ -4067,11 +4084,15 @@
                                     <action selector="readyButtonTapped:" destination="Z3p-Ig-NCk" eventType="touchUpInside" id="O4v-Zq-VIx"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ald-Di-X3r" customClass="SparkSetupUISpinner">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ald-Di-X3r" customClass="SparkSetupUISpinner">
                                 <rect key="frame" x="176" y="348" width="32" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="mst-fn-d3A"/>
-                                    <constraint firstAttribute="height" constant="32" id="ypM-Zq-DCZ"/>
+                                    <constraint firstAttribute="width" constant="32" id="mst-fn-d3A">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="32" id="ypM-Zq-DCZ">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                    </constraint>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="background"/>
@@ -4234,7 +4255,9 @@
                             <constraint firstItem="kZE-3U-nVp" firstAttribute="top" secondItem="vUh-Wu-dKe" secondAttribute="bottom" constant="-4" id="qcX-hF-K7F">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
-                            <constraint firstItem="Ald-Di-X3r" firstAttribute="leading" secondItem="UNy-JD-Bob" secondAttribute="leading" id="tHe-bM-L5Y"/>
+                            <constraint firstItem="Ald-Di-X3r" firstAttribute="leading" secondItem="UNy-JD-Bob" secondAttribute="leading" id="tHe-bM-L5Y">
+                                <variation key="heightClass=regular-widthClass=compact" constant="4"/>
+                            </constraint>
                             <constraint firstItem="NXe-vV-Moq" firstAttribute="leading" secondItem="xP3-D7-C6C" secondAttribute="leadingMargin" constant="5" id="teM-uq-SgN">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                             </constraint>
@@ -4639,7 +4662,7 @@
                             <constraint firstItem="aGH-RZ-uLL" firstAttribute="trailing" secondItem="pa8-S2-Yq3" secondAttribute="trailingMargin" id="dSI-xx-M2r"/>
                             <constraint firstItem="aGH-RZ-uLL" firstAttribute="leading" secondItem="pa8-S2-Yq3" secondAttribute="leadingMargin" id="fJX-TH-Hfb"/>
                             <constraint firstAttribute="centerY" secondItem="aGH-RZ-uLL" secondAttribute="centerY" constant="-32" id="hNI-e3-gZ6">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="fYN-rW-HM4" firstAttribute="leading" secondItem="pa8-S2-Yq3" secondAttribute="leadingMargin" constant="-10" id="rvw-rL-JCZ">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
@@ -5004,7 +5027,7 @@
                             <constraint firstItem="pY6-oD-PoU" firstAttribute="top" secondItem="PNm-wN-xvV" secondAttribute="bottom" constant="8" id="XJL-4L-gPc"/>
                             <constraint firstItem="gSr-wm-pWw" firstAttribute="top" secondItem="Els-s6-JaP" secondAttribute="bottom" constant="8" id="Ygq-PO-miY"/>
                             <constraint firstAttribute="centerY" secondItem="Els-s6-JaP" secondAttribute="centerY" constant="200.5" id="Z2l-oR-j1l">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstAttribute="centerY" secondItem="Els-s6-JaP" secondAttribute="centerY" id="c5F-hE-l6o"/>
                             <constraint firstItem="Els-s6-JaP" firstAttribute="trailing" secondItem="ivc-Ce-LLj" secondAttribute="trailingMargin" id="fdI-3s-4iw"/>
@@ -5271,14 +5294,13 @@
         <image name="iosSettingWifi" width="140" height="82"/>
         <image name="leftChevron" width="128" height="128"/>
         <image name="lock" width="512" height="512"/>
-        <image name="spinner" width="18" height="18"/>
         <image name="spinner.png" width="36" height="36"/>
         <image name="spinner_big" width="72" height="72"/>
         <image name="success" width="512" height="512"/>
         <image name="wifi3" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MPJ-t5-PGI"/>
-        <segue reference="dk3-1h-vwt"/>
+        <segue reference="c4T-fL-kLE"/>
+        <segue reference="LMP-8O-ZPP"/>
     </inferredMetricsTieBreakers>
 </document>
