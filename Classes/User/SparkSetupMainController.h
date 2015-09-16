@@ -99,6 +99,8 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
  *  @return Default assets resource NSBundle instance
  */
 +(NSBundle *)getResourcesBundle;
++(UIImage *)loadImageFromResourceBundle:(NSString *)imageName;
+
 
 @end
 

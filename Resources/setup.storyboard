@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="xbQ-5h-nSM" customClass="SparkSetupUISpinner">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="xbQ-5h-nSM" customClass="SparkSetupUISpinner">
                                 <rect key="frame" x="176" y="348" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="9FB-2T-EpT"/>
@@ -1761,7 +1761,6 @@
                                                     <mask key="subviews">
                                                         <exclude reference="wDi-zZ-kzk"/>
                                                         <exclude reference="Nop-7n-cfM"/>
-                                                        <exclude reference="J0J-uO-pjh"/>
                                                         <exclude reference="9qO-43-pbD"/>
                                                     </mask>
                                                     <mask key="constraints">
@@ -2268,10 +2267,13 @@
                     <connections>
                         <outlet property="brandImage" destination="yjq-4r-6tw" id="hzH-eh-i4Q"/>
                         <outlet property="cancelSetupButton" destination="DTu-2T-JYm" id="wtD-fk-2s4"/>
+                        <outlet property="checkmarkImageView" destination="J0J-uO-pjh" id="I8G-ci-Ttz"/>
+                        <outlet property="connectToWifiImageView" destination="iXX-Qf-QZC" id="Bga-Fi-o4r"/>
                         <outlet property="networkNameLabel" destination="9qO-43-pbD" id="d0s-2l-mof"/>
                         <outlet property="showMeHowButton" destination="fpC-uh-IqQ" id="N3y-7S-gm5"/>
                         <outlet property="spinner" destination="Nop-7n-cfM" id="lGc-r2-bmO"/>
                         <outlet property="view" destination="av0-fS-2U8" id="8rt-vb-lPP"/>
+                        <outlet property="wifiInfoImageView" destination="wDi-zZ-kzk" id="5lY-VM-cfW"/>
                         <outlet property="wifiSignalImageView" destination="wDi-zZ-kzk" id="OcW-Pe-Hwp"/>
                         <outlet property="wifiView" destination="pPy-tx-IQo" id="sy5-ao-Eqt"/>
                         <segue destination="HmA-2l-zkq" kind="show" identifier="select_network" id="aJv-Ka-W8I"/>
@@ -5023,22 +5025,22 @@
                                 <exclude reference="p7A-Fe-1Rf"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="KRG-Dw-b8X"/>
                                 <exclude reference="Utz-vd-AQS"/>
                                 <exclude reference="Ygq-PO-miY"/>
                                 <exclude reference="itu-8k-fCM"/>
                                 <exclude reference="WmV-f6-Q0Q"/>
                                 <exclude reference="2eE-h0-Qu8"/>
                                 <exclude reference="JX6-rL-YwW"/>
+                                <exclude reference="K0q-c5-kUL"/>
+                                <exclude reference="ih7-z5-R8M"/>
+                                <exclude reference="nS0-oc-Sr4"/>
                                 <exclude reference="zgk-pY-Ygm"/>
                                 <exclude reference="CpA-V9-uBo"/>
                                 <exclude reference="XJL-4L-gPc"/>
                                 <exclude reference="hkI-XL-vbU"/>
                                 <exclude reference="tpJ-VB-RSM"/>
                                 <exclude reference="yVZ-j1-6KF"/>
-                                <exclude reference="KRG-Dw-b8X"/>
-                                <exclude reference="K0q-c5-kUL"/>
-                                <exclude reference="ih7-z5-R8M"/>
-                                <exclude reference="nS0-oc-Sr4"/>
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>
@@ -5059,22 +5061,22 @@
                                 <include reference="pY6-oD-PoU"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="KRG-Dw-b8X"/>
                                 <include reference="Utz-vd-AQS"/>
                                 <exclude reference="Ygq-PO-miY"/>
                                 <exclude reference="itu-8k-fCM"/>
                                 <include reference="WmV-f6-Q0Q"/>
                                 <include reference="2eE-h0-Qu8"/>
                                 <exclude reference="JX6-rL-YwW"/>
+                                <exclude reference="K0q-c5-kUL"/>
+                                <exclude reference="ih7-z5-R8M"/>
+                                <include reference="nS0-oc-Sr4"/>
                                 <include reference="zgk-pY-Ygm"/>
                                 <exclude reference="CpA-V9-uBo"/>
                                 <include reference="XJL-4L-gPc"/>
                                 <exclude reference="hkI-XL-vbU"/>
                                 <include reference="tpJ-VB-RSM"/>
                                 <exclude reference="yVZ-j1-6KF"/>
-                                <exclude reference="KRG-Dw-b8X"/>
-                                <exclude reference="K0q-c5-kUL"/>
-                                <exclude reference="ih7-z5-R8M"/>
-                                <include reference="nS0-oc-Sr4"/>
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>

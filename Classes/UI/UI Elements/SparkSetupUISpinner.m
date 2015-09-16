@@ -23,13 +23,15 @@
 {
     if ((type) && ([type isEqualToString:@"foreground"]))
     {
-        self.image = [UIImage imageNamed:@"spinner_big" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+//        self.image = [UIImage imageNamed:@"spinner_big" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+        self.image = [SparkSetupMainController loadImageFromResourceBundle:@"spinner_big"];
         self.image = [self.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         self.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
     }
     else
     {
-        self.image = [UIImage imageNamed:@"spinner" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+//        self.image = [UIImage imageNamed:@"spinner" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+        self.image = [SparkSetupMainController loadImageFromResourceBundle:@"spinner"];
     }
     
     [self setNeedsDisplay];

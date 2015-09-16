@@ -38,6 +38,7 @@
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *readyButton;
 
 
+
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *showMeHowButton;
 
@@ -57,6 +58,12 @@
 @property (nonatomic, strong) UIAlertView *changeOwnershipAlertView;
 @property (weak, nonatomic) IBOutlet UIView *wifiView;
 @property (nonatomic, strong) SparkSetupConnection *tryConn;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *connectToWifiImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *wifiInfoImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *checkmarkImageView;
+
 @end
 
 @implementation SparkDiscoverDeviceViewController
@@ -83,6 +90,11 @@
     // customize logo
     self.brandImage.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.brandImage.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+
+    // force load of images from resource bundle
+    self.connectToWifiImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"connect-to-wifi"];
+    self.checkmarkImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"iosCheckmark"];
+    self.wifiInfoImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"iosSettingWifi"];
 
 //    self.wifiSignalImageView.image = [UIImage imageNamed:@"iosSettingsWifi" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
     self.wifiSignalImageView.hidden = NO;

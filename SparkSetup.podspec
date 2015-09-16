@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
     
 #    s.subspec 'Resources' do |resources|
 #        resources.resource_bundle = {'SparkSetup' => ['Resources/**/*.{xcassets,storyboard}']}
-    s.resource_bundle = {'SparkSetup' => ['Resources/**/*.{xcassets,storyboard}']}
+    s.resource_bundle = {'SparkSetup' => ['Resources/**/*.{png,storyboard}']}
 
 #    end
 

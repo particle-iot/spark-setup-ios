@@ -12,6 +12,7 @@
 #import "SparkSetupWebViewController.h"
 #import "SparkSetupCustomization.h"
 #import "SparkSetupUIElements.h"
+#import "SparkSetupMainController.h"
 #ifdef ANALYTICS
 #import <Mixpanel.h>
 #endif

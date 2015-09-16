@@ -47,6 +47,14 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
     return setupStoryboard;
 }
 
++(UIImage *)loadImageFromResourceBundle:(NSString *)imageName
+{
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]]; // Any class in the lib can be used here, I just went for the current class
+    NSString *imageFileName = [NSString stringWithFormat:@"%@.png",imageName];
+    UIImage *image = [UIImage imageNamed:imageFileName inBundle:bundle compatibleWithTraitCollection:nil];
+    return image;
+}
+
 -(instancetype)init
 {
     SparkSetupMainController* mainVC = [super init]; // super init is not actually required, but supress the warning
