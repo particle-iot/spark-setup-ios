@@ -5048,9 +5048,6 @@
                                 <exclude reference="p7A-Fe-1Rf"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="hkI-XL-vbU"/>
-                                <exclude reference="tpJ-VB-RSM"/>
-                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="KRG-Dw-b8X"/>
                                 <exclude reference="Utz-vd-AQS"/>
                                 <exclude reference="Ygq-PO-miY"/>
@@ -5064,6 +5061,9 @@
                                 <exclude reference="zgk-pY-Ygm"/>
                                 <exclude reference="CpA-V9-uBo"/>
                                 <exclude reference="XJL-4L-gPc"/>
+                                <exclude reference="hkI-XL-vbU"/>
+                                <exclude reference="tpJ-VB-RSM"/>
+                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>
@@ -5084,9 +5084,6 @@
                                 <include reference="pY6-oD-PoU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="hkI-XL-vbU"/>
-                                <include reference="tpJ-VB-RSM"/>
-                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="KRG-Dw-b8X"/>
                                 <include reference="Utz-vd-AQS"/>
                                 <exclude reference="Ygq-PO-miY"/>
@@ -5100,6 +5097,9 @@
                                 <include reference="zgk-pY-Ygm"/>
                                 <exclude reference="CpA-V9-uBo"/>
                                 <include reference="XJL-4L-gPc"/>
+                                <exclude reference="hkI-XL-vbU"/>
+                                <include reference="tpJ-VB-RSM"/>
+                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>
@@ -5285,19 +5285,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="400" height="400"/>
-        <image name="2" width="400" height="400"/>
-        <image name="3" width="400" height="400"/>
+        <image name="1" width="200" height="200"/>
+        <image name="2" width="200" height="200"/>
+        <image name="3" width="200" height="200"/>
         <image name="connect-to-power.png" width="1080" height="267"/>
         <image name="connect-to-wifi.png" width="600" height="144"/>
-        <image name="iosCheckmark" width="32" height="32"/>
-        <image name="iosSettingWifi" width="140" height="82"/>
-        <image name="leftChevron" width="128" height="128"/>
-        <image name="lock" width="512" height="512"/>
+        <image name="iosCheckmark" width="16" height="16"/>
+        <image name="iosSettingWifi" width="70" height="41"/>
+        <image name="leftChevron" width="64" height="64"/>
+        <image name="lock" width="256" height="256"/>
         <image name="spinner.png" width="36" height="36"/>
-        <image name="spinner_big" width="72" height="72"/>
-        <image name="success" width="512" height="512"/>
-        <image name="wifi3" width="128" height="128"/>
+        <image name="spinner_big" width="36" height="36"/>
+        <image name="success" width="256" height="256"/>
+        <image name="wifi3" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="c4T-fL-kLE"/>
