@@ -57,6 +57,7 @@
 /* Begin PBXFileReference section */
 		50139EAD1B9FD09400B900EF /* FastSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FastSocket.h; path = Pods/FastSocket/FastSocket.h; sourceTree = "<group>"; };
 		5018DC4A1ADC862E00ADD403 /* SparkSetup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SparkSetup-Bridging-Header.h"; path = "Classes/SparkSetup-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		5066876C1BB23067008E363B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		506C6FE31AD32E1C009D8498 /* SparkSetupUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupUIViewController.h; sourceTree = "<group>"; };
 		506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupUIViewController.m; sourceTree = "<group>"; };
 		509080DC1ACF494A0014E7DF /* SparkSetup.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkSetup.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,6 +293,7 @@
 		50D0955C1AD38E35008EDBD7 /* Pod metadata */ = {
 			isa = PBXGroup;
 			children = (
+				5066876C1BB23067008E363B /* CHANGELOG.md */,
 				509081AC1ACF69720014E7DF /* SparkSetup.podspec */,
 				50D0955A1AD38CE4008EDBD7 /* README.md */,
 				50D0955B1AD38E2E008EDBD7 /* LICENSE */,
