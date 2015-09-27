@@ -20,7 +20,6 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - FastSocket (1.3)
   - Spark-SDK (0.3.2):
     - Spark-SDK/Helpers (= 0.3.2)
     - Spark-SDK/SDK (= 0.3.2)
@@ -31,7 +30,6 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - FastSocket
   - Spark-SDK (from `../spark-sdk-ios`)
 
 EXTERNAL SOURCES:
@@ -40,7 +38,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
-  FastSocket: 0fa2716071517078d67ead1378d34af443bd54c4
   Spark-SDK: c677ff87176ba1f47b732c60440a64a169781681
 
-COCOAPODS: 0.38.0
+COCOAPODS: 0.38.2
