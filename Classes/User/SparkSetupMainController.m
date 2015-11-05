@@ -36,7 +36,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 +(NSBundle *)getResourcesBundle
 {
-    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SparkSetup" withExtension:@"bundle"]];
+    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle bundleForClass:[self class]] URLForResource:@"SparkSetup" withExtension:@"bundle"]];
     return bundle;
 }
 
@@ -49,8 +49,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 +(UIImage *)loadImageFromResourceBundle:(NSString *)imageName
 {
-//    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SparkSetup" withExtension:@"bundle"]];
+    NSBundle *bundle = [SparkSetupMainController getResourcesBundle]
     NSString *imageFileName = [NSString stringWithFormat:@"%@.png",imageName];
     UIImage *image = [UIImage imageNamed:imageFileName inBundle:bundle compatibleWithTraitCollection:nil];
     return image;
