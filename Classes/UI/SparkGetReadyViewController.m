@@ -72,6 +72,9 @@
         [self.logoutButton setTitle:@"Log in" forState:UIControlStateNormal];
         self.loggedInLabel.text = @"";
     }
+    if ([SparkSetupCustomization sharedInstance].disableLogOutOption) {
+        self.logoutButton.hidden = @YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

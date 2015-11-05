@@ -75,5 +75,6 @@
 
 @property (nonatomic, assign) BOOL allowSkipAuthentication;      // allow user to skip authentication 
 @property (nonatomic, strong) NSString *skipAuthenticationMessage;    // Prompt to display to user when he's requesting to skip authentication
+@property (nonatomic) BOOL disableLogOutOption; // Do not allow the user to log out from the GetReady page.
 
 @end
