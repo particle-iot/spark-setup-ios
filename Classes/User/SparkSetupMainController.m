@@ -33,25 +33,6 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 @implementation SparkSetupMainController
 
--(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    // supressing warning - call designated initializer in default setup mode
-    SparkSetupMainController* mainVC = [self init];
-    self.setupOnly = NO;
-    self.authenticationOnly = NO;
-    return mainVC;
-}
-
--(instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    // supressing warning - call designated initializer in default setup mode
-    SparkSetupMainController* mainVC = [self init];
-    self.setupOnly = NO;
-    self.authenticationOnly = NO;
-    return mainVC;
-    
-}
-
 
 +(NSBundle *)getResourcesBundle
 {
