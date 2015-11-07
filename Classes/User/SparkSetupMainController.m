@@ -49,7 +49,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 +(UIImage *)loadImageFromResourceBundle:(NSString *)imageName
 {
-    NSBundle *bundle = [SparkSetupMainController getResourcesBundle]
+    NSBundle *bundle = [SparkSetupMainController getResourcesBundle];
     NSString *imageFileName = [NSString stringWithFormat:@"%@.png",imageName];
     UIImage *image = [UIImage imageNamed:imageFileName inBundle:bundle compatibleWithTraitCollection:nil];
     return image;
