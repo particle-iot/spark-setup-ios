@@ -12,6 +12,7 @@
 typedef NS_ENUM(NSInteger, SparkSetupResult) {
     SparkSetupResultSuccess=0,
     SparkSetupResultSuccessUnknown,
+    SparkSetupResultSuccessDeviceOffline,
     SparkSetupResultFailureClaiming,
     SparkSetupResultFailureConfigure,
     SparkSetupResultFailureCannotDisconnectFromDevice,

@@ -100,10 +100,22 @@
             break;
         }
             
+        case SparkSetupResultSuccessDeviceOffline:
+        {
+            self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"warning"];
+            self.shortMessageLabel.text = @"Setup completed";
+            self.longMessageLabel.text = @"Your device has been successfully set up to your account but it seems to be offline which might mean that has been setup before but supplied Wi-Fi credentials were wrong or there is a connectivity issue.";
+            
+#ifdef ANALYTICS
+            [[Mixpanel sharedInstance] track:@"Device Setup: Success" properties:@{@"reason":@"device offline"}];
+#endif
+            break;
+        }
+
         case SparkSetupResultSuccessUnknown:
         {
             self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"success"];
-            self.shortMessageLabel.text = @"Setup completed!";
+            self.shortMessageLabel.text = @"Setup completed";
             self.longMessageLabel.text = @"Setup was successful, but since you do not own this device we cannot know if the {device} has connected to the Internet. If you see the LED breathing cyan this means it worked! If not, please restart the setup process.";
             
 #ifdef ANALYTICS
