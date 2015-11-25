@@ -73,7 +73,7 @@
         self.loggedInLabel.text = @"";
     }
     if ([SparkSetupCustomization sharedInstance].disableLogOutOption) {
-        self.logoutButton.hidden = @YES;
+        self.logoutButton.hidden = YES;
     }
 }
 
