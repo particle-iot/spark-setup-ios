@@ -88,7 +88,8 @@
 {
     
     // sort by strength:
-//    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"rssi" ascending:NO];
+    
+//    NSDictionary *lastNetwork;
 
     // sort alphabeticly
     
@@ -96,10 +97,43 @@
         NSString *s1 = obj1;
         NSString *s2 = obj2;
         return [s1 caseInsensitiveCompare:s2];
-        
     }];
+    
 
     self.wifiList = [self.wifiList sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+    
+    NSMutableArray *noDupesWifiList = [NSMutableArray new];
+    
+    // remove similar named SSIDs - choose strongest
+    for (NSDictionary *network in self.wifiList)
+    {
+        NSDictionary *strongestNetwork = network;
+        for (NSDictionary *sameNameNetwork in self.wifiList)
+        {
+            if ([sameNameNetwork[@"ssid"] isEqualToString:network[@"ssid"]])
+            {
+                if ([sameNameNetwork[@"rssi"] integerValue] > [strongestNetwork[@"rssi"] integerValue])
+                {
+                    strongestNetwork = sameNameNetwork;
+                }
+            }
+            
+        }
+        
+        BOOL strongestNetworkAdded = NO;
+        for (NSDictionary *addedNetwork in noDupesWifiList)
+        {
+            if ([addedNetwork[@"ssid"] isEqualToString:strongestNetwork[@"ssid"]])
+            {
+                strongestNetworkAdded = YES;
+            }
+        }
+        
+        if (!strongestNetworkAdded)
+            [noDupesWifiList addObject:strongestNetwork];
+    }
+    
+    self.wifiList = [noDupesWifiList copy];
 
 }
 
