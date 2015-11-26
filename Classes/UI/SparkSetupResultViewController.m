@@ -104,7 +104,7 @@
         {
             self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"warning"];
             self.shortMessageLabel.text = @"Setup completed";
-            self.longMessageLabel.text = @"Your device has been successfully set up to your account but it seems to be offline which might mean that has been setup before but supplied Wi-Fi credentials were wrong or there is a connectivity issue.";
+            self.longMessageLabel.text = @"Your device has been successfully claimed to your account, however it is offline. If the device was already claimed before this setup, then the Wi-Fi connection may have failed, and you should try setup again.";
             
 #ifdef ANALYTICS
             [[Mixpanel sharedInstance] track:@"Device Setup: Success" properties:@{@"reason":@"device offline"}];
