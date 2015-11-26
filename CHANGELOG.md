@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver.org/).
 
 ---
+## [0.3.3](https://github.com/spark/spark-setup-ios/releases/tag/0.3.3) (2015-11-25)
+
+* Show a 'warning state' setup result if device has been setup successfully but does not come online
+
+* Fix duplicate network names in scanned list - show only strongest RSSI network
 
 ## [0.3.2](https://github.com/spark/spark-setup-ios/releases/tag/0.3.2) (2015-09-27)
 
