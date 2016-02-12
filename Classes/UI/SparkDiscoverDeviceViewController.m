@@ -339,7 +339,10 @@
                  self.detectedDeviceID = (NSString *)deviceResponseDict[@"id"]; //TODO: fix that dict interpretation is done in comm manager (layer completion)
                  self.detectedDeviceID = [self.detectedDeviceID lowercaseString];
                  self.isDetectedDeviceClaimed = [deviceResponseDict[@"c"] boolValue];
-                 NSLog(@"DeviceID response received: %@",self.detectedDeviceID );
+                 NSLog(@"✨DeviceID response received: %@✨",self.detectedDeviceID );
+               
+               // grab this chipId and put it on the SparkSetupCustomization signleton.
+               [SparkSetupCustomization sharedInstance].deviceId = self.detectedDeviceID;
 
                  [self photonPublicKey];
 //                 NSLog(@"Got device ID: %@",deviceResponseDict);
