@@ -75,6 +75,8 @@
     if ([SparkSetupCustomization sharedInstance].disableLogOutOption) {
         self.logoutButton.hidden = YES;
     }
+  
+    [self readyButtonTapped:self];
 }
 
 - (void)didReceiveMemoryWarning {
