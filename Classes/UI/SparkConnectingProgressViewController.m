@@ -441,20 +441,40 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
                 if (!error)
                 {
                     self.device = device;
-                    [self nextConnectionProgressState];
-                    
-                    if (device.connected)
-                        
-                        if ([SparkSetupCustomization sharedInstance].disableDeviceRename == YES)
-                            [SparkSetupResultViewController exitSetup:self.setupResult :self.device];
-                        else
-                            self.setupResult = SparkSetupResultSuccess;
-                    else
-                        self.setupResult = SparkSetupResultSuccessDeviceOffline;
-                    
+//                    [self nextConnectionProgressState];
+                  
                     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
                     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                        [self performSegueWithIdentifier:@"done" sender:self];
+                      
+                      int numberOfAttemptsBeforeErroring = 2;
+                      __block int currentNumberOfAttempts = 0;
+                      
+                      void (^__block attemptToContactDevice)(void) = ^(void)
+                      {
+                        NSLog(@"about to call ⌚️🐶⏲ on attempt #%d", currentNumberOfAttempts);
+                        [device callFunction:@"watchdogTime" withArguments:@[] completion:^(NSNumber *resultCode, NSError *error) {
+                          if (error) {
+                            NSLog(@"There was an error with the ⌚️🐶⏲");
+                            if (currentNumberOfAttempts == numberOfAttemptsBeforeErroring)
+                            {
+                              self.setupResult = SparkSetupResultSuccessDeviceOffline;
+                              [self performSegueWithIdentifier:@"done" sender:self];
+                              attemptToContactDevice = nil;
+                            } else {
+                              currentNumberOfAttempts += 1;
+                              attemptToContactDevice();
+                            }
+                          } else {
+                            NSLog(@"Value of ⌚️🐶⏲ = %@", resultCode);
+                            [self performSegueWithIdentifier:@"done" sender:self];
+                            [SparkSetupResultViewController exitSetup:self.setupResult :self.device];
+                            attemptToContactDevice = nil;
+                          }
+                        }];
+                      };
+                      
+                      attemptToContactDevice();
+                      
                     });
                 }
                 else
@@ -469,8 +489,6 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     }];
     
 }
-
-
 
 
 
