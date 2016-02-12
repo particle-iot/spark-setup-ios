@@ -205,39 +205,43 @@
 
 - (IBAction)doneButtonTapped:(id)sender
 {
-    NSMutableDictionary *userInfo = [NSMutableDictionary new];
-    if (self.setupResult == SparkSetupResultSuccess)
-    {
-        // Update zero notice to user
-        // TODO: condition message only if its really getting update zero
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Firmware update" message:@"If this is the first time you are setting up this device it might blink its LED in magenta color for a while, this means the device is currently updating its firmware from the cloud to the latest version. Please be patient and do not press the reset button. Device LED will breathe cyan once update has completed and it has come online." delegate:nil cancelButtonTitle:@"Understood" otherButtonTitles:nil];
-        [alert show];
+  [SparkSetupResultViewController exitSetup:self.setupResult :self.device];
+}
 
-        userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultSuccess);
-        
-        if (self.device)
-            userInfo[kSparkSetupDidFinishDeviceKey] = self.device;
-    }
-    else if (self.setupResult == SparkSetupResultSuccessUnknown)
-    {
-        userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultSuccessNotClaimed);
-    }
-    else
-    {
-        userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultFailure);
-    }
++ (void)exitSetup:(SparkSetupResult)setupResult :(SparkDevice *)device
+{
+  NSMutableDictionary *userInfo = [NSMutableDictionary new];
+  if (setupResult == SparkSetupResultSuccess)
+  {
+    // Update zero notice to user
+    // TODO: condition message only if its really getting update zero
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Firmware update" message:@"If this is the first time you are setting up this device it might blink its LED in magenta color for a while, this means the device is currently updating its firmware from the cloud to the latest version. Please be patient and do not press the reset button. Device LED will breathe cyan once update has completed and it has come online." delegate:nil cancelButtonTitle:@"Understood" otherButtonTitles:nil];
+    [alert show];
     
-    // finish with success and provide device
-    [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification
-                                                        object:nil
-                                                      userInfo:userInfo];
-
+    userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultSuccess);
+    
+    if (device)
+      userInfo[kSparkSetupDidFinishDeviceKey] = device;
+  }
+  else if (setupResult == SparkSetupResultSuccessUnknown)
+  {
+    userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultSuccessNotClaimed);
+  }
+  else
+  {
+    userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultFailure);
+  }
+  
+  // finish with success and provide device
+  [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification
+                                                      object:nil
+                                                    userInfo:userInfo];
 }
 
 
 - (IBAction)troubleshootingButtonTouched:(id)sender
 {
-    
+  
     SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
     webVC.link = [SparkSetupCustomization sharedInstance].troubleshootingLinkURL;
     [self presentViewController:webVC animated:YES completion:nil];

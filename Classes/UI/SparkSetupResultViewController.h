@@ -23,4 +23,12 @@ typedef NS_ENUM(NSInteger, SparkSetupResult) {
 @property (nonatomic, strong) SparkDevice *device;
 @property (nonatomic) SparkSetupResult setupResult;
 
+/**
+ *  Static method that ends the SparkSetup flow by triggering the listener on SparkSetupMainViewController
+ *
+ *  @param setupResult typically self.setupResult
+ *  @param device      typically self.device
+ */
++(void)exitSetup:(SparkSetupResult)setupResult :(SparkDevice *)device;
+
 @end
