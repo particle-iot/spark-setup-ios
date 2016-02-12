@@ -78,4 +78,6 @@
 @property (nonatomic) BOOL disableLogOutOption; // Do not allow the user to log out from the GetReady page.
 @property (nonatomic) BOOL disableDeviceRename; // Do not allow the user to rename the device.
 
+@property (nonatomic) NSString *deviceId; // not a customize property, just sharing this info back with the app
+
 @end

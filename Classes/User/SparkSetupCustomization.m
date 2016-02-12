@@ -92,7 +92,9 @@
         self.allowSkipAuthentication = NO;
         self.skipAuthenticationMessage = @"Skipping authentication will allow you to configure Wi-Fi credentials to your device but it will not be claimed to your account. Are you sure you want to skip authentication?";
         self.disableLogOutOption = NO;
-        self.disableDeviceRename = NO;
+        self.disableDeviceRename = YES;
+      
+        self.deviceId = @"";
         return self;
     }
     
