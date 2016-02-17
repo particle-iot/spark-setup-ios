@@ -195,13 +195,13 @@ setup wizard completes (delegate). Feel free to contribute to the example by sub
 ### Reference
 
 Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
-If the Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
+If the Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from Xcode for each public method or property in the library.
 
 ## Requirements / limitations
 
 - iOS 8.0 and up supported
 - Currently setup wizard displays on portait mode only.
-- XCode 6.0 and up is required
+- Xcode 6.0 and up is required
 
 ## Installation
 
