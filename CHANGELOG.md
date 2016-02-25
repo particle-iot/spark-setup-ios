@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver.org/).
 
 ---
+
+## WIP 
+
+* AFnetworking 3.0 support
+* XCode 7.2 project settings support
+* Adapting to Cocoapods 1.0.0
+
 ## [0.3.3](https://github.com/spark/spark-setup-ios/releases/tag/0.3.3) (2015-11-25)
 
 * Show a 'warning state' setup result if device has been setup successfully but does not come online
