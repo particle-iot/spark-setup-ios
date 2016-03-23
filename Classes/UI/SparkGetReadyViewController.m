@@ -9,7 +9,8 @@
 #import "SparkGetReadyViewController.h"
 #import "SparkSetupWebViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
-#import "SparkCloud.h"
+//#import "SparkCloud.h"
+#import <ParticleSDK/SparkCloud.h>
 #import "SparkSetupMainController.h"
 #import "SparkDiscoverDeviceViewController.h"
 #import "SparkSetupUIElements.h"

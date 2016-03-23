@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SparkSetupCustomization.h"
-#import "Spark-SDK.h"
+//#import "Spark-SDK.h"
+#import <ParticleSDK/ParticleSDK.h>
 
 typedef NS_ENUM(NSInteger, SparkSetupMainControllerResult) {
     SparkSetupMainControllerResultSuccess=1,

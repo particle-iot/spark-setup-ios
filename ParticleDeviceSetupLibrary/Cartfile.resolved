@@ -1,0 +1,2 @@
+github "AFNetworking/AFNetworking" "3.0.4"
+github "spark/spark-sdk-ios" "ef3de18b74cd379d7fa2d570436fc0386cce6c51"

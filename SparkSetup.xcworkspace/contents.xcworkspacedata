@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SparkSetup.xcodeproj">
    </FileRef>
    <FileRef

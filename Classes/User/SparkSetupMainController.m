@@ -10,7 +10,8 @@
 #import "SparkUserSignupViewController.h"
 #import "SparkSetupCommManager.h"
 #import "SparkSetupConnection.h"
-#import "SparkCloud.h"
+//#import "SparkCloud.h"
+#import <ParticleSDK/ParticleSDK.h>
 #import "SparkSetupCustomization.h"
 #import "SparkUserLoginViewController.h"
 #import "SparkSetupUIElements.h"

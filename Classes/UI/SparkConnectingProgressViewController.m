@@ -13,7 +13,8 @@
 #import "SparkSetupWebViewController.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "Reachability.h"
-#import "SparkCloud.h"
+//#import "SparkCloud.h"
+#import <ParticleSDK/ParticleSDK.h>
 #import "SparkSetupUIElements.h"
 #import "SparkSetupResultViewController.h"
 #ifdef ANALYTICS

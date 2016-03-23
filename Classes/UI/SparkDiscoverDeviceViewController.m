@@ -11,7 +11,8 @@
 #import "SparkSetupCommManager.h"
 #import "SparkSelectNetworkViewController.h"
 #import <Foundation/Foundation.h>
-#import "SparkCloud.h"
+//#import "SparkCloud.h"
+#import <ParticleSDK/ParticleSDK.h>
 #import "SparkSetupSecurityManager.h"
 #import "SparkSetupUILabel.h"
 //#import "UIViewController+SparkSetupCommManager.h"
