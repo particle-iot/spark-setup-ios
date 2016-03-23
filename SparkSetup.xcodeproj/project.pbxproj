@@ -341,12 +341,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 509080F81ACF49670014E7DF /* Build configuration list for PBXNativeTarget "SparkSetup" */;
 			buildPhases = (
-				34105243C65B54E4E8680C7D /* Check Pods Manifest.lock */,
+				34105243C65B54E4E8680C7D /* 📦 Check Pods Manifest.lock */,
 				509080E31ACF49660014E7DF /* Sources */,
 				509080E41ACF49660014E7DF /* Frameworks */,
 				509080E51ACF49660014E7DF /* CopyFiles */,
 				506C6FE01AD31AF1009D8498 /* Headers */,
-				FCABB8B07EA7DC602AC1DEB2 /* Copy Pods Resources */,
+				FCABB8B07EA7DC602AC1DEB2 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -405,14 +405,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		34105243C65B54E4E8680C7D /* Check Pods Manifest.lock */ = {
+		34105243C65B54E4E8680C7D /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,14 +420,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FCABB8B07EA7DC602AC1DEB2 /* Copy Pods Resources */ = {
+		FCABB8B07EA7DC602AC1DEB2 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,7 +602,6 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = SparkSetup;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -618,7 +617,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = SparkSetup;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

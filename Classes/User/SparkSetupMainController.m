@@ -93,7 +93,7 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidFinishObserver:) name:kSparkSetupDidFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidLogoutObserver:) name:kSparkSetupDidLogoutNotification object:nil];
     
-    if ([SparkCloud sharedInstance].isLoggedIn)
+    if ([SparkCloud sharedInstance].isAuthenticated)
     {
         // start from discover screen if user is already logged in
         if (self.authenticationOnly == NO)

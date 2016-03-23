@@ -63,7 +63,7 @@
     self.cancelSetupButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.self.cancelSetupButton.titleLabel.font.pointSize];
     [self.cancelSetupButton setTitleColor:[SparkSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
 
-    if ([SparkCloud sharedInstance].isLoggedIn)
+    if ([SparkCloud sharedInstance].isAuthenticated)
     {
         self.loggedInLabel.text = [SparkCloud sharedInstance].loggedInUsername;
     }
@@ -175,7 +175,7 @@
         }
     };
     
-    if ([SparkCloud sharedInstance].isLoggedIn)
+    if ([SparkCloud sharedInstance].isAuthenticated)
     {
         if ([SparkSetupCustomization sharedInstance].organization)
         {

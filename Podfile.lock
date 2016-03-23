@@ -14,11 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
-  - Spark-SDK (0.3.5):
-    - Spark-SDK/Helpers (= 0.3.5)
-    - Spark-SDK/SDK (= 0.3.5)
-  - Spark-SDK/Helpers (0.3.5)
-  - Spark-SDK/SDK (0.3.5):
+  - Spark-SDK (0.4.1):
+    - Spark-SDK/Helpers (= 0.4.1)
+    - Spark-SDK/SDK (= 0.4.1)
+  - Spark-SDK/Helpers (0.4.1)
+  - Spark-SDK/SDK (0.4.1):
     - AFNetworking (~> 3.0)
     - Spark-SDK/Helpers
 
@@ -32,8 +32,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
-  Spark-SDK: dbd947fd197f08655b5f458ec559de5c920e8e70
+  Spark-SDK: e9f7713a28526157983d28c452f4f271e8496912
 
 PODFILE CHECKSUM: 19a25c3b88abfb42a39382b289b42129fb300e12
 
-COCOAPODS: 1.0.0.beta.4
+COCOAPODS: 1.0.0.beta.5
