@@ -8,8 +8,11 @@
 
 #import "SparkUserForgotPasswordViewController.h"
 #import "SparkSetupCustomization.h"
-//#import "Spark-SDK.h"
+#ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
+#else
+#import "Spark-SDK.h"
+#endif
 #import "SparkSetupWebViewController.h"
 #import "SparkUserLoginViewController.h"
 #import "SparkSetupUIElements.h"

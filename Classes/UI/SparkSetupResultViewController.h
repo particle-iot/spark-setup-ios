@@ -7,8 +7,11 @@
 //
 
 #import "SparkSetupUIViewController.h"
-//#import "Spark-SDK.h"
+#ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
+#else
+#import "Spark-SDK.h"
+#endif
 
 typedef NS_ENUM(NSInteger, SparkSetupResult) {
     SparkSetupResultSuccess=0,
