@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SparkSetupCustomization.h"
-#ifdef FRAMEWORK
-#import <ParticleSDK/ParticleSDK.h>
-#else
-#import "Spark-SDK.h"
-#endif
+//#ifdef FRAMEWORK
+//#import <ParticleSDK/ParticleSDK.h>
+//#else
+//#import "Spark-SDK.h"
+//#endif
 
 typedef NS_ENUM(NSInteger, SparkSetupMainControllerResult) {
     SparkSetupMainControllerResultSuccess=1,
@@ -31,6 +31,7 @@ extern NSString *const kSparkSetupDidFinishStateKey;
 extern NSString *const kSparkSetupDidFinishDeviceKey;
 
 @class SparkSetupMainController;
+@class SparkDevice;
 
 @protocol SparkSetupMainControllerDelegate
 @required
