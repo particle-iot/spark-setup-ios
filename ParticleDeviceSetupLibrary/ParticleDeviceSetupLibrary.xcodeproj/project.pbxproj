@@ -57,17 +57,16 @@
 		5038C5A21CA21E750084D255 /* SparkSetupCustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5711CA21E750084D255 /* SparkSetupCustomization.m */; };
 		5038C5A31CA21E750084D255 /* SparkSetupMainController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5721CA21E750084D255 /* SparkSetupMainController.h */; };
 		5038C5A41CA21E750084D255 /* SparkSetupMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5731CA21E750084D255 /* SparkSetupMainController.m */; };
-		5038C5B11CA2273B0084D255 /* ParticleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5038C5AF1CA2273B0084D255 /* ParticleSDK.framework */; };
-		5038C5B21CA2273B0084D255 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5038C5B01CA2273B0084D255 /* AFNetworking.framework */; };
 		5038C5B51CA22D9C0084D255 /* setup.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5038C5B41CA22D9C0084D255 /* setup.xcassets */; };
 		5038C5B71CA22DA20084D255 /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5038C5B61CA22DA20084D255 /* setup.storyboard */; };
+		50A6F8591CADF4B0000024A8 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A6F8571CADF4B0000024A8 /* AFNetworking.framework */; };
+		50A6F85A1CADF4B0000024A8 /* ParticleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A6F8581CADF4B0000024A8 /* ParticleSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5038C52E1CA21D190084D255 /* ParticleDeviceSetupLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ParticleDeviceSetupLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5038C5311CA21D190084D255 /* ParticleDeviceSetupLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleDeviceSetupLibrary.h; sourceTree = "<group>"; };
 		5038C5331CA21D190084D255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5038C5391CA21DE70084D255 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		5038C5401CA21E750084D255 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		5038C5411CA21E750084D255 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		5038C5421CA21E750084D255 /* SparkSetupCommManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupCommManager.h; sourceTree = "<group>"; };
@@ -117,10 +116,11 @@
 		5038C5711CA21E750084D255 /* SparkSetupCustomization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupCustomization.m; sourceTree = "<group>"; };
 		5038C5721CA21E750084D255 /* SparkSetupMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupMainController.h; sourceTree = "<group>"; };
 		5038C5731CA21E750084D255 /* SparkSetupMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupMainController.m; sourceTree = "<group>"; };
-		5038C5AF1CA2273B0084D255 /* ParticleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParticleSDK.framework; path = Carthage/Build/iOS/ParticleSDK.framework; sourceTree = "<group>"; };
-		5038C5B01CA2273B0084D255 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		5038C5B41CA22D9C0084D255 /* setup.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = setup.xcassets; path = ../../Resources/setup.xcassets; sourceTree = "<group>"; };
 		5038C5B61CA22DA20084D255 /* setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = setup.storyboard; path = ../../Resources/setup.storyboard; sourceTree = "<group>"; };
+		50A6F8511CADE934000024A8 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
+		50A6F8571CADF4B0000024A8 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = "<group>"; };
+		50A6F8581CADF4B0000024A8 /* ParticleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParticleSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +128,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5038C5B11CA2273B0084D255 /* ParticleSDK.framework in Frameworks */,
-				5038C5B21CA2273B0084D255 /* AFNetworking.framework in Frameworks */,
+				50A6F8591CADF4B0000024A8 /* AFNetworking.framework in Frameworks */,
+				50A6F85A1CADF4B0000024A8 /* ParticleSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,9 +139,9 @@
 		5038C5241CA21D190084D255 = {
 			isa = PBXGroup;
 			children = (
-				5038C5391CA21DE70084D255 /* Cartfile */,
-				5038C5AF1CA2273B0084D255 /* ParticleSDK.framework */,
-				5038C5B01CA2273B0084D255 /* AFNetworking.framework */,
+				50A6F8511CADE934000024A8 /* Cartfile */,
+				50A6F8571CADF4B0000024A8 /* AFNetworking.framework */,
+				50A6F8581CADF4B0000024A8 /* ParticleSDK.framework */,
 				5038C5301CA21D190084D255 /* ParticleDeviceSetupLibrary */,
 				5038C52F1CA21D190084D255 /* Products */,
 			);
@@ -499,6 +499,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"FRAMEWORK=1",
@@ -517,7 +518,7 @@
 		5038C5381CA21D190084D255 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -525,6 +526,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -558,6 +560,7 @@
 				5038C5381CA21D190084D255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
