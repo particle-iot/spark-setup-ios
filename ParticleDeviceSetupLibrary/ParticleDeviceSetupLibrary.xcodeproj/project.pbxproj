@@ -17,7 +17,7 @@
 		5038C57A1CA21E750084D255 /* SparkSetupSecurityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5461CA21E750084D255 /* SparkSetupSecurityManager.h */; };
 		5038C57B1CA21E750084D255 /* SparkSetupSecurityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5471CA21E750084D255 /* SparkSetupSecurityManager.m */; };
 		5038C57C1CA21E750084D255 /* SparkSetup-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5481CA21E750084D255 /* SparkSetup-Bridging-Header.h */; };
-		5038C57D1CA21E750084D255 /* SparkSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5491CA21E750084D255 /* SparkSetup.h */; };
+		5038C57D1CA21E750084D255 /* SparkSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5491CA21E750084D255 /* SparkSetup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5038C57E1CA21E750084D255 /* SparkConnectingProgressViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54B1CA21E750084D255 /* SparkConnectingProgressViewController.h */; };
 		5038C57F1CA21E750084D255 /* SparkConnectingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C54C1CA21E750084D255 /* SparkConnectingProgressViewController.m */; };
 		5038C5801CA21E750084D255 /* SparkDiscoverDeviceViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54D1CA21E750084D255 /* SparkDiscoverDeviceViewController.h */; };
@@ -53,9 +53,9 @@
 		5038C59E1CA21E750084D255 /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C56C1CA21E750084D255 /* SparkSetupUIViewController.m */; };
 		5038C59F1CA21E750084D255 /* SparkSetupWifiTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C56D1CA21E750084D255 /* SparkSetupWifiTableViewCell.h */; };
 		5038C5A01CA21E750084D255 /* SparkSetupWifiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C56E1CA21E750084D255 /* SparkSetupWifiTableViewCell.m */; };
-		5038C5A11CA21E750084D255 /* SparkSetupCustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5701CA21E750084D255 /* SparkSetupCustomization.h */; };
+		5038C5A11CA21E750084D255 /* SparkSetupCustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5701CA21E750084D255 /* SparkSetupCustomization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5038C5A21CA21E750084D255 /* SparkSetupCustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5711CA21E750084D255 /* SparkSetupCustomization.m */; };
-		5038C5A31CA21E750084D255 /* SparkSetupMainController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5721CA21E750084D255 /* SparkSetupMainController.h */; };
+		5038C5A31CA21E750084D255 /* SparkSetupMainController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5721CA21E750084D255 /* SparkSetupMainController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5038C5A41CA21E750084D255 /* SparkSetupMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5731CA21E750084D255 /* SparkSetupMainController.m */; };
 		5038C5B51CA22D9C0084D255 /* setup.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5038C5B41CA22D9C0084D255 /* setup.xcassets */; };
 		5038C5B71CA22DA20084D255 /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5038C5B61CA22DA20084D255 /* setup.storyboard */; };
@@ -272,6 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5038C57A1CA21E750084D255 /* SparkSetupSecurityManager.h in Headers */,
+				5038C5A11CA21E750084D255 /* SparkSetupCustomization.h in Headers */,
+				5038C57D1CA21E750084D255 /* SparkSetup.h in Headers */,
+				5038C5A31CA21E750084D255 /* SparkSetupMainController.h in Headers */,
 				5038C59D1CA21E750084D255 /* SparkSetupUIViewController.h in Headers */,
 				5038C5881CA21E750084D255 /* SparkSetupPasswordEntryViewController.h in Headers */,
 				5038C58E1CA21E750084D255 /* SparkSetupWebViewController.h in Headers */,
@@ -279,7 +282,6 @@
 				5038C5981CA21E750084D255 /* SparkSetupUIElements.h in Headers */,
 				5038C5821CA21E750084D255 /* SparkGetReadyViewController.h in Headers */,
 				5038C5901CA21E750084D255 /* SparkUserForgotPasswordViewController.h in Headers */,
-				5038C5A31CA21E750084D255 /* SparkSetupMainController.h in Headers */,
 				5038C5991CA21E750084D255 /* SparkSetupUILabel.h in Headers */,
 				5038C58A1CA21E750084D255 /* SparkSetupResultViewController.h in Headers */,
 				5038C57E1CA21E750084D255 /* SparkConnectingProgressViewController.h in Headers */,
@@ -288,9 +290,7 @@
 				5038C5321CA21D190084D255 /* ParticleDeviceSetupLibrary.h in Headers */,
 				5038C59F1CA21E750084D255 /* SparkSetupWifiTableViewCell.h in Headers */,
 				5038C59B1CA21E750084D255 /* SparkSetupUISpinner.h in Headers */,
-				5038C5A11CA21E750084D255 /* SparkSetupCustomization.h in Headers */,
 				5038C5861CA21E750084D255 /* SparkSelectNetworkViewController.h in Headers */,
-				5038C57D1CA21E750084D255 /* SparkSetup.h in Headers */,
 				5038C5781CA21E750084D255 /* SparkSetupConnection.h in Headers */,
 				5038C5961CA21E750084D255 /* SparkSetupUIButton.h in Headers */,
 				5038C58C1CA21E750084D255 /* SparkSetupVideoViewController.h in Headers */,
