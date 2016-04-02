@@ -17,7 +17,7 @@
 		5038C57A1CA21E750084D255 /* SparkSetupSecurityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5461CA21E750084D255 /* SparkSetupSecurityManager.h */; };
 		5038C57B1CA21E750084D255 /* SparkSetupSecurityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5471CA21E750084D255 /* SparkSetupSecurityManager.m */; };
 		5038C57C1CA21E750084D255 /* SparkSetup-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5481CA21E750084D255 /* SparkSetup-Bridging-Header.h */; };
-		5038C57D1CA21E750084D255 /* SparkSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5491CA21E750084D255 /* SparkSetup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5038C57D1CA21E750084D255 /* SparkSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5491CA21E750084D255 /* SparkSetup.h */; };
 		5038C57E1CA21E750084D255 /* SparkConnectingProgressViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54B1CA21E750084D255 /* SparkConnectingProgressViewController.h */; };
 		5038C57F1CA21E750084D255 /* SparkConnectingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C54C1CA21E750084D255 /* SparkConnectingProgressViewController.m */; };
 		5038C5801CA21E750084D255 /* SparkDiscoverDeviceViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54D1CA21E750084D255 /* SparkDiscoverDeviceViewController.h */; };
@@ -273,11 +273,11 @@
 			files = (
 				5038C57A1CA21E750084D255 /* SparkSetupSecurityManager.h in Headers */,
 				5038C5A11CA21E750084D255 /* SparkSetupCustomization.h in Headers */,
-				5038C57D1CA21E750084D255 /* SparkSetup.h in Headers */,
 				5038C5A31CA21E750084D255 /* SparkSetupMainController.h in Headers */,
 				5038C59D1CA21E750084D255 /* SparkSetupUIViewController.h in Headers */,
 				5038C5881CA21E750084D255 /* SparkSetupPasswordEntryViewController.h in Headers */,
 				5038C58E1CA21E750084D255 /* SparkSetupWebViewController.h in Headers */,
+				5038C57D1CA21E750084D255 /* SparkSetup.h in Headers */,
 				5038C57C1CA21E750084D255 /* SparkSetup-Bridging-Header.h in Headers */,
 				5038C5981CA21E750084D255 /* SparkSetupUIElements.h in Headers */,
 				5038C5821CA21E750084D255 /* SparkGetReadyViewController.h in Headers */,
