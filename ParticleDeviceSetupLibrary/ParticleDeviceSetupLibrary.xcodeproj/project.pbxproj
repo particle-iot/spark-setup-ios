@@ -271,6 +271,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5038C5321CA21D190084D255 /* ParticleDeviceSetupLibrary.h in Headers */,
 				5038C57A1CA21E750084D255 /* SparkSetupSecurityManager.h in Headers */,
 				5038C5A11CA21E750084D255 /* SparkSetupCustomization.h in Headers */,
 				5038C5A31CA21E750084D255 /* SparkSetupMainController.h in Headers */,
@@ -287,7 +288,6 @@
 				5038C57E1CA21E750084D255 /* SparkConnectingProgressViewController.h in Headers */,
 				5038C5761CA21E750084D255 /* SparkSetupCommManager.h in Headers */,
 				5038C5941CA21E750084D255 /* SparkUserSignupViewController.h in Headers */,
-				5038C5321CA21D190084D255 /* ParticleDeviceSetupLibrary.h in Headers */,
 				5038C59F1CA21E750084D255 /* SparkSetupWifiTableViewCell.h in Headers */,
 				5038C59B1CA21E750084D255 /* SparkSetupUISpinner.h in Headers */,
 				5038C5861CA21E750084D255 /* SparkSelectNetworkViewController.h in Headers */,
