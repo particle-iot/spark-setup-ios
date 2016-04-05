@@ -177,12 +177,14 @@
     }
     
     [self.longMessageLabel setType:@"normal"];
-    
+
+    /*
     if ([SparkSetupCustomization sharedInstance].tintSetupImages)
     {
         self.setupResultImageView.image = [self.setupResultImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         self.setupResultImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
     }
+     */
 
 }
 
