@@ -4,11 +4,15 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 ---
 
-## WIP 
+## [0.4.0](https://github.com/spark/spark-setup-ios/releases/tag/0.4.0) (2016-4-5)
 
-* AFnetworking 3.0 support
-* XCode 7.2 project settings support
-* Adapting to Cocoapods 1.0.0
+* Library now published as dynamic framework through Carthage
+
+* Supress depraction warnings for iOS 9
+
+* Operate with the iOS Cloud SDK 0.4.0
+
+* Do not tint the success/warning/fail icon on last setup screen
 
 ## [0.3.3](https://github.com/spark/spark-setup-ios/releases/tag/0.3.3) (2015-11-25)
 

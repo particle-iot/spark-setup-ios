@@ -4,7 +4,8 @@
 
 # Particle Device Setup library (beta)
 
-[![Platform](https://img.shields.io/badge/platform-iOS-10a4fa.svg)]() [![license](https://img.shields.io/hexpm/l/plug.svg)]() [![version](https://img.shields.io/badge/pod-0.2.1-green.svg)]() 
+[![Platform](https://img.shields.io/badge/platform-iOS-10a4fa.svg)]() [![license](https://img.shields.io/hexpm/l/plug.svg)]() [![version](https://img.shields.io/badge/pod-0.4.0-green.svg)]() [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products
@@ -14,19 +15,29 @@ that includes: look & feel, colors, texts and fonts as well as custom brand logo
 The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call “soft AP” — i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
 
 With the Device Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
+iOS Device setup library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects containing any type of dependencies.
 
 **Rebranding notice**
 
 Spark has been recently rebranded as Particle. 
-Code currently contains `SparkSetup` keyword as classes prefixes. this will soon be replaced with `ParticleDeviceSetup`. A new Cocoapod library will be published and current one will be depracated and point to the new one. This should not bother or affect your code in any way.
+Code currently contains `SparkSetup` keyword as classes prefixes. this will soon be replaced with `ParticleDeviceSetup`. 
 
 ## Usage
 
-Official documentation can be found in [Particle docs website](http://docs.particle.io/photon/ios/).
+Official documentation can be found in [Particle docs website](https://docs.particle.io/reference/ios/#ios-device-setup-library).
+Treat this `README` as the most updated resource.
 
 ### Basic
 
-Import `SparkSetup.h` in your view controller implementation file, and invoke the device setup wizard by:
+**Cocoapods**
+
+Import `SparkSetup.h` in your view controller implementation file, use bridging header for Swift projects (See [Installation](#installation) section for more details).
+
+**Carthage**
+
+Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files.
+
+and then invoke the device setup wizard by:
 
 **Objective-C**
 
@@ -184,12 +195,8 @@ func sparkSetupViewController(controller: SparkSetupMainController!, didFinishWi
 method will be called, if `(result == SparkSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `SparkDevice` instance you can interact with
 using the [iOS Cloud SDK](https://cocoapods.org/pods/Spark-SDK). 
 
-#### Support for Swift projects
-To use Particle Device Setup library from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), 
-also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on this matter.
-
 ### Example
-Usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once 
+Cocoapods usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once 
 setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 ### Reference
@@ -205,16 +212,50 @@ If the Device Setup library installation completed successfully - you should be 
 
 ## Installation
 
-Particle Device Setup library is available through [CocoaPods](http://cocoapods.org) under the pod name `SparkSetup`. 
-To install it, simply add the following line to your Podfile:
+### Cocoapods
+
+Particle Device Setup library is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
+You must have Cocoapods installed, if you don't then be sure to [Install Cocoapods](https://guides.cocoapods.org/using/getting-started.html) before you start:
+To install the iOS Device Setup library, simply add the following line to your Podfile on main project folder:
 
 ```ruby
 pod "SparkSetup"
 ```
 
+and then run `pod update`. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "SparkSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
+
+
+#### Support for Swift projects
+To use Particle Device Setup library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), 
+as an additional resource you can consult official [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on the matter.
+
+### Carthage
+
+*New since v0.4.0*
+Starting version 0.4.0 Particle iOS device setup library is available through [Carthage](https://github.com/Carthage/Carthage). Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
+You must have Carthage installed, if you don't then be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
+Then to build the Particle iOS device setup library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
+
+```
+github "spark/spark-setup-ios" >= 0.4.0
+```
+
+and then run the following command:
+`carthage update --platform iOS --use-submodules --no-use-binaries`.
+
+*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/spark/spark-setup-ios/blob/master/bin/setup)*
+
+A new folder will be created in your project root folder - when Carthage checkout and builds are done, navigate to the `./Carthage/Build/iOS` folder and drag all the created `.framework`s files into your project in XCode. 
+Go to your XCode target settings->General->Embedded binaries and press `+` and add all the `.framework` files there too - make sure the `ParticleDeviceSetupLibrary.framework`, `ParticleSDK.framework` and the `AFNetworking.framework` are listed there.
+Build your project - you now have the Particle SDK embedded in your project.
+Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `SparkSetupMainController` (see usage example).
+
+No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects. This is the recommended way if you have a mixed set of dependencies.
+
+
 ## Communication
 
-- If you **need help**, use [Our community website](http://community.spark.io)
+- If you **need help**, use [Our community website](http://community.particle.io)
 - If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue.
 - If you **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
