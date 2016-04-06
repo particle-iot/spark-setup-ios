@@ -41,7 +41,12 @@ NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotific
 
 +(NSBundle *)getResourcesBundle
 {
+#ifdef FRAMEWORK
+    // frameework has assets as
+    NSBundle *bundle = [NSBundle bundleForClass:self];
+#else
     NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle bundleForClass:[self class]] URLForResource:@"SparkSetup" withExtension:@"bundle"]];
+#endif
     return bundle;
 }
 
