@@ -237,7 +237,7 @@ You must have Carthage installed, if you don't then be sure to [install Carthage
 Then to build the Particle iOS device setup library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
 
 ```
-github "spark/spark-setup-ios" >= 0.4.0
+github "spark/spark-setup-ios" ~> 0.4.0
 ```
 
 and then run the following command:
