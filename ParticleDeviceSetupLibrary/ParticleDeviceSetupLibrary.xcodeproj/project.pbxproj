@@ -16,8 +16,6 @@
 		5038C5791CA21E750084D255 /* SparkSetupConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5451CA21E750084D255 /* SparkSetupConnection.m */; };
 		5038C57A1CA21E750084D255 /* SparkSetupSecurityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5461CA21E750084D255 /* SparkSetupSecurityManager.h */; };
 		5038C57B1CA21E750084D255 /* SparkSetupSecurityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5471CA21E750084D255 /* SparkSetupSecurityManager.m */; };
-		5038C57C1CA21E750084D255 /* SparkSetup-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5481CA21E750084D255 /* SparkSetup-Bridging-Header.h */; };
-		5038C57D1CA21E750084D255 /* SparkSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5491CA21E750084D255 /* SparkSetup.h */; };
 		5038C57E1CA21E750084D255 /* SparkConnectingProgressViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54B1CA21E750084D255 /* SparkConnectingProgressViewController.h */; };
 		5038C57F1CA21E750084D255 /* SparkConnectingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C54C1CA21E750084D255 /* SparkConnectingProgressViewController.m */; };
 		5038C5801CA21E750084D255 /* SparkDiscoverDeviceViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54D1CA21E750084D255 /* SparkDiscoverDeviceViewController.h */; };
@@ -75,8 +73,6 @@
 		5038C5451CA21E750084D255 /* SparkSetupConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupConnection.m; sourceTree = "<group>"; };
 		5038C5461CA21E750084D255 /* SparkSetupSecurityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupSecurityManager.h; sourceTree = "<group>"; };
 		5038C5471CA21E750084D255 /* SparkSetupSecurityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupSecurityManager.m; sourceTree = "<group>"; };
-		5038C5481CA21E750084D255 /* SparkSetup-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SparkSetup-Bridging-Header.h"; sourceTree = "<group>"; };
-		5038C5491CA21E750084D255 /* SparkSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetup.h; sourceTree = "<group>"; };
 		5038C54B1CA21E750084D255 /* SparkConnectingProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkConnectingProgressViewController.h; sourceTree = "<group>"; };
 		5038C54C1CA21E750084D255 /* SparkConnectingProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkConnectingProgressViewController.m; sourceTree = "<group>"; };
 		5038C54D1CA21E750084D255 /* SparkDiscoverDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkDiscoverDeviceViewController.h; sourceTree = "<group>"; };
@@ -170,8 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				5038C53F1CA21E750084D255 /* Comm */,
-				5038C5481CA21E750084D255 /* SparkSetup-Bridging-Header.h */,
-				5038C5491CA21E750084D255 /* SparkSetup.h */,
 				5038C54A1CA21E750084D255 /* UI */,
 				5038C56F1CA21E750084D255 /* User */,
 			);
@@ -278,8 +272,6 @@
 				5038C59D1CA21E750084D255 /* SparkSetupUIViewController.h in Headers */,
 				5038C5881CA21E750084D255 /* SparkSetupPasswordEntryViewController.h in Headers */,
 				5038C58E1CA21E750084D255 /* SparkSetupWebViewController.h in Headers */,
-				5038C57D1CA21E750084D255 /* SparkSetup.h in Headers */,
-				5038C57C1CA21E750084D255 /* SparkSetup-Bridging-Header.h in Headers */,
 				5038C5981CA21E750084D255 /* SparkSetupUIElements.h in Headers */,
 				5038C5821CA21E750084D255 /* SparkGetReadyViewController.h in Headers */,
 				5038C5901CA21E750084D255 /* SparkUserForgotPasswordViewController.h in Headers */,
@@ -496,6 +488,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 0.4.0;
@@ -515,6 +508,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.particle.ParticleDeviceSetupLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -522,7 +516,8 @@
 		5038C5381CA21D190084D255 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 0.4.0;
@@ -541,6 +536,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.particle.ParticleDeviceSetupLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

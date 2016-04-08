@@ -57,9 +57,9 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
  *  [self presentViewController:setupController animated:YES completion:nil];
  *  If no active user session exists than this call will also authenticate user to the Spark cloud (or allow her to sign up) before the soft AP wizard will be displayed
  *
- *  @return An inititalized SparkSetupMainController instance ready to be presented.
+ *  @return An initialized SparkSetupMainController instance ready to be presented.
  */
--(instancetype)init NS_DESIGNATED_INITIALIZER;
+-(instancetype)init; // NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Entry point for invoking Spark Cloud authentication (login/signup/password recovery screens) only, use by calling this on your viewController:
