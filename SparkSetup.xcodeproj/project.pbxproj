@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50139EAE1B9FD09400B900EF /* FastSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 50139EAD1B9FD09400B900EF /* FastSocket.h */; };
+		5014ED4F1CB7268A00A1063E /* SparkSetupCustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 509081E01ACF6AF70014E7DF /* SparkSetupCustomization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5014ED501CB7268E00A1063E /* SparkSetupMainController.h in Headers */ = {isa = PBXBuildFile; fileRef = 509081E21ACF6AF70014E7DF /* SparkSetupMainController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		506C6FE61AD32E1C009D8498 /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C6FE41AD32E1C009D8498 /* SparkSetupUIViewController.m */; };
 		509081B21ACF6A8A0014E7DF /* setup.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509081AF1ACF6A8A0014E7DF /* setup.xcassets */; };
 		509081B41ACF6A8A0014E7DF /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509081B11ACF6A8A0014E7DF /* setup.storyboard */; };
@@ -54,7 +55,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		50139EAD1B9FD09400B900EF /* FastSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FastSocket.h; path = Pods/FastSocket/FastSocket.h; sourceTree = "<group>"; };
 		5018DC4A1ADC862E00ADD403 /* SparkSetup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SparkSetup-Bridging-Header.h"; path = "Classes/SparkSetup-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		5066876C1BB23067008E363B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		506C6FE31AD32E1C009D8498 /* SparkSetupUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupUIViewController.h; sourceTree = "<group>"; };
@@ -263,7 +263,6 @@
 		509082031ACF71500014E7DF /* Spark-SDK Headers */ = {
 			isa = PBXGroup;
 			children = (
-				50139EAD1B9FD09400B900EF /* FastSocket.h */,
 				50E508941B754C01008EB036 /* Spark-SDK.h */,
 				50E508951B754C01008EB036 /* SparkCloud.h */,
 				50E508961B754C01008EB036 /* SparkDevice.h */,
@@ -309,8 +308,9 @@
 			files = (
 				50E01B041B7AFC510020714F /* SparkSetupResultViewController.h in Headers */,
 				50CAA4C31BA27D70002FEF0F /* SparkSetupWifiTableViewCell.h in Headers */,
-				50139EAE1B9FD09400B900EF /* FastSocket.h in Headers */,
 				50E508991B754C01008EB036 /* SparkDevice.h in Headers */,
+				5014ED501CB7268E00A1063E /* SparkSetupMainController.h in Headers */,
+				5014ED4F1CB7268A00A1063E /* SparkSetupCustomization.h in Headers */,
 				50D095991AD5BB6E008EDBD7 /* SparkSetup.h in Headers */,
 				50E508981B754C01008EB036 /* SparkCloud.h in Headers */,
 				50E508971B754C01008EB036 /* Spark-SDK.h in Headers */,
@@ -516,6 +516,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 i386 armv7 armv7s";
+				WARNING_CFLAGS = "-Wobjc-designated-initializers";
 			};
 			name = Debug;
 		};
@@ -551,6 +552,7 @@
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 i386 armv7 armv7s";
+				WARNING_CFLAGS = "-Wobjc-designated-initializers";
 			};
 			name = Release;
 		};
