@@ -217,7 +217,7 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([self.outputStream hasSpaceAvailable])
         {
-            if (![self.outputStream write:[buffer bytes] maxLength:[buffer length]] == string.length)
+            if (!([self.outputStream write:[buffer bytes] maxLength:[buffer length]] == string.length))
             {
                 completion([NSError errorWithDomain:@"SparkSetupConnectionError" code:3002 userInfo:@{NSLocalizedDescriptionKey:@"Could not write all data to socket"}]);                return;
             }
