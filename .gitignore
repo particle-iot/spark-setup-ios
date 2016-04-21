@@ -17,6 +17,10 @@ DerivedData
 *.ipa
 *.xcuserstate
 
+# Carthage
+# Avoids `dirty` git flags when Carthage is ran with `--use-submodules`
+Carthage/Build
+
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However
