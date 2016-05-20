@@ -39,6 +39,7 @@
 		50E508971B754C01008EB036 /* Spark-SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E508941B754C01008EB036 /* Spark-SDK.h */; };
 		50E508981B754C01008EB036 /* SparkCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E508951B754C01008EB036 /* SparkCloud.h */; };
 		50E508991B754C01008EB036 /* SparkDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E508961B754C01008EB036 /* SparkDevice.h */; };
+		50EECD9F1CEE8ABF00192EF9 /* SparkSetup.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509080DC1ACF494A0014E7DF /* SparkSetup.bundle */; };
 		DCB04F2BC254F123BE2EA995 /* libPods-SparkSetup.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4F6640DE6818F7AFF1DE8 /* libPods-SparkSetup.a */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +48,9 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 7;
 			files = (
+				50EECD9F1CEE8ABF00192EF9 /* SparkSetup.bundle in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,6 +4,10 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 ---
 
+## [0.4.1](https://github.com/spark/spark-setup-ios/releases/tag/0.4.1) (2016-5-19)
+
+* Missing setup assets bug fix (podspec issue)
+
 ## [0.4.0](https://github.com/spark/spark-setup-ios/releases/tag/0.4.0) (2016-4-5)
 
 * Library now published as dynamic framework through Carthage
