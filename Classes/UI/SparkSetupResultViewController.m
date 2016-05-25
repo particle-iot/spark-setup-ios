@@ -69,7 +69,7 @@
     if ((!isiPhone4) && (!isiPhone5))
         [self disableKeyboardMovesViewUp];
     
-    if (self.setupResult == SparkSetupResultSuccess)
+    if (self.setupResult == SparkSetupMainControllerResultSuccess)
     {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.nameDeviceTextField becomeFirstResponder];
@@ -87,7 +87,7 @@
     [super viewWillAppear:animated];
     
     switch (self.setupResult) {
-        case SparkSetupResultSuccess:
+        case SparkSetupMainControllerResultSuccess:
         {
             self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"success"];
             self.shortMessageLabel.text = @"Setup completed successfully";
@@ -105,7 +105,7 @@
             break;
         }
             
-        case SparkSetupResultSuccessDeviceOffline:
+        case SparkSetupMainControllerResultSuccessDeviceOffline:
         {
             self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"warning"];
             self.shortMessageLabel.text = @"Setup completed";
@@ -117,7 +117,7 @@
             break;
         }
 
-        case SparkSetupResultSuccessUnknown:
+        case SparkSetupMainControllerResultSuccessNotClaimed:
         {
             self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"success"];
             self.shortMessageLabel.text = @"Setup completed";
@@ -130,7 +130,7 @@
             
         }
             
-        case SparkSetupResultFailureClaiming:
+        case SparkSetupMainControllerResultFailureClaiming:
         {
             self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"failure"];
             self.shortMessageLabel.text = @"Setup failed";
@@ -144,7 +144,7 @@
             break;
         }
             
-        case SparkSetupResultFailureCannotDisconnectFromDevice:
+        case SparkSetupMainControllerResultFailureCannotDisconnectFromDevice:
         {
             self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"failure"];
             self.shortMessageLabel.text = @"Oops!";
@@ -156,28 +156,30 @@
             break;
         }
             
-        case SparkSetupResultFailureConfigure:
-        {
-            self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"failure"];
-            self.shortMessageLabel.text = @"Uh oh!";
-            self.longMessageLabel.text = @"Setup process couldn't disconnect from the {device} Wi-fi network. This is an internal problem with the device, so please try running setup again after resetting your {device} and putting it back in blinking blue listen mode if needed.";
-#ifdef ANALYTICS
-            [[Mixpanel sharedInstance] track:@"Device Setup: Failure" properties:@{@"reason":@"cannot configure"}];
-#endif
-
-            break;
-        }
-            
-        case SparkSetupResultFailureLostConnectionToDevice:
+  
+        case SparkSetupMainControllerResultFailureConfigure:
         {
             self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"failure"];
             self.shortMessageLabel.text = @"Error!";
             self.longMessageLabel.text = @"Setup process couldn't configure the Wi-Fi credentials for your {device}, please try running setup again after resetting your {device} and putting it back in blinking blue listen mode if needed.";
 #ifdef ANALYTICS
-            [[Mixpanel sharedInstance] track:@"Device Setup: Failure" properties:@{@"reason":@"lost connection"}];
+            [[Mixpanel sharedInstance] track:@"Device Setup: Failure" properties:@{@"reason":@"cannot configure"}];
 #endif
             break;
         }
+            
+        default: //SparkSetupMainControllerResultFailureLostConnectionToDevice
+        {
+            self.setupResultImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"failure"];
+            self.shortMessageLabel.text = @"Uh oh!";
+            self.longMessageLabel.text = @"Setup lost connection to the device before finalizing configuration process, please try running setup again after putting {device} back in blinking blue listen mode.";
+#ifdef ANALYTICS
+            [[Mixpanel sharedInstance] track:@"Device Setup: Failure" properties:@{@"reason":@"lost connection"}];
+#endif
+            
+            break;
+        }
+            
             
     }
     
@@ -208,30 +210,28 @@
 }
 
 
-
-
 - (IBAction)doneButtonTapped:(id)sender
 {
     NSMutableDictionary *userInfo = [NSMutableDictionary new];
-    if (self.setupResult == SparkSetupResultSuccess)
+    if (self.device)
+        userInfo[kSparkSetupDidFinishDeviceKey] = self.device;
+
+    if (self.deviceID)
+        userInfo[kSparkSetupDidFailDeviceIDKey] = self.deviceID;
+
+    userInfo[kSparkSetupDidFinishStateKey] = @(self.setupResult);
+    
+    if (self.setupResult == SparkSetupMainControllerResultSuccess)
     {
         // Update zero notice to user
-        // TODO: condition message only if its really getting update zero
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Firmware update" message:@"If this is the first time you are setting up this device it might blink its LED in magenta color for a while, this means the device is currently updating its firmware from the cloud to the latest version. Please be patient and do not press the reset button. Device LED will breathe cyan once update has completed and it has come online." delegate:nil cancelButtonTitle:@"Understood" otherButtonTitles:nil];
-        [alert show];
-
-        userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultSuccess);
-        
-        if (self.device)
-            userInfo[kSparkSetupDidFinishDeviceKey] = self.device;
-    }
-    else if (self.setupResult == SparkSetupResultSuccessUnknown)
-    {
-        userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultSuccessNotClaimed);
-    }
-    else
-    {
-        userInfo[kSparkSetupDidFinishStateKey] = @(SparkSetupMainControllerResultFailure);
+        // TODO: condition message only if its really getting update zero (need event listening)
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"shownUpdateZeroNotice"]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Firmware update" message:@"If this is the first time you are setting up this device it might blink its LED in magenta color for a while, this means the device is currently updating its firmware from the cloud to the latest version. Please be patient and do not press the reset button. Device LED will breathe cyan once update has completed and it has come online." delegate:nil cancelButtonTitle:@"Understood" otherButtonTitles:nil];
+            [alert show];
+            
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"shownUpdateZeroNotice"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     }
     
     // finish with success and provide device

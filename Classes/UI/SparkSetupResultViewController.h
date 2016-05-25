@@ -7,21 +7,14 @@
 //
 
 #import "SparkSetupUIViewController.h"
+#import "SparkSetupMainController.h"
+
 
 @class SparkDevice;
 
-typedef NS_ENUM(NSInteger, SparkSetupResult) {
-    SparkSetupResultSuccess=0,
-    SparkSetupResultSuccessUnknown,
-    SparkSetupResultSuccessDeviceOffline,
-    SparkSetupResultFailureClaiming,
-    SparkSetupResultFailureConfigure,
-    SparkSetupResultFailureCannotDisconnectFromDevice,
-    SparkSetupResultFailureLostConnectionToDevice
-};
-
 @interface SparkSetupResultViewController : SparkSetupUIViewController
-@property (nonatomic, strong) SparkDevice *device;
-@property (nonatomic) SparkSetupResult setupResult;
+@property (nonatomic, strong) SparkDevice *device; // device instance for successful setup
+@property (nonatomic, strong) NSString *deviceID; // device ID reporting for failed setup
+@property (nonatomic) SparkSetupMainControllerResult setupResult;
 
 @end

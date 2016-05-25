@@ -17,11 +17,18 @@
 
 typedef NS_ENUM(NSInteger, SparkSetupMainControllerResult) {
     SparkSetupMainControllerResultSuccess=1,
-    SparkSetupMainControllerResultFailure,
-    SparkSetupMainControllerResultUserCancel,
-    SparkSetupMainControllerResultLoggedIn, // relevant to initWithAuthenticationOnly:YES only
-    SparkSetupMainControllerResultSkippedAuth, // relevant to initWithAuthenticationOnly:YES only
-    SparkSetupMainControllerResultSuccessNotClaimed
+//    SparkSetupMainControllerResultFailure,                        // DEPRECATED starting 0.4.2
+    SparkSetupMainControllerResultUserCancel,                       // User cancelled setup
+    SparkSetupMainControllerResultLoggedIn,                         // relevant to initWithAuthenticationOnly:YES only (user successfully logged in)
+    SparkSetupMainControllerResultSkippedAuth,                      // relevant to initWithAuthenticationOnly:YES only (user skipped authentication)
+    SparkSetupMainControllerResultSuccessNotClaimed,                // Setup finished successfully but device does not belong to currently logged in user so cannot be determined if it came online
+    
+    SparkSetupMainControllerResultSuccessDeviceOffline,             // new 0.4.2 -- Setup finished successfully but device did not come online - might indicate a problem
+    SparkSetupMainControllerResultFailureClaiming,                  // new 0.4.2 -- setup was aborted because device claiming device timed out
+    SparkSetupMainControllerResultFailureConfigure,                 // new 0.4.2 -- Setup process couldn't send configure command to device - device Wi-fi network connection might have been dropped, running setup again after putting device back in listen mode is advised.
+    SparkSetupMainControllerResultFailureCannotDisconnectFromDevice,// new 0.4.2 -- Setup process couldn't disconnect from the device setup Wi-fi network. Usually an internal issue with the device, running setup again after putting device back in listen mode is advised.
+    SparkSetupMainControllerResultFailureLostConnectionToDevice     // new 0.4.2 -- Setup lost connection to the device Wi-Fi / dropped port before finalizing configuration process.
+
 
 };
 
@@ -29,6 +36,7 @@ extern NSString *const kSparkSetupDidLogoutNotification;
 extern NSString *const kSparkSetupDidFinishNotification;
 extern NSString *const kSparkSetupDidFinishStateKey;
 extern NSString *const kSparkSetupDidFinishDeviceKey;
+extern NSString *const kSparkSetupDidFailDeviceIDKey;
 
 @class SparkSetupMainController;
 @class SparkDevice;
@@ -43,6 +51,8 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
  *  @param device     SparkDevice instance in case the setup completed successfully and a SparkDevice was claimed to logged in user
  */
 - (void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
+- (void)sparkSetupViewController:(SparkSetupMainController *)controller didFailWithDeviceID:(NSString *)deviceID; // new 0.4.2
+
 @end
 
 
