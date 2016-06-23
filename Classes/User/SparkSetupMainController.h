@@ -67,7 +67,7 @@ extern NSString *const kSparkSetupDidFailDeviceIDKey;
 @interface SparkSetupMainController : UIViewController
 
 // Viewcontroller displaying the modal setup UI control
-@property (nonatomic, weak) id<SparkSetupMainControllerDelegate> delegate;
+@property (nonatomic, weak) UIViewController<SparkSetupMainControllerDelegate>* delegate;
 
 /**
  *  Entry point for invoking Spark Soft AP setup wizard, use by calling this on your viewController:
