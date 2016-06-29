@@ -90,7 +90,7 @@
 */
 
 - (IBAction)onePasswordButtonTapped:(id)sender {
-    [[OnePasswordExtension sharedExtension] findLoginForURLString:@"https://www.particle.io" forViewController:self sender:sender completion:^(NSDictionary *loginDictionary, NSError *error) {
+    [[OnePasswordExtension sharedExtension] findLoginForURLString:@"https://login.particle.io" forViewController:self sender:sender completion:^(NSDictionary *loginDictionary, NSError *error) {
         if (loginDictionary.count == 0) {
             if (error.code != AppExtensionErrorCodeCancelledByUser) {
                 NSLog(@"Error invoking 1Password App Extension for find login: %@", error);

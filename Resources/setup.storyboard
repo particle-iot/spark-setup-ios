@@ -419,6 +419,31 @@
                                     <action selector="skipAuthButtonTapped:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="DQF-7G-lox"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdd-7J-coK" userLabel="1PasswordButton">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="6b6-mO-Vpe"/>
+                                    <constraint firstAttribute="height" constant="24" id="xr6-ai-cSc"/>
+                                </constraints>
+                                <color key="tintColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="onepassword-button"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6b6-mO-Vpe"/>
+                                        <exclude reference="xr6-ai-cSc"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="6b6-mO-Vpe"/>
+                                        <include reference="xr6-ai-cSc"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="onePasswordButtonTapped:" destination="aoV-ks-Ppc" eventType="touchUpInside" id="TW2-tD-mhW"/>
+                                    <action selector="onePasswordButtonTapped:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="eep-6S-EDf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95564919710159302" green="0.95562058687210083" blue="0.95563679933547974" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -437,9 +462,13 @@
                             <constraint firstItem="XMC-K5-EOR" firstAttribute="top" secondItem="K4G-ia-1Un" secondAttribute="bottom" constant="98" id="Mbz-fB-d1m">
                                 <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                             </constraint>
+                            <constraint firstItem="Fdd-7J-coK" firstAttribute="leading" secondItem="Vrl-zm-0Hh" secondAttribute="trailing" constant="-31" id="Nh7-f0-3Uu">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-32"/>
+                            </constraint>
                             <constraint firstItem="HXM-Qh-9kM" firstAttribute="top" secondItem="ZJd-3i-xnf" secondAttribute="bottom" constant="232" id="PyB-9A-uzQ">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
+                            <constraint firstItem="Fdd-7J-coK" firstAttribute="centerY" secondItem="Vrl-zm-0Hh" secondAttribute="centerY" id="Q3C-Kh-D4F"/>
                             <constraint firstItem="wVT-3c-Czs" firstAttribute="top" secondItem="QFf-6f-5yx" secondAttribute="bottom" constant="8" id="QIM-hJ-Tma">
                                 <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                             </constraint>
@@ -484,18 +513,23 @@
                                 <exclude reference="fIF-uh-IUN"/>
                                 <exclude reference="vg2-z0-M92"/>
                                 <exclude reference="wVT-3c-Czs"/>
+                                <exclude reference="Fdd-7J-coK"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="eIO-VM-kFj"/>
                                 <exclude reference="JaO-Vl-CfK"/>
                                 <exclude reference="jdR-NK-gCa"/>
                                 <exclude reference="x6x-Uy-g4M"/>
+                                <exclude reference="eIO-VM-kFj"/>
                                 <exclude reference="7KO-hz-srK"/>
                                 <exclude reference="DP3-Dc-2Xd"/>
                                 <exclude reference="MQf-ss-dEc"/>
                                 <exclude reference="Mbz-fB-d1m"/>
                                 <exclude reference="UZE-cL-tRn"/>
                                 <exclude reference="l2V-hi-11B"/>
+                                <exclude reference="QRY-dI-zCY"/>
+                                <exclude reference="lqX-CO-RDc"/>
+                                <exclude reference="Nh7-f0-3Uu"/>
+                                <exclude reference="Q3C-Kh-D4F"/>
                                 <exclude reference="TFl-Im-piK"/>
                                 <exclude reference="UF3-zm-GHQ"/>
                                 <exclude reference="jG6-JC-y2R"/>
@@ -505,6 +539,8 @@
                                 <exclude reference="p6x-z1-eXT"/>
                                 <exclude reference="GMW-US-fXN"/>
                                 <exclude reference="RbJ-ih-tjl"/>
+                                <exclude reference="416-L9-WaF"/>
+                                <exclude reference="QIM-hJ-Tma"/>
                                 <exclude reference="6Uw-im-ghK"/>
                                 <exclude reference="MWA-5M-ri0"/>
                                 <exclude reference="SAn-BV-4H6"/>
@@ -513,10 +549,6 @@
                                 <exclude reference="nzt-C1-3ye"/>
                                 <exclude reference="PyB-9A-uzQ"/>
                                 <exclude reference="cdt-H7-Mf7"/>
-                                <exclude reference="QRY-dI-zCY"/>
-                                <exclude reference="lqX-CO-RDc"/>
-                                <exclude reference="416-L9-WaF"/>
-                                <exclude reference="QIM-hJ-Tma"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -525,18 +557,23 @@
                                 <include reference="fIF-uh-IUN"/>
                                 <include reference="vg2-z0-M92"/>
                                 <include reference="wVT-3c-Czs"/>
+                                <include reference="Fdd-7J-coK"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="eIO-VM-kFj"/>
                                 <include reference="JaO-Vl-CfK"/>
                                 <include reference="jdR-NK-gCa"/>
                                 <include reference="x6x-Uy-g4M"/>
+                                <include reference="eIO-VM-kFj"/>
                                 <include reference="7KO-hz-srK"/>
                                 <include reference="DP3-Dc-2Xd"/>
                                 <include reference="MQf-ss-dEc"/>
                                 <exclude reference="Mbz-fB-d1m"/>
                                 <include reference="UZE-cL-tRn"/>
                                 <include reference="l2V-hi-11B"/>
+                                <include reference="QRY-dI-zCY"/>
+                                <include reference="lqX-CO-RDc"/>
+                                <include reference="Nh7-f0-3Uu"/>
+                                <include reference="Q3C-Kh-D4F"/>
                                 <include reference="TFl-Im-piK"/>
                                 <exclude reference="UF3-zm-GHQ"/>
                                 <include reference="jG6-JC-y2R"/>
@@ -546,6 +583,8 @@
                                 <include reference="p6x-z1-eXT"/>
                                 <include reference="GMW-US-fXN"/>
                                 <include reference="RbJ-ih-tjl"/>
+                                <include reference="416-L9-WaF"/>
+                                <include reference="QIM-hJ-Tma"/>
                                 <exclude reference="6Uw-im-ghK"/>
                                 <exclude reference="MWA-5M-ri0"/>
                                 <exclude reference="SAn-BV-4H6"/>
@@ -554,10 +593,6 @@
                                 <exclude reference="nzt-C1-3ye"/>
                                 <include reference="PyB-9A-uzQ"/>
                                 <exclude reference="cdt-H7-Mf7"/>
-                                <include reference="QRY-dI-zCY"/>
-                                <include reference="lqX-CO-RDc"/>
-                                <include reference="416-L9-WaF"/>
-                                <include reference="QIM-hJ-Tma"/>
                             </mask>
                         </variation>
                     </view>
@@ -567,6 +602,7 @@
                         <outlet property="emailTextField" destination="XMC-K5-EOR" id="ctZ-P3-ZOW"/>
                         <outlet property="haveAccountButton" destination="QFf-6f-5yx" id="VoY-uJ-HEB"/>
                         <outlet property="logoImageView" destination="K4G-ia-1Un" id="25C-u2-dOs"/>
+                        <outlet property="onePasswordButton" destination="Fdd-7J-coK" id="Mo2-Ig-U0i"/>
                         <outlet property="passwordTextField" destination="Vrl-zm-0Hh" id="pQh-Cu-e7S"/>
                         <outlet property="passwordVerifyTextField" destination="fIF-uh-IUN" id="Bdn-Yz-5Qy"/>
                         <outlet property="privacyButton" destination="mRd-ei-guU" id="JuT-ci-CMd"/>
@@ -812,7 +848,7 @@
                                             <constraint firstAttribute="width" constant="24" id="cqk-k5-RZQ"/>
                                             <constraint firstAttribute="height" constant="24" id="yd1-As-jde"/>
                                         </constraints>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="onepassword-button"/>
                                         <variation key="default">
                                             <mask key="constraints">
