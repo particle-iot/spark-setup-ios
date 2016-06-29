@@ -100,7 +100,9 @@
     self.skipAuthButton.hidden = !([SparkSetupCustomization sharedInstance].allowSkipAuthentication);
     
     [self.onePasswordButton setHidden:![[OnePasswordExtension sharedExtension] isAppExtensionAvailable]];
-    self.onePasswordButton.hidden = ![SparkSetupCustomization sharedInstance].allowPasswordManager;
+    if (!self.onePasswordButton.hidden) {
+        self.onePasswordButton.hidden = ![SparkSetupCustomization sharedInstance].allowPasswordManager;
+    }
 
     /*
      if ((self.predefinedActivationCode) && (self.predefinedActivationCode.length >= 4))
