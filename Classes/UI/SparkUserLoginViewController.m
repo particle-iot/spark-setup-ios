@@ -10,6 +10,8 @@
 #import "SparkSetupWebViewController.h"
 #import "SparkSetupCustomization.h"
 #import "SparkSetupUIElements.h"
+#import "OnePasswordExtension.h"
+
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
@@ -31,6 +33,9 @@
 @property (strong, nonatomic) UIAlertView *skipAuthAlertView;
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *skipAuthButton;
+@property (weak, nonatomic) IBOutlet UIButton *onePasswordButton;
+
+
 @end
 
 @implementation SparkUserLoginViewController
@@ -63,6 +68,9 @@
     self.passwordTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
     self.skipAuthButton.hidden = !([SparkSetupCustomization sharedInstance].allowSkipAuthentication);
+    [self.onePasswordButton setHidden:![[OnePasswordExtension sharedExtension] isAppExtensionAvailable]];
+    self.onePasswordButton.hidden = ![SparkSetupCustomization sharedInstance].allowPasswordManager;
+    
 
 }
 
@@ -80,6 +88,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)onePasswordButtonTapped:(id)sender {
+    [[OnePasswordExtension sharedExtension] findLoginForURLString:@"https://www.particle.io" forViewController:self sender:sender completion:^(NSDictionary *loginDictionary, NSError *error) {
+        if (loginDictionary.count == 0) {
+            if (error.code != AppExtensionErrorCodeCancelledByUser) {
+                NSLog(@"Error invoking 1Password App Extension for find login: %@", error);
+            }
+            return;
+        }
+        
+        self.emailTextField.text = loginDictionary[AppExtensionUsernameKey];
+        self.passwordTextField.text = loginDictionary[AppExtensionPasswordKey];
+    }];
+    
+}
 
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

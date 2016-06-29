@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -206,8 +205,7 @@
                                                 <exclude reference="YxV-Iw-2yc"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="137" y="51" width="22" height="29"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <exclude reference="Aaf-IU-iEr"/>
                                                 <exclude reference="YxV-Iw-2yc"/>
@@ -226,9 +224,6 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="163" y="52" width="84" height="28"/>
-                                        </variation>
                                         <connections>
                                             <action selector="privacyPolicyButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="yVJ-S4-1ZM"/>
                                         </connections>
@@ -242,9 +237,6 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="31" y="52" width="102" height="28"/>
-                                        </variation>
                                         <connections>
                                             <action selector="termOfServiceButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="5ZZ-Vc-v7y"/>
                                         </connections>
@@ -813,6 +805,30 @@
                                             <action selector="skipAuthButtonTapped:" destination="aoV-ks-Ppc" eventType="touchUpInside" id="Wi0-Pk-rSN"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4k-Le-AyR" userLabel="1PasswordButton">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="cqk-k5-RZQ"/>
+                                            <constraint firstAttribute="height" constant="24" id="yd1-As-jde"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="onepassword-button"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="cqk-k5-RZQ"/>
+                                                <exclude reference="yd1-As-jde"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="cqk-k5-RZQ"/>
+                                                <include reference="yd1-As-jde"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="onePasswordButtonTapped:" destination="aoV-ks-Ppc" eventType="touchUpInside" id="a2q-sb-tn3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -833,8 +849,12 @@
                                     <constraint firstItem="COP-ta-WJN" firstAttribute="top" secondItem="DDf-af-Vbg" secondAttribute="bottom" constant="11" id="NYk-RN-oU9">
                                         <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                                     </constraint>
+                                    <constraint firstItem="L4k-Le-AyR" firstAttribute="leading" secondItem="DDf-af-Vbg" secondAttribute="trailing" constant="-29" id="Rc0-KD-tBu"/>
                                     <constraint firstItem="DDf-af-Vbg" firstAttribute="top" secondItem="CI6-nD-cgk" secondAttribute="bottom" constant="8" id="Xsl-YO-00L">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
+                                    <constraint firstItem="L4k-Le-AyR" firstAttribute="leading" secondItem="DDf-af-Vbg" secondAttribute="trailing" constant="-45" id="aD0-Tg-lvO">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="-32"/>
                                     </constraint>
                                     <constraint firstItem="ojn-N2-37N" firstAttribute="top" secondItem="qTe-aG-SyA" secondAttribute="bottom" constant="8" id="bwH-e2-bLi">
                                         <variation key="heightClass=regular-widthClass=compact" constant="12"/>
@@ -852,6 +872,7 @@
                                     <constraint firstItem="Imh-oc-1kL" firstAttribute="leading" secondItem="COP-ta-WJN" secondAttribute="leading" id="pJU-Q3-a74">
                                         <variation key="heightClass=regular-widthClass=compact" constant="6"/>
                                     </constraint>
+                                    <constraint firstItem="L4k-Le-AyR" firstAttribute="centerY" secondItem="DDf-af-Vbg" secondAttribute="centerY" id="sbg-Eu-gMU"/>
                                     <constraint firstItem="CI6-nD-cgk" firstAttribute="top" secondItem="0xp-43-haj" secondAttribute="bottom" constant="-3" id="tlv-Dr-766">
                                         <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                                     </constraint>
@@ -860,10 +881,14 @@
                                     <mask key="subviews">
                                         <exclude reference="0xp-43-haj"/>
                                         <exclude reference="ojn-N2-37N"/>
+                                        <exclude reference="L4k-Le-AyR"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="Cxv-9Q-kDs"/>
                                         <exclude reference="eDo-Ym-fFr"/>
+                                        <exclude reference="Rc0-KD-tBu"/>
+                                        <exclude reference="aD0-Tg-lvO"/>
+                                        <exclude reference="sbg-Eu-gMU"/>
                                         <exclude reference="2Np-jF-0AH"/>
                                         <exclude reference="Frw-wM-jeO"/>
                                         <exclude reference="bwH-e2-bLi"/>
@@ -887,10 +912,14 @@
                                     <mask key="subviews">
                                         <include reference="0xp-43-haj"/>
                                         <include reference="ojn-N2-37N"/>
+                                        <include reference="L4k-Le-AyR"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="Cxv-9Q-kDs"/>
                                         <include reference="eDo-Ym-fFr"/>
+                                        <exclude reference="Rc0-KD-tBu"/>
+                                        <include reference="aD0-Tg-lvO"/>
+                                        <include reference="sbg-Eu-gMU"/>
                                         <include reference="2Np-jF-0AH"/>
                                         <include reference="Frw-wM-jeO"/>
                                         <include reference="bwH-e2-bLi"/>
@@ -979,6 +1008,7 @@
                         <outlet property="loginButton" destination="COP-ta-WJN" id="do0-xx-ipg"/>
                         <outlet property="loginLabel" destination="0xp-43-haj" id="POM-78-U2B"/>
                         <outlet property="noAccountButton" destination="eXt-yE-xbn" id="h99-Q1-nwT"/>
+                        <outlet property="onePasswordButton" destination="L4k-Le-AyR" id="jvz-5n-CX1"/>
                         <outlet property="passwordTextField" destination="DDf-af-Vbg" id="9DO-3E-zUt"/>
                         <outlet property="skipAuthButton" destination="ojn-N2-37N" id="nmP-c8-dVv"/>
                         <outlet property="spinner" destination="Imh-oc-1kL" id="moJ-qk-oUs"/>
@@ -5305,13 +5335,14 @@
         <image name="iosSettingWifi" width="70" height="41"/>
         <image name="leftChevron" width="64" height="64"/>
         <image name="lock" width="256" height="256"/>
+        <image name="onepassword-button" width="27" height="27"/>
         <image name="spinner.png" width="300" height="277"/>
         <image name="spinner_big" width="36" height="36"/>
         <image name="success" width="256" height="256"/>
         <image name="wifi3" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c4T-fL-kLE"/>
-        <segue reference="LMP-8O-ZPP"/>
+        <segue reference="dk3-1h-vwt"/>
+        <segue reference="MPJ-t5-PGI"/>
     </inferredMetricsTieBreakers>
 </document>

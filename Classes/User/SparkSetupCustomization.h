@@ -73,7 +73,8 @@
 @property (nonatomic, strong) NSString *productName;    // product display name
 @property (nonatomic, strong) NSString *productSlug;    // product string for API endpoint URL - must specify for orgMode
 
-@property (nonatomic, assign) BOOL allowSkipAuthentication;      // allow user to skip authentication 
+@property (nonatomic, assign) BOOL allowSkipAuthentication;      // allow user to skip authentication
+@property (nonatomic, assign) BOOL allowPasswordManager;         // Display 1Password button next to password entry fields in login/signup
 @property (nonatomic, strong) NSString *skipAuthenticationMessage;    // Prompt to display to user when he's requesting to skip authentication
 @property (nonatomic) BOOL disableLogOutOption; // Do not allow the user to log out from the GetReady page.
 

@@ -88,6 +88,7 @@
         self.organizationName = @"Particle";
         self.productSlug = @"photon";
         self.productName = @"Photon";
+        self.allowPasswordManager = YES;
 
         self.allowSkipAuthentication = NO;
         self.skipAuthenticationMessage = @"Skipping authentication will allow you to configure Wi-Fi credentials to your device but it will not be claimed to your account. Are you sure you want to skip authentication?";
