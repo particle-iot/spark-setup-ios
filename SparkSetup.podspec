@@ -26,6 +26,7 @@ Pod::Spec.new do |s|
     s.subspec 'Core' do |core|
         core.source_files  = 'Classes/User/**/*.{h,m}', 'Classes/UI/**/*'
         core.dependency 'Spark-SDK'
+        core.dependency '1PasswordExtension'
         core.dependency 'SparkSetup/Comm'
         core.ios.frameworks    = 'UIKit'
     end
