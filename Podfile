@@ -5,7 +5,7 @@ platform :ios, '8.0'
 target 'SparkSetup' do
 
     xcodeproj 'SparkSetup'
-    pod 'Spark-SDK', :path => '../spark-sdk-ios'
+    pod 'Spark-SDK'
     pod 'AFNetworking'
     pod '1PasswordExtension'
 

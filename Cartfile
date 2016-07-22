@@ -1,2 +1,2 @@
 github "AFNetworking/AFNetworking" ~> 3.0.0
-github "spark/spark-sdk-ios" ~> 0.4.0
+github "spark/spark-sdk-ios" ~> 0.5.0
