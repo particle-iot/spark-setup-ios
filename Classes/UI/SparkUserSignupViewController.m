@@ -9,15 +9,17 @@
 #import "SparkUserSignupViewController.h"
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
+#import <OnePasswordExtension/OnePasswordExtension.h>
 #else
 #import "Spark-SDK.h"
+#import "OnePasswordExtension.h"
 #endif
 #import "SparkUserLoginViewController.h"
 #import "SparkSetupWebViewController.h"
 #import "SparkSetupCustomization.h"
 #import "SparkSetupUIElements.h"
 #import "SparkSetupMainController.h"
-#import "OnePasswordExtension.h"
+
 #ifdef ANALYTICS
 #import <Mixpanel.h>
 #endif

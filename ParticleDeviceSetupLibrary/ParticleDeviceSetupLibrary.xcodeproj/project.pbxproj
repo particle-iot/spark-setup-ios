@@ -57,8 +57,9 @@
 		5038C5A41CA21E750084D255 /* SparkSetupMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5731CA21E750084D255 /* SparkSetupMainController.m */; };
 		5038C5B51CA22D9C0084D255 /* setup.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5038C5B41CA22D9C0084D255 /* setup.xcassets */; };
 		5038C5B71CA22DA20084D255 /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5038C5B61CA22DA20084D255 /* setup.storyboard */; };
-		50A6F8591CADF4B0000024A8 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A6F8571CADF4B0000024A8 /* AFNetworking.framework */; };
-		50A6F85A1CADF4B0000024A8 /* ParticleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A6F8581CADF4B0000024A8 /* ParticleSDK.framework */; };
+		509749B41D42DD0500C5DF0B /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509749B11D42DD0500C5DF0B /* AFNetworking.framework */; };
+		509749B51D42DD0500C5DF0B /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509749B21D42DD0500C5DF0B /* OnePasswordExtension.framework */; };
+		509749B61D42DD0500C5DF0B /* ParticleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509749B31D42DD0500C5DF0B /* ParticleSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,9 +115,10 @@
 		5038C5731CA21E750084D255 /* SparkSetupMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupMainController.m; sourceTree = "<group>"; };
 		5038C5B41CA22D9C0084D255 /* setup.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = setup.xcassets; path = ../../Resources/setup.xcassets; sourceTree = "<group>"; };
 		5038C5B61CA22DA20084D255 /* setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = setup.storyboard; path = ../../Resources/setup.storyboard; sourceTree = "<group>"; };
+		509749B11D42DD0500C5DF0B /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = "<group>"; };
+		509749B21D42DD0500C5DF0B /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OnePasswordExtension.framework; sourceTree = "<group>"; };
+		509749B31D42DD0500C5DF0B /* ParticleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParticleSDK.framework; sourceTree = "<group>"; };
 		50A6F8511CADE934000024A8 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
-		50A6F8571CADF4B0000024A8 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = "<group>"; };
-		50A6F8581CADF4B0000024A8 /* ParticleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParticleSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +126,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50A6F8591CADF4B0000024A8 /* AFNetworking.framework in Frameworks */,
-				50A6F85A1CADF4B0000024A8 /* ParticleSDK.framework in Frameworks */,
+				509749B61D42DD0500C5DF0B /* ParticleSDK.framework in Frameworks */,
+				509749B51D42DD0500C5DF0B /* OnePasswordExtension.framework in Frameworks */,
+				509749B41D42DD0500C5DF0B /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,9 +138,10 @@
 		5038C5241CA21D190084D255 = {
 			isa = PBXGroup;
 			children = (
+				509749B11D42DD0500C5DF0B /* AFNetworking.framework */,
+				509749B21D42DD0500C5DF0B /* OnePasswordExtension.framework */,
+				509749B31D42DD0500C5DF0B /* ParticleSDK.framework */,
 				50A6F8511CADE934000024A8 /* Cartfile */,
-				50A6F8571CADF4B0000024A8 /* AFNetworking.framework */,
-				50A6F8581CADF4B0000024A8 /* ParticleSDK.framework */,
 				5038C5301CA21D190084D255 /* ParticleDeviceSetupLibrary */,
 				5038C52F1CA21D190084D255 /* Products */,
 			);
