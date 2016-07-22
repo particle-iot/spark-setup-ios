@@ -100,6 +100,14 @@ if let setupController = SparkSetupMainController(setupOnly: true)
 }
 ```
 
+####1Password support
+
+Starting library version 0.6.0 1Password manager support has been added to the signup and login screens - no action is required from the user - 
+if 1Password is installed on the iOS device the lock icon will appear in the password fields on those screen and will allow user to fill in his 
+saved password (login) or create a new one (signup). Only recommendation is adding `LSApplicationQueriesSchemes = org-appextension-feature-password-management` key-value to your `info.plist` file in your app project.
+
+For additional information read [here](https://github.com/AgileBits/onepassword-app-extension#use-case-1-native-app-login).
+
 
 ### Customization
 
