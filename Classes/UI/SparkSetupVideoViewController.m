@@ -14,21 +14,41 @@
 #endif
 
 @interface SparkSetupVideoViewController ()
-@property (weak, nonatomic) IBOutlet UIView *videoView;
-@property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (strong, nonatomic) MPMoviePlayerController *videoPlayer;
+
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+
 @end
 
 @implementation SparkSetupVideoViewController
 
+/*
+- (NSUInteger)supportedInterfaceOrientations {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        // iPad: Allow all orientations
+        return UIInterfaceOrientationMaskAll;
+    } else {
+        // iPhone: Allow only landscape
+        return UIInterfaceOrientationMaskLandscape;
+    }
+}
+
+
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationLandscapeLeft;
+}
+
+
+-(BOOL)shouldAutorotate {
+    return NO;
+}
+ */
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // move to super viewdidload?
-    self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
-    self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
-
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,12 +66,6 @@
 }
 */
 
--(void)viewWillAppear:(BOOL)animated
-{
-#ifdef ANALYTICS
-    [[Mixpanel sharedInstance] timeEvent:@"Device Setup: How-To video screen activity"];
-#endif
-}
 
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -62,11 +76,27 @@
     
 }
 
--(void)viewDidAppear:(BOOL)animated
+- (IBAction)closeButtonTapped:(id)sender {
+    [self dismissPlayer];
+}
+
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+//-(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    //    self.videoViewWidth.constant = ((self.videoView.frame.size.height * 9.0)/16.0);
     
+    [super viewDidAppear:animated];
+    [self setNeedsStatusBarAppearanceUpdate];
+    
+    //    self.videoViewWidth.constant = ((self.videoView.frame.size.height * 9.0)/16.0);
+#ifdef ANALYTICS
+    [[Mixpanel sharedInstance] timeEvent:@"Device Setup: How-To video screen activity"];
+#endif
+   
     
     if (self.videoFilePath)
     {
@@ -77,29 +107,56 @@
             self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
         if (self.videoPlayer)
         {
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(moviePlayBackDidFinish:)
+                                                         name:MPMoviePlayerPlaybackDidFinishNotification
+                                                       object:self.videoPlayer];
+            
             self.videoPlayer.shouldAutoplay = YES;
-            self.videoPlayer.view.frame = self.videoView.bounds;
-            self.videoPlayer.repeatMode = MPMovieRepeatModeOne;
-            self.videoPlayer.fullscreen = NO;
+//            self.videoPlayer.view.frame = self.view.frame;//self.videoView.bounds;
+            [self.videoPlayer setFullscreen:YES animated:YES];
+            
+            self.videoPlayer.repeatMode = MPMovieRepeatModeNone;
+//            self.videoPlayer.fullscreen = NO;
             self.videoPlayer.movieSourceType = MPMovieSourceTypeFile;
-            self.videoPlayer.scalingMode = MPMovieScalingModeAspectFit;
-            self.videoPlayer.controlStyle = MPMovieControlStyleNone;
-            [self.videoView addSubview:self.videoPlayer.view];
+//            self.videoPlayer.scalingMode = MPMovieScalingModeAspectFit;
+            self.videoPlayer.controlStyle = MPMovieControlStyleNone;//Fullscreen;// None;
+            self.videoPlayer.view.transform = CGAffineTransformConcat(self.videoPlayer.view.transform, CGAffineTransformMakeRotation(M_PI_2));
+            [self.videoPlayer.view setFrame: self.view.bounds];
+            [self.view addSubview: self.videoPlayer.view];
+            
+            [self.view bringSubviewToFront:self.closeButton];
+//            [self.videoView addSubview:self.videoPlayer.view]; //videoView
+            
             [self.videoPlayer play];
 //            self.videoView.layer.borderColor = [UIColor lightGrayColor].CGColor;
 //            self.videoView.layer.borderWidth = 0.5;
             
+            
         }
     }
+}
+
+-(void)dismissPlayer {
+    [self.videoPlayer stop];
+    [self.videoPlayer.view removeFromSuperview];
     
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
-- (IBAction)doneButtonTapped:(id)sender {
-    [self.videoPlayer stop];
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)moviePlayBackDidFinish:(NSNotification*)notification {
+    MPMoviePlayerController *player = [notification object];
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:MPMoviePlayerPlaybackDidFinishNotification
+     object:player];
+
+    [self dismissPlayer];
+
 }
+
+
 
 
 @end
