@@ -26,17 +26,13 @@ PODS:
 DEPENDENCIES:
   - 1PasswordExtension
   - AFNetworking
-  - Spark-SDK (from `../spark-sdk-ios`)
-
-EXTERNAL SOURCES:
-  Spark-SDK:
-    :path: "../spark-sdk-ios"
+  - Spark-SDK
 
 SPEC CHECKSUMS:
   1PasswordExtension: 303f2b7bbf6dc19ede3090bd6b5987530648d687
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  Spark-SDK: 99cf0b127732618d5a35f5c03169a21b2482e220
+  Spark-SDK: 609a9c51057410b5373e9a9fc32736d185298b70
 
-PODFILE CHECKSUM: 978836d7675221be516351c298be43ffe63ab532
+PODFILE CHECKSUM: 37545d35cf112c3173dd8333aa885ad20ed57cae
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1
