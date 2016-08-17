@@ -44,6 +44,13 @@
 
 @implementation SparkSelectNetworkViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -59,7 +66,7 @@
 
 //    if ([SparkSetupCustomization sharedInstance].tintSetupImages)
 //    {
-        self.wifiTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.wifiTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 //    }
 //    else
 //    {
@@ -194,15 +201,19 @@
 //        [cell.contentView viewWithTag:20].hidden = YES;
     }
     
+    /*
     if ((indexPath.row % 2) == 0)
     {
         cell.backgroundColor = [UIColor colorWithRed: 0.1 green: 0.1 blue: 0.1 alpha: 0.25];
     }
     else // clear if even
     {
-        cell.backgroundColor = [UIColor clearColor];
-    }
-
+     */
+    cell.backgroundColor = [UIColor clearColor];
+//    }
+    
+    
+     
 
 //    [cell setNeedsLayout];
     return cell;

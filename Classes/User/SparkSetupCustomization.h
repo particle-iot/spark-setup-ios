@@ -49,6 +49,8 @@
 @property (nonatomic, strong) UIColor *linkTextColor;
 
 @property (nonatomic, strong) UIColor *elementBackgroundColor;  // Buttons/spinners background color
+@property (nonatomic) BOOL lightStatusAndNavBar;
+
 // TODO: change to:
 //@property (nonatomic, strong) UIColor *buttonBackgroundColor; // new
 

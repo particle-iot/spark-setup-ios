@@ -82,6 +82,7 @@
         self.headerTextFontName = @"HelveticaNeue-Light";
         
         self.tintSetupImages = NO;
+        self.lightStatusAndNavBar = YES;
         
         self.organization = NO;
         self.organizationSlug = @"particle";

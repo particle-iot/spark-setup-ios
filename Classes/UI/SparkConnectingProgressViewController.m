@@ -50,6 +50,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 @end
 
 
+
 @interface SparkConnectingProgressViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *ssidLabel;
 @property (nonatomic, strong) NSMutableArray *connectionProgressTextList;
@@ -78,6 +79,14 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 @end
 
 @implementation SparkConnectingProgressViewController
+
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

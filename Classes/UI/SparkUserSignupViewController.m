@@ -45,6 +45,11 @@
 @implementation SparkUserSignupViewController
 
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
