@@ -221,7 +221,7 @@
 {
 #ifdef ANALYTICS
     [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Get ready screen"];
-    NSLog(@"analytics enabled");
+//    NSLog(@"analytics enabled");
 #endif
 }
 

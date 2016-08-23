@@ -205,7 +205,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 
 -(void)nextConnectionProgressState
 {
-    NSLog(@"nextConnectionProgressState called, current state: %ld",(long)self.currentState);
+//    NSLog(@"nextConnectionProgressState called, current state: %ld",(long)self.currentState);
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -398,12 +398,12 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
         {
             [self nextConnectionProgressState];
             [self checkDeviceIsClaimed];
-            NSLog(@"Subscribing to status events for %@",self.deviceID);
+//            NSLog(@"Subscribing to status events for %@",self.deviceID);
             self.statusEventID = [[SparkCloud sharedInstance] subscribeToMyDevicesEventsWithPrefix:@"spark" handler:^(SparkEvent * _Nullable event, NSError * _Nullable error) {
-                NSLog(@"got status event");
+//                NSLog(@"got status event");
                 if ([event.deviceID isEqualToString:self.deviceID]) {
                     self.gotStatusEventFromDevice = YES;
-                    NSLog(@"from our device");
+//                    NSLog(@"from our device");
                 }
             }];
         }
@@ -531,7 +531,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
     [[SparkCloud sharedInstance] unsubscribeFromEventWithID:self.statusEventID];
-    NSLog(@"Unsubscribing from status events for %@",self.deviceID);
+//    NSLog(@"Unsubscribing from status events for %@",self.deviceID);
 }
 
 
