@@ -122,6 +122,7 @@ extern NSString *const kSparkSetupDidFailDeviceIDKey;
  *  @return Default assets resource NSBundle instance
  */
 +(NSBundle *)getResourcesBundle;
++(UIStoryboard *)getSetupStoryboard;
 +(UIImage *)loadImageFromResourceBundle:(NSString *)imageName;
 
 

@@ -59,8 +59,8 @@
 //        self.appName = self.brandName;// @"SparkSetup";
         self.fontSizeOffset = 0;
         
-        self.privacyPolicyLinkURL = [NSURL URLWithString:@"https://www.spark.io/privacy"];
-        self.termsOfServiceLinkURL = [NSURL URLWithString:@"https://www.spark.io/tos"];
+        self.privacyPolicyLinkURL = [NSURL URLWithString:@"https://www.particle.io/legal/privacy"];
+        self.termsOfServiceLinkURL = [NSURL URLWithString:@"https://www.particle.io/legal/terms-of-service"];
         self.forgotPasswordLinkURL = [NSURL URLWithString:@"https://www.spark.io/forgot-password"];
         self.troubleshootingLinkURL = [NSURL URLWithString:@"https://community.spark.io/t/spark-core-troubleshooting-guide-spark-team/696"];
         // TODO: add default HTMLs

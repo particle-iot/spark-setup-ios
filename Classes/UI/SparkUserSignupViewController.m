@@ -339,7 +339,8 @@
 - (IBAction)privacyPolicyButton:(id)sender
 {
     [self.view endEditing:YES];
-    SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
+    
+    SparkSetupWebViewController* webVC = [[SparkSetupMainController getSetupStoryboard]instantiateViewControllerWithIdentifier:@"webview"];
     webVC.link = [SparkSetupCustomization sharedInstance].privacyPolicyLinkURL;
 //    webVC.htmlFilename = @"test";
     [self presentViewController:webVC animated:YES completion:nil];
@@ -350,7 +351,7 @@
 - (IBAction)termOfServiceButton:(id)sender
 {
     [self.view endEditing:YES];
-    SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
+    SparkSetupWebViewController* webVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"webview"];
     webVC.link = [SparkSetupCustomization sharedInstance].termsOfServiceLinkURL;
     [self presentViewController:webVC animated:YES completion:nil];
 }
