@@ -14,7 +14,7 @@
 #import "SparkSetupCustomization.h"
 #import "SparkSetupMainController.h"
 #ifdef ANALYTICS
-#import <Mixpanel.h>
+#import <SEGAnalytics.h>
 #endif
 
 @interface SparkSetupPasswordEntryViewController () <UITextFieldDelegate>
@@ -96,7 +96,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Device Setup: Password Entry Screen"];
+    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Password Entry Screen"];
 #endif
 }
 

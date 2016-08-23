@@ -20,7 +20,7 @@
 #import "SparkSetupResultViewController.h"
 #import "SparkSetupCustomization.h"
 #ifdef ANALYTICS
-#import <Mixpanel.h>
+#import <SEGAnalytics.h>
 #endif
 
 
@@ -220,7 +220,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Device Setup: Get ready screen"];
+    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Get ready screen"];
+    NSLog(@"analytics enabled");
 #endif
 }
 

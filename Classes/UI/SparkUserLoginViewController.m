@@ -20,7 +20,7 @@
 #import "OnePasswordExtension.h"
 #endif
 #ifdef ANALYTICS
-#import "Mixpanel.h"
+#import "SEGAnalytics.h"
 #endif
 
 
@@ -141,7 +141,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Auth: Login Screen"];
+    [[SEGAnalytics sharedAnalytics] track:@"Auth: Login Screen"];
 #endif
 }
 
@@ -167,7 +167,7 @@
              if (!error)
              {
 #ifdef ANALYTICS
-                 [[Mixpanel sharedInstance] track:@"Auth: Login success"];
+                 [[SEGAnalytics sharedAnalytics] track:@"Auth: Login success"];
 #endif
 
                  // dismiss modal view and call main controller delegate to go on to setup process since login is complete
@@ -179,7 +179,7 @@
              {
                  NSString *errorText;
 #ifdef ANALYTICS
-                 [[Mixpanel sharedInstance] track:@"Auth: Login failure"];
+                 [[SEGAnalytics sharedAnalytics] track:@"Auth: Login failure"];
 #endif
 
 //                 if ([error.localizedDescription containsString:@"(400)"]) // TODO: fix this hack to something nicer
@@ -222,7 +222,7 @@
         if (buttonIndex == 0) //YES
         {
 #ifdef ANALYTICS
-            [[Mixpanel sharedInstance] track:@"Auth: Auth skipped"];
+            [[SEGAnalytics sharedAnalytics] track:@"Auth: Auth skipped"];
 #endif
             [self.delegate didFinishUserAuthentication:self loggedIn:NO];
         }

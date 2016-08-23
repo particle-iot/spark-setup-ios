@@ -2841,7 +2841,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="153" y="101" width="24" height="24"/>
+                                    <rect key="frame" x="152.5" y="101" width="24" height="24"/>
                                     <mask key="constraints">
                                         <include reference="Mpj-pt-XyB"/>
                                         <include reference="vfM-SX-d0a"/>
@@ -3940,8 +3940,7 @@
                                                 <exclude reference="iVW-cu-eu1"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="350" width="360" height="174"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="itK-fn-V8g"/>
                                                 <include reference="y1h-An-sff"/>

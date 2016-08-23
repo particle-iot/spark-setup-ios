@@ -21,7 +21,7 @@
 #import "SparkSetupUIElements.h"
 #import "SparkSetupResultViewController.h"
 #ifdef ANALYTICS
-#import "Mixpanel.h"
+#import "SEGAnalytics.h"
 #endif
 
 NSInteger const kMaxRetriesDisconnectFromDevice = 10;
@@ -130,7 +130,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     [self startAnimatingSpinner:self.currentStateView.spinner];
     [self tintConnectionProgressStateSpinner];
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] timeEvent:@"Device Setup: Connecting progress screen activity"];
+    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Connecting progress screen"];
 #endif
     
 }
@@ -528,9 +528,6 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     [super viewWillDisappear:animated];
 //    NSLog(@"-- removed kReachabilityChangedNotification");
     [self.hostReachability stopNotifier];
-#ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Device Setup: Connecting progress screen activity"];
-#endif
 
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
     [[SparkCloud sharedInstance] unsubscribeFromEventWithID:self.statusEventID];

@@ -27,7 +27,7 @@
 #import "SparkSetupCommManager.h"
 
 #ifdef ANALYTICS
-#import <Mixpanel.h>
+#import <SEGAnalytics.h>
 #endif
 
 @interface SparkDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate, SparkSelectNetworkViewControllerDelegate>
@@ -127,7 +127,7 @@
 
     
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] timeEvent:@"Device Setup: Device discovery screen activity"];
+    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Device discovery screen"];
 #endif
 
 
@@ -309,9 +309,6 @@
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"select_network"])
     {
-#ifdef ANALYTICS
-        [[Mixpanel sharedInstance] track:@"Device Setup: Device discovery screen activity"];
-#endif
 
         [self.checkConnectionTimer invalidate];
         // Get reference to the destination view controller

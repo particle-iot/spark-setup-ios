@@ -14,7 +14,7 @@
 #import "SparkSetupPasswordEntryViewController.h"
 #import "SparkSetupCustomization.h"
 #ifdef ANALYTICS
-#import <Mixpanel.h>
+#import <SEGAnalytics.h>
 #endif
 
 @interface SparkManualNetworkViewController () <UITextFieldDelegate>
@@ -76,7 +76,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Device Setup: Manual network entry screen"];
+    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Manual network entry screen"];
 #endif
 }
 
@@ -129,14 +129,14 @@
         if (self.networkRequiresPasswordSwitch.isOn)
         {
 #ifdef ANALYTICS
-            [[Mixpanel sharedInstance] track:@"Device Setup: Selected secured network"];
+            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Selected secured network"];
 #endif
             [self performSegueWithIdentifier:@"require_password" sender:self];
         }
         else
         {
 #ifdef ANALYTICS
-            [[Mixpanel sharedInstance] track:@"Device Setup: Selected open network"];
+            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Selected open network"];
 #endif
             [self performSegueWithIdentifier:@"connect" sender:self];
             

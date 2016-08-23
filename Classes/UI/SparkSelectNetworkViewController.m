@@ -18,7 +18,7 @@
 #import "SparkSetupWifiTableViewCell.h"
 
 #ifdef ANALYTICS
-#import <Mixpanel.h>
+#import <SEGAnalytics.h>
 #endif
 
 // TODO: move it somewhere else
@@ -327,7 +327,7 @@
     if (secInt == SparkSetupWifiSecurityTypeOpen)
     {
 #ifdef ANALYTICS
-        [[Mixpanel sharedInstance] track:@"Device Setup: Selected open network"];
+        [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Selected open network"];
 #endif
         [self performSegueWithIdentifier:@"connect" sender:self];
         
@@ -335,7 +335,7 @@
     else
     {
 #ifdef ANALYTICS
-        [[Mixpanel sharedInstance] track:@"Device Setup: Selected secured network"];
+        [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Selected secured network"];
 #endif
         [self performSegueWithIdentifier:@"require_password" sender:self];
     }
@@ -366,7 +366,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Device Setup: Select Network Screen"];
+    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Select Network Screen"];
 #endif
 }
 

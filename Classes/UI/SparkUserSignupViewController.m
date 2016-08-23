@@ -21,7 +21,7 @@
 #import "SparkSetupMainController.h"
 
 #ifdef ANALYTICS
-#import <Mixpanel.h>
+#import <SEGAnalytics.h>
 #endif
 
 @interface SparkUserSignupViewController () <UITextFieldDelegate>
@@ -190,7 +190,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 #ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Auth: Sign Up screen"];
+    [[SEGAnalytics sharedAnalytics] track:@"Auth: Sign Up screen"];
 #endif
 }
 
@@ -273,7 +273,7 @@
                 if (!error)
                 {
 #ifdef ANALYTICS
-                    [[Mixpanel sharedInstance] track:@"Auth: Signed Up New Customer"];
+                    [[SEGAnalytics sharedAnalytics] track:@"Auth: Signed Up New Customer"];
 #endif
                     
                     [self.delegate didFinishUserAuthentication:self loggedIn:YES];
@@ -299,7 +299,7 @@
                 if (!error)
                 {
 #ifdef ANALYTICS
-                    [[Mixpanel sharedInstance] track:@"Auth: Signed Up New User"];
+                    [[SEGAnalytics sharedAnalytics] track:@"Auth: Signed Up New User"];
 #endif
                     
                     [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
@@ -386,7 +386,7 @@
         if (buttonIndex == 0) //YES
         {
 #ifdef ANALYTICS
-            [[Mixpanel sharedInstance] track:@"Auth: Auth skipped"];
+            [[SEGAnalytics sharedAnalytics] track:@"Auth: Auth skipped"];
 #endif
             [self.delegate didFinishUserAuthentication:self loggedIn:NO];
         }
