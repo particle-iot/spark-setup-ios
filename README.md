@@ -122,7 +122,7 @@ and modify its default properties. Setting the properties in this class is optio
  NSString *brandName;                   // Your brand name
  UIImage *brandImage;                   // Your brand logo to fit in header of setup wizard screens
  UIColor *brandImageBackgroundColor;    // brand logo background color
- NSString *instructionalVideoFilename;  // Instructional video shown when "show me how" button pressed
+ NSString *instructionalVideoFilename;  // Instructional video shown landscape full screen mode when "Show me how" button pressed on second setup screen
 ```
 
 #### Technical data:
@@ -138,13 +138,6 @@ and modify its default properties. Setting the properties in this class is optio
 ```objc
  NSURL *termsOfServiceLinkURL;      // URL for terms of service of the app/device usage
  NSURL *privacyPolicyLinkURL;       // URL for privacy policy of the app/device usage
- NSURL *forgotPasswordLinkURL;      // URL for user password reset (non-organization setup app only) - to be disabled soon
- NSURL *troubleshootingLinkURL;     // URL for troubleshooting text of the app/device usage
-
- NSString *termsOfServiceHTMLFile;  // Static HTML file for terms of service of the app/device usage
- NSString *privacyPolicyHTMLFile;   // Static HTML file for privacy policy of the app/device usage
- NSString *forgotPasswordHTMLFile;  // Static HTML file for user password reset (non-organization setup app only) - to be disabled soon
- NSString *troubleshootingHTMLFile; // Static HTML file for troubleshooting text of the app/device usage
 ```
 
 #### Look & feel:
@@ -160,12 +153,13 @@ and modify its default properties. Setting the properties in this class is optio
  NSString *boldTextFontName;       // Customize setup font - include OTF/TTF file in project
  CGFloat fontSizeOffset;           // Set offset of font size so small/big fonts can be fine-adjusted
  BOOL tintSetupImages;             // This will tint the checkmark/warning/wifi symbols in the setup process to match text color (useful for dark backgrounds)
+ BOOL lightStatusAndNavBar;        // Make navigation and status bar appear in white or black color characters to contrast the selected brandImage color // *New since v0.6.1*
 ```
 
 #### Organization:
 
 Setting `organization=YES` will enable organization mode which uses different API endpoints and requires special permissions (See Particle Dashboard).
-*New fields since v0.2.2*
+*New since v0.2.2*
 
 If you set `organization` to `YES` be sure to also provide the `organizationSlug` and `productSlug` your created in [Particle Dashboard](https://docs.particle.io/guide/tools-and-features/dashboard/).
 Make sure you inject the `SparkCloud` class with scoped OAuth credentials for creating customers (so app users could create an account), [read here](https://docs.particle.io/reference/ios/#oauth-client-configuration) on how to do it correctly.
@@ -257,7 +251,7 @@ You must have Carthage installed, if you don't then be sure to [install Carthage
 Then to build the Particle iOS device setup library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
 
 ```
-github "spark/spark-setup-ios" ~> 0.4.0
+github "spark/spark-setup-ios" ~> 0.6.0
 ```
 
 and then run the following command:
