@@ -53,7 +53,7 @@
 //        self.brandImageBackgroundColor = [UIColor colorWithRed:0.79f green:0.79f blue:0.79f alpha:1.0f];
         self.brandImageBackgroundColor = [UIColor colorWithRed:229 green:229 blue:237];
       
-        self.modeButtonName = @"mode button";
+        self.modeButtonName = @"Setup button";
         self.networkNamePrefix = @"Photon";
         self.listenModeLEDColorName = @"blue";
 //        self.appName = self.brandName;// @"SparkSetup";
@@ -61,7 +61,7 @@
         
         self.privacyPolicyLinkURL = [NSURL URLWithString:@"https://www.particle.io/legal/privacy"];
         self.termsOfServiceLinkURL = [NSURL URLWithString:@"https://www.particle.io/legal/terms-of-service"];
-        self.forgotPasswordLinkURL = [NSURL URLWithString:@"https://www.spark.io/forgot-password"];
+        self.forgotPasswordLinkURL = [NSURL URLWithString:@"https://login.particle.io/forgot"];
         self.troubleshootingLinkURL = [NSURL URLWithString:@"https://community.spark.io/t/spark-core-troubleshooting-guide-spark-team/696"];
         // TODO: add default HTMLs
         

@@ -2515,7 +2515,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wifiCell" rowHeight="44" id="Zt9-Gu-dqE" customClass="SparkSetupWifiTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zt9-Gu-dqE" id="eac-hz-gRp">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="OgY-i7-QNc">
@@ -5240,7 +5240,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-pv-oR8">
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-pv-oR8">
                                 <rect key="frame" x="36" y="112" width="248" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -5252,14 +5252,14 @@
                                 <state key="normal" image="x"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="rGF-Xw-4Wn"/>
                                         <exclude reference="g31-PF-UK3"/>
+                                        <exclude reference="rGF-Xw-4Wn"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="rGF-Xw-4Wn"/>
                                         <include reference="g31-PF-UK3"/>
+                                        <include reference="rGF-Xw-4Wn"/>
                                     </mask>
                                 </variation>
                                 <connections>
