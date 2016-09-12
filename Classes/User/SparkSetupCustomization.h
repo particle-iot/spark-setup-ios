@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define ANALYTICS   1
+//#define ANALYTICS   1     // comment out to disable Analytics 
 
 @interface SparkSetupCustomization : NSObject
 
