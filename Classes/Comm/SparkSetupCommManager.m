@@ -154,6 +154,8 @@ int const kSparkSetupConnectionEndpointPort = 5609;
     {
         NSNumber *responseCode;
         NSError *e = nil;
+        NSLog(@"# Socket received data: %@",data);
+        
         NSDictionary *response = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&e];
         if ((!e) && (self.commandCompletionBlock))
         {
@@ -229,6 +231,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 {
     if (error)
     {
+        NSLog(@"# Socket error: %@",error.description);
         [self.sendCommandTimeoutTimer invalidate];
         if (self.commandCompletionBlock)
             self.commandCompletionBlock(nil, [NSError errorWithDomain:@"SparkSetupCommManagerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:error.localizedDescription}]);
@@ -236,14 +239,18 @@ int const kSparkSetupConnectionEndpointPort = 5609;
         return;
     }
     
+    
+    
     switch (state) {
         case SparkSetupConnectionStateClosed:
 //            NSLog(@"Connection to spark device closed");
+            NSLog(@"# Socket updated state: Closed");
             [self.sendCommandTimeoutTimer invalidate];
             break;
             
         case SparkSetupConnectionOpenTimeout:
 //            NSLog(@"Opening connection to spark device timed out");
+            NSLog(@"# Socket updated state: Open timeout");
             [self.sendCommandTimeoutTimer invalidate];
             if (self.commandCompletionBlock)
             {
@@ -254,6 +261,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
             
         case SparkSetupConnectionStateOpened:
 //            NSLog(@"Connection to spark device opened");
+            NSLog(@"# Socket updated state: Opened");
             if (self.commandSendBlock)
             {
                 self.sendCommandTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(sendCommandTimeoutHandler:) userInfo:nil repeats:NO];
@@ -263,6 +271,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
             break;
         case SparkSetupConnectionStateError:
         case SparkSetupConnectionStateUnknown:
+            NSLog(@"# Socket updated state: Error/Unknown");
             self.commandType = SparkSetupCommandTypeNone;
             [self.sendCommandTimeoutTimer invalidate];
 //            NSLog(@"Connection to spark device failed");
@@ -299,6 +308,8 @@ int const kSparkSetupConnectionEndpointPort = 5609;
     [self.sendCommandTimeoutTimer invalidate];
     //    self.commandType = SparkSetupCommandTypeNone;
     
+    NSLog(@"# Timeout occured while waiting for response from socket");
+    
     if (self.commandCompletionBlock)
         self.commandCompletionBlock(nil,[NSError errorWithDomain:@"SparkSetupCommManagerError" code:2004 userInfo:@{NSLocalizedDescriptionKey:@"Timeout occured while waiting for response from socket"}]);
     
@@ -322,7 +333,9 @@ int const kSparkSetupConnectionEndpointPort = 5609;
     {
         if (![SparkSetupCommManager checkSparkDeviceWifiConnection:self.networkNamePrefix])
         {
-            completion(nil, [NSError errorWithDomain:@"SparkSetupCommManangerError" code:2003 userInfo:@{NSLocalizedDescriptionKey:@"Not connected to Spark device"}]);
+            NSLog(@"# Not connected to photon Wifi");
+            
+            completion(nil, [NSError errorWithDomain:@"SparkSetupCommManangerError" code:2003 userInfo:@{NSLocalizedDescriptionKey:@"Not connected to Particle device"}]);
             return NO;
         }
     }

@@ -38,11 +38,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *brandImage;
 @property (strong, nonatomic) NSArray *scannedWifiList;
 @property (weak, nonatomic) IBOutlet UIButton *cancelSetupButton;
-@property (weak, nonatomic) IBOutlet SparkSetupUILabel *step3Label;
-@property (weak, nonatomic) IBOutlet SparkSetupUIButton *readyButton;
-
-
-
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *showMeHowButton;
 
@@ -52,6 +47,7 @@
 
 @property (strong, nonatomic) NSTimer *checkConnectionTimer;
 @property (atomic, strong) NSString *detectedDeviceID;
+@property (atomic) BOOL photonQueryProcessRunning;
 @property (atomic) BOOL gotPublicKey;
 @property (atomic) BOOL gotOwnershipInfo;
 @property (atomic) BOOL didGoToWifiListScreen;
@@ -89,6 +85,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.didGoToWifiListScreen = NO;
+    self.photonQueryProcessRunning = NO;
     
     self.backgroundTask = UIBackgroundTaskInvalid;
     self.showMeHowButton.hidden = [SparkSetupCustomization sharedInstance].instructionalVideoFilename ? NO : YES;
@@ -259,6 +256,8 @@
 {
     if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
     {
+        NSLog(@"# Starting photon query process");
+        
         [self.checkConnectionTimer invalidate];
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -288,10 +287,15 @@
     {
         //        NSLog(@"SparkDiscover -> checkDeviceWifiConnection timer");
         
+        __weak SparkDiscoverDeviceViewController *weakSelf = self;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
             {
-                [self startPhotonQuery];
+                if (!weakSelf.photonQueryProcessRunning) {
+                    weakSelf.photonQueryProcessRunning = YES;
+                    [self startPhotonQuery];
+                }
+                
             }
         });
     }
@@ -331,17 +335,19 @@
 {
     if (!self.detectedDeviceID)
     {
-        NSLog(@"DeviceID sent");
+        NSLog(@"# DeviceID sent");
 
         SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
         [self.checkConnectionTimer invalidate];
+        __weak SparkDiscoverDeviceViewController *weakSelf = self;
         [manager deviceID:^(id deviceResponseDict, NSError *error)
          {
              if (error)
              {
-                 NSLog(@"Could not send device-id command: %@", error.localizedDescription);
+                 NSLog(@"# Could not send device-id command: %@", error.localizedDescription);
                  [self restartDeviceDetectionTimer];
                  [self resetWifiSignalIconWithDelay];
+                 weakSelf.photonQueryProcessRunning = NO;
                  
              }
              else
@@ -350,7 +356,7 @@
                  self.detectedDeviceID = (NSString *)deviceResponseDict[@"id"]; //TODO: fix that dict interpretation is done in comm manager (layer completion)
                  self.detectedDeviceID = [self.detectedDeviceID lowercaseString];
                  self.isDetectedDeviceClaimed = [deviceResponseDict[@"c"] boolValue];
-                 NSLog(@"DeviceID response received: %@",self.detectedDeviceID );
+                 NSLog(@"# DeviceID response received: %@",self.detectedDeviceID );
 
                  [self photonPublicKey];
 //                 NSLog(@"Got device ID: %@",deviceResponseDict);
@@ -372,19 +378,21 @@
     if (!self.scannedWifiList)
     {
         SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
-        NSLog(@"ScanAP sent");
+        NSLog(@"# ScanAP sent");
+        __weak SparkDiscoverDeviceViewController *weakSelf = self;
         [manager scanAP:^(id scanResponse, NSError *error) {
             if (error)
             {
-                NSLog(@"Could not send scan-ap command: %@",error.localizedDescription);
+                NSLog(@"# Could not send scan-ap command: %@",error.localizedDescription);
                 [self restartDeviceDetectionTimer];
                 [self resetWifiSignalIconWithDelay];
+                weakSelf.photonQueryProcessRunning = NO;
             }
             else
             {
                 if (scanResponse)
                 {
-                    NSLog(@"ScanAP response received");
+                    NSLog(@"# ScanAP response received");
                     self.scannedWifiList = scanResponse;
 //                    NSLog(@"Scan data:\n%@",self.scannedWifiList);
                     [self checkDeviceOwnershipChange];
@@ -487,7 +495,6 @@
 {
     if (alertView == self.changeOwnershipAlertView)
     {
-        NSLog(@"button index %ld",(long)buttonIndex);
         if (buttonIndex == 0) //YES
         {
             self.needToCheckDeviceClaimed = YES;
@@ -508,15 +515,17 @@
 {
     if (!self.gotPublicKey)
     {
-        NSLog(@"PublicKey sent");
+        NSLog(@"# PublicKey sent");
         SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
         [self.checkConnectionTimer invalidate];
+        __weak SparkDiscoverDeviceViewController *weakSelf = self;
         [manager publicKey:^(id responseCode, NSError *error) {
             if (error)
             {
-                NSLog(@"Error sending public-key command to target: %@",error.localizedDescription);
+                NSLog(@"# Error sending public-key command to target: %@",error.localizedDescription);
                 [self restartDeviceDetectionTimer]; // TODO: better error handling
                 [self resetWifiSignalIconWithDelay];
+                weakSelf.photonQueryProcessRunning = NO;
                 
             }
             else
@@ -524,14 +533,14 @@
                 NSInteger code = [responseCode integerValue];
                 if (code != 0)
                 {
-                    NSLog(@"Public key retrival error");
+                    NSLog(@"# Public key retrival error");
                     [self restartDeviceDetectionTimer]; // TODO: better error handling
                     [self resetWifiSignalIconWithDelay];
                     
                 }
                 else
                 {
-                    NSLog(@"PublicKey response received");
+                    NSLog(@"# PublicKey response received");
                     self.gotPublicKey = YES;
                     [self photonScanAP];
                 }
@@ -551,16 +560,18 @@
 {
     SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
     [self.checkConnectionTimer invalidate];
-    NSLog(@"Claim code - trying to set");
+    NSLog(@"# Claim code - trying to set");
+    __weak SparkDiscoverDeviceViewController *weakSelf = self;
     [manager setClaimCode:self.claimCode completion:^(id responseCode, NSError *error) {
         if (error)
         {
-            NSLog(@"Could not send set command: %@", error.localizedDescription);
+            NSLog(@"# Could not send set command: %@", error.localizedDescription);
             [self restartDeviceDetectionTimer];
+            weakSelf.photonQueryProcessRunning = NO;
         }
         else
         {
-            NSLog(@"Device claim code set successfully: %@",self.claimCode);
+            NSLog(@"# Device claim code set successfully: %@",self.claimCode);
             // finished - segue
             [self goToWifiListScreen];
 
@@ -576,15 +587,17 @@
 {
     SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
     [self.checkConnectionTimer invalidate];
+    __weak SparkDiscoverDeviceViewController *weakSelf = self;
     [manager version:^(id version, NSError *error) {
         if (error)
         {
-            NSLog(@"Could not send version command: %@",error.localizedDescription);
+            NSLog(@"# Could not send version command: %@",error.localizedDescription);
+            weakSelf.photonQueryProcessRunning = NO;
         }
         else
         {
             NSString *versionStr = version;
-            NSLog(@"Device version:\n%@",versionStr);
+            NSLog(@"# Device version:\n%@",versionStr);
         }
     }];
 }

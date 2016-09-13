@@ -40,41 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // move to super viewdidload?
-    self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
-    self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
-    
-    
-    UIColor *navBarButtonsColor = ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? [UIColor whiteColor] : [UIColor blackColor];
-    [self.backButton setTitleColor:navBarButtonsColor forState:UIControlStateNormal];
-
-    
-    // force load images from resource bundle
-    self.wifiSymbolImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"wifi3"];
-    
-    // Trick to add an inset from the left of the text fields
-    CGRect  viewRect = CGRectMake(0, 0, 10, 32);
-    UIView* emptyView = [[UIView alloc] initWithFrame:viewRect];
-    
-    self.passwordTextField.leftView = emptyView;
-    self.passwordTextField.leftViewMode = UITextFieldViewModeAlways;
-    self.passwordTextField.delegate = self;
-    self.passwordTextField.returnKeyType = UIReturnKeyJoin;
-
-    self.passwordTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
-
-    self.networkNameLabel.text = self.networkName;
-    self.securityTypeLabel.text = [self convertSecurityTypeToString:self.security];
-    self.showPasswordSwitch.onTintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
-    
-    self.wifiSymbolImageView.image = [self.wifiSymbolImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self.wifiSymbolImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
-
-//    self.backButton.imageView.image = [self.backButton.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//    self.backButton.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;
-
-    // Do any additional setup after loading the view.
-}
+ }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -95,6 +61,43 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    // move to super viewdidload?
+    self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
+    self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    
+    
+    UIColor *navBarButtonsColor = ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? [UIColor whiteColor] : [UIColor blackColor];
+    [self.backButton setTitleColor:navBarButtonsColor forState:UIControlStateNormal];
+    
+    
+    // force load images from resource bundle
+    self.wifiSymbolImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"wifi3"];
+    
+    // Trick to add an inset from the left of the text fields
+    CGRect  viewRect = CGRectMake(0, 0, 10, 32);
+    UIView* emptyView = [[UIView alloc] initWithFrame:viewRect];
+    
+    self.passwordTextField.leftView = emptyView;
+    self.passwordTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.passwordTextField.delegate = self;
+    self.passwordTextField.returnKeyType = UIReturnKeyJoin;
+    
+    self.passwordTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+    
+    self.networkNameLabel.text = self.networkName;
+    self.securityTypeLabel.text = [self convertSecurityTypeToString:self.security];
+    self.showPasswordSwitch.onTintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+    
+    self.wifiSymbolImageView.image = [self.wifiSymbolImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.wifiSymbolImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
+    
+    //    self.backButton.imageView.image = [self.backButton.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    //    self.backButton.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+    
+    // Do any additional setup after loading the view.
+
+    
 #ifdef ANALYTICS
     [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Password Entry Screen"];
 #endif

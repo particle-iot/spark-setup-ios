@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -203,7 +204,8 @@
                                                 <exclude reference="YxV-Iw-2yc"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="137" y="52" width="22" height="28"/>
                                             <mask key="constraints">
                                                 <exclude reference="Aaf-IU-iEr"/>
                                                 <exclude reference="YxV-Iw-2yc"/>
@@ -222,6 +224,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="163" y="52" width="84" height="28"/>
+                                        </variation>
                                         <connections>
                                             <action selector="privacyPolicyButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="yVJ-S4-1ZM"/>
                                         </connections>
@@ -235,6 +240,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="31" y="52" width="102" height="28"/>
+                                        </variation>
                                         <connections>
                                             <action selector="termOfServiceButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="5ZZ-Vc-v7y"/>
                                         </connections>
@@ -2530,25 +2538,6 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZH-8h-xTS">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="22" id="6uQ-KH-gVe"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="6uQ-KH-gVe"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="6uQ-KH-gVe"/>
-                                                        </mask>
-                                                    </variation>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="W9e-jb-Dgx">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
@@ -2568,6 +2557,25 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZH-8h-xTS">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="6uQ-KH-gVe"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="6uQ-KH-gVe"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="6uQ-KH-gVe"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="OgY-i7-QNc" firstAttribute="top" secondItem="eac-hz-gRp" secondAttribute="topMargin" constant="1" id="47u-y7-KyG"/>
@@ -2582,8 +2590,8 @@
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="OgY-i7-QNc"/>
-                                                    <exclude reference="gZH-8h-xTS"/>
                                                     <exclude reference="W9e-jb-Dgx"/>
+                                                    <exclude reference="gZH-8h-xTS"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="hMf-J2-e49"/>
@@ -2599,8 +2607,8 @@
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="OgY-i7-QNc"/>
-                                                    <include reference="gZH-8h-xTS"/>
                                                     <include reference="W9e-jb-Dgx"/>
+                                                    <include reference="gZH-8h-xTS"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="hMf-J2-e49"/>
@@ -4732,7 +4740,9 @@
                             <constraint firstItem="aGH-RZ-uLL" firstAttribute="top" secondItem="6tN-9j-HsE" secondAttribute="bottom" constant="8" id="0U0-vK-bPj"/>
                             <constraint firstItem="Evh-19-Hy9" firstAttribute="top" secondItem="fYN-rW-HM4" secondAttribute="bottom" constant="20" id="1g4-Dm-ivS"/>
                             <constraint firstItem="Evh-19-Hy9" firstAttribute="top" secondItem="XBN-QE-HKZ" secondAttribute="bottom" constant="20" id="7Cw-Hv-aIk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6tN-9j-HsE" secondAttribute="trailing" constant="-16" id="CCz-pP-Nyz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6tN-9j-HsE" secondAttribute="trailing" constant="-16" id="CCz-pP-Nyz">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="6tN-9j-HsE" secondAttribute="centerX" id="CVG-tS-Sxv"/>
                             <constraint firstAttribute="centerY" secondItem="aGH-RZ-uLL" secondAttribute="centerY" id="E7E-VS-32O"/>
                             <constraint firstAttribute="centerX" secondItem="fYN-rW-HM4" secondAttribute="centerX" constant="-13" id="Igi-K4-GtX">
@@ -4760,7 +4770,9 @@
                             <constraint firstItem="fYN-rW-HM4" firstAttribute="top" secondItem="1yh-eh-fm3" secondAttribute="bottom" constant="8" id="veH-yl-cRy"/>
                             <constraint firstItem="6tN-9j-HsE" firstAttribute="top" secondItem="pa8-S2-Yq3" secondAttribute="topMargin" id="xHz-hF-jFs"/>
                             <constraint firstItem="6tN-9j-HsE" firstAttribute="leading" secondItem="pa8-S2-Yq3" secondAttribute="leadingMargin" id="yf4-cd-Ge8"/>
-                            <constraint firstItem="6tN-9j-HsE" firstAttribute="leading" secondItem="pa8-S2-Yq3" secondAttribute="leadingMargin" constant="-16" id="zaC-ig-WtI"/>
+                            <constraint firstItem="6tN-9j-HsE" firstAttribute="leading" secondItem="pa8-S2-Yq3" secondAttribute="leadingMargin" constant="-16" id="zaC-ig-WtI">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -4815,7 +4827,7 @@
                                 <include reference="JBJ-Wm-4Il"/>
                                 <exclude reference="XZx-Wj-w89"/>
                                 <exclude reference="d6i-nH-Ae3"/>
-                                <include reference="xHz-hF-jFs"/>
+                                <exclude reference="xHz-hF-jFs"/>
                                 <exclude reference="yf4-cd-Ge8"/>
                                 <include reference="zaC-ig-WtI"/>
                                 <exclude reference="0U0-vK-bPj"/>
@@ -5311,6 +5323,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dk3-1h-vwt"/>
-        <segue reference="MPJ-t5-PGI"/>
+        <segue reference="Lg4-P5-Mxv"/>
     </inferredMetricsTieBreakers>
 </document>

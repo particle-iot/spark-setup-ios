@@ -74,6 +74,7 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
         self.IPaddr = IPaddr;
         self.port = port;
         [self initSocket];
+        NSLog(@"# Initialized socket at %@:%d",IPaddr,port);
         
         return self;
     }
@@ -205,6 +206,7 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
 {
     if (self.state != SparkSetupConnectionStateOpened)
     {
+        NSLog(@"# Error - socked is not open");
         completion([NSError errorWithDomain:@"SparkSetupConnectionError" code:3000 userInfo:@{NSLocalizedDescriptionKey:@"Socket connection is not open"}]);
         return;
     }
@@ -219,11 +221,17 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
         {
             if (!([self.outputStream write:[buffer bytes] maxLength:[buffer length]] == string.length))
             {
+                NSLog(@"# Could not write all data to socket");
                 completion([NSError errorWithDomain:@"SparkSetupConnectionError" code:3002 userInfo:@{NSLocalizedDescriptionKey:@"Could not write all data to socket"}]);                return;
+            }
+            else
+            {
+                NSLog(@"# Wrote string to socket: %@",string);
             }
         }
         else
         {
+            NSLog(@"# Socket not ready for write");
             completion([NSError errorWithDomain:@"SparkSetupConnectionError" code:3001 userInfo:@{NSLocalizedDescriptionKey:@"Output socket not ready"}]);
         }
     });
@@ -240,6 +248,7 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
 
 -(void)close
 {
+    NSLog(@"# Socket closed");
     [self.socketOpenTimeoutTimer invalidate];
     
     if (self.outputStream)
