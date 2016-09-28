@@ -9,8 +9,8 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "143CB6D6-99C6-4856-ADB5-F65231FA0304",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "4F6AF957846CE2D6AA716E4578638F181BC5B887" : "spark-setup-ios",
-    "50E2A12528FDBE3D8A2B4575487E8A6E0DEFCEB0" : "spark-sdk-ios"
+    "4F6AF957846CE2D6AA716E4578638F181BC5B887" : "spark-setup-ios\/",
+    "50E2A12528FDBE3D8A2B4575487E8A6E0DEFCEB0" : "spark-sdk-ios\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "SparkSetup",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
