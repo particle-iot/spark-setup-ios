@@ -267,6 +267,7 @@
         {
             // org user sign up
             [self.spinner startAnimating];
+            self.signupButton.enabled = NO;
             
             // Sign up and then login
             [[SparkCloud sharedInstance] signupWithCustomer:email password:self.passwordTextField.text orgSlug:[SparkSetupCustomization sharedInstance].organizationSlug completion:^(NSError *error) {
@@ -282,6 +283,7 @@
                 else
                 {
                     [self.spinner stopAnimating];
+                    self.signupButton.enabled = YES;
                     NSLog(@"Error signing up: %@",error.localizedDescription);
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not signup" message:@"Make sure your user email does not already exist and that you have entered the activation code correctly and that it was not already used"/*error.localizedDescription*/ delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
@@ -293,6 +295,7 @@
         {
             // normal user sign up
             [self.spinner startAnimating];
+            self.signupButton.enabled = NO;
             
             // Sign up and then login
             [[SparkCloud sharedInstance] signupWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
@@ -304,6 +307,7 @@
                     
                     [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
                         [self.spinner stopAnimating];
+                        self.signupButton.enabled = YES;
                         if (!error)
                         {
                             //                        [self performSegueWithIdentifier:@"discover" sender:self];
@@ -319,6 +323,7 @@
                 else
                 {
                     [self.spinner stopAnimating];
+                    self.signupButton.enabled = YES;
                     NSLog(@"Error signing up: %@",error.localizedDescription);
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
