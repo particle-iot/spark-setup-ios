@@ -12,7 +12,7 @@
 #import <OnePasswordExtension/OnePasswordExtension.h>
 #else
 #import "Spark-SDK.h"
-#import "OnePasswordExtension.h"
+#import <1PasswordExtension/OnePasswordExtension.h>
 #endif
 #import "SparkUserLoginViewController.h"
 #import "SparkSetupWebViewController.h"
@@ -39,6 +39,11 @@
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *skipAuthButton;
 @property (strong, nonatomic) UIAlertView *skipAuthAlertView;
 @property (weak, nonatomic) IBOutlet UIButton *onePasswordButton;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *companyNameTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *businessAccountSwitch;
+@property (weak, nonatomic) IBOutlet SparkSetupUILabel *businessAccountLabel;
 
 @end
 
@@ -50,6 +55,17 @@
     return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
+
+-(void)applyDesignToTextField:(UITextField *)textField {
+    CGRect  viewRect = CGRectMake(0, 0, 10, 32);
+    UIView* emptyView = [[UIView alloc] initWithFrame:viewRect];
+    textField.leftView = emptyView;
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    textField.delegate = self;
+    textField.returnKeyType = UIReturnKeyNext;
+    textField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -63,45 +79,30 @@
     self.logoImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
     self.logoImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
     
-    // add an inset from the left of the text fields
-    CGRect  viewRect = CGRectMake(0, 0, 10, 32);
-    UIView* emptyView1 = [[UIView alloc] initWithFrame:viewRect];
-    UIView* emptyView2 = [[UIView alloc] initWithFrame:viewRect];
-    UIView* emptyView3 = [[UIView alloc] initWithFrame:viewRect];
-//    UIView* emptyView4 = [[UIView alloc] initWithFrame:viewRect];
+
+    [self applyDesignToTextField:self.emailTextField];
+    [self applyDesignToTextField:self.passwordTextField];
+    [self applyDesignToTextField:self.passwordVerifyTextField];
     
-    self.emailTextField.leftView = emptyView1;
-    self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
-    self.emailTextField.delegate = self;
-    self.emailTextField.returnKeyType = UIReturnKeyNext;
-    self.emailTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+    [self applyDesignToTextField:self.firstNameTextField];
+    [self applyDesignToTextField:self.lastNameTextField];
+    [self applyDesignToTextField:self.companyNameTextField];
+    
+    
+    
 
-    self.passwordTextField.leftView = emptyView2;
-    self.passwordTextField.leftViewMode = UITextFieldViewModeAlways;
-    self.passwordTextField.delegate = self;
-    self.passwordTextField.returnKeyType = UIReturnKeyNext;
-    self.passwordTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
-
-    self.passwordVerifyTextField.leftView = emptyView3;
-    self.passwordVerifyTextField.leftViewMode = UITextFieldViewModeAlways;
-    self.passwordVerifyTextField.delegate = self;
-    self.passwordVerifyTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
-
-    /*
+    
+    
     if ([SparkSetupCustomization sharedInstance].organization)
     {
-        self.passwordVerifyTextField.returnKeyType = UIReturnKeyNext;
+        self.firstNameTextField.hidden = YES;
         
-        self.activationCodeTextField.leftView = emptyView4;
-        self.activationCodeTextField.leftViewMode = UITextFieldViewModeAlways;
-        self.activationCodeTextField.delegate = self;
-        self.activationCodeTextField.hidden = NO;
-        self.activationCodeTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
-     self.activationCodeTextField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-     self.activationCodeTextField.delegate = self;
-     
-     else
-     {*/
+        self.lastNameTextField.hidden = YES;
+        self.companyNameTextField.hidden = YES;
+        self.businessAccountLabel.hidden = YES;
+        self.businessAccountSwitch.hidden = YES;
+    }
+
     // make sign up button be closer to verify password textfield (no activation code field)
     self.signupButtonSpace.constant = 16;
     self.skipAuthButton.hidden = !([SparkSetupCustomization sharedInstance].allowSkipAuthentication);
@@ -111,54 +112,8 @@
         self.onePasswordButton.hidden = ![SparkSetupCustomization sharedInstance].allowPasswordManager;
     }
 
-    /*
-     if ((self.predefinedActivationCode) && (self.predefinedActivationCode.length >= 4))
-     {
-        // trim white space, set string max length to 4 chars and uppercase it
-        NSString *code = self.predefinedActivationCode;
-        NSString *codeWhiteSpaceTrimmed = [code stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        codeWhiteSpaceTrimmed = [codeWhiteSpaceTrimmed stringByReplacingOccurrencesOfString:@" " withString:@""];
-        codeWhiteSpaceTrimmed = [codeWhiteSpaceTrimmed stringByReplacingOccurrencesOfString:@"%20" withString:@""];
-        NSRange stringRange = {0, 4};
-        NSString *shortActCode = [codeWhiteSpaceTrimmed substringWithRange:stringRange];
-        self.activationCodeTextField.text = [shortActCode uppercaseString];
-    }
-
-     */
-   
-
+    
 }
-
-
-// removed activation code
-/*
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    
-    if (textField == self.activationCodeTextField)
-    {
-        NSRange lowercaseCharRange = [string rangeOfCharacterFromSet:[NSCharacterSet lowercaseLetterCharacterSet]];
-    
-        // make activation code uppercase
-        if (lowercaseCharRange.location != NSNotFound) {
-            textField.text = [textField.text stringByReplacingCharactersInRange:range
-                                                                     withString:[string uppercaseString]];
-            return NO;
-        }
-        
-        // limit it to 4 chars
-        if(range.length + range.location > textField.text.length)
-        {
-            return NO;
-        }
-        
-        NSUInteger newLength = [textField.text length] + [string length] - range.length;
-        return (newLength > 4) ? NO : YES;
-    }
-    
-    return YES;
-}
- */
 
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -173,16 +128,9 @@
     }
     if (textField == self.passwordVerifyTextField)
     {
-//        if ([SparkSetupCustomization sharedInstance].organization)
-//            [self.activationCodeTextField becomeFirstResponder];
-//        else
-            [self signupButton:self];
+        [self signupButton:self];
     }
-//    if (textField == self.activationCodeTextField)
-//    {
-//        [self signupButton:self];
-//    }
-    
+
     return YES;
     
 }

@@ -84,10 +84,12 @@
         self.tintSetupImages = NO;
         self.lightStatusAndNavBar = YES;
         
-        self.organization = NO;
-        self.organizationSlug = @"particle";
-        self.organizationName = @"Particle";
-        self.productSlug = @"photon";
+//        self.organization = NO;
+        self.productId = 0;
+        self.productMode = NO;
+//        self.organizationSlug = @"particle";
+//        self.organizationName = @"Particle";
+//        self.productSlug = @"photon";
         self.productName = @"Photon";
         self.allowPasswordManager = YES;
 

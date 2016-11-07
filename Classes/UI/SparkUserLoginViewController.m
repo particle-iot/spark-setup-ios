@@ -18,6 +18,7 @@
 #else
 #import "Spark-SDK.h"
 #import "OnePasswordExtension.h"
+//#import <1PasswordExtension/OnePasswordExtension.h>
 #endif
 #ifdef ANALYTICS
 #import "SEGAnalytics.h"

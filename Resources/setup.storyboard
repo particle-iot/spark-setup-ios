@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -29,6 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K4G-ia-1Un" userLabel="Brand Image View">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="hic-St-XRD">
@@ -47,6 +51,7 @@
                                 </variation>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="verify password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fIF-uh-IUN">
+                                <rect key="frame" x="36" y="182" width="248" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="UeW-lb-Cms"/>
@@ -70,6 +75,7 @@
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XMC-K5-EOR">
+                                <rect key="frame" x="36" y="110" width="248" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="of3-Q7-PCU"/>
@@ -94,6 +100,7 @@
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vrl-zm-0Hh">
+                                <rect key="frame" x="36" y="146" width="248" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="0Ac-6t-fhr">
@@ -117,6 +124,7 @@
                                 </variation>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create {brand} account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="vg2-z0-M92" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="38" y="65" width="244" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -125,8 +133,10 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="ZJd-3i-xnf">
+                                <rect key="frame" x="20" y="468" width="280" height="80"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking &quot;SIGN UP&quot; you are indicating that you have read and agreed to the" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRO-Z7-PiJ" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="0.0" y="28.5" width="280" height="31.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="GN9-qU-oWg">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="36"/>
@@ -147,6 +157,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDX-XG-Ep7" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="137" y="52" width="22" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="Aaf-IU-iEr"/>
                                             <constraint firstAttribute="width" constant="34" id="YxV-Iw-2yc"/>
@@ -168,6 +179,7 @@
                                         </variation>
                                     </label>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRd-ei-guU" customClass="SparkSetupUIButton">
+                                        <rect key="frame" x="163" y="52" width="84" height="28"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" link="YES"/>
                                         </accessibility>
@@ -183,6 +195,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzU-UX-EDD" customClass="SparkSetupUIButton">
+                                        <rect key="frame" x="31" y="52" width="102" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Terms of Service">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -313,6 +326,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFf-6f-5yx" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="43" y="407" width="234" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="I already have a {brand} account">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -325,6 +339,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hTx-ZG-e7U" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="36" y="351" width="248" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="MtQ-wA-HJ1">
@@ -357,6 +372,7 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="xbQ-5h-nSM" customClass="SparkSetupUISpinner">
+                                <rect key="frame" x="40" y="361" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="9FB-2T-EpT">
                                         <variation key="heightClass=regular-widthClass=compact" constant="20"/>
@@ -385,6 +401,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVT-3c-Czs" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="90" y="447" width="140" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Skip authentication">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -397,6 +414,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdd-7J-coK" userLabel="1PasswordButton">
+                                <rect key="frame" x="252" y="152" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="6b6-mO-Vpe"/>
                                     <constraint firstAttribute="height" constant="24" id="xr6-ai-cSc"/>
@@ -420,17 +438,114 @@
                                     <action selector="onePasswordButtonTapped:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="eep-6S-EDf"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jU7-Z7-BA2">
+                                <rect key="frame" x="36" y="228" width="120" height="36"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="6ZK-E1-r5m">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="120" id="xEH-w8-XCu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Reader" family="Reader" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="go"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="xEH-w8-XCu"/>
+                                        <exclude reference="6ZK-E1-r5m"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="xEH-w8-XCu"/>
+                                        <include reference="6ZK-E1-r5m"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sC9-N5-3CX">
+                                <rect key="frame" x="164" y="228" width="120" height="36"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="aPc-p1-mpq">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="120" id="bv4-BA-uKi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Reader" family="Reader" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="go"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aPc-p1-mpq"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="aPc-p1-mpq"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T8O-Vp-yxQ">
+                                <rect key="frame" x="36" y="304" width="51" height="31"/>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="company name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W7u-dG-cZw">
+                                <rect key="frame" x="36" y="264" width="248" height="36"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="aeH-eB-i3I">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="248" id="clc-lY-9dz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Reader" family="Reader" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="go"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="clc-lY-9dz"/>
+                                        <exclude reference="aeH-eB-i3I"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="clc-lY-9dz"/>
+                                        <include reference="aeH-eB-i3I"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a business account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4j-Sw-Za4" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="97" y="310.5" width="180" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="CEg-ax-hYK">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="CEg-ax-hYK"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="CEg-ax-hYK"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95564919710159302" green="0.95562058687210083" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kRO-Z7-PiJ" secondAttribute="trailing" constant="20" id="3hq-7i-xQY"/>
                             <constraint firstAttribute="centerX" secondItem="wVT-3c-Czs" secondAttribute="centerX" id="416-L9-WaF"/>
                             <constraint firstItem="ZJd-3i-xnf" firstAttribute="top" secondItem="xbQ-5h-nSM" secondAttribute="bottom" constant="30" id="6Uw-im-ghK"/>
+                            <constraint firstItem="sC9-N5-3CX" firstAttribute="top" secondItem="fIF-uh-IUN" secondAttribute="bottom" constant="10" id="6ia-Eq-J86"/>
                             <constraint firstAttribute="centerX" secondItem="XMC-K5-EOR" secondAttribute="centerX" id="7KO-hz-srK"/>
-                            <constraint firstAttribute="centerY" secondItem="XMC-K5-EOR" secondAttribute="centerY" constant="-50" id="DP3-Dc-2Xd">
-                                <variation key="heightClass=regular-widthClass=compact" constant="80"/>
-                            </constraint>
+                            <constraint firstItem="kRO-Z7-PiJ" firstAttribute="bottom" secondItem="LDX-XG-Ep7" secondAttribute="bottom" constant="-20" id="A3x-s9-iEZ"/>
+                            <constraint firstItem="e4j-Sw-Za4" firstAttribute="centerY" secondItem="T8O-Vp-yxQ" secondAttribute="centerY" id="AEr-BQ-sCB"/>
+                            <constraint firstItem="T8O-Vp-yxQ" firstAttribute="top" secondItem="W7u-dG-cZw" secondAttribute="bottom" constant="4" id="DNk-P6-3fn"/>
                             <constraint firstAttribute="centerX" secondItem="QFf-6f-5yx" secondAttribute="centerX" id="GMW-US-fXN"/>
                             <constraint firstItem="K4G-ia-1Un" firstAttribute="top" secondItem="cHI-Ng-RbQ" secondAttribute="topMargin" id="JaO-Vl-CfK"/>
+                            <constraint firstItem="jU7-Z7-BA2" firstAttribute="leading" secondItem="fIF-uh-IUN" secondAttribute="leading" id="KlW-cr-rxZ"/>
                             <constraint firstItem="XMC-K5-EOR" firstAttribute="top" secondItem="vg2-z0-M92" secondAttribute="bottom" constant="1" id="MQf-ss-dEc">
                                 <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                             </constraint>
@@ -446,28 +561,36 @@
                             </constraint>
                             <constraint firstItem="Fdd-7J-coK" firstAttribute="centerY" secondItem="Vrl-zm-0Hh" secondAttribute="centerY" id="Q3C-Kh-D4F"/>
                             <constraint firstItem="wVT-3c-Czs" firstAttribute="top" secondItem="QFf-6f-5yx" secondAttribute="bottom" constant="8" id="QIM-hJ-Tma">
-                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="fIF-uh-IUN" secondAttribute="centerX" id="QRY-dI-zCY"/>
                             <constraint firstItem="QFf-6f-5yx" firstAttribute="top" secondItem="hTx-ZG-e7U" secondAttribute="bottom" constant="8" id="RbJ-ih-tjl">
-                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                             </constraint>
+                            <constraint firstItem="sC9-N5-3CX" firstAttribute="trailing" secondItem="fIF-uh-IUN" secondAttribute="trailing" id="Rh1-17-ua7"/>
                             <constraint firstItem="ZJd-3i-xnf" firstAttribute="leading" secondItem="cHI-Ng-RbQ" secondAttribute="leadingMargin" constant="44" id="SAn-BV-4H6"/>
+                            <constraint firstItem="e4j-Sw-Za4" firstAttribute="leading" secondItem="T8O-Vp-yxQ" secondAttribute="trailing" constant="12" id="SEq-XF-1qn"/>
                             <constraint firstItem="hTx-ZG-e7U" firstAttribute="leading" secondItem="xbQ-5h-nSM" secondAttribute="trailing" constant="-32" id="TFl-Im-piK">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-24"/>
                             </constraint>
+                            <constraint firstItem="LDX-XG-Ep7" firstAttribute="centerX" secondItem="kRO-Z7-PiJ" secondAttribute="centerX" constant="8" id="TVq-8W-Kwh"/>
+                            <constraint firstItem="W7u-dG-cZw" firstAttribute="top" secondItem="sC9-N5-3CX" secondAttribute="bottom" id="U16-M7-0eW"/>
                             <constraint firstItem="hTx-ZG-e7U" firstAttribute="top" secondItem="fIF-uh-IUN" secondAttribute="bottom" constant="8" id="UF3-zm-GHQ">
                                 <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                             </constraint>
                             <constraint firstItem="Vrl-zm-0Hh" firstAttribute="top" secondItem="XMC-K5-EOR" secondAttribute="bottom" constant="8" id="UZE-cL-tRn">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="jU7-Z7-BA2" firstAttribute="top" secondItem="fIF-uh-IUN" secondAttribute="bottom" constant="10" id="UxQ-o8-PTy"/>
                             <constraint firstItem="ZJd-3i-xnf" firstAttribute="top" secondItem="QFf-6f-5yx" secondAttribute="bottom" constant="-3" id="W6p-lQ-cun"/>
+                            <constraint firstItem="W7u-dG-cZw" firstAttribute="leading" secondItem="jU7-Z7-BA2" secondAttribute="leading" id="ZxZ-rC-oxN"/>
                             <constraint firstAttribute="centerX" secondItem="ZJd-3i-xnf" secondAttribute="centerX" id="a4y-3b-BEv"/>
                             <constraint firstItem="HXM-Qh-9kM" firstAttribute="top" secondItem="ZJd-3i-xnf" secondAttribute="bottom" constant="298" id="cdt-H7-Mf7"/>
+                            <constraint firstItem="kRO-Z7-PiJ" firstAttribute="leading" secondItem="cHI-Ng-RbQ" secondAttribute="leading" constant="20" id="cxX-aD-Yng"/>
                             <constraint firstItem="xbQ-5h-nSM" firstAttribute="top" secondItem="hTx-ZG-e7U" secondAttribute="top" id="dWl-xT-Drg"/>
+                            <constraint firstItem="vg2-z0-M92" firstAttribute="bottom" secondItem="K4G-ia-1Un" secondAttribute="bottom" constant="30" id="e2d-m8-x0r"/>
+                            <constraint firstItem="hTx-ZG-e7U" firstAttribute="top" secondItem="T8O-Vp-yxQ" secondAttribute="bottom" constant="16" id="e9z-K0-MOO"/>
                             <constraint firstAttribute="centerX" secondItem="vg2-z0-M92" secondAttribute="centerX" id="eIO-VM-kFj"/>
-                            <constraint firstItem="hTx-ZG-e7U" firstAttribute="top" secondItem="fIF-uh-IUN" secondAttribute="bottom" constant="52" id="jG6-JC-y2R"/>
                             <constraint firstItem="K4G-ia-1Un" firstAttribute="leading" secondItem="cHI-Ng-RbQ" secondAttribute="leadingMargin" id="jdR-NK-gCa">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
@@ -478,6 +601,7 @@
                             </constraint>
                             <constraint firstItem="ZJd-3i-xnf" firstAttribute="top" secondItem="QFf-6f-5yx" secondAttribute="bottom" constant="-3" id="nzt-C1-3ye"/>
                             <constraint firstItem="xbQ-5h-nSM" firstAttribute="centerY" secondItem="hTx-ZG-e7U" secondAttribute="centerY" id="p6x-z1-eXT"/>
+                            <constraint firstItem="T8O-Vp-yxQ" firstAttribute="leading" secondItem="W7u-dG-cZw" secondAttribute="leading" id="wlY-Vk-XLz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K4G-ia-1Un" secondAttribute="trailing" id="x6x-Uy-g4M">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
@@ -492,39 +616,37 @@
                                 <exclude reference="Fdd-7J-coK"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GMW-US-fXN"/>
-                                <exclude reference="RbJ-ih-tjl"/>
-                                <exclude reference="UZE-cL-tRn"/>
-                                <exclude reference="l2V-hi-11B"/>
+                                <exclude reference="JaO-Vl-CfK"/>
+                                <exclude reference="jdR-NK-gCa"/>
+                                <exclude reference="x6x-Uy-g4M"/>
+                                <exclude reference="eIO-VM-kFj"/>
                                 <exclude reference="7KO-hz-srK"/>
-                                <exclude reference="DP3-Dc-2Xd"/>
                                 <exclude reference="MQf-ss-dEc"/>
                                 <exclude reference="Mbz-fB-d1m"/>
+                                <exclude reference="UZE-cL-tRn"/>
+                                <exclude reference="l2V-hi-11B"/>
+                                <exclude reference="QRY-dI-zCY"/>
+                                <exclude reference="lqX-CO-RDc"/>
+                                <exclude reference="Nh7-f0-3Uu"/>
+                                <exclude reference="Q3C-Kh-D4F"/>
+                                <exclude reference="TFl-Im-piK"/>
+                                <exclude reference="UF3-zm-GHQ"/>
+                                <exclude reference="lRT-Ud-ot4"/>
+                                <exclude reference="y2O-2m-bM0"/>
+                                <exclude reference="dWl-xT-Drg"/>
+                                <exclude reference="p6x-z1-eXT"/>
+                                <exclude reference="GMW-US-fXN"/>
+                                <exclude reference="RbJ-ih-tjl"/>
+                                <exclude reference="416-L9-WaF"/>
+                                <exclude reference="QIM-hJ-Tma"/>
                                 <exclude reference="6Uw-im-ghK"/>
                                 <exclude reference="MWA-5M-ri0"/>
                                 <exclude reference="SAn-BV-4H6"/>
                                 <exclude reference="W6p-lQ-cun"/>
                                 <exclude reference="a4y-3b-BEv"/>
                                 <exclude reference="nzt-C1-3ye"/>
-                                <exclude reference="TFl-Im-piK"/>
-                                <exclude reference="UF3-zm-GHQ"/>
-                                <exclude reference="jG6-JC-y2R"/>
-                                <exclude reference="lRT-Ud-ot4"/>
-                                <exclude reference="y2O-2m-bM0"/>
-                                <exclude reference="dWl-xT-Drg"/>
-                                <exclude reference="p6x-z1-eXT"/>
                                 <exclude reference="PyB-9A-uzQ"/>
                                 <exclude reference="cdt-H7-Mf7"/>
-                                <exclude reference="Nh7-f0-3Uu"/>
-                                <exclude reference="Q3C-Kh-D4F"/>
-                                <exclude reference="JaO-Vl-CfK"/>
-                                <exclude reference="jdR-NK-gCa"/>
-                                <exclude reference="x6x-Uy-g4M"/>
-                                <exclude reference="QRY-dI-zCY"/>
-                                <exclude reference="lqX-CO-RDc"/>
-                                <exclude reference="eIO-VM-kFj"/>
-                                <exclude reference="416-L9-WaF"/>
-                                <exclude reference="QIM-hJ-Tma"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -536,54 +658,56 @@
                                 <include reference="Fdd-7J-coK"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GMW-US-fXN"/>
-                                <include reference="RbJ-ih-tjl"/>
-                                <include reference="UZE-cL-tRn"/>
-                                <include reference="l2V-hi-11B"/>
+                                <include reference="JaO-Vl-CfK"/>
+                                <include reference="jdR-NK-gCa"/>
+                                <include reference="x6x-Uy-g4M"/>
+                                <include reference="eIO-VM-kFj"/>
                                 <include reference="7KO-hz-srK"/>
-                                <include reference="DP3-Dc-2Xd"/>
                                 <include reference="MQf-ss-dEc"/>
                                 <exclude reference="Mbz-fB-d1m"/>
+                                <include reference="UZE-cL-tRn"/>
+                                <include reference="l2V-hi-11B"/>
+                                <include reference="QRY-dI-zCY"/>
+                                <include reference="lqX-CO-RDc"/>
+                                <include reference="Nh7-f0-3Uu"/>
+                                <include reference="Q3C-Kh-D4F"/>
+                                <include reference="TFl-Im-piK"/>
+                                <exclude reference="UF3-zm-GHQ"/>
+                                <include reference="lRT-Ud-ot4"/>
+                                <exclude reference="y2O-2m-bM0"/>
+                                <exclude reference="dWl-xT-Drg"/>
+                                <include reference="p6x-z1-eXT"/>
+                                <include reference="GMW-US-fXN"/>
+                                <include reference="RbJ-ih-tjl"/>
+                                <include reference="416-L9-WaF"/>
+                                <include reference="QIM-hJ-Tma"/>
                                 <exclude reference="6Uw-im-ghK"/>
                                 <exclude reference="MWA-5M-ri0"/>
                                 <exclude reference="SAn-BV-4H6"/>
                                 <exclude reference="W6p-lQ-cun"/>
                                 <include reference="a4y-3b-BEv"/>
                                 <exclude reference="nzt-C1-3ye"/>
-                                <include reference="TFl-Im-piK"/>
-                                <exclude reference="UF3-zm-GHQ"/>
-                                <include reference="jG6-JC-y2R"/>
-                                <include reference="lRT-Ud-ot4"/>
-                                <exclude reference="y2O-2m-bM0"/>
-                                <exclude reference="dWl-xT-Drg"/>
-                                <include reference="p6x-z1-eXT"/>
                                 <include reference="PyB-9A-uzQ"/>
                                 <exclude reference="cdt-H7-Mf7"/>
-                                <include reference="Nh7-f0-3Uu"/>
-                                <include reference="Q3C-Kh-D4F"/>
-                                <include reference="JaO-Vl-CfK"/>
-                                <include reference="jdR-NK-gCa"/>
-                                <include reference="x6x-Uy-g4M"/>
-                                <include reference="QRY-dI-zCY"/>
-                                <include reference="lqX-CO-RDc"/>
-                                <include reference="eIO-VM-kFj"/>
-                                <include reference="416-L9-WaF"/>
-                                <include reference="QIM-hJ-Tma"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="rfy-cP-RR6"/>
                     <connections>
+                        <outlet property="businessAccountLabel" destination="e4j-Sw-Za4" id="ddy-d6-ZYj"/>
+                        <outlet property="businessAccountSwitch" destination="T8O-Vp-yxQ" id="nlk-Rm-GXj"/>
+                        <outlet property="companyNameTextField" destination="W7u-dG-cZw" id="lJT-OR-wso"/>
                         <outlet property="createAccountLabel" destination="vg2-z0-M92" id="Zla-5D-Z1B"/>
                         <outlet property="emailTextField" destination="XMC-K5-EOR" id="ctZ-P3-ZOW"/>
+                        <outlet property="firstNameTextField" destination="jU7-Z7-BA2" id="BxV-hm-fv7"/>
                         <outlet property="haveAccountButton" destination="QFf-6f-5yx" id="VoY-uJ-HEB"/>
+                        <outlet property="lastNameTextField" destination="sC9-N5-3CX" id="Na6-QP-eWk"/>
                         <outlet property="logoImageView" destination="K4G-ia-1Un" id="25C-u2-dOs"/>
                         <outlet property="onePasswordButton" destination="Fdd-7J-coK" id="Mo2-Ig-U0i"/>
                         <outlet property="passwordTextField" destination="Vrl-zm-0Hh" id="pQh-Cu-e7S"/>
                         <outlet property="passwordVerifyTextField" destination="fIF-uh-IUN" id="Bdn-Yz-5Qy"/>
                         <outlet property="privacyButton" destination="mRd-ei-guU" id="JuT-ci-CMd"/>
                         <outlet property="signupButton" destination="hTx-ZG-e7U" id="u86-pf-1si"/>
-                        <outlet property="signupButtonSpace" destination="jG6-JC-y2R" id="f4B-zI-alM"/>
                         <outlet property="skipAuthButton" destination="wVT-3c-Czs" id="b09-pm-oRE"/>
                         <outlet property="spinner" destination="xbQ-5h-nSM" id="UwD-XP-Ls6"/>
                         <outlet property="termsButton" destination="vzU-UX-EDD" id="Coe-gF-p9x"/>
@@ -591,7 +715,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Yu-1U-dx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-421.5" y="846.75"/>
+            <point key="canvasLocation" x="-421.875" y="846.12676056338034"/>
         </scene>
         <!--Spark User Login View Controller-->
         <scene sceneID="7ex-bS-8Mc">
@@ -606,8 +730,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqn-yt-8jc">
+                                <rect key="frame" x="0.0" y="134" width="320" height="300"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-nD-cgk">
+                                        <rect key="frame" x="36" y="45" width="248" height="36"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="248" id="2fz-z0-H9K"/>
@@ -635,6 +761,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COP-ta-WJN" customClass="SparkSetupUIButton">
+                                        <rect key="frame" x="36" y="133" width="248" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="248" id="BRj-ie-1xr"/>
@@ -667,6 +794,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTe-aG-SyA" customClass="SparkSetupUIButton">
+                                        <rect key="frame" x="88" y="227" width="144" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="X52-DV-fbz"/>
                                             <constraint firstAttribute="width" constant="280" id="szC-uA-idf"/>
@@ -695,6 +823,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DDf-af-Vbg">
+                                        <rect key="frame" x="36" y="81" width="248" height="36"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="EG0-se-3Lq">
@@ -721,6 +850,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-yE-xbn" customClass="SparkSetupUIButton">
+                                        <rect key="frame" x="57" y="185" width="206" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="Y9p-Y2-5yk"/>
                                             <constraint firstAttribute="height" constant="29" id="ziX-3J-QrL"/>
@@ -749,6 +879,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{brand} Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="0xp-43-haj" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="89.5" y="0.0" width="141" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -757,6 +888,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="Imh-oc-1kL" customClass="SparkSetupUISpinner">
+                                        <rect key="frame" x="42" y="143" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="dyQ-gB-YJi">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
@@ -782,6 +914,7 @@
                                         </variation>
                                     </imageView>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojn-N2-37N" customClass="SparkSetupUIButton">
+                                        <rect key="frame" x="94" y="269" width="132" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="hAL-Zc-NBU"/>
                                             <constraint firstAttribute="height" constant="29" id="mfB-d3-zdw"/>
@@ -810,6 +943,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4k-Le-AyR" userLabel="1PasswordButton">
+                                        <rect key="frame" x="252" y="87" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="cqk-k5-RZQ"/>
                                             <constraint firstAttribute="height" constant="24" id="yd1-As-jde"/>
@@ -944,6 +1078,7 @@
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UOq-6u-boa" userLabel="Brand Image View">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="kew-7K-kWI">
@@ -1033,8 +1168,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBd-QT-spH">
+                                <rect key="frame" x="16" y="145.5" width="288" height="240"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request password reset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="8jW-zN-6UE" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="18.5" y="8" width="251" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1043,6 +1180,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zNP-ki-wRB">
+                                        <rect key="frame" x="20" y="111" width="248" height="36"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="248" id="0Ve-A9-x5m"/>
@@ -1068,6 +1206,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3y-XJ-EXr" customClass="SparkSetupUIButton">
+                                        <rect key="frame" x="20" y="159" width="248" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="248" id="Rvu-5i-QEh"/>
@@ -1101,6 +1240,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEF-rf-PHn" customClass="SparkSetupUIButton">
+                                        <rect key="frame" x="20" y="215" width="248" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="248" id="Exh-qC-AuV"/>
@@ -1134,6 +1274,7 @@
                                         </connections>
                                     </button>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="VOF-kh-r3G" customClass="SparkSetupUISpinner">
+                                        <rect key="frame" x="24" y="169" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="AUL-Kj-9IG">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
@@ -1159,6 +1300,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An email will be sent to you with a link to a webpage where you can create a new password." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wJl-gR-eDB" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="12" y="45" width="276" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1258,6 +1400,7 @@
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I8l-1c-uV9" userLabel="Brand Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="nas-hL-mOL">
@@ -1344,9 +1487,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FS3-ev-VCh">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvA-k3-JhB">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="yJO-2g-4Ip">
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="dmf-0n-QUx">
@@ -1358,6 +1503,7 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="asE-42-lNZ" customClass="SparkSetupUISpinner">
+                                <rect key="frame" x="144" y="268" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="4MW-Lc-qJX">
                                         <variation key="heightClass=regular-widthClass=compact" constant="32"/>
@@ -1463,6 +1609,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yjq-4r-6tw" userLabel="BrandImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="CNj-sb-AGe">
@@ -1481,6 +1628,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpC-uh-IqQ" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="36" y="508" width="248" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="AKv-gO-e2u"/>
@@ -1512,6 +1660,7 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="connect-to-wifi" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-Qf-QZC">
+                                <rect key="frame" x="10" y="80" width="300" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="187" id="1yO-kO-rOR">
                                         <variation key="heightClass=regular-widthClass=compact" constant="70"/>
@@ -1529,10 +1678,13 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bH6-hD-cea" userLabel="Instructions View">
+                                <rect key="frame" x="16" y="118" width="288" height="374"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TV-C6-fe7" userLabel="1View">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="124.5"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-o6-IbI">
+                                                <rect key="frame" x="0.0" y="47.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="117" id="78S-Kb-DHH">
                                                         <variation key="heightClass=regular-widthClass=compact" constant="30"/>
@@ -1555,6 +1707,7 @@
                                                 </variation>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Home &gt; Settings &gt; Wi-Fi" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0C3-l9-xXN" customClass="SparkSetupUILabel">
+                                                <rect key="frame" x="38" y="52" width="250" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1643,8 +1796,10 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="760" translatesAutoresizingMaskIntoConstraints="NO" id="YLP-FT-NGK" userLabel="2View">
+                                        <rect key="frame" x="0.0" y="124.5" width="288" height="125"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="JHz-N7-4Sr">
+                                                <rect key="frame" x="0.0" y="15.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="71" id="bIA-0r-R3V">
                                                         <variation key="heightClass=regular-widthClass=compact" constant="30"/>
@@ -1667,12 +1822,15 @@
                                                 </variation>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure Wi-Fi is turned on, and choose the network below:" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNI-7x-S77" customClass="SparkSetupUILabel">
+                                                <rect key="frame" x="38" y="10" width="250" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPy-tx-IQo" userLabel="Wifi entry View">
+                                                <rect key="frame" x="0.0" y="59" width="288" height="41"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iosSettingWifi" translatesAutoresizingMaskIntoConstraints="NO" id="wDi-zZ-kzk">
+                                                        <rect key="frame" x="218" y="0.0" width="70" height="41"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="0a3-ab-MYk">
                                                                 <variation key="heightClass=regular-widthClass=compact" constant="41"/>
@@ -1695,6 +1853,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="Nop-7n-cfM" customClass="SparkSetupUISpinner">
+                                                        <rect key="frame" x="250" y="8" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="GO3-18-RlK">
                                                                 <variation key="heightClass=regular-widthClass=compact" constant="24"/>
@@ -1720,6 +1879,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iosCheckmark" translatesAutoresizingMaskIntoConstraints="NO" id="J0J-uO-pjh">
+                                                        <rect key="frame" x="16" y="13" width="16" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="1P9-Fn-WvY"/>
                                                             <constraint firstAttribute="width" constant="16" id="Xcr-nm-YZ9"/>
@@ -1738,6 +1898,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{network prefix}-XXXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qO-43-pbD">
+                                                        <rect key="frame" x="40" y="11" width="230" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="230" id="iQn-6f-ng3"/>
                                                         </constraints>
@@ -1824,6 +1985,7 @@
                                                 </variation>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXX will be a unique 4-digit code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gki-aR-4fS" customClass="SparkSetupUILabel">
+                                                <rect key="frame" x="45.5" y="105" width="197" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1949,8 +2111,10 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Qv-7J-ByG" userLabel="3View">
+                                        <rect key="frame" x="0.0" y="249.5" width="288" height="124.5"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="dnb-cr-aA7">
+                                                <rect key="frame" x="0.0" y="47" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="117" id="KbY-Ud-Grs">
                                                         <variation key="heightClass=regular-widthClass=compact" constant="30"/>
@@ -1973,6 +2137,7 @@
                                                 </variation>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once connected, return to this app" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdX-DX-tBe" customClass="SparkSetupUILabel">
+                                                <rect key="frame" x="38" y="52" width="250" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2153,6 +2318,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTu-2T-JYm">
+                                <rect key="frame" x="8" y="28" width="47" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="Ird-Un-OuQ"/>
@@ -2317,6 +2483,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TR1-ME-BYk" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="36" y="508" width="248" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="0hu-cS-LY8"/>
@@ -2348,6 +2515,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NBp-nB-TmB" userLabel="Brand Image View">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="3Ef-fD-a3H">
@@ -2366,6 +2534,7 @@
                                 </variation>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="TPt-BY-VBm" customClass="SparkSetupUISpinner">
+                                <rect key="frame" x="40" y="518" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="D9u-bw-TxD">
                                         <variation key="heightClass=regular-widthClass=compact" constant="20"/>
@@ -2391,6 +2560,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your Wi-Fi network" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cXr-RN-psz" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="16" y="72" width="288" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2399,6 +2569,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KB8-Fp-xL8" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="78.5" y="474" width="163" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="1c9-Jd-KHz"/>
                                     <constraint firstAttribute="height" constant="29" id="xhA-lA-XG0">
@@ -2430,6 +2601,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BdB-vi-zpj">
+                                <rect key="frame" x="0.0" y="107.5" width="320" height="358.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2439,10 +2611,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zt9-Gu-dqE" id="eac-hz-gRp">
-                                            <frame key="frameInset" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="OgY-i7-QNc">
+                                                    <rect key="frame" x="287" y="9" width="26" height="26"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="CjU-Uj-l5K"/>
@@ -2462,6 +2635,7 @@
                                                     </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="W9e-jb-Dgx">
+                                                    <rect key="frame" x="259" y="9" width="26" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="PWe-LU-QKp"/>
                                                         <constraint firstAttribute="width" constant="26" id="TZM-FV-5Hk"/>
@@ -2480,6 +2654,7 @@
                                                     </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZH-8h-xTS">
+                                                    <rect key="frame" x="24" y="11" width="232" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="6uQ-KH-gVe"/>
                                                     </constraints>
@@ -2727,11 +2902,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your {device} is connecting to:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVc-hH-dHk" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="16" y="80" width="288" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSID" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="cOI-4H-O0J" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="143.5" y="106" width="33" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2740,11 +2917,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This can take about a minute." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pE1-ji-8tD" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="59.5" y="132" width="201" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="b2A-QU-4k0">
+                                <rect key="frame" x="112.5" y="101" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="Mpj-pt-XyB"/>
                                     <constraint firstAttribute="height" constant="24" id="vfM-SX-d0a"/>
@@ -2763,6 +2942,7 @@
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eud-gX-Qzz" userLabel="Brand Image View">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Cy6-vn-7Pq">
@@ -2781,8 +2961,10 @@
                                 </variation>
                             </imageView>
                             <view hidden="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7F-fD-FkN" customClass="SparkConnectingProgressView">
+                                <rect key="frame" x="16" y="200" width="288" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="AyL-b2-yuA">
+                                        <rect key="frame" x="8" y="8" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="7tt-Uf-n6U"/>
                                             <constraint firstAttribute="height" constant="24" id="lL1-pX-7qM"/>
@@ -2801,6 +2983,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to Wi-Fi network" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hed-Wt-5JS">
+                                        <rect key="frame" x="40" y="10" width="196" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2855,8 +3038,10 @@
                                 </connections>
                             </view>
                             <view hidden="YES" tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c42-pG-Oeu" customClass="SparkConnectingProgressView">
+                                <rect key="frame" x="16" y="242" width="288" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="jMw-h9-m48">
+                                        <rect key="frame" x="8" y="8" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="FH1-B0-2LI"/>
                                             <constraint firstAttribute="height" constant="24" id="caw-SE-asQ"/>
@@ -2875,6 +3060,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait for device cloud connection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbT-im-ebx">
+                                        <rect key="frame" x="40" y="10" width="250.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2929,8 +3115,10 @@
                                 </connections>
                             </view>
                             <view hidden="YES" tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7h-qk-v7W" customClass="SparkConnectingProgressView">
+                                <rect key="frame" x="16" y="284" width="288" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="Idj-bo-wgj">
+                                        <rect key="frame" x="8" y="8" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="6Nd-Fw-dIL"/>
                                             <constraint firstAttribute="width" constant="24" id="8Wg-yC-CHK"/>
@@ -2949,6 +3137,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check for internet connectivity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvI-AW-ch0">
+                                        <rect key="frame" x="40" y="10" width="236" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3003,8 +3192,10 @@
                                 </connections>
                             </view>
                             <view hidden="YES" tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tB4-8N-o30" customClass="SparkConnectingProgressView">
+                                <rect key="frame" x="16" y="326" width="288" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="gd0-Tt-HYj">
+                                        <rect key="frame" x="8" y="8" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="rrH-88-8hv"/>
                                             <constraint firstAttribute="height" constant="24" id="vnD-2H-ILH"/>
@@ -3023,6 +3214,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify device ownership" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve1-fl-5gg">
+                                        <rect key="frame" x="40" y="10" width="182.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3077,8 +3269,10 @@
                                 </connections>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3W-op-31b" customClass="SparkConnectingProgressView">
+                                <rect key="frame" x="16" y="158" width="288" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="HhJ-5t-crK">
+                                        <rect key="frame" x="8" y="8" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="uZm-4D-iBJ"/>
                                             <constraint firstAttribute="height" constant="24" id="vwf-ur-g2F"/>
@@ -3097,6 +3291,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configure Wi-Fi credentials" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tmf-mZ-SSF">
+                                        <rect key="frame" x="40" y="10" width="248" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3343,6 +3538,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxu-kn-9q9" userLabel="Brand Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Y2y-sY-OlD">
@@ -3364,6 +3560,7 @@
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success" translatesAutoresizingMaskIntoConstraints="NO" id="48y-vy-AG6">
+                                <rect key="frame" x="110" y="80" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="R7s-pB-DYo">
                                         <variation key="heightClass=regular-widthClass=compact" constant="100"/>
@@ -3386,6 +3583,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You successfully setup you device! hooray!" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUz-dW-L6z" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="16" y="241" width="288" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3394,6 +3592,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtn-Ip-3FT" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="36" y="508" width="248" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="Flh-0w-3Yc">
@@ -3425,6 +3624,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="ywE-ZV-rVm" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="16" y="196" width="288" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3433,6 +3633,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZM-QG-orr" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="104" y="470" width="112" height="30"/>
                                 <state key="normal" title="Troubleshooting">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -3444,6 +3645,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name your new device:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkc-Z7-m2G" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="16" y="293" width="160" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3452,6 +3654,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Device name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EJc-jb-tti">
+                                <rect key="frame" x="16" y="319" width="288" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="HiI-sY-9bp">
@@ -3608,7 +3811,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMV-mM-4MM"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMV-mM-4MM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </containerView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NMV-mM-4MM" secondAttribute="trailing" id="WPp-Jv-t7e"/>
@@ -3675,10 +3880,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dN-4C-Qip" userLabel="stepsView">
+                                <rect key="frame" x="16" y="184" width="288" height="292"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfN-n0-GTz" userLabel="2View">
+                                        <rect key="frame" x="0.0" y="97.5" width="288" height="97"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="esE-Ik-2G5">
+                                                <rect key="frame" x="0.0" y="18.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="iCa-De-h3T"/>
                                                     <constraint firstAttribute="width" constant="48" id="kIP-Uq-6eH">
@@ -3704,6 +3912,7 @@
                                                 </variation>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The on-board LED should be blinking blue. If not, hold the {mode button} for 3 seconds" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHW-yI-y9u" customClass="SparkSetupUILabel">
+                                                <rect key="frame" x="45" y="18.5" width="243" height="61"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -3758,8 +3967,10 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2PS-lh-aR5" userLabel="3View">
+                                        <rect key="frame" x="0.0" y="194.5" width="288" height="97.5"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="itK-fn-V8g">
+                                                <rect key="frame" x="0.0" y="29" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="68" id="8oa-1L-QcN"/>
                                                     <constraint firstAttribute="width" constant="40" id="ECL-8q-4pe">
@@ -3785,6 +3996,7 @@
                                                 </variation>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure your iOS device is connected to the Internet" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1h-An-sff" customClass="SparkSetupUILabel">
+                                                <rect key="frame" x="45" y="29" width="243" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -3842,8 +4054,10 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XH-4F-Cn2" userLabel="1View">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="97.5"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="Azh-lU-IBk">
+                                                <rect key="frame" x="0.0" y="38.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="71" id="9Hc-BT-c6Q">
                                                         <variation key="heightClass=regular-widthClass=compact" constant="30"/>
@@ -3866,6 +4080,7 @@
                                                 </variation>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plug in your {device} to power it on" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7e-HY-AYj" customClass="SparkSetupUILabel">
+                                                <rect key="frame" x="45" y="38.5" width="243" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -4008,6 +4223,7 @@
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ldG-Y4-BA3" userLabel="BrandImageView">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="03d-Ak-Jvy">
@@ -4026,6 +4242,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNy-JD-Bob" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="36" y="508" width="248" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="N18-hN-ejL"/>
@@ -4058,6 +4275,7 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="Ald-Di-X3r" customClass="SparkSetupUISpinner">
+                                <rect key="frame" x="42" y="518" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="mst-fn-d3A">
                                         <variation key="heightClass=regular-widthClass=compact" constant="20"/>
@@ -4083,6 +4301,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZE-3U-nVp">
+                                <rect key="frame" x="260" y="28" width="52" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="Bb6-Yp-HQO"/>
@@ -4121,6 +4340,7 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="connect-to-power" translatesAutoresizingMaskIntoConstraints="NO" id="Dom-kg-WP6">
+                                <rect key="frame" x="16" y="64" width="288" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="b6Q-1R-18e">
                                         <variation key="heightClass=regular-widthClass=compact" constant="120"/>
@@ -4138,6 +4358,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXe-vV-Moq">
+                                <rect key="frame" x="8" y="28" width="47" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="1f4-ad-B8e"/>
@@ -4177,6 +4398,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in as:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ys-oq-6AP" customClass="SparkSetupUILabel">
+                                <rect key="frame" x="114" y="482" width="92" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -4350,6 +4572,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6tN-9j-HsE" userLabel="Brand Image View">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="N9b-2O-3oO">
@@ -4368,8 +4591,10 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGH-RZ-uLL">
+                                <rect key="frame" x="16" y="179" width="288" height="170"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secured network password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4Z-in-rrz" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -4378,6 +4603,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjo-nA-HOv" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="42" y="45" width="113" height="19.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -4386,6 +4612,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="shD-NL-Bfg">
+                                        <rect key="frame" x="8" y="40" width="26" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="26" id="Gac-ZX-g9H"/>
                                             <constraint firstAttribute="height" constant="26" id="jFM-BD-cba"/>
@@ -4404,11 +4631,13 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security type" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1M-iA-Igy" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="189" y="46" width="91" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7YD-Eu-eRs">
+                                        <rect key="frame" x="8" y="80.5" width="272" height="32"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="ldg-Fc-YKY"/>
@@ -4427,11 +4656,13 @@
                                         </variation>
                                     </textField>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3hV-M8-czG">
+                                        <rect key="frame" x="8" y="128.5" width="51" height="31"/>
                                         <connections>
                                             <action selector="showPasswordSwitchTapped:" destination="URz-wL-Fyt" eventType="valueChanged" id="Fb3-BB-MSh"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRe-Uh-isD" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="65" y="134.5" width="107.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -4541,6 +4772,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYN-rW-HM4">
+                                <rect key="frame" x="8" y="28" width="24" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="kGU-Dz-l1c">
@@ -4570,6 +4802,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBN-QE-HKZ" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="36" y="508" width="248" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="28a-px-gad">
@@ -4734,6 +4967,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MD3-cf-C0M" userLabel="Brand Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="hi0-wH-het">
@@ -4752,8 +4986,10 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Els-s6-JaP">
+                                <rect key="frame" x="16" y="184" width="288" height="160"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manual network name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5u-ch-YzL" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="34" y="8" width="254" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -4762,6 +4998,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="THZ-lT-daz">
+                                        <rect key="frame" x="0.0" y="9.5" width="26" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26" id="Wdn-gb-WcE"/>
                                             <constraint firstAttribute="width" constant="26" id="X5n-1O-sh2"/>
@@ -4779,13 +5016,17 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kTu-57-lbv"/>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kTu-57-lbv">
+                                        <rect key="frame" x="0.0" y="105" width="51" height="31"/>
+                                    </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network requires password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd4-RO-nNO" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="57" y="111" width="198" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Network name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nUA-re-0QF">
+                                        <rect key="frame" x="0.0" y="53" width="288" height="36"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="BKt-AW-TLi">
@@ -4909,6 +5150,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7A-Fe-1Rf" customClass="SparkSetupUIButton">
+                                <rect key="frame" x="36" y="508" width="248" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="OBg-Ky-b5I"/>
@@ -4940,6 +5182,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pY6-oD-PoU">
+                                <rect key="frame" x="8" y="28" width="24" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="c1s-y2-xby"/>
@@ -5096,6 +5339,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-pv-oR8">
+                                <rect key="frame" x="288" y="28" width="24" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="g31-PF-UK3"/>
@@ -5177,7 +5421,7 @@
         <image name="x" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MPJ-t5-PGI"/>
+        <segue reference="Lg4-P5-Mxv"/>
         <segue reference="dk3-1h-vwt"/>
     </inferredMetricsTieBreakers>
 </document>
