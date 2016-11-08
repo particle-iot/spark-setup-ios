@@ -207,9 +207,11 @@
 {
     if (textField == self.nameDeviceTextField)
     {
-        [textField resignFirstResponder];
         [self.device rename:textField.text completion:^(NSError *error) {
-            NSLog(@"name device %@",error.description);
+            if (error) {
+                NSLog(@"error name device %@",error.description);
+            }
+            [textField resignFirstResponder];
             [self doneButtonTapped:self];
         }];
     }
