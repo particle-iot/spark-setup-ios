@@ -67,6 +67,16 @@
 
 }
 
+- (IBAction)businessAccountSwitchChanged:(id)sender {
+    if (self.businessAccountSwitch.on) {
+        self.companyNameTextField.alpha = 1.0;
+        self.companyNameTextField.userInteractionEnabled = YES;
+    } else {
+        self.companyNameTextField.alpha = 0.6;
+        self.companyNameTextField.userInteractionEnabled = NO;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -93,10 +103,9 @@
 
     
     
-    if ([SparkSetupCustomization sharedInstance].organization)
+    if ([SparkSetupCustomization sharedInstance].productMode)
     {
         self.firstNameTextField.hidden = YES;
-        
         self.lastNameTextField.hidden = YES;
         self.companyNameTextField.hidden = YES;
         self.businessAccountLabel.hidden = YES;
@@ -210,8 +219,8 @@
     }
     else if ([self isValidEmail:email])
     {
-        BOOL orgMode = [SparkSetupCustomization sharedInstance].organization;
-        if (orgMode)
+        BOOL productMode = [SparkSetupCustomization sharedInstance].productMode;
+        if (productMode)
         {
             // org user sign up
             [self.spinner startAnimating];
@@ -245,8 +254,16 @@
             [self.spinner startAnimating];
             self.signupButton.enabled = NO;
             
+            NSMutableDictionary *accountInfo;
+            if ((![self.firstNameTextField.text isEqualToString:@""]) || (![self.lastNameTextField.text isEqualToString:@""]) || (![self.companyNameTextField.text isEqualToString:@""])) {
+                accountInfo = [@{@"firstName":self.firstNameTextField.text,
+                                 @"lastName":self.lastNameTextField.text,
+                                 @"businessAccount":[NSNumber numberWithBool:self.businessAccountSwitch.on],
+                                 @"companyName":self.companyNameTextField.text} mutableCopy];
+            }
+            
             // Sign up and then login
-            [[SparkCloud sharedInstance] signupWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
+            [[SparkCloud sharedInstance] createUser:email password:self.passwordTextField.text accountInfo:accountInfo completion:^(NSError *error) {
                 if (!error)
                 {
 #ifdef ANALYTICS
