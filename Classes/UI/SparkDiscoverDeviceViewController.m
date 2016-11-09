@@ -331,12 +331,12 @@
 {
     if (!self.detectedDeviceID)
     {
-        NSLog(@"DeviceID sent");
-
-        SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
         [self.checkConnectionTimer invalidate];
+        
+        SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
         [manager deviceID:^(id deviceResponseDict, NSError *error)
-         {
+        {
+//            NSLog(@"DeviceID sent");
              if (error)
              {
                  NSLog(@"Could not send device-id command: %@", error.localizedDescription);
@@ -350,7 +350,7 @@
                  self.detectedDeviceID = (NSString *)deviceResponseDict[@"id"]; //TODO: fix that dict interpretation is done in comm manager (layer completion)
                  self.detectedDeviceID = [self.detectedDeviceID lowercaseString];
                  self.isDetectedDeviceClaimed = [deviceResponseDict[@"c"] boolValue];
-                 NSLog(@"DeviceID response received: %@",self.detectedDeviceID );
+//                 NSLog(@"DeviceID response received: %@",self.detectedDeviceID );
 
                  [self photonPublicKey];
 //                 NSLog(@"Got device ID: %@",deviceResponseDict);
@@ -372,7 +372,7 @@
     if (!self.scannedWifiList)
     {
         SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
-        NSLog(@"ScanAP sent");
+//        NSLog(@"ScanAP sent");
         [manager scanAP:^(id scanResponse, NSError *error) {
             if (error)
             {
@@ -384,7 +384,7 @@
             {
                 if (scanResponse)
                 {
-                    NSLog(@"ScanAP response received");
+//                    NSLog(@"ScanAP response received");
                     self.scannedWifiList = scanResponse;
 //                    NSLog(@"Scan data:\n%@",self.scannedWifiList);
                     [self checkDeviceOwnershipChange];
@@ -487,7 +487,6 @@
 {
     if (alertView == self.changeOwnershipAlertView)
     {
-        NSLog(@"button index %ld",(long)buttonIndex);
         if (buttonIndex == 0) //YES
         {
             self.needToCheckDeviceClaimed = YES;
@@ -508,9 +507,9 @@
 {
     if (!self.gotPublicKey)
     {
-        NSLog(@"PublicKey sent");
-        SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
+//        NSLog(@"PublicKey sent");
         [self.checkConnectionTimer invalidate];
+        SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
         [manager publicKey:^(id responseCode, NSError *error) {
             if (error)
             {
@@ -531,7 +530,7 @@
                 }
                 else
                 {
-                    NSLog(@"PublicKey response received");
+//                    NSLog(@"PublicKey response received");
                     self.gotPublicKey = YES;
                     [self photonScanAP];
                 }
@@ -551,7 +550,7 @@
 {
     SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
     [self.checkConnectionTimer invalidate];
-    NSLog(@"Claim code - trying to set");
+//    NSLog(@"Claim code - trying to set");
     [manager setClaimCode:self.claimCode completion:^(id responseCode, NSError *error) {
         if (error)
         {
@@ -560,7 +559,7 @@
         }
         else
         {
-            NSLog(@"Device claim code set successfully: %@",self.claimCode);
+//            NSLog(@"Device claim code set successfully: %@",self.claimCode);
             // finished - segue
             [self goToWifiListScreen];
 
@@ -574,8 +573,9 @@
 
 -(void)getDeviceVersion
 {
-    SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
     [self.checkConnectionTimer invalidate];
+
+    SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
     [manager version:^(id version, NSError *error) {
         if (error)
         {
@@ -584,7 +584,7 @@
         else
         {
             NSString *versionStr = version;
-            NSLog(@"Device version:\n%@",versionStr);
+//            NSLog(@"Device version:\n%@",versionStr);
         }
     }];
 }
