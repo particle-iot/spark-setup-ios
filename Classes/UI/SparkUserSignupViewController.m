@@ -212,7 +212,11 @@
     [self.view endEditing:YES];
     __block NSString *email = [self.emailTextField.text lowercaseString];
     
-    if (![self.passwordTextField.text isEqualToString:self.passwordVerifyTextField.text])
+    if (self.passwordTextField.text.length < 8)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password must be at least 8 characters long" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else if (![self.passwordTextField.text isEqualToString:self.passwordVerifyTextField.text])
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Passwords do not match" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
