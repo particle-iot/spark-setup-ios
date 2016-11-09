@@ -260,10 +260,14 @@
             
             NSMutableDictionary *accountInfo;
             if ((![self.firstNameTextField.text isEqualToString:@""]) || (![self.lastNameTextField.text isEqualToString:@""]) || (![self.companyNameTextField.text isEqualToString:@""])) {
-                accountInfo = [@{@"firstName":self.firstNameTextField.text,
-                                 @"lastName":self.lastNameTextField.text,
-                                 @"businessAccount":[NSNumber numberWithBool:self.businessAccountSwitch.on],
-                                 @"companyName":self.companyNameTextField.text} mutableCopy];
+                accountInfo = [@{@"first_name":self.firstNameTextField.text,
+                                 @"last_name":self.lastNameTextField.text,
+                                 @"business_account":[NSNumber numberWithBool:self.businessAccountSwitch.on]
+                                 } mutableCopy];
+                
+                if (self.businessAccountSwitch.on) {
+                    accountInfo[@"company_name"] = self.companyNameTextField.text;
+                }
             }
             
             // Sign up and then login
