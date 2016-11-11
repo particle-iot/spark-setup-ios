@@ -29,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet SparkSetupUILabel *nameDeviceLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nameDeviceTextField;
 @property (strong, nonatomic) NSArray *randomDeviceNamesArray;
-
+@property (nonatomic) BOOL deviceNamed;
 @end
 
 @implementation SparkSetupResultViewController
@@ -62,6 +62,8 @@
 
     // init funny random device names
     self.randomDeviceNamesArray = [NSArray arrayWithObjects:@"aardvark", @"bacon", @"badger", @"banjo", @"bobcat", @"boomer", @"captain", @"chicken", @"cowboy", @"maker", @"splendid", @"sparkling", @"dentist", @"doctor", @"green", @"easter", @"ferret", @"gerbil", @"hacker", @"hamster", @"wizard", @"hobbit", @"hoosier", @"hunter", @"jester", @"jetpack", @"kitty", @"laser", @"lawyer", @"mighty", @"monkey", @"morphing", @"mutant", @"narwhal", @"ninja", @"normal", @"penguin", @"pirate", @"pizza", @"plumber", @"power", @"puppy", @"ranger", @"raptor", @"robot", @"scraper", @"burrito", @"station", @"tasty", @"trochee", @"turkey", @"turtle", @"vampire", @"wombat", @"zombie", nil];
+    
+    self.deviceNamed = NO;
 
 }
 
@@ -205,18 +207,23 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    
     if (textField == self.nameDeviceTextField)
     {
-        [self.device rename:textField.text completion:^(NSError *error) {
+        [self.device rename:self.nameDeviceTextField.text completion:^(NSError *error) {
             if (error) {
-                NSLog(@"error name device %@",error.description);
+                NSLog(@"Rrror naming device %@",error.description);
+            } else {
+                self.deviceNamed = YES;
             }
             [textField resignFirstResponder];
             [self doneButtonTapped:self];
         }];
+        
     }
     
     return YES;
+    
 }
 
 
@@ -233,6 +240,17 @@
     
     if (self.setupResult == SparkSetupMainControllerResultSuccess)
     {
+     
+        if (!self.deviceNamed) {
+            [self.device rename:self.nameDeviceTextField.text completion:^(NSError *error) {
+                if (error) {
+                    NSLog(@"error name device %@",error.description);
+                } else {
+                    self.deviceNamed = YES;
+                }
+            }];
+        }
+
         // Update zero notice to user
         // TODO: condition message only if its really getting update zero (need event listening)
         if (![[NSUserDefaults standardUserDefaults] boolForKey:@"shownUpdateZeroNotice"]) {
