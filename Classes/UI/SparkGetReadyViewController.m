@@ -184,7 +184,7 @@
             else
             {
                 NSString *errStr;
-                if ([SparkSetupCustomization sharedInstance].organization) {
+                if ([SparkSetupCustomization sharedInstance].productMode) {
                     errStr = [NSString stringWithFormat:@"Could not communicate with Particle cloud. Are you sure your organization and product slugs are setup correctly?\n\n%@",error.localizedDescription];
                 } else {
                     errStr = [NSString stringWithFormat:@"Could not communicate with Particle cloud. Make sure your iOS device is connected to the internet and retry.\n\n%@",error.localizedDescription];
@@ -199,9 +199,9 @@
     
     if ([SparkCloud sharedInstance].isAuthenticated)
     {
-        if ([SparkSetupCustomization sharedInstance].organization)
+        if ([SparkSetupCustomization sharedInstance].productMode)
         {
-            [[SparkCloud sharedInstance] generateClaimCodeForOrganization:[SparkSetupCustomization sharedInstance].organizationSlug andProduct:[SparkSetupCustomization sharedInstance].productSlug withActivationCode:nil completion:claimCodeCompletionBlock];
+            [[SparkCloud sharedInstance] generateClaimCodeForProduct:[SparkSetupCustomization sharedInstance].productId completion:claimCodeCompletionBlock];
         }
         else
         {

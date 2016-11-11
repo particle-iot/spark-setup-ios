@@ -22,9 +22,6 @@
 {
     self.text = [self.text stringByReplacingOccurrencesOfString:@"{device}" withString:[SparkSetupCustomization sharedInstance].deviceName];
     self.text = [self.text stringByReplacingOccurrencesOfString:@"{brand}" withString:[SparkSetupCustomization sharedInstance].brandName];
-    NSString *orgName = [SparkSetupCustomization sharedInstance].organizationName;
-    if (orgName)
-        self.text = [self.text stringByReplacingOccurrencesOfString:@"{org name}" withString:orgName];
     self.text = [self.text stringByReplacingOccurrencesOfString:@"{color}" withString:[SparkSetupCustomization sharedInstance].listenModeLEDColorName];
     self.text = [self.text stringByReplacingOccurrencesOfString:@"{mode button}" withString:[SparkSetupCustomization sharedInstance].modeButtonName];
     self.text = [self.text stringByReplacingOccurrencesOfString:@"{network prefix}" withString:[SparkSetupCustomization sharedInstance].networkNamePrefix];

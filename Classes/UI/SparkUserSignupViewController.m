@@ -24,6 +24,9 @@
 #import <SEGAnalytics.h>
 #endif
 
+
+
+
 @interface SparkUserSignupViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -44,6 +47,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *companyNameTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *businessAccountSwitch;
 @property (weak, nonatomic) IBOutlet SparkSetupUILabel *businessAccountLabel;
+@property (weak, nonatomic) IBOutlet UIView *TosAndPpView;
 
 @end
 
@@ -71,9 +75,11 @@
     if (self.businessAccountSwitch.on) {
         self.companyNameTextField.alpha = 1.0;
         self.companyNameTextField.userInteractionEnabled = YES;
+        self.businessAccountLabel.text = @"This is a business account";
     } else {
         self.companyNameTextField.alpha = 0.6;
         self.companyNameTextField.userInteractionEnabled = NO;
+        self.businessAccountLabel.text = @"This is a personal account";
     }
 }
 
@@ -98,6 +104,11 @@
     [self applyDesignToTextField:self.lastNameTextField];
     [self applyDesignToTextField:self.companyNameTextField];
     
+    
+    
+    if (isiPhone4) { // 3.5" inch screens are too small to display this stuff
+        self.TosAndPpView.hidden = YES;
+    }
     
     
 
@@ -149,6 +160,7 @@
 #ifdef ANALYTICS
     [[SEGAnalytics sharedAnalytics] track:@"Auth: Sign Up screen"];
 #endif
+    [self businessAccountSwitchChanged:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -231,7 +243,7 @@
             self.signupButton.enabled = NO;
             
             // Sign up and then login
-            [[SparkCloud sharedInstance] signupWithCustomer:email password:self.passwordTextField.text orgSlug:[SparkSetupCustomization sharedInstance].organizationSlug completion:^(NSError *error) {
+            [[SparkCloud sharedInstance] createCustomer:email password:self.passwordTextField.text productId:[SparkSetupCustomization sharedInstance].productId accountInfo:nil completion:^(NSError *error) {
                 if (!error)
                 {
 #ifdef ANALYTICS
