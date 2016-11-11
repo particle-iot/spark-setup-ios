@@ -1,1 +1,1 @@
-../../../Spark-SDK/Pod/Classes/SDK/SparkEvent.h
+../../../../../spark-sdk-ios/Pod/Classes/SDK/SparkEvent.h

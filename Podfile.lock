@@ -15,24 +15,28 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - Spark-SDK (0.5.1):
-    - Spark-SDK/Helpers (= 0.5.1)
-    - Spark-SDK/SDK (= 0.5.1)
-  - Spark-SDK/Helpers (0.5.1)
-  - Spark-SDK/SDK (0.5.1):
+  - Spark-SDK (0.5.2):
+    - Spark-SDK/Helpers (= 0.5.2)
+    - Spark-SDK/SDK (= 0.5.2)
+  - Spark-SDK/Helpers (0.5.2)
+  - Spark-SDK/SDK (0.5.2):
     - AFNetworking (~> 3.0)
     - Spark-SDK/Helpers
 
 DEPENDENCIES:
   - 1PasswordExtension
   - AFNetworking
-  - Spark-SDK
+  - Spark-SDK (from `../spark-sdk-ios`)
+
+EXTERNAL SOURCES:
+  Spark-SDK:
+    :path: "../spark-sdk-ios"
 
 SPEC CHECKSUMS:
   1PasswordExtension: e775a29310c65851e5a6cec1afc349ab4e334e47
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  Spark-SDK: 361c1d3aabc88f7c1eada27427cc8997f5a79ac1
+  Spark-SDK: c61fa3a60e223e055cb297351cae0749ecbb4d7f
 
-PODFILE CHECKSUM: 37545d35cf112c3173dd8333aa885ad20ed57cae
+PODFILE CHECKSUM: d69746ad1c01286c41b881c103a594dd044a3e49
 
 COCOAPODS: 1.2.0.beta.1
