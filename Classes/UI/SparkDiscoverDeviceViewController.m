@@ -583,7 +583,7 @@
         }
         else
         {
-            NSString *versionStr = version;
+//            NSString *versionStr = version;
 //            NSLog(@"Device version:\n%@",versionStr);
         }
     }];

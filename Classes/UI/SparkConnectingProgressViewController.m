@@ -266,7 +266,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     __block SparkSetupCommManager *managerForConfigure = [[SparkSetupCommManager alloc] init];
     
     [managerForConfigure configureAP:self.networkName passcode:self.password security:self.security channel:self.channel completion:^(id responseCode, NSError *error) {
-        NSLog(@"configureAP sent");
+//        NSLog(@"configureAP sent");
         if ((error) || ([responseCode intValue]!=0))
         {
             if (self.currentState == SparkSetupConnectionProgressStateConfigureCredentials)
@@ -463,7 +463,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     // --- Claim device ---
 //    [[SparkCloud sharedInstance] claimDevice:self.deviceID completion:^(NSError *error) {
     if (self.gotStatusEventFromDevice) {
-        NSLog(@"received event from setup device, finishing setup successfully");
+//        NSLog(@"received event from setup device, finishing setup successfully");
         [self getDeviceAndFinishSetup];
     }
     
@@ -473,7 +473,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
         {
             for (SparkDevice *device in devices)
             {
-//                NSLog(@"list device ID: %@",device.id);
+//                NSLog(@"list device ID: %@, setup device ID: %@",device.id,self.deviceID);
                 if ([device.id isEqualToString:self.deviceID])
                 {
                     // device now appear's in users claimed devices so it's claimed
