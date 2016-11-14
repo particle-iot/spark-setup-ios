@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
+@property (weak, nonatomic) IBOutlet SparkSetupUIButton *resetPasswordButton;
 
 @end
 
@@ -65,10 +66,12 @@
 {
     [self.view endEditing:YES];
     [self.spinner startAnimating];
+    self.resetPasswordButton.userInteractionEnabled = NO;
     
     void (^passwordResetCallback)(NSError *) = ^void(NSError *error) {
         
         [self.spinner stopAnimating];
+        self.resetPasswordButton.userInteractionEnabled = YES;
         
         if (!error)
         {

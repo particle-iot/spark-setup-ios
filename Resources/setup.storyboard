@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -157,7 +158,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDX-XG-Ep7" customClass="SparkSetupUILabel">
-                                        <rect key="frame" x="137.66666666666666" y="52" width="22" height="28"/>
+                                        <rect key="frame" x="136.66666666666663" y="52" width="24.333333333333343" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="Aaf-IU-iEr"/>
                                             <constraint firstAttribute="width" constant="34" id="YxV-Iw-2yc"/>
@@ -179,7 +180,7 @@
                                         </variation>
                                     </label>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRd-ei-guU" customClass="SparkSetupUIButton">
-                                        <rect key="frame" x="163.66666666666669" y="52" width="84.000000000000028" height="28"/>
+                                        <rect key="frame" x="165" y="52" width="84" height="28"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" link="YES"/>
                                         </accessibility>
@@ -195,7 +196,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzU-UX-EDD" customClass="SparkSetupUIButton">
-                                        <rect key="frame" x="31.666666666666664" y="52" width="102" height="28"/>
+                                        <rect key="frame" x="31.666666666666664" y="52" width="101" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Terms of Service">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -439,7 +440,7 @@
                                     <action selector="businessAccountSwitchChanged:" destination="lRJ-Zc-d9X" eventType="valueChanged" id="Wzf-pO-d02"/>
                                 </connections>
                             </switch>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="company name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W7u-dG-cZw">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="company name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W7u-dG-cZw">
                                 <rect key="frame" x="83" y="258" width="248" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -561,19 +562,19 @@
                                 <exclude reference="lqX-CO-RDc"/>
                                 <exclude reference="Nh7-f0-3Uu"/>
                                 <exclude reference="Q3C-Kh-D4F"/>
-                                <exclude reference="7KO-hz-srK"/>
-                                <exclude reference="MQf-ss-dEc"/>
                                 <exclude reference="UZE-cL-tRn"/>
                                 <exclude reference="l2V-hi-11B"/>
                                 <exclude reference="TFl-Im-piK"/>
                                 <exclude reference="lRT-Ud-ot4"/>
-                                <exclude reference="p6x-z1-eXT"/>
                                 <exclude reference="GMW-US-fXN"/>
                                 <exclude reference="RbJ-ih-tjl"/>
                                 <exclude reference="a4y-3b-BEv"/>
-                                <exclude reference="PyB-9A-uzQ"/>
                                 <exclude reference="416-L9-WaF"/>
                                 <exclude reference="QIM-hJ-Tma"/>
+                                <exclude reference="7KO-hz-srK"/>
+                                <exclude reference="MQf-ss-dEc"/>
+                                <exclude reference="p6x-z1-eXT"/>
+                                <exclude reference="PyB-9A-uzQ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -593,19 +594,19 @@
                                 <include reference="lqX-CO-RDc"/>
                                 <include reference="Nh7-f0-3Uu"/>
                                 <include reference="Q3C-Kh-D4F"/>
-                                <include reference="7KO-hz-srK"/>
-                                <include reference="MQf-ss-dEc"/>
                                 <include reference="UZE-cL-tRn"/>
                                 <include reference="l2V-hi-11B"/>
                                 <include reference="TFl-Im-piK"/>
                                 <include reference="lRT-Ud-ot4"/>
-                                <include reference="p6x-z1-eXT"/>
                                 <include reference="GMW-US-fXN"/>
                                 <include reference="RbJ-ih-tjl"/>
                                 <include reference="a4y-3b-BEv"/>
-                                <include reference="PyB-9A-uzQ"/>
                                 <include reference="416-L9-WaF"/>
                                 <include reference="QIM-hJ-Tma"/>
+                                <include reference="7KO-hz-srK"/>
+                                <include reference="MQf-ss-dEc"/>
+                                <include reference="p6x-z1-eXT"/>
+                                <include reference="PyB-9A-uzQ"/>
                             </mask>
                         </variation>
                     </view>
@@ -796,8 +797,8 @@
                                             <action selector="noAccountButton:" destination="aoV-ks-Ppc" eventType="touchUpInside" id="ZgK-5g-3Fc"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="0xp-43-haj" customClass="SparkSetupUILabel">
-                                        <rect key="frame" x="128.66666666666663" y="0.0" width="63.333333333333343" height="29"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="0xp-43-haj" customClass="SparkSetupUILabel">
+                                        <rect key="frame" x="91.666666666666671" y="0.0" width="138" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -946,6 +947,8 @@
                                         <exclude reference="Rc0-KD-tBu"/>
                                         <exclude reference="aD0-Tg-lvO"/>
                                         <exclude reference="sbg-Eu-gMU"/>
+                                        <exclude reference="bwH-e2-bLi"/>
+                                        <exclude reference="lA5-jt-bcc"/>
                                         <exclude reference="67Y-tZ-Pj5"/>
                                         <exclude reference="9HM-mF-KlF"/>
                                         <exclude reference="tlv-Dr-766"/>
@@ -959,8 +962,6 @@
                                         <exclude reference="AJw-SI-qmt"/>
                                         <exclude reference="0cL-sS-XdE"/>
                                         <exclude reference="mWx-KB-W7o"/>
-                                        <exclude reference="bwH-e2-bLi"/>
-                                        <exclude reference="lA5-jt-bcc"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -977,6 +978,8 @@
                                         <exclude reference="Rc0-KD-tBu"/>
                                         <include reference="aD0-Tg-lvO"/>
                                         <include reference="sbg-Eu-gMU"/>
+                                        <include reference="bwH-e2-bLi"/>
+                                        <include reference="lA5-jt-bcc"/>
                                         <exclude reference="67Y-tZ-Pj5"/>
                                         <include reference="9HM-mF-KlF"/>
                                         <include reference="tlv-Dr-766"/>
@@ -990,8 +993,6 @@
                                         <include reference="AJw-SI-qmt"/>
                                         <include reference="0cL-sS-XdE"/>
                                         <include reference="mWx-KB-W7o"/>
-                                        <include reference="bwH-e2-bLi"/>
-                                        <include reference="lA5-jt-bcc"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1158,34 +1159,16 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEF-rf-PHn" customClass="SparkSetupUIButton">
-                                        <rect key="frame" x="63" y="197.00000000000003" width="248" height="40"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="248" id="Exh-qC-AuV"/>
-                                            <constraint firstAttribute="height" constant="32" id="hR5-le-LnJ">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
-                                            </constraint>
-                                        </constraints>
+                                        <rect key="frame" x="100.66666666666669" y="197.00000000000003" width="173" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="CANCEL">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="I remember my password">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="type" value="secondary"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
                                         </userDefinedRuntimeAttributes>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Exh-qC-AuV"/>
-                                                <exclude reference="hR5-le-LnJ"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="Exh-qC-AuV"/>
-                                                <include reference="hR5-le-LnJ"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="cancelButtonTapped:" destination="Yiu-ge-Gp9" eventType="touchUpInside" id="Bfv-lT-fhr"/>
                                             <action selector="loginButton:" destination="aoV-ks-Ppc" eventType="touchUpInside" id="bBQ-YO-cMN"/>
@@ -1385,6 +1368,7 @@
                     <connections>
                         <outlet property="brandImageView" destination="I8l-1c-uV9" id="hzr-ad-FZf"/>
                         <outlet property="emailTextField" destination="zNP-ki-wRB" id="Lq8-Ov-qzp"/>
+                        <outlet property="resetPasswordButton" destination="l3y-XJ-EXr" id="T0V-1h-zR7"/>
                         <outlet property="spinner" destination="VOF-kh-r3G" id="j1L-7t-ts4"/>
                     </connections>
                 </viewController>
@@ -2529,7 +2513,7 @@
                                         <rect key="frame" x="0.0" y="28" width="406" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zt9-Gu-dqE" id="eac-hz-gRp">
-                                            <rect key="frame" x="0.0" y="0.0" width="406" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="406" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="OgY-i7-QNc">
@@ -3350,11 +3334,11 @@
                                 <exclude reference="mve-Kx-mJX"/>
                                 <exclude reference="fQE-gc-jya"/>
                                 <exclude reference="thv-mV-dd6"/>
-                                <exclude reference="n6t-qd-MSM"/>
-                                <exclude reference="vgz-gB-H40"/>
                                 <exclude reference="1vK-ay-A8m"/>
                                 <exclude reference="W1u-9z-MO7"/>
                                 <exclude reference="iIU-Qr-eTa"/>
+                                <exclude reference="n6t-qd-MSM"/>
+                                <exclude reference="vgz-gB-H40"/>
                                 <exclude reference="MvW-Cv-MyL"/>
                                 <exclude reference="QDx-7G-uz9"/>
                                 <exclude reference="qLe-XA-m74"/>
@@ -3402,11 +3386,11 @@
                                 <exclude reference="mve-Kx-mJX"/>
                                 <include reference="fQE-gc-jya"/>
                                 <include reference="thv-mV-dd6"/>
-                                <exclude reference="n6t-qd-MSM"/>
-                                <include reference="vgz-gB-H40"/>
                                 <include reference="1vK-ay-A8m"/>
                                 <include reference="W1u-9z-MO7"/>
                                 <include reference="iIU-Qr-eTa"/>
+                                <exclude reference="n6t-qd-MSM"/>
+                                <include reference="vgz-gB-H40"/>
                                 <include reference="MvW-Cv-MyL"/>
                                 <include reference="QDx-7G-uz9"/>
                                 <include reference="qLe-XA-m74"/>
@@ -3772,7 +3756,7 @@
             <objects>
                 <navigationController storyboardIdentifier="setup" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="lxh-KG-rnL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZD8-2Y-dJt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZD8-2Y-dJt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -5164,11 +5148,6 @@
                                 <exclude reference="p7A-Fe-1Rf"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="KRG-Dw-b8X"/>
-                                <exclude reference="Utz-vd-AQS"/>
-                                <exclude reference="Ygq-PO-miY"/>
-                                <exclude reference="itu-8k-fCM"/>
-                                <exclude reference="CpA-V9-uBo"/>
                                 <exclude reference="2eE-h0-Qu8"/>
                                 <exclude reference="JX6-rL-YwW"/>
                                 <exclude reference="K0q-c5-kUL"/>
@@ -5178,6 +5157,15 @@
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>
+                                <exclude reference="XJL-4L-gPc"/>
+                                <exclude reference="hkI-XL-vbU"/>
+                                <exclude reference="tpJ-VB-RSM"/>
+                                <exclude reference="yVZ-j1-6KF"/>
+                                <exclude reference="KRG-Dw-b8X"/>
+                                <exclude reference="Utz-vd-AQS"/>
+                                <exclude reference="Ygq-PO-miY"/>
+                                <exclude reference="itu-8k-fCM"/>
+                                <exclude reference="CpA-V9-uBo"/>
                                 <exclude reference="OjL-FT-pim"/>
                                 <exclude reference="WDi-kP-hWk"/>
                                 <exclude reference="Z2l-oR-j1l"/>
@@ -5185,10 +5173,6 @@
                                 <exclude reference="fdI-3s-4iw"/>
                                 <exclude reference="jPp-1Y-Aoc"/>
                                 <exclude reference="xdJ-vS-d49"/>
-                                <exclude reference="XJL-4L-gPc"/>
-                                <exclude reference="hkI-XL-vbU"/>
-                                <exclude reference="tpJ-VB-RSM"/>
-                                <exclude reference="yVZ-j1-6KF"/>
                                 <exclude reference="WmV-f6-Q0Q"/>
                             </mask>
                         </variation>
@@ -5200,11 +5184,6 @@
                                 <include reference="pY6-oD-PoU"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="KRG-Dw-b8X"/>
-                                <include reference="Utz-vd-AQS"/>
-                                <exclude reference="Ygq-PO-miY"/>
-                                <exclude reference="itu-8k-fCM"/>
-                                <exclude reference="CpA-V9-uBo"/>
                                 <include reference="2eE-h0-Qu8"/>
                                 <exclude reference="JX6-rL-YwW"/>
                                 <exclude reference="K0q-c5-kUL"/>
@@ -5214,6 +5193,15 @@
                                 <exclude reference="99F-Hs-XUX"/>
                                 <exclude reference="9oH-6U-lru"/>
                                 <exclude reference="H7b-Jz-AdD"/>
+                                <include reference="XJL-4L-gPc"/>
+                                <exclude reference="hkI-XL-vbU"/>
+                                <include reference="tpJ-VB-RSM"/>
+                                <exclude reference="yVZ-j1-6KF"/>
+                                <exclude reference="KRG-Dw-b8X"/>
+                                <include reference="Utz-vd-AQS"/>
+                                <exclude reference="Ygq-PO-miY"/>
+                                <exclude reference="itu-8k-fCM"/>
+                                <exclude reference="CpA-V9-uBo"/>
                                 <include reference="OjL-FT-pim"/>
                                 <exclude reference="WDi-kP-hWk"/>
                                 <include reference="Z2l-oR-j1l"/>
@@ -5221,10 +5209,6 @@
                                 <exclude reference="fdI-3s-4iw"/>
                                 <include reference="jPp-1Y-Aoc"/>
                                 <exclude reference="xdJ-vS-d49"/>
-                                <include reference="XJL-4L-gPc"/>
-                                <exclude reference="hkI-XL-vbU"/>
-                                <include reference="tpJ-VB-RSM"/>
-                                <exclude reference="yVZ-j1-6KF"/>
                                 <include reference="WmV-f6-Q0Q"/>
                             </mask>
                         </variation>
