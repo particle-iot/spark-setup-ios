@@ -66,7 +66,6 @@
 {
     [self.view endEditing:YES];
     [self.spinner startAnimating];
-    self.resetPasswordButton.userInteractionEnabled = NO;
     
     void (^passwordResetCallback)(NSError *) = ^void(NSError *error) {
         
@@ -93,6 +92,7 @@
     
     if ([self isValidEmail:self.emailTextField.text])
     {
+        self.resetPasswordButton.userInteractionEnabled = NO;
         if ([SparkSetupCustomization sharedInstance].productMode) // TODO: fix that so it'll work for non-org too
         {
             [[SparkCloud sharedInstance] requestPasswordResetForCustomer:self.emailTextField.text productId:[SparkSetupCustomization sharedInstance].productId completion:passwordResetCallback];
