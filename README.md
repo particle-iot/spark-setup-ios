@@ -230,17 +230,22 @@ If the Device Setup library installation completed successfully - you should be 
 
 Particle Device Setup library is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
 You must have Cocoapods installed, if you don't then be sure to [Install Cocoapods](https://guides.cocoapods.org/using/getting-started.html) before you start:
-To install the iOS Device Setup library, simply add the following line to your Podfile on main project folder:
+To install the iOS Device Setup library, create a text file named `Podfile` on main project folder, it should contain:
 
 ```ruby
-pod "SparkSetup"
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'YourAppName' do
+    pod 'SparkSetup'
+end
 ```
 
-and then run `pod update`. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "SparkSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
+Replace `YourAppName` with your app target name - usually shown as the root item name in the XCode project,
+then run `pod update` in your shell. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "SparkSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
 
 
 #### Support for Swift projects
-To use Particle Device Setup library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/), 
+To use Particle Device Setup library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
 as an additional resource you can consult official [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on the matter.
 
 ### Carthage
