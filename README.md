@@ -4,7 +4,7 @@
 
 # Particle Device Setup library (beta)
 
-[![Platform](https://img.shields.io/badge/platform-iOS-10a4fa.svg)]() [![license](https://img.shields.io/hexpm/l/plug.svg)]() [![version](https://img.shields.io/badge/pod-0.6.0-green.svg)]() [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Platform](https://img.shields.io/badge/platform-iOS-10a4fa.svg)]() [![license](https://img.shields.io/hexpm/l/plug.svg)]() [![version](https://img.shields.io/badge/pod-0.6.1-green.svg)]() [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
@@ -67,6 +67,7 @@ SparkSetupMainController *setupController = [[SparkSetupMainController alloc] in
 ```
 
 **Swift**
+
 ```swift
 if let setupController = SparkSetupMainController(authenticationOnly: true)
 {
@@ -87,12 +88,15 @@ So invoking setup without an active user session will go thru the setup steps re
 However, calling `-initWithSetupOnly:` method with an active user session is essentially the same as calling `-init:`.
 Usage:
 
+**Objective-C**
+
 ```objc
 SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithSetupOnly:YES];
 [self presentViewController:setupController animated:YES completion:nil];
 ```
 
 **Swift**
+
 ```swift
 if let setupController = SparkSetupMainController(setupOnly: true)
 {
@@ -100,11 +104,9 @@ if let setupController = SparkSetupMainController(setupOnly: true)
 }
 ```
 
-####1Password support
+####Password manager extension support
 
-Starting library version 0.6.0 1Password manager support has been added to the signup and login screens - no action is required from the user - 
-if 1Password is installed on the iOS device the lock icon will appear in the password fields on those screen and will allow user to fill in his 
-saved password (login) or create a new one (signup). Only recommendation is adding `LSApplicationQueriesSchemes = org-appextension-feature-password-management` key-value to your `info.plist` file in your app project.
+Starting library version 0.6.0 the 1Password manager extension support has been added to the signup and login screens - no action is required from the developer - if 1Password is installed on the iOS device the lock icon will appear in the password fields on those screen and will allow user to fill in his saved password (login) or create a new one (signup). Only recommendation is adding `LSApplicationQueriesSchemes = org-appextension-feature-password-management` key-value to your `info.plist` file in your app project.
 
 For additional information read [here](https://github.com/AgileBits/onepassword-app-extension#use-case-1-native-app-login).
 
@@ -112,7 +114,8 @@ For additional information read [here](https://github.com/AgileBits/onepassword-
 ### Customization
 
 Customize setup look and feel by accessing the `SparkSetupCustomization` singleton appearance proxy `[SparkSetupCustomization sharedInstance]`
-and modify its default properties. Setting the properties in this class is optional. *(Replace NSString with String for Swift projects)*
+and modify its default properties. Setting the properties in this class is optional. 
+These properies are shown in Objective-C syntax for convenience but work the same for Swift projects - use `String`, `Bool` instead of `NSString` and `BOOL`. 
 
 #### Product/brand info:
 
@@ -156,26 +159,22 @@ and modify its default properties. Setting the properties in this class is optio
  BOOL lightStatusAndNavBar;        // Make navigation and status bar appear in white or black color characters to contrast the selected brandImage color // *New since v0.6.1*
 ```
 
-#### Organization:
+#### Product creators
 
-Setting `organization=YES` will enable organization mode which uses different API endpoints and requires special permissions (See Particle Dashboard).
-*New since v0.2.2*
+If you're developing an app for your product / you're a product creator you should set `productMode` to YES (or true for Swift) - this will enable product mode which uses different API endpoints to allow adding/setting up devices assigned to your product.
 
-If you set `organization` to `YES` be sure to also provide the `organizationSlug` and `productSlug` your created in [Particle Dashboard](https://docs.particle.io/guide/tools-and-features/dashboard/).
-Make sure you inject the `SparkCloud` class with scoped OAuth credentials for creating customers (so app users could create an account), [read here](https://docs.particle.io/reference/ios/#oauth-client-configuration) on how to do it correctly.
-To learn how to create those credentials for your organization [read here](https://docs.particle.io/guide/how-to-build-a-product/authentication/#creating-an-oauth-client).
+If you set `productMode ` to `YES / true` be sure to also provide the `productId` (and `productName`) - please [read here](https://docs.particle.io/guide/tools-and-features/console/#your-product-id) about how to find your productId number.
+
+Make sure you inject the `SparkCloud` class with [scoped OAuth credentials for creating customers](https://docs.particle.io/guide/how-to-build-a-product/authentication/#creating-an-oauth-client), so app users could create an account. [Read here](https://docs.particle.io/reference/ios/#oauth-client-configuration) on how to do it correctly.
+
 
 ```objc
- BOOL organization;             // enable organizational mode
- NSString *organizationName;    // organization display name
- NSString *organizationSlug;    // organizational name for API endpoint URL - must specify for orgMode *new*
- NSString *productName;         // product display name *new*
- NSString *productSlug;         // product string for API endpoint URL - must specify for orgMode *new*
+ BOOL productMode;              // enable product mode
+ NSString *productName;         // product display name 
+ NSUInteger productId;			  // Product Id number from Particle console
 ```
 
 #### Skipping authentication:
-
-*New since v0.3.0*
 
 ```objc
  BOOL allowSkipAuthentication;          // Allow user to skip authentication (skip button will appear on signup and login screens)
@@ -184,11 +183,15 @@ To learn how to create those credentials for your organization [read here](https
 
 ### Advanced
 
-You can get an active instance of `SparkDevice` by making your viewcontroller conform to protocol `<SparkSetupMainControllerDelegate>` when setup wizard completes successfully:
+You can get an active instance of the set up device - `SparkDevice` by making your viewcontroller conform to protocol `<SparkSetupMainControllerDelegate>` when setup wizard completes successfully:
+
+**Objective-C**
 
 ```objc
 -(void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
 ```
+
+**Swift**
 
 ```swift
 func sparkSetupViewController(controller: SparkSetupMainController!, didFinishWithResult result: SparkSetupMainControllerResult, device: SparkDevice!)
@@ -200,9 +203,13 @@ In case setup failed, aborted or was cancalled  you can determine the exact reas
 
 If setup failed and you can still determine the device ID of the last device that was tried to be setup and failed by conforming to the @optional delegate function: (new since 0.5.0)
 
+**Objective-C**
+
 ```objc
 - (void)sparkSetupViewController:(SparkSetupMainController *)controller didNotSucceeedWithDeviceID:(NSString *)deviceID;
 ```
+
+**Swift**
 
 ```swift
 func sparkSetupViewController(controller: SparkSetupMainController!, didNotSucceeedWithDeviceID deviceID: String)
@@ -210,19 +217,20 @@ func sparkSetupViewController(controller: SparkSetupMainController!, didNotSucce
 
 
 ### Example
+
 Cocoapods usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once 
 setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 ### Reference
 
 Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
-If the Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
+If the Device Setup library installation completed successfully in your XCode project - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ## Requirements / limitations
 
 - iOS 8.0 and up supported
 - Currently setup wizard displays on portait mode only.
-- XCode 6.0 and up is required
+- XCode 7 and up is required
 
 ## Installation
 
@@ -245,12 +253,12 @@ then run `pod update` in your shell. A new `.xcworkspace` file will be created f
 
 
 #### Support for Swift projects
+
 To use Particle Device Setup library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
 as an additional resource you can consult official [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on the matter.
 
 ### Carthage
 
-*New since v0.4.0*
 Starting version 0.4.0 Particle iOS device setup library is available through [Carthage](https://github.com/Carthage/Carthage). Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
 You must have Carthage installed, if you don't then be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
 Then to build the Particle iOS device setup library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
