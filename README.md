@@ -22,12 +22,7 @@ iOS Device setup library is implemented as an open-source Cocoapod static librar
 Spark has been recently rebranded as Particle. 
 Code currently contains `SparkSetup` keyword as classes prefixes. this will soon be replaced with `ParticleDeviceSetup`. 
 
-## Usage
-
-Official documentation can be found in [Particle docs website](https://docs.particle.io/reference/ios/#ios-device-setup-library).
-Treat this `README` as the most updated resource.
-
-### Basic
+### Usage
 
 **Cocoapods**
 
@@ -79,7 +74,7 @@ This will invoke Particle Cloud authentication (login/signup/password recovery s
 after user has successfully logged in or signed up, control will be returned to the calling app. 
 If an active user session already exists control will be returned immediately.
 
-####Configure device Wi-Fi credentials without claiming it
+#### Configure device Wi-Fi credentials without claiming it
 
 If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via `initWithSetupOnly`, 
 and by allowing your users to skip authentication (see `allowSkipAuthentication` flag in customization section) if you present the authentication stage.
@@ -104,7 +99,7 @@ if let setupController = SparkSetupMainController(setupOnly: true)
 }
 ```
 
-####Password manager extension support
+#### Password manager extension support
 
 Starting library version 0.6.0 the 1Password manager extension support has been added to the signup and login screens - no action is required from the developer - if 1Password is installed on the iOS device the lock icon will appear in the password fields on those screen and will allow user to fill in his saved password (login) or create a new one (signup). Only recommendation is adding `LSApplicationQueriesSchemes = org-appextension-feature-password-management` key-value to your `info.plist` file in your app project.
 
@@ -226,15 +221,15 @@ setup wizard completes (delegate). Feel free to contribute to the example by sub
 Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
 If the Device Setup library installation completed successfully in your XCode project - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
-## Requirements / limitations
+### Requirements / limitations
 
 - iOS 8.0 and up supported
 - Currently setup wizard displays on portait mode only.
 - XCode 7 and up is required
 
-## Installation
+### Installation
 
-### Cocoapods
+#### Cocoapods
 
 Particle Device Setup library is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
 You must have Cocoapods installed, if you don't then be sure to [Install Cocoapods](https://guides.cocoapods.org/using/getting-started.html) before you start:
@@ -251,13 +246,12 @@ end
 Replace `YourAppName` with your app target name - usually shown as the root item name in the XCode project,
 then run `pod update` in your shell. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "SparkSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
 
-
-#### Support for Swift projects
+##### Support for Swift projects
 
 To use Particle Device Setup library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
 as an additional resource you can consult official [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on the matter.
 
-### Carthage
+#### Carthage
 
 Starting version 0.4.0 Particle iOS device setup library is available through [Carthage](https://github.com/Carthage/Carthage). Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
 You must have Carthage installed, if you don't then be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
@@ -280,18 +274,17 @@ Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C
 No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects. This is the recommended way if you have a mixed set of dependencies.
 
 
-## Communication
+### Communication
 
 - If you **need help**, use [Our community website](http://community.particle.io)
 - If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue.
 - If you **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
 
+### License
+
+Particle Device Setup library is available under the Apache license 2.0. See the LICENSE file for more info.
 
 ## Maintainers
 
 - [Ido Kleinman](https://www.github.com/idokleinman)
-
-## License
-
-Particle Device Setup library is available under the Apache license 2.0. See the LICENSE file for more info.
