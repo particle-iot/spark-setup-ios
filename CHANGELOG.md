@@ -3,10 +3,33 @@ All notable changes to this project will be documented in this file.
 Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver.org/).
 
 ---
+## [0.7.0](https://github.com/spark/spark-setup-ios/releases/tag/0.7.0) (2017-3-28)
+
+* Change: XCode 8 compatibility fixes
+
+* Change: Force 8 characters passwords in signup
+
+* Change: Added account info signup fields in UI and API request (name, company name, business account)
+
+* Bugfix: Reset password button issue
+
+* Change: "Product mode" deprecates "Organization mode" and fixes API requests
+
+* Change: Wording of change ownership message during setup
+
+* Change: Clean up some NSLogs
+
+* Change: Updated and improved documentation
+
+* Bugfix: Fix a bug that would sometimes cause a device to not get named after setup even if user wanted to name it
+
+* Bugfix: Prevent multiple signup viewcontroller spawns by blocking signup button after first tap
+
+* Change: Updated Pods and Carthage
 
 ## [0.6.1](https://github.com/spark/spark-setup-ios/releases/tag/0.6.1) (2016-9-12)
 
-* Bugfix: Privacy policy and TOS will not cause app crash now 
+* Bugfix: Privacy policy and TOS will not cause app crash now
 
 * Change: Moved from mixpanel to Segment analytics
 
@@ -16,7 +39,7 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 * Change: MODE button has been renamed to SETUP button (for Photon devices)
 
-* Bugfix: Removed some obsolete NSLogs 
+* Bugfix: Removed some obsolete NSLogs
 
 ## [0.6.0](https://github.com/spark/spark-setup-ios/releases/tag/0.6.0) (2016-7-22)
 
@@ -26,13 +49,13 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 * Added: Listen to system events at last stage of setup to detect a device came online (even if it went straight to OTA)
 
-* Change: Org/product error messages 
+* Change: Org/product error messages
 
 ## [0.5.0](https://github.com/spark/spark-setup-ios/releases/tag/0.5.0) (2016-5-19)
 
 * New delegate function didFailWithDeviceID - will report the device ID that setup failed setting up
 
-* Main setup delegate function will now report detailed failture codes via the SparkSetupMainControllerResult enum (updated) 
+* Main setup delegate function will now report detailed failture codes via the SparkSetupMainControllerResult enum (updated)
 
 ## [0.4.1](https://github.com/spark/spark-setup-ios/releases/tag/0.4.1) (2016-5-19)
 

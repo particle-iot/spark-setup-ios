@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "SparkSetup"
-    s.version          = "0.6.1"
+    s.version          = "0.7.0"
     s.summary          = "Particle iOS Device Setup library for easy integration of setup process for Particle devices in your app"
     s.description      = <<-DESC
                         Particle (formerly Spark) Device Setup library for integrating setup process of Particle devices in your app
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
     s.public_header_files = 'Classes/*.h'
     s.source_files  = 'Classes/*.h'
-    
+
     s.resource_bundle = {'SparkSetup' => 'Resources/**/*.{xcassets,storyboard}'}
 
     s.subspec 'Core' do |core|
