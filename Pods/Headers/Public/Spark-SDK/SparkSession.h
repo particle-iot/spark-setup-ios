@@ -1,1 +1,1 @@
-../../../../../spark-sdk-ios/Pod/Classes/SDK/SparkSession.h
+../../../Spark-SDK/Pod/Classes/SDK/SparkSession.h

@@ -1,1 +1,1 @@
-../../../../../spark-sdk-ios/Pod/Classes/Helpers/EventSource.h
+../../../Spark-SDK/Pod/Classes/Helpers/EventSource.h
