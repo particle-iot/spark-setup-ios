@@ -160,7 +160,7 @@ If you're developing an app for your product / you're a product creator you shou
 
 If you set `productMode ` to `YES / true` be sure to also provide the `productId` (and `productName`) - please [read here](https://docs.particle.io/guide/tools-and-features/console/#your-product-id) about how to find your productId number.
 
-Make sure you inject the `SparkCloud` class with [scoped OAuth credentials for creating customers](https://docs.particle.io/guide/how-to-build-a-product/authentication/#creating-an-oauth-client), so app users could create an account. [Read here](https://docs.particle.io/reference/ios/#oauth-client-configuration) on how to do it correctly.
+Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials for creating customers](https://docs.particle.io/guide/how-to-build-a-product/authentication/#creating-an-oauth-client), so app users could create an account. [Read here](https://docs.particle.io/reference/ios/#oauth-client-configuration) on how to do it correctly.
 
 
 ```objc

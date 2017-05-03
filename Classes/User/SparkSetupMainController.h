@@ -37,7 +37,7 @@ extern NSString *const kSparkSetupDidFinishDeviceKey;
 extern NSString *const kSparkSetupDidFailDeviceIDKey;
 
 @class SparkSetupMainController;
-@class SparkDevice;
+@class ParticleDevice;
 
 @protocol SparkSetupMainControllerDelegate
 @required
@@ -46,9 +46,9 @@ extern NSString *const kSparkSetupDidFailDeviceIDKey;
  *
  *  @param controller Instance of main SparkSetup viewController
  *  @param result     Result of setup completion - can be success, failure or user-cancelled.
- *  @param device     SparkDevice instance in case the setup completed successfully and a SparkDevice was claimed to logged in user
+ *  @param device     ParticleDevice instance in case the setup completed successfully and a ParticleDevice was claimed to logged in user
  */
-- (void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
+- (void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(ParticleDevice *)device;
 
 @optional
 /**

@@ -13,7 +13,7 @@
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
-#import "Spark-SDK.h"
+#import "Particle-SDK.h"
 #endif
 
 #import "SparkSetupCustomization.h"
@@ -109,7 +109,7 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidFinishObserver:) name:kSparkSetupDidFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidLogoutObserver:) name:kSparkSetupDidLogoutNotification object:nil];
     
-    if ([SparkCloud sharedInstance].isAuthenticated)
+    if ([ParticleCloud sharedInstance].isAuthenticated)
     {
         // start from discover screen if user is already logged in
         if (self.authenticationOnly == NO)
@@ -226,7 +226,7 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
     
     NSDictionary *finishStateDict = note.userInfo;
     NSNumber* state = finishStateDict[kSparkSetupDidFinishStateKey];
-    SparkDevice *device = finishStateDict[kSparkSetupDidFinishDeviceKey];
+    ParticleDevice *device = finishStateDict[kSparkSetupDidFinishDeviceKey];
     NSString *deviceID = finishStateDict[kSparkSetupDidFailDeviceIDKey];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kSparkSetupDidFinishNotification object:nil];

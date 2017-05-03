@@ -1,1 +1,0 @@
-../../../Spark-SDK/Pod/Classes/SDK/SparkSession.h

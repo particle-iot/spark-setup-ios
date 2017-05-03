@@ -11,8 +11,8 @@
 #import <ParticleSDK/ParticleSDK.h>
 #import <OnePasswordExtension/OnePasswordExtension.h>
 #else
-#import "Spark-SDK.h"
-#import <OnePasswordExtension/OnePasswordExtension.h>
+#import "Particle-SDK.h"
+#import <1PasswordExtension/OnePasswordExtension.h>
 #endif
 #import "SparkUserLoginViewController.h"
 #import "SparkSetupWebViewController.h"
@@ -243,7 +243,7 @@
             self.signupButton.enabled = NO;
             
             // Sign up and then login
-            [[SparkCloud sharedInstance] createCustomer:email password:self.passwordTextField.text productId:[SparkSetupCustomization sharedInstance].productId accountInfo:nil completion:^(NSError *error) {
+            [[ParticleCloud sharedInstance] createCustomer:email password:self.passwordTextField.text productId:[SparkSetupCustomization sharedInstance].productId accountInfo:nil completion:^(NSError *error) {
                 if (!error)
                 {
 #ifdef ANALYTICS
@@ -283,14 +283,14 @@
             }
             
             // Sign up and then login
-            [[SparkCloud sharedInstance] createUser:email password:self.passwordTextField.text accountInfo:accountInfo completion:^(NSError *error) {
+            [[ParticleCloud sharedInstance] createUser:email password:self.passwordTextField.text accountInfo:accountInfo completion:^(NSError *error) {
                 if (!error)
                 {
 #ifdef ANALYTICS
                     [[SEGAnalytics sharedAnalytics] track:@"Auth: Signed Up New User"];
 #endif
                     
-                    [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
+                    [[ParticleCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
                         [self.spinner stopAnimating];
                         self.signupButton.enabled = YES;
                         if (!error)

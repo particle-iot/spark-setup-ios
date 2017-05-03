@@ -14,7 +14,7 @@
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
-#import "Spark-SDK.h"
+#import "Particle-SDK.h"
 #endif
 #ifdef ANALYTICS
 #import <SEGAnalytics.h>

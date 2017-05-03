@@ -11,7 +11,7 @@
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
-#import "Spark-SDK.h"
+#import "Particle-SDK.h"
 #endif
 #import "SparkSetupWebViewController.h"
 #import "SparkUserLoginViewController.h"
@@ -95,11 +95,11 @@
         self.resetPasswordButton.userInteractionEnabled = NO;
         if ([SparkSetupCustomization sharedInstance].productMode) // TODO: fix that so it'll work for non-org too
         {
-            [[SparkCloud sharedInstance] requestPasswordResetForCustomer:self.emailTextField.text productId:[SparkSetupCustomization sharedInstance].productId completion:passwordResetCallback];
+            [[ParticleCloud sharedInstance] requestPasswordResetForCustomer:self.emailTextField.text productId:[SparkSetupCustomization sharedInstance].productId completion:passwordResetCallback];
         }
         else
         {
-            [[SparkCloud sharedInstance] requestPasswordResetForUser:self.emailTextField.text completion:passwordResetCallback];
+            [[ParticleCloud sharedInstance] requestPasswordResetForUser:self.emailTextField.text completion:passwordResetCallback];
         }
     }
     else

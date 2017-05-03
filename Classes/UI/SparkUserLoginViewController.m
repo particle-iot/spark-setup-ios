@@ -16,7 +16,7 @@
 #import <ParticleSDK/ParticleSDK.h>
 #import <OnePasswordExtension/OnePasswordExtension.h>
 #else
-#import "Spark-SDK.h"
+#import "Particle-SDK.h"
 #import "OnePasswordExtension.h"
 //#import <1PasswordExtension/OnePasswordExtension.h>
 #endif
@@ -163,7 +163,7 @@
     if ([self isValidEmail:email])
     {
         [self.spinner startAnimating];
-         [[SparkCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
+         [[ParticleCloud sharedInstance] loginWithUser:email password:self.passwordTextField.text completion:^(NSError *error) {
              [self.spinner stopAnimating];
              if (!error)
              {

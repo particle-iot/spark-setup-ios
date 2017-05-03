@@ -1,1 +1,0 @@
-../../../Spark-SDK/Pod/Classes/SDK/SparkDevice.h

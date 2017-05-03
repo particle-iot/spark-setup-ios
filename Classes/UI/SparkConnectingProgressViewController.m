@@ -16,7 +16,7 @@
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
-#import "Spark-SDK.h"
+#import "Particle-SDK.h"
 #endif
 #import "SparkSetupUIElements.h"
 #import "SparkSetupResultViewController.h"
@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 @property (weak, nonatomic) IBOutlet UILabel *deviceIsConnectingLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 //@property (weak, nonatomic) IBOutlet UIButton *troubleshootingButton;
-@property (strong, nonatomic) SparkDevice *device;
+@property (strong, nonatomic) ParticleDevice *device;
 
 @property (strong, nonatomic) Reachability *hostReachability;
 @property (nonatomic) BOOL hostReachable;
@@ -369,7 +369,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
         {
             if (![SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
             {
-                [[SparkCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
+                [[ParticleCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
                     if (!error)
                     {
 //                        NSLog(@"getDevices completed - to wake radio up");
@@ -399,7 +399,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
             [self nextConnectionProgressState];
             [self checkDeviceIsClaimed];
 //            NSLog(@"Subscribing to status events for %@",self.deviceID);
-            self.statusEventID = [[SparkCloud sharedInstance] subscribeToMyDevicesEventsWithPrefix:@"spark" handler:^(SparkEvent * _Nullable event, NSError * _Nullable error) {
+            self.statusEventID = [[ParticleCloud sharedInstance] subscribeToMyDevicesEventsWithPrefix:@"spark" handler:^(ParticleEvent * _Nullable event, NSError * _Nullable error) {
 //                NSLog(@"got status event");
                 if ([event.deviceID isEqualToString:self.deviceID]) {
                     self.gotStatusEventFromDevice = YES;
@@ -427,7 +427,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 -(void)getDeviceAndFinishSetup
 {
     // get the claimed device to report it back to the user
-    [[SparkCloud sharedInstance] getDevice:self.deviceID completion:^(SparkDevice *device, NSError *error) {
+    [[ParticleCloud sharedInstance] getDevice:self.deviceID completion:^(ParticleDevice *device, NSError *error) {
         // --- Done ---
         if (!error)
         {
@@ -461,17 +461,17 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 -(void)checkDeviceIsClaimed // step 4
 {
     // --- Claim device ---
-//    [[SparkCloud sharedInstance] claimDevice:self.deviceID completion:^(NSError *error) {
+//    [[ParticleCloud sharedInstance] claimDevice:self.deviceID completion:^(NSError *error) {
     if (self.gotStatusEventFromDevice) {
 //        NSLog(@"received event from setup device, finishing setup successfully");
         [self getDeviceAndFinishSetup];
     }
     
-    [[SparkCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
+    [[ParticleCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
         BOOL deviceClaimed = NO;
         if (devices)
         {
-            for (SparkDevice *device in devices)
+            for (ParticleDevice *device in devices)
             {
 //                NSLog(@"list device ID: %@, setup device ID: %@",device.id,self.deviceID);
                 if ([device.id isEqualToString:self.deviceID])
@@ -530,7 +530,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     [self.hostReachability stopNotifier];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
-    [[SparkCloud sharedInstance] unsubscribeFromEventWithID:self.statusEventID];
+    [[ParticleCloud sharedInstance] unsubscribeFromEventWithID:self.statusEventID];
 //    NSLog(@"Unsubscribing from status events for %@",self.deviceID);
 }
 

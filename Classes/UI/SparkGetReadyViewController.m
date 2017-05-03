@@ -12,7 +12,7 @@
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
-#import "Spark-SDK.h"
+#import "Particle-SDK.h"
 #endif
 #import "SparkSetupMainController.h"
 #import "SparkDiscoverDeviceViewController.h"
@@ -67,8 +67,8 @@
     if ([SparkSetupCustomization sharedInstance].productImage)
         self.productImageView.image = [SparkSetupCustomization sharedInstance].productImage;
 
-    if ([SparkCloud sharedInstance].loggedInUsername)
-        self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[SparkCloud sharedInstance].loggedInUsername];
+    if ([ParticleCloud sharedInstance].loggedInUsername)
+        self.loggedInLabel.text = [self.loggedInLabel.text stringByAppendingString:[ParticleCloud sharedInstance].loggedInUsername];
     else
         self.loggedInLabel.text = @"";
     self.loggedInLabel.alpha = 0.85;
@@ -79,9 +79,9 @@
     self.cancelSetupButton.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.self.cancelSetupButton.titleLabel.font.pointSize];
 //    [self.cancelSetupButton setTitleColor:[SparkSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
 
-    if ([SparkCloud sharedInstance].isAuthenticated)
+    if ([ParticleCloud sharedInstance].isAuthenticated)
     {
-        self.loggedInLabel.text = [SparkCloud sharedInstance].loggedInUsername;
+        self.loggedInLabel.text = [ParticleCloud sharedInstance].loggedInUsername;
     }
     else
     {
@@ -154,9 +154,9 @@
     
     
     
-    //    [[SparkCloud sharedInstance] generateClaimCode
+    //    [[ParticleCloud sharedInstance] generateClaimCode
     void (^claimCodeCompletionBlock)(NSString *, NSArray *, NSError *) = ^void(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
-        //  [[SparkCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
+        //  [[ParticleCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
         
         self.readyButton.userInteractionEnabled = YES;
         [self.spinner stopAnimating];
@@ -177,7 +177,7 @@
                 NSString *errStr = [NSString stringWithFormat:@"Sorry, you must be logged in as a %@ customer.",[SparkSetupCustomization sharedInstance].brandName];
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Access denied" message:errStr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert show];
-                [[SparkCloud sharedInstance] logout];
+                [[ParticleCloud sharedInstance] logout];
                 // call main delegate or post notification
                 [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidLogoutNotification object:nil userInfo:nil];
             }
@@ -197,15 +197,15 @@
         }
     };
     
-    if ([SparkCloud sharedInstance].isAuthenticated)
+    if ([ParticleCloud sharedInstance].isAuthenticated)
     {
         if ([SparkSetupCustomization sharedInstance].productMode)
         {
-            [[SparkCloud sharedInstance] generateClaimCodeForProduct:[SparkSetupCustomization sharedInstance].productId completion:claimCodeCompletionBlock];
+            [[ParticleCloud sharedInstance] generateClaimCodeForProduct:[SparkSetupCustomization sharedInstance].productId completion:claimCodeCompletionBlock];
         }
         else
         {
-            [[SparkCloud sharedInstance] generateClaimCode:claimCodeCompletionBlock];
+            [[ParticleCloud sharedInstance] generateClaimCode:claimCodeCompletionBlock];
         }
     }
     else
@@ -230,7 +230,7 @@
 - (IBAction)logoutButtonTouched:(id)sender
 {
 //    [self.checkConnectionTimer invalidate];
-    [[SparkCloud sharedInstance] logout];
+    [[ParticleCloud sharedInstance] logout];
     // call main delegate or post notification
     [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidLogoutNotification object:nil userInfo:nil];
     //    [self.navigationController popToRootViewControllerAnimated:YES];

@@ -14,7 +14,7 @@
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
-#import "Spark-SDK.h"
+#import "Particle-SDK.h"
 #endif
 #import "SparkSetupSecurityManager.h"
 #import "SparkSetupUILabel.h"
@@ -438,10 +438,10 @@
                 if (!self.didGoToWifiListScreen)
                 {
 
-                    if ([SparkCloud sharedInstance].isAuthenticated)
+                    if ([ParticleCloud sharedInstance].isAuthenticated)
                     {
                         // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
-                        NSString *messageStr = [NSString stringWithFormat:@"Do you want to claim ownership of this %@ to %@?",[SparkSetupCustomization sharedInstance].deviceName,[SparkCloud sharedInstance].loggedInUsername];
+                        NSString *messageStr = [NSString stringWithFormat:@"Do you want to claim ownership of this %@ to %@?",[SparkSetupCustomization sharedInstance].deviceName,[ParticleCloud sharedInstance].loggedInUsername];
                         self.changeOwnershipAlertView = [[UIAlertView alloc] initWithTitle:@"Product ownership" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
                         [self.checkConnectionTimer invalidate];
                         [self.changeOwnershipAlertView show];

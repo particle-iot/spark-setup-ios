@@ -5,7 +5,7 @@ platform :ios, '9.0'
 target 'SparkSetup' do
 
     project 'SparkSetup'
-    pod 'Spark-SDK'
+    pod 'Particle-SDK'
     pod 'AFNetworking'
     pod '1PasswordExtension'
 
