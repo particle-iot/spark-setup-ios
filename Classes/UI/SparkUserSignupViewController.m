@@ -266,6 +266,14 @@
         }
         else
         {
+            if ([SparkSetupCustomization sharedInstance].organization) {
+                NSException* deprecationException = [NSException
+                                                     exceptionWithName:@"OrganizationModeDeprecated"
+                                                     reason:@"You can no longer use orgnaization mode, set productMode to true and set your productId"
+                                                     userInfo:nil];
+                @throw deprecationException;
+            }
+
             // normal user sign up
             [self.spinner startAnimating];
             self.signupButton.enabled = NO;
