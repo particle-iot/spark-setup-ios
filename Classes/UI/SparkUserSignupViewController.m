@@ -12,7 +12,7 @@
 #import <OnePasswordExtension/OnePasswordExtension.h>
 #else
 #import "Spark-SDK.h"
-#import <OnePasswordExtension/OnePasswordExtension.h>
+#import <1PasswordExtension/OnePasswordExtension.h>
 #endif
 #import "SparkUserLoginViewController.h"
 #import "SparkSetupWebViewController.h"
