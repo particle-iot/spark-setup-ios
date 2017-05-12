@@ -8,9 +8,13 @@
 
 #import "SparkSetupUIViewController.h"
 #import "SparkSetupMainController.h"
-//#import <Particle-SDK.h>
+#ifdef FRAMEWORK
+#import <ParticleSDK/ParticleSDK.h>
+#else
+#import "Particle-SDK.h"
+#endif
 
-@class ParticleDevice;
+//@class ParticleDevice;
 
 @interface SparkSetupResultViewController : SparkSetupUIViewController
 @property (nonatomic, strong) ParticleDevice *device; // device instance for successful setup

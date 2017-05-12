@@ -57,7 +57,7 @@
 		5038C5A41CA21E750084D255 /* SparkSetupMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5731CA21E750084D255 /* SparkSetupMainController.m */; };
 		5038C5B51CA22D9C0084D255 /* setup.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5038C5B41CA22D9C0084D255 /* setup.xcassets */; };
 		5038C5B71CA22DA20084D255 /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5038C5B61CA22DA20084D255 /* setup.storyboard */; };
-		50D43B8A1E8D9B66007DC41F /* ParticleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D43B871E8D9B66007DC41F /* ParticleSDK.framework */; };
+		5061B6C71EC540D300EA482E /* ParticleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5061B6C61EC540D300EA482E /* ParticleSDK.framework */; };
 		50D43B8B1E8D9B66007DC41F /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D43B881E8D9B66007DC41F /* OnePasswordExtension.framework */; };
 		50D43B8C1E8D9B66007DC41F /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D43B891E8D9B66007DC41F /* AFNetworking.framework */; };
 /* End PBXBuildFile section */
@@ -115,8 +115,8 @@
 		5038C5731CA21E750084D255 /* SparkSetupMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupMainController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5038C5B41CA22D9C0084D255 /* setup.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = setup.xcassets; path = ../../Resources/setup.xcassets; sourceTree = "<group>"; };
 		5038C5B61CA22DA20084D255 /* setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = setup.storyboard; path = ../../Resources/setup.storyboard; sourceTree = "<group>"; };
+		5061B6C61EC540D300EA482E /* ParticleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParticleSDK.framework; sourceTree = "<group>"; };
 		50A6F8511CADE934000024A8 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
-		50D43B871E8D9B66007DC41F /* ParticleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParticleSDK.framework; path = ../Carthage/Build/iOS/ParticleSDK.framework; sourceTree = "<group>"; };
 		50D43B881E8D9B66007DC41F /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = ../Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
 		50D43B891E8D9B66007DC41F /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = ../Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,9 +126,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5061B6C71EC540D300EA482E /* ParticleSDK.framework in Frameworks */,
 				50D43B8B1E8D9B66007DC41F /* OnePasswordExtension.framework in Frameworks */,
 				50D43B8C1E8D9B66007DC41F /* AFNetworking.framework in Frameworks */,
-				50D43B8A1E8D9B66007DC41F /* ParticleSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +138,7 @@
 		5038C5241CA21D190084D255 = {
 			isa = PBXGroup;
 			children = (
-				50D43B871E8D9B66007DC41F /* ParticleSDK.framework */,
+				5061B6C61EC540D300EA482E /* ParticleSDK.framework */,
 				50D43B881E8D9B66007DC41F /* OnePasswordExtension.framework */,
 				50D43B891E8D9B66007DC41F /* AFNetworking.framework */,
 				50A6F8511CADE934000024A8 /* Cartfile */,

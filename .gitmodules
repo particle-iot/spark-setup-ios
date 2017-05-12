@@ -7,3 +7,6 @@
 [submodule "Carthage/Checkouts/onepassword-extension"]
 	path = Carthage/Checkouts/onepassword-extension
 	url = https://github.com/AgileBits/onepassword-extension.git
+[submodule "Carthage/Checkouts/particle-sdk-ios"]
+	path = Carthage/Checkouts/particle-sdk-ios
+	url = https://github.com/spark/particle-sdk-ios.git

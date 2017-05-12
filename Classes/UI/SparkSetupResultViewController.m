@@ -6,16 +6,16 @@
 //  Copyright (c) 2015 spark. All rights reserved.
 //
 
-#import "SparkSetupResultViewController.h"
-#import "SparkSetupUIElements.h"
-#import "SparkSetupMainController.h"
-#import "SparkSetupWebViewController.h"
-#import "SparkSetupCustomization.h"
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
 #import "Particle-SDK.h"
 #endif
+#import "SparkSetupResultViewController.h"
+#import "SparkSetupUIElements.h"
+#import "SparkSetupMainController.h"
+#import "SparkSetupWebViewController.h"
+#import "SparkSetupCustomization.h"
 #ifdef ANALYTICS
 #import <SEGAnalytics.h>
 #endif

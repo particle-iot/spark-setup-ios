@@ -1,5 +1,5 @@
 //
-//  SparkEvent.h
+//  ParticleEvent.h
 //  Pods
 //
 //  Created by Ido on 7/14/15.
@@ -10,17 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- *  Spark event handler function which receives two arguements
- *
- *  @param eventDict NSDictionary argument which contains the event payload keys: event (name), data (payload), ttl (time to live), published_at (date/time published), coreid (publishiing device ID).
- *  @param error     NSError object in case an error occured in parsing the event payload or receiving it
- */
-@class SparkEvent;
+@class ParticleEvent;
 
-typedef void (^SparkEventHandler)(SparkEvent * _Nullable event, NSError * _Nullable error);
+typedef void (^ParticleEventHandler)(ParticleEvent * _Nullable event, NSError * _Nullable error);
 
-@interface SparkEvent : NSObject
+@interface ParticleEvent : NSObject
 
 @property (nonatomic, strong) NSString *deviceID;   // Event published by this device ID
 @property (nonatomic, nullable, strong) NSString *data;  // Event payload in string format
@@ -28,6 +22,11 @@ typedef void (^SparkEventHandler)(SparkEvent * _Nullable event, NSError * _Nulla
 @property (nonatomic, strong) NSDate *time;         // Event "published at" time/date UTC
 @property (nonatomic) NSInteger ttl;                // Event time to live (currently unused)
 
+/**
+ *  Particle event handler class initializer which receives a dictionary argument
+ *
+ *  @param eventDict NSDictionary argument which contains the event payload keys: event (name), data (payload), ttl (time to live), published_at (date/time published), coreid (publishiing device ID).
+ */
 -(instancetype)initWithEventDict:(NSDictionary *)eventDict;
 
 @end
