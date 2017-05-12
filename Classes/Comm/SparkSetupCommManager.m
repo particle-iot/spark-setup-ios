@@ -1,5 +1,5 @@
 //
-//  SparkSetupManager.m
+//  ParticleSetupManager.m
 //  spark-setup-ios
 //
 //  Created by Ido Kleinman on 11/20/14.
@@ -8,10 +8,10 @@
 //  https://github.com/spark/photon-wiced/blob/master/soft-ap.md
 //
 
-#import "SparkSetupCommManager.h"
-#import "SparkSetupConnection.h"
+#import "ParticleSetupCommManager.h"
+#import "ParticleSetupConnection.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
-#import "SparkSetupSecurityManager.h"
+#import "ParticleSetupSecurityManager.h"
 #import <NetworkExtension/NetworkExtension.h>
 //#import "FastSocket.h"
 
@@ -22,28 +22,28 @@
 
 #define ENCRYPT_PWD     1
 
-typedef NS_ENUM(NSInteger, SparkSetupCommandType) {
-    SparkSetupCommandTypeNone=0,
-    SparkSetupCommandTypeVersion=1,
-    SparkSetupCommandTypeDeviceID=2,
-    SparkSetupCommandTypeScanAP=3,
-    SparkSetupCommandTypeConfigureAP=4,
-    SparkSetupCommandTypeConnectAP=5,
-    SparkSetupCommandTypePublicKey,
-    SparkSetupCommandTypeSet,
+typedef NS_ENUM(NSInteger, ParticleSetupCommandType) {
+    ParticleSetupCommandTypeNone=0,
+    ParticleSetupCommandTypeVersion=1,
+    ParticleSetupCommandTypeDeviceID=2,
+    ParticleSetupCommandTypeScanAP=3,
+    ParticleSetupCommandTypeConfigureAP=4,
+    ParticleSetupCommandTypeConnectAP=5,
+    ParticleSetupCommandTypePublicKey,
+    ParticleSetupCommandTypeSet,
 };
 
 
-NSString *const kSparkSetupConnectionEndpointAddress = @"192.168.0.1";
-NSString *const kSparkSetupConnectionEndpointPortString = @"5609";
-int const kSparkSetupConnectionEndpointAddressHex = 0xC0A80001;
-int const kSparkSetupConnectionEndpointPort = 5609;
+NSString *const kParticleSetupConnectionEndpointAddress = @"192.168.0.1";
+NSString *const kParticleSetupConnectionEndpointPortString = @"5609";
+int const kParticleSetupConnectionEndpointAddressHex = 0xC0A80001;
+int const kParticleSetupConnectionEndpointPort = 5609;
 
 
-@interface SparkSetupCommManager() <SparkSetupConnectionDelegate>
+@interface ParticleSetupCommManager() <ParticleSetupConnectionDelegate>
 
-@property (nonatomic, strong) SparkSetupConnection *connection;
-@property (atomic) SparkSetupCommandType commandType; // last command type
+@property (nonatomic, strong) ParticleSetupConnection *connection;
+@property (atomic) ParticleSetupCommandType commandType; // last command type
 @property (copy)void (^commandCompletionBlock)(id, NSError *); // completion block for last sent command
 //@property (copy)void (^commandDeviceIDCompletionBlock)(id, BOOL, NSError *); // completion block for commandID command
 
@@ -53,20 +53,20 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 @end
 
 
-@implementation SparkSetupCommManager
+@implementation ParticleSetupCommManager
 
 
-//-(instancetype)initWithConnection:(SparkSetupConnection *)connection
+//-(instancetype)initWithConnection:(ParticleSetupConnection *)connection
 -(instancetype)init
 {
     self = [super init];
     if (self)
     {
-        self.commandType = SparkSetupCommandTypeNone;
+        self.commandType = ParticleSetupCommandTypeNone;
         self.commandCompletionBlock = nil;
         self.commandSendBlock = nil;
         //        self.ready = NO;
-//        NSLog(@"SparkSetupCommManager %@ instanciated!",self);
+//        NSLog(@"ParticleSetupCommManager %@ instanciated!",self);
         
         return self;
         
@@ -78,7 +78,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 
 -(instancetype)initWithNetworkPrefix:(NSString *)networkPrefix
 {
-    SparkSetupCommManager *manager = [self init];
+    ParticleSetupCommManager *manager = [self init];
     if (manager)
     {
         manager.networkNamePrefix = networkPrefix;
@@ -88,9 +88,9 @@ int const kSparkSetupConnectionEndpointPort = 5609;
         return nil;
 }
 
-#pragma mark Spark photon device wifi connection detection methods
+#pragma mark Particle photon device wifi connection detection methods
 
-+(BOOL)checkSparkDeviceWifiConnection:(NSString *)networkPrefix
++(BOOL)checkParticleDeviceWifiConnection:(NSString *)networkPrefix
 {
     // starting iOS 9: just try to open socket to photon - networkPrefix is ignored
     /*
@@ -103,7 +103,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
         
         
         bOpeningSocket = YES;
-        FastSocket *socket = [[FastSocket alloc] initWithHost:kSparkSetupConnectionEndpointAddress andPort:kSparkSetupConnectionEndpointPortString];
+        FastSocket *socket = [[FastSocket alloc] initWithHost:kParticleSetupConnectionEndpointAddress andPort:kParticleSetupConnectionEndpointPortString];
         
         if ([socket connect])
         {
@@ -132,7 +132,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
         
         NSString *SSID = info[@"SSID"];
         //    NSLog(@"currently connected SSID: %@",SSID);
-        //    if ([SSID hasPrefix:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+        //    if ([SSID hasPrefix:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
         if ([SSID hasPrefix:networkPrefix])
         {
             return YES;
@@ -146,9 +146,9 @@ int const kSparkSetupConnectionEndpointPort = 5609;
     
 }
 
-#pragma mark SparkSetupConnection delegate methods
+#pragma mark ParticleSetupConnection delegate methods
 
--(void)SparkSetupConnection:(SparkSetupConnection *)connection didReceiveData:(NSString *)data
+-(void)ParticleSetupConnection:(ParticleSetupConnection *)connection didReceiveData:(NSString *)data
 {
     if (connection == self.connection)
     {
@@ -158,38 +158,38 @@ int const kSparkSetupConnectionEndpointPort = 5609;
         if ((!e) && (self.commandCompletionBlock))
         {
             switch (self.commandType) {
-                case SparkSetupCommandTypeVersion:
+                case ParticleSetupCommandTypeVersion:
                     self.commandCompletionBlock(response[@"v"],nil); // the version string
-                    //                    self.commandType = SparkSetupCommandTypeNone;
+                    //                    self.commandType = ParticleSetupCommandTypeNone;
                     break;
                     
-                case SparkSetupCommandTypeDeviceID:
+                case ParticleSetupCommandTypeDeviceID:
                     if (self.commandCompletionBlock) // special completion
                     self.commandCompletionBlock(response, nil); // the device ID string + claimed flag dictionary
-                    //                    self.commandType = SparkSetupCommandTypeNone;
+                    //                    self.commandType = ParticleSetupCommandTypeNone;
                     break;
                     
-                case SparkSetupCommandTypeScanAP:
+                case ParticleSetupCommandTypeScanAP:
                     self.commandCompletionBlock(response[@"scans"],nil); // the scan response array
-                    //                    self.commandType = SparkSetupCommandTypeNone;
+                    //                    self.commandType = ParticleSetupCommandTypeNone;
                     break;
                     
                     
-                case SparkSetupCommandTypeConfigureAP:
-                case SparkSetupCommandTypeConnectAP:
-                case SparkSetupCommandTypeSet:
+                case ParticleSetupCommandTypeConfigureAP:
+                case ParticleSetupCommandTypeConnectAP:
+                case ParticleSetupCommandTypeSet:
                     self.commandCompletionBlock(response[@"r"],nil); // the response code number
-                    //                    self.commandType = SparkSetupCommandTypeNone;
+                    //                    self.commandType = ParticleSetupCommandTypeNone;
                     break;
                     
-                case SparkSetupCommandTypePublicKey:
+                case ParticleSetupCommandTypePublicKey:
                     // handle key storage
-//                    NSLog(@"SparkSetupCommandTypePublicKey response is:\n%@",response);
+//                    NSLog(@"ParticleSetupCommandTypePublicKey response is:\n%@",response);
                     
                     responseCode = (NSNumber *)response[@"r"];
                     if (responseCode.intValue != 0)
                     {
-                        self.commandCompletionBlock(nil,[NSError errorWithDomain:@"SparkSetupCommManagerError" code:2006 userInfo:@{NSLocalizedDescriptionKey:@"Could not retrieve public key from device"}]);
+                        self.commandCompletionBlock(nil,[NSError errorWithDomain:@"ParticleSetupCommManagerError" code:2006 userInfo:@{NSLocalizedDescriptionKey:@"Could not retrieve public key from device"}]);
                     }
                     else
                     {
@@ -197,22 +197,22 @@ int const kSparkSetupConnectionEndpointPort = 5609;
                         NSString *pubKeyHexCoded = (NSString *)response[@"b"];
 //                        NSLog(@"Encoded key is %@", pubKeyHexCoded);
                         
-                        NSData *pubKey = [SparkSetupSecurityManager decodeDataFromHexString:pubKeyHexCoded];
+                        NSData *pubKey = [ParticleSetupSecurityManager decodeDataFromHexString:pubKeyHexCoded];
 //                        NSLog(@"Decoded key is %@", [pubKey description]);
                         
-                        if ([SparkSetupSecurityManager setPublicKey:pubKey])
+                        if ([ParticleSetupSecurityManager setPublicKey:pubKey])
                         {
 //                            NSLog(@"Public key stored in keychain successfully");
                             self.commandCompletionBlock(response[@"r"],nil);
                         }
                         else
                         {
-                            self.commandCompletionBlock(nil,[NSError errorWithDomain:@"SparkSetupSecurityManager" code:2007 userInfo:@{NSLocalizedDescriptionKey:@"Could not store public key in device keychain"}]);
+                            self.commandCompletionBlock(nil,[NSError errorWithDomain:@"ParticleSetupSecurityManager" code:2007 userInfo:@{NSLocalizedDescriptionKey:@"Could not store public key in device keychain"}]);
                         }
 
                     }
                 default: // something else happened
-                    //                    self.commandType = SparkSetupCommandTypeNone;
+                    //                    self.commandType = ParticleSetupCommandTypeNone;
                     break;
             }
             
@@ -225,34 +225,34 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 
 
 
--(void)SparkSetupConnection:(SparkSetupConnection *)connection didUpdateState:(SparkSetupConnectionState)state error:(NSError *)error
+-(void)ParticleSetupConnection:(ParticleSetupConnection *)connection didUpdateState:(ParticleSetupConnectionState)state error:(NSError *)error
 {
     if (error)
     {
         [self.sendCommandTimeoutTimer invalidate];
         if (self.commandCompletionBlock)
-            self.commandCompletionBlock(nil, [NSError errorWithDomain:@"SparkSetupCommManagerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:error.localizedDescription}]);
+            self.commandCompletionBlock(nil, [NSError errorWithDomain:@"ParticleSetupCommManagerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:error.localizedDescription}]);
 //        self.commandCompletionBlock = nil;
         return;
     }
     
     switch (state) {
-        case SparkSetupConnectionStateClosed:
+        case ParticleSetupConnectionStateClosed:
 //            NSLog(@"Connection to spark device closed");
             [self.sendCommandTimeoutTimer invalidate];
             break;
             
-        case SparkSetupConnectionOpenTimeout:
+        case ParticleSetupConnectionOpenTimeout:
 //            NSLog(@"Opening connection to spark device timed out");
             [self.sendCommandTimeoutTimer invalidate];
             if (self.commandCompletionBlock)
             {
-                self.commandCompletionBlock(nil, [NSError errorWithDomain:@"SparkSetupCommManagerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Opening connection to spark device timed out"}]);
+                self.commandCompletionBlock(nil, [NSError errorWithDomain:@"ParticleSetupCommManagerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Opening connection to spark device timed out"}]);
                 self.commandCompletionBlock = nil;
             }
             break;
             
-        case SparkSetupConnectionStateOpened:
+        case ParticleSetupConnectionStateOpened:
 //            NSLog(@"Connection to spark device opened");
             if (self.commandSendBlock)
             {
@@ -261,14 +261,14 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 //                NSLog(@"Command %ld sent to spark device",(long)self.commandType);
             }
             break;
-        case SparkSetupConnectionStateError:
-        case SparkSetupConnectionStateUnknown:
-            self.commandType = SparkSetupCommandTypeNone;
+        case ParticleSetupConnectionStateError:
+        case ParticleSetupConnectionStateUnknown:
+            self.commandType = ParticleSetupCommandTypeNone;
             [self.sendCommandTimeoutTimer invalidate];
 //            NSLog(@"Connection to spark device failed");
             if (self.commandCompletionBlock)
             {
-                self.commandCompletionBlock(nil, [NSError errorWithDomain:@"SparkSetupCommManagerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Connection to spark device failed"}]);
+                self.commandCompletionBlock(nil, [NSError errorWithDomain:@"ParticleSetupCommManagerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Connection to spark device failed"}]);
                 self.commandCompletionBlock = nil;
             }
             break;
@@ -281,11 +281,11 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 /*
  -(void)writeCommandTimeoutHandler:(id)sender
  {
- self.commandType = SparkSetupCommandTypeNone;
+ self.commandType = ParticleSetupCommandTypeNone;
  //    self.connection = nil;
  
  if (self.commandCompletionBlock)
- self.commandCompletionBlock(nil,[NSError errorWithDomain:@"SparkSetupCommManagerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Timeout occured while writing data to socket connection"}]);
+ self.commandCompletionBlock(nil,[NSError errorWithDomain:@"ParticleSetupCommManagerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Timeout occured while writing data to socket connection"}]);
  
  //    self.commandCompletionBlock = nil;
  }
@@ -297,10 +297,10 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 {
     
     [self.sendCommandTimeoutTimer invalidate];
-    //    self.commandType = SparkSetupCommandTypeNone;
+    //    self.commandType = ParticleSetupCommandTypeNone;
     
     if (self.commandCompletionBlock)
-        self.commandCompletionBlock(nil,[NSError errorWithDomain:@"SparkSetupCommManagerError" code:2004 userInfo:@{NSLocalizedDescriptionKey:@"Timeout occured while waiting for response from socket"}]);
+        self.commandCompletionBlock(nil,[NSError errorWithDomain:@"ParticleSetupCommManagerError" code:2004 userInfo:@{NSLocalizedDescriptionKey:@"Timeout occured while waiting for response from socket"}]);
     
     self.commandCompletionBlock = nil;
 }
@@ -311,7 +311,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 -(void)openConnection // and then send command (+ timeout)
 {
     // TODO: add command queue
-    self.connection = [[SparkSetupConnection alloc] initWithIPAddress:kSparkSetupConnectionEndpointAddress port:kSparkSetupConnectionEndpointPort];
+    self.connection = [[ParticleSetupConnection alloc] initWithIPAddress:kParticleSetupConnectionEndpointAddress port:kParticleSetupConnectionEndpointPort];
     self.connection.delegate = self;
 }
 
@@ -320,16 +320,16 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 {
     if (self.networkNamePrefix)
     {
-        if (![SparkSetupCommManager checkSparkDeviceWifiConnection:self.networkNamePrefix])
+        if (![ParticleSetupCommManager checkParticleDeviceWifiConnection:self.networkNamePrefix])
         {
-            completion(nil, [NSError errorWithDomain:@"SparkSetupCommManangerError" code:2003 userInfo:@{NSLocalizedDescriptionKey:@"Not connected to Spark device"}]);
+            completion(nil, [NSError errorWithDomain:@"ParticleSetupCommManangerError" code:2003 userInfo:@{NSLocalizedDescriptionKey:@"Not connected to Particle device"}]);
             return NO;
         }
     }
     
-    if (self.commandType != SparkSetupCommandTypeNone)
+    if (self.commandType != ParticleSetupCommandTypeNone)
     {
-        completion(nil, [NSError errorWithDomain:@"SparkSetupCommManangerError" code:2005 userInfo:@{NSLocalizedDescriptionKey:@"Use a new instance of SparkSetupCommManager per command"}]);
+        completion(nil, [NSError errorWithDomain:@"ParticleSetupCommManangerError" code:2005 userInfo:@{NSLocalizedDescriptionKey:@"Use a new instance of ParticleSetupCommManager per command"}]);
         return NO;
     }
     
@@ -349,19 +349,19 @@ int const kSparkSetupConnectionEndpointPort = 5609;
     
     if ([self canSendCommandCallCompletionForError:completion])
     {
-        __weak SparkSetupCommManager *weakSelf = self;
+        __weak ParticleSetupCommManager *weakSelf = self;
         self.commandCompletionBlock = completion;
         
         self.commandSendBlock = ^{
             
             NSString *commandStr = @"version\n0\n\n";
-            weakSelf.commandType = SparkSetupCommandTypeVersion;
+            weakSelf.commandType = ParticleSetupCommandTypeVersion;
             [weakSelf.connection writeString:commandStr completion:^(NSError *error) {
                 if ((error) && (completion))
                 {
                     completion(nil, error);
                     weakSelf.commandCompletionBlock = nil;
-                    //                weakSelf.commandType = SparkSetupCommandTypeNone;
+                    //                weakSelf.commandType = ParticleSetupCommandTypeNone;
                 }
             }];
         };
@@ -378,14 +378,14 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 {
     if ([self canSendCommandCallCompletionForError:completion])
     {
-        __weak SparkSetupCommManager *weakSelf = self;
+        __weak ParticleSetupCommManager *weakSelf = self;
         self.commandCompletionBlock = completion;
         
         self.commandSendBlock = ^{
             
-            if (weakSelf.connection.state == SparkSetupConnectionStateOpened)
+            if (weakSelf.connection.state == ParticleSetupConnectionStateOpened)
             {
-                weakSelf.commandType = SparkSetupCommandTypeDeviceID;
+                weakSelf.commandType = ParticleSetupCommandTypeDeviceID;
                 NSString *commandStr = @"device-id\n0\n\n";
                 
                 [weakSelf.connection writeString:commandStr completion:^(NSError *error) {
@@ -393,7 +393,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
                     {
                         completion(nil, error);
                         weakSelf.commandCompletionBlock = nil;
-                        //                    weakSelf.commandType = SparkSetupCommandTypeNone;
+                        //                    weakSelf.commandType = ParticleSetupCommandTypeNone;
                         
                     }
                 }];
@@ -411,12 +411,12 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 {
     if ([self canSendCommandCallCompletionForError:completion])
     {
-        __weak SparkSetupCommManager *weakSelf = self;
+        __weak ParticleSetupCommManager *weakSelf = self;
         self.commandCompletionBlock = completion;
         
         self.commandSendBlock = ^{
             
-            weakSelf.commandType = SparkSetupCommandTypeScanAP;
+            weakSelf.commandType = ParticleSetupCommandTypeScanAP;
             NSString *commandStr = @"scan-ap\n0\n\n";
             
             [weakSelf.connection writeString:commandStr completion:^(NSError *error) {
@@ -424,7 +424,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
                 {
                     completion(nil, error);
                     weakSelf.commandCompletionBlock = nil;
-                    //                weakSelf.commandType = SparkSetupCommandTypeNone;
+                    //                weakSelf.commandType = ParticleSetupCommandTypeNone;
                 }
             }];
             
@@ -442,7 +442,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 {
     if ([self canSendCommandCallCompletionForError:completion])
     {
-        __weak SparkSetupCommManager *weakSelf = self;
+        __weak ParticleSetupCommManager *weakSelf = self;
         self.commandCompletionBlock = completion;
         
         self.commandSendBlock = ^{
@@ -459,28 +459,28 @@ int const kSparkSetupConnectionEndpointPort = 5609;
             
             if (ENCRYPT_PWD)
             {
-                SecKeyRef pubKey = [SparkSetupSecurityManager getPublicKey];
+                SecKeyRef pubKey = [ParticleSetupSecurityManager getPublicKey];
                 if (pubKey != NULL)
                 {
                     // encrypt it using the stored public key
                     NSData *plainTextData = [passcodeTruncated dataUsingEncoding:NSUTF8StringEncoding];
-                    NSData *cipherTextData = [SparkSetupSecurityManager encryptWithPublicKey:pubKey plainText:plainTextData];
+                    NSData *cipherTextData = [ParticleSetupSecurityManager encryptWithPublicKey:pubKey plainText:plainTextData];
                     if (cipherTextData != nil)
                     {
                         // encode the encrypted data to a hex string
-                        hexEncodedEncryptedPasscodeStr = [SparkSetupSecurityManager encodeDataToHexString:cipherTextData];
+                        hexEncodedEncryptedPasscodeStr = [ParticleSetupSecurityManager encodeDataToHexString:cipherTextData];
 //                        NSLog(@"plaintext: %@\nCiphertext:\n%@",passcodeTruncated,hexEncodedEncryptedPasscodeStr);
                         requestDataDict = @{@"idx":@0, @"ssid":ssid, @"pwd":hexEncodedEncryptedPasscodeStr, @"sec":securityType, @"ch":channel};
                     }
                     else
                     {
-                        completion(nil, [NSError errorWithDomain:@"SparkSetupSecurityManager" code:2007 userInfo:@{NSLocalizedDescriptionKey:@"Failed to encrypt passcode"}]);
+                        completion(nil, [NSError errorWithDomain:@"ParticleSetupSecurityManager" code:2007 userInfo:@{NSLocalizedDescriptionKey:@"Failed to encrypt passcode"}]);
                         return; //?
                     }
                 }
                 else
                 {
-                    completion(nil, [NSError errorWithDomain:@"SparkSetupSecurityManager" code:2008 userInfo:@{NSLocalizedDescriptionKey:@"Failed to retrieve device public key from keychain"}]);
+                    completion(nil, [NSError errorWithDomain:@"ParticleSetupSecurityManager" code:2008 userInfo:@{NSLocalizedDescriptionKey:@"Failed to retrieve device public key from keychain"}]);
                     return; //?
                 }
             }
@@ -499,16 +499,16 @@ int const kSparkSetupConnectionEndpointPort = 5609;
             if (jsonData)
                 jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
             else
-                completion(nil, [NSError errorWithDomain:@"SparkSetupCommManangerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Cannot process configureAP command data to JSON"}]);
+                completion(nil, [NSError errorWithDomain:@"ParticleSetupCommManangerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Cannot process configureAP command data to JSON"}]);
             
             NSString *commandStr = [NSString stringWithFormat:@"configure-ap\n%ld\n\n%@",(unsigned long)jsonString.length, jsonString];
-            weakSelf.commandType = SparkSetupCommandTypeConfigureAP;
+            weakSelf.commandType = ParticleSetupCommandTypeConfigureAP;
             [weakSelf.connection writeString:commandStr completion:^(NSError *error) {
                 if ((error) && (completion))
                 {
                     completion(nil, error);
                     weakSelf.commandCompletionBlock = nil;
-                    //                weakSelf.commandType = SparkSetupCommandTypeNone;
+                    //                weakSelf.commandType = ParticleSetupCommandTypeNone;
                 }
             }];
             
@@ -526,7 +526,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 {
     if ([self canSendCommandCallCompletionForError:completion])
     {
-        __weak SparkSetupCommManager *weakSelf = self;
+        __weak ParticleSetupCommManager *weakSelf = self;
         self.commandCompletionBlock = completion;
         
         self.commandSendBlock = ^{
@@ -544,13 +544,13 @@ int const kSparkSetupConnectionEndpointPort = 5609;
             if (jsonData)
                 jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
             else
-                completion(nil, [NSError errorWithDomain:@"SparkSetupCommManangerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Cannot process setClaimCode command data to JSON"}]);
+                completion(nil, [NSError errorWithDomain:@"ParticleSetupCommManangerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Cannot process setClaimCode command data to JSON"}]);
             
             // remove backslahes that might occur from '/' in
             jsonString = [jsonString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
                           
             NSString *commandStr = [NSString stringWithFormat:@"set\n%ld\n\n%@",(unsigned long)jsonString.length, jsonString];
-            weakSelf.commandType = SparkSetupCommandTypeSet;
+            weakSelf.commandType = ParticleSetupCommandTypeSet;
             [weakSelf.connection writeString:commandStr completion:^(NSError *error) {
                 if ((error) && (completion))
                 {
@@ -569,7 +569,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 {
     if ([self canSendCommandCallCompletionForError:completion])
     {
-        __weak SparkSetupCommManager *weakSelf = self;
+        __weak ParticleSetupCommManager *weakSelf = self;
         self.commandCompletionBlock = completion;
         
         self.commandSendBlock = ^{
@@ -586,19 +586,19 @@ int const kSparkSetupConnectionEndpointPort = 5609;
                 jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
                 
                 NSString *commandStr = [NSString stringWithFormat:@"connect-ap\n%ld\n\n%@",(unsigned long)jsonString.length, jsonString];
-                weakSelf.commandType = SparkSetupCommandTypeConnectAP;
+                weakSelf.commandType = ParticleSetupCommandTypeConnectAP;
                 [weakSelf.connection writeString:commandStr completion:^(NSError *error) {
                     if ((error) && (completion))
                     {
                         completion(nil, error);
                         weakSelf.commandCompletionBlock = nil;
-                        //                weakSelf.commandType = SparkSetupCommandTypeNone;
+                        //                weakSelf.commandType = ParticleSetupCommandTypeNone;
                     }
                 }];
             }
             else
             {
-                completion(nil, [NSError errorWithDomain:@"SparkSetupCommManangerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Cannot process connectAP command data to JSON"}]);
+                completion(nil, [NSError errorWithDomain:@"ParticleSetupCommManangerError" code:2002 userInfo:@{NSLocalizedDescriptionKey:@"Cannot process connectAP command data to JSON"}]);
             }
             
         };
@@ -613,12 +613,12 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 {
     if ([self canSendCommandCallCompletionForError:completion])
     {
-        __weak SparkSetupCommManager *weakSelf = self;
+        __weak ParticleSetupCommManager *weakSelf = self;
         self.commandCompletionBlock = completion;
         
         self.commandSendBlock = ^{
             
-            weakSelf.commandType = SparkSetupCommandTypePublicKey;
+            weakSelf.commandType = ParticleSetupCommandTypePublicKey;
             NSString *commandStr = @"public-key\n0\n\n";
             
             [weakSelf.connection writeString:commandStr completion:^(NSError *error) {
@@ -640,7 +640,7 @@ int const kSparkSetupConnectionEndpointPort = 5609;
 
 -(void)dealloc
 {
-//    NSLog(@"SparkSetupCommManager %@ dealloced!",self);
+//    NSLog(@"ParticleSetupCommManager %@ dealloced!",self);
     
     self.commandSendBlock = nil;
     self.commandCompletionBlock = nil;

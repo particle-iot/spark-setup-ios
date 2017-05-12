@@ -19,14 +19,14 @@ iOS Device setup library is implemented as an open-source Cocoapod static librar
 
 **Rebranding notice**
 
-Spark has been recently rebranded as Particle. 
-Code currently contains `SparkSetup` keyword as classes prefixes. this will soon be replaced with `ParticleDeviceSetup`. 
+Particle has been recently rebranded as Particle. 
+Code currently contains `ParticleSetup` keyword as classes prefixes. this will soon be replaced with `ParticleDeviceSetup`. 
 
 ### Usage
 
 **Cocoapods**
 
-Import `SparkSetup.h` in your view controller implementation file, use bridging header for Swift projects (See [Installation](#installation) section for more details).
+Import `ParticleSetup.h` in your view controller implementation file, use bridging header for Swift projects (See [Installation](#installation) section for more details).
 
 **Carthage**
 
@@ -37,7 +37,7 @@ and then invoke the device setup wizard by:
 **Objective-C**
 
 ```objc
-SparkSetupMainController *setupController = [[SparkSetupMainController alloc] init];
+ParticleSetupMainController *setupController = [[ParticleSetupMainController alloc] init];
 setupController.delegate = self; // why? see "Advanced" section below 
 [self presentViewController:setupController animated:YES completion:nil];
 ```
@@ -45,7 +45,7 @@ setupController.delegate = self; // why? see "Advanced" section below
 **Swift**
 
 ```swift
-if let setupController = SparkSetupMainController()
+if let setupController = ParticleSetupMainController()
 {
     setupController.delegate = self
     self.presentViewController(setupController, animated: true, completion: nil)
@@ -57,14 +57,14 @@ Alternatively if your app requires separation between the Particle cloud authent
 **Objective-C**
 
 ```objc
-SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithAuthenticationOnly:YES];
+ParticleSetupMainController *setupController = [[ParticleSetupMainController alloc] initWithAuthenticationOnly:YES];
 [self presentViewController:setupController animated:YES completion:nil];
 ```
 
 **Swift**
 
 ```swift
-if let setupController = SparkSetupMainController(authenticationOnly: true)
+if let setupController = ParticleSetupMainController(authenticationOnly: true)
 {
     self.presentViewController(setupController, animated: true, completion: nil)
 }
@@ -86,14 +86,14 @@ Usage:
 **Objective-C**
 
 ```objc
-SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithSetupOnly:YES];
+ParticleSetupMainController *setupController = [[ParticleSetupMainController alloc] initWithSetupOnly:YES];
 [self presentViewController:setupController animated:YES completion:nil];
 ```
 
 **Swift**
 
 ```swift
-if let setupController = SparkSetupMainController(setupOnly: true)
+if let setupController = ParticleSetupMainController(setupOnly: true)
 {
     self.presentViewController(setupController, animated: true, completion: nil)
 }
@@ -108,7 +108,7 @@ For additional information read [here](https://github.com/AgileBits/onepassword-
 
 ### Customization
 
-Customize setup look and feel by accessing the `SparkSetupCustomization` singleton appearance proxy `[SparkSetupCustomization sharedInstance]`
+Customize setup look and feel by accessing the `ParticleSetupCustomization` singleton appearance proxy `[ParticleSetupCustomization sharedInstance]`
 and modify its default properties. Setting the properties in this class is optional. 
 These properies are shown in Objective-C syntax for convenience but work the same for Swift projects - use `String`, `Bool` instead of `NSString` and `BOOL`. 
 
@@ -178,47 +178,47 @@ Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials fo
 
 ### Advanced
 
-You can get an active instance of the set up device - `SparkDevice` by making your viewcontroller conform to protocol `<SparkSetupMainControllerDelegate>` when setup wizard completes successfully:
+You can get an active instance of the set up device - `ParticleDevice` by making your viewcontroller conform to protocol `<ParticleSetupMainControllerDelegate>` when setup wizard completes successfully:
 
 **Objective-C**
 
 ```objc
--(void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
+-(void)particleSetupViewController:(ParticleSetupMainController *)controller didFinishWithResult:(ParticleSetupMainControllerResult)result device:(ParticleDevice *)device;
 ```
 
 **Swift**
 
 ```swift
-func sparkSetupViewController(controller: SparkSetupMainController!, didFinishWithResult result: SparkSetupMainControllerResult, device: SparkDevice!)
+func particleSetupViewController(controller: ParticleSetupMainController!, didFinishWithResult result: ParticleSetupMainControllerResult, device: ParticleDevice!)
 ```
 
-method will be called, if `(result == SparkSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `SparkDevice` instance you can interact with
-using the [iOS Cloud SDK](https://cocoapods.org/pods/Spark-SDK).
-In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `SparkSetupMainControllerResult`. See [here](https://github.com/spark/spark-setup-ios/blob/master/Classes/User/SparkSetupMainController.h#L18-31) for additional details.
+method will be called, if `(result == ParticleSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `ParticleDevice` instance you can interact with
+using the [iOS Cloud SDK](https://cocoapods.org/pods/Particle-SDK).
+In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `ParticleSetupMainControllerResult`. See [here](https://github.com/particle/particle-setup-ios/blob/master/Classes/User/ParticleSetupMainController.h#L18-31) for additional details.
 
 If setup failed and you can still determine the device ID of the last device that was tried to be setup and failed by conforming to the @optional delegate function: (new since 0.5.0)
 
 **Objective-C**
 
 ```objc
-- (void)sparkSetupViewController:(SparkSetupMainController *)controller didNotSucceeedWithDeviceID:(NSString *)deviceID;
+- (void)particleSetupViewController:(ParticleSetupMainController *)controller didNotSucceeedWithDeviceID:(NSString *)deviceID;
 ```
 
 **Swift**
 
 ```swift
-func sparkSetupViewController(controller: SparkSetupMainController!, didNotSucceeedWithDeviceID deviceID: String)
+func particleSetupViewController(controller: ParticleSetupMainController!, didNotSucceeedWithDeviceID deviceID: String)
 ```
 
 
 ### Example
 
-Cocoapods usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once 
+Cocoapods usage example app (in Swift) can be found [here](https://www.github.com/particle/particle-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned ParticleDevice instance once 
 setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 ### Reference
 
-Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
+Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/ParticleSetup/) or consult the javadoc style comments in `ParticleSetupCustomization.h` and `ParticleSetupMainController.h` for each public method or property.
 If the Device Setup library installation completed successfully in your XCode project - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ### Requirements / limitations
@@ -239,12 +239,12 @@ To install the iOS Device Setup library, create a text file named `Podfile` on m
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'YourAppName' do
-    pod 'SparkSetup'
+    pod 'ParticleSetup'
 end
 ```
 
 Replace `YourAppName` with your app target name - usually shown as the root item name in the XCode project,
-then run `pod update` in your shell. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "SparkSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
+then run `pod update` in your shell. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "ParticleSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
 
 ##### Support for Swift projects
 
@@ -258,18 +258,18 @@ You must have Carthage installed, if you don't then be sure to [install Carthage
 Then to build the Particle iOS device setup library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
 
 ```
-github "spark/spark-setup-ios" ~> 0.6.0
+github "particle/particle-setup-ios" ~> 0.6.0
 ```
 
 and then run the following command:
 `carthage update --platform iOS --use-submodules --no-use-binaries`.
 
-*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/spark/spark-setup-ios/blob/master/bin/setup)*
+*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/particle/particle-setup-ios/blob/master/bin/setup)*
 
 A new folder will be created in your project root folder - when Carthage checkout and builds are done, navigate to the `./Carthage/Build/iOS` folder and drag all the created `.framework`s files into your project in XCode. 
 Go to your XCode target settings->General->Embedded binaries and press `+` and add all the `.framework` files there too - make sure the `ParticleDeviceSetupLibrary.framework`, `ParticleSDK.framework` and the `AFNetworking.framework` are listed there.
 Build your project - you now have the Particle SDK embedded in your project.
-Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `SparkSetupMainController` (see usage example).
+Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `ParticleSetupMainController` (see usage example).
 
 No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects. This is the recommended way if you have a mixed set of dependencies.
 

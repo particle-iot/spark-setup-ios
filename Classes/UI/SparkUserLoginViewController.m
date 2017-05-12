@@ -1,15 +1,15 @@
 //
-//  SparkUserLoginViewController.m
+//  ParticleUserLoginViewController.m
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 11/26/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
-#import "SparkUserLoginViewController.h"
-#import "SparkSetupWebViewController.h"
-#import "SparkSetupCustomization.h"
-#import "SparkSetupUIElements.h"
+#import "ParticleUserLoginViewController.h"
+#import "ParticleSetupWebViewController.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleSetupUIElements.h"
 
 
 #ifdef FRAMEWORK
@@ -25,7 +25,7 @@
 #endif
 
 
-@interface SparkUserLoginViewController () <UITextFieldDelegate, UIAlertViewDelegate>
+@interface ParticleUserLoginViewController () <UITextFieldDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *forgotButton;
@@ -33,19 +33,19 @@
 @property (weak, nonatomic) IBOutlet UIImageView *brandImage;
 @property (weak, nonatomic) IBOutlet UIButton *noAccountButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
-@property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
-@property (weak, nonatomic) IBOutlet SparkSetupUIButton *skipAuthButton;
+@property (weak, nonatomic) IBOutlet ParticleSetupUISpinner *spinner;
+@property (weak, nonatomic) IBOutlet ParticleSetupUIButton *skipAuthButton;
 @property (weak, nonatomic) IBOutlet UIButton *onePasswordButton;
 
 
 @end
 
-@implementation SparkUserLoginViewController
+@implementation ParticleUserLoginViewController
 
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+    return ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
 
@@ -54,8 +54,8 @@
     [super viewDidLoad];
     
     // move to super viewdidload?
-    self.brandImage.image = [SparkSetupCustomization sharedInstance].brandImage;
-    self.brandImage.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    self.brandImage.image = [ParticleSetupCustomization sharedInstance].brandImage;
+    self.brandImage.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
     // Trick to add an inset from the left of the text fields
     CGRect  viewRect = CGRectMake(0, 0, 10, 32);
@@ -67,17 +67,17 @@
     self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
     self.emailTextField.delegate = self;
     self.emailTextField.returnKeyType = UIReturnKeyNext;
-    self.emailTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+    self.emailTextField.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
     self.passwordTextField.leftView = emptyView2;
     self.passwordTextField.leftViewMode = UITextFieldViewModeAlways;
     self.passwordTextField.delegate = self;
-    self.passwordTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+    self.passwordTextField.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
-    self.skipAuthButton.hidden = !([SparkSetupCustomization sharedInstance].allowSkipAuthentication);
+    self.skipAuthButton.hidden = !([ParticleSetupCustomization sharedInstance].allowSkipAuthentication);
     [self.onePasswordButton setHidden:![[OnePasswordExtension sharedExtension] isAppExtensionAvailable]];
     if (!self.onePasswordButton.hidden) {
-        self.onePasswordButton.hidden = ![SparkSetupCustomization sharedInstance].allowPasswordManager;
+        self.onePasswordButton.hidden = ![ParticleSetupCustomization sharedInstance].allowPasswordManager;
     }
     
 
@@ -205,7 +205,7 @@
 - (IBAction)skipAuthButtonTapped:(id)sender {
     
     // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
-    NSString *messageStr = [SparkSetupCustomization sharedInstance].skipAuthenticationMessage;
+    NSString *messageStr = [ParticleSetupCustomization sharedInstance].skipAuthenticationMessage;
     
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Skip Authentication" message:messageStr preferredStyle:UIAlertControllerStyleAlert];

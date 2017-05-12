@@ -1,12 +1,12 @@
 //
-//  SparkUserSignupViewController.m
+//  ParticleUserSignupViewController.m
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 11/15/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
-#import "SparkUserSignupViewController.h"
+#import "ParticleUserSignupViewController.h"
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #import <OnePasswordExtension/OnePasswordExtension.h>
@@ -14,11 +14,11 @@
 //#import "ParticleCloud.h"
 #import <1PasswordExtension/OnePasswordExtension.h>
 #endif
-#import "SparkUserLoginViewController.h"
-#import "SparkSetupWebViewController.h"
-#import "SparkSetupCustomization.h"
-#import "SparkSetupUIElements.h"
-#import "SparkSetupMainController.h"
+#import "ParticleUserLoginViewController.h"
+#import "ParticleSetupWebViewController.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleSetupUIElements.h"
+#import "ParticleSetupMainController.h"
 
 #ifdef ANALYTICS
 #import <SEGAnalytics.h>
@@ -27,8 +27,8 @@
 
 
 
-@interface SparkUserSignupViewController () <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
+@interface ParticleUserSignupViewController () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet ParticleSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordVerifyTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -39,24 +39,24 @@
 @property (weak, nonatomic) IBOutlet UIButton *haveAccountButton;
 @property (weak, nonatomic) IBOutlet UILabel *createAccountLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *signupButtonSpace;
-@property (weak, nonatomic) IBOutlet SparkSetupUIButton *skipAuthButton;
+@property (weak, nonatomic) IBOutlet ParticleSetupUIButton *skipAuthButton;
 @property (strong, nonatomic) UIAlertView *skipAuthAlertView;
 @property (weak, nonatomic) IBOutlet UIButton *onePasswordButton;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *companyNameTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *businessAccountSwitch;
-@property (weak, nonatomic) IBOutlet SparkSetupUILabel *businessAccountLabel;
+@property (weak, nonatomic) IBOutlet ParticleSetupUILabel *businessAccountLabel;
 @property (weak, nonatomic) IBOutlet UIView *TosAndPpView;
 
 @end
 
-@implementation SparkUserSignupViewController
+@implementation ParticleUserSignupViewController
 
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+    return ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
 
@@ -67,7 +67,7 @@
     textField.leftViewMode = UITextFieldViewModeAlways;
     textField.delegate = self;
     textField.returnKeyType = UIReturnKeyNext;
-    textField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+    textField.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
 }
 
@@ -92,8 +92,8 @@
 //    [self makeBoldButton:self.haveAccountButton withText:nil];
     
     // set brand logo
-    self.logoImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
-    self.logoImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    self.logoImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+    self.logoImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
 
     [self applyDesignToTextField:self.emailTextField];
@@ -114,7 +114,7 @@
 
     
     
-    if ([SparkSetupCustomization sharedInstance].productMode)
+    if ([ParticleSetupCustomization sharedInstance].productMode)
     {
         self.firstNameTextField.hidden = YES;
         self.lastNameTextField.hidden = YES;
@@ -125,11 +125,11 @@
 
     // make sign up button be closer to verify password textfield (no activation code field)
     self.signupButtonSpace.constant = 16;
-    self.skipAuthButton.hidden = !([SparkSetupCustomization sharedInstance].allowSkipAuthentication);
+    self.skipAuthButton.hidden = !([ParticleSetupCustomization sharedInstance].allowSkipAuthentication);
     
     [self.onePasswordButton setHidden:![[OnePasswordExtension sharedExtension] isAppExtensionAvailable]];
     if (!self.onePasswordButton.hidden) {
-        self.onePasswordButton.hidden = ![SparkSetupCustomization sharedInstance].allowPasswordManager;
+        self.onePasswordButton.hidden = ![ParticleSetupCustomization sharedInstance].allowPasswordManager;
     }
 
     
@@ -235,7 +235,7 @@
     }
     else if ([self isValidEmail:email])
     {
-        BOOL productMode = [SparkSetupCustomization sharedInstance].productMode;
+        BOOL productMode = [ParticleSetupCustomization sharedInstance].productMode;
         if (productMode)
         {
             // org user sign up
@@ -243,7 +243,7 @@
             self.signupButton.enabled = NO;
             
             // Sign up and then login
-            [[ParticleCloud sharedInstance] createCustomer:email password:self.passwordTextField.text productId:[SparkSetupCustomization sharedInstance].productId accountInfo:nil completion:^(NSError *error) {
+            [[ParticleCloud sharedInstance] createCustomer:email password:self.passwordTextField.text productId:[ParticleSetupCustomization sharedInstance].productId accountInfo:nil completion:^(NSError *error) {
                 if (!error)
                 {
 #ifdef ANALYTICS
@@ -330,8 +330,8 @@
 {
     [self.view endEditing:YES];
     
-    SparkSetupWebViewController* webVC = [[SparkSetupMainController getSetupStoryboard]instantiateViewControllerWithIdentifier:@"webview"];
-    webVC.link = [SparkSetupCustomization sharedInstance].privacyPolicyLinkURL;
+    ParticleSetupWebViewController* webVC = [[ParticleSetupMainController getSetupStoryboard]instantiateViewControllerWithIdentifier:@"webview"];
+    webVC.link = [ParticleSetupCustomization sharedInstance].privacyPolicyLinkURL;
 //    webVC.htmlFilename = @"test";
     [self presentViewController:webVC animated:YES completion:nil];
 }
@@ -341,8 +341,8 @@
 - (IBAction)termOfServiceButton:(id)sender
 {
     [self.view endEditing:YES];
-    SparkSetupWebViewController* webVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"webview"];
-    webVC.link = [SparkSetupCustomization sharedInstance].termsOfServiceLinkURL;
+    ParticleSetupWebViewController* webVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"webview"];
+    webVC.link = [ParticleSetupCustomization sharedInstance].termsOfServiceLinkURL;
     [self presentViewController:webVC animated:YES completion:nil];
 }
 
@@ -354,7 +354,7 @@
     [self.delegate didRequestUserLogin:self];
     
     /*
-    SparkUserLoginViewController* loginVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"login"];
+    ParticleUserLoginViewController* loginVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"login"];
     loginVC.delegate = self.delegate;
     loginVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;// //UIModalPresentationPageSheet;
     [self presentViewController:loginVC animated:YES completion:nil];
@@ -363,7 +363,7 @@
 
 - (IBAction)skipAuthButtonTapped:(id)sender {
     // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
-    NSString *messageStr = [SparkSetupCustomization sharedInstance].skipAuthenticationMessage;
+    NSString *messageStr = [ParticleSetupCustomization sharedInstance].skipAuthenticationMessage;
     self.skipAuthAlertView = [[UIAlertView alloc] initWithTitle:@"Skip authentication" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
     [self.skipAuthAlertView show];
 

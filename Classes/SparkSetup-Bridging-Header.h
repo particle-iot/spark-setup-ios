@@ -1,10 +1,10 @@
 //
-//  SparkSetup-Bridging-Header.h
+//  ParticleSetup-Bridging-Header.h
 //
 
-#ifndef _SparkSetup_Bridging_Header_h
-#define _SparkSetup_Bridging_Header_h
+#ifndef _ParticleSetup_Bridging_Header_h
+#define _ParticleSetup_Bridging_Header_h
 
-#include "SparkSetup.h"
+#include "ParticleSetup.h"
 
 #endif

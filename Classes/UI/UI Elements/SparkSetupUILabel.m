@@ -1,14 +1,14 @@
 //
-//  SparkSetupUILabel.m
+//  ParticleSetupUILabel.m
 //  teacup-ios-app
 //
 //  Created by Ido on 1/16/15.
-//  Copyright (c) 2015 spark. All rights reserved.
+//  Copyright (c) 2015 particle. All rights reserved.
 //
 
-#import "SparkSetupUILabel.h"
-#import "SparkSetupCustomization.h"
-@implementation SparkSetupUILabel
+#import "ParticleSetupUILabel.h"
+#import "ParticleSetupCustomization.h"
+@implementation ParticleSetupUILabel
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -20,14 +20,14 @@
 
 -(void)replacePredefinedText
 {
-    self.text = [self.text stringByReplacingOccurrencesOfString:@"{device}" withString:[SparkSetupCustomization sharedInstance].deviceName];
-    self.text = [self.text stringByReplacingOccurrencesOfString:@"{brand}" withString:[SparkSetupCustomization sharedInstance].brandName];
-    self.text = [self.text stringByReplacingOccurrencesOfString:@"{color}" withString:[SparkSetupCustomization sharedInstance].listenModeLEDColorName];
-    self.text = [self.text stringByReplacingOccurrencesOfString:@"{mode button}" withString:[SparkSetupCustomization sharedInstance].modeButtonName];
-    self.text = [self.text stringByReplacingOccurrencesOfString:@"{network prefix}" withString:[SparkSetupCustomization sharedInstance].networkNamePrefix];
-    self.text = [self.text stringByReplacingOccurrencesOfString:@"{product}" withString:[SparkSetupCustomization sharedInstance].productName];
+    self.text = [self.text stringByReplacingOccurrencesOfString:@"{device}" withString:[ParticleSetupCustomization sharedInstance].deviceName];
+    self.text = [self.text stringByReplacingOccurrencesOfString:@"{brand}" withString:[ParticleSetupCustomization sharedInstance].brandName];
+    self.text = [self.text stringByReplacingOccurrencesOfString:@"{color}" withString:[ParticleSetupCustomization sharedInstance].listenModeLEDColorName];
+    self.text = [self.text stringByReplacingOccurrencesOfString:@"{mode button}" withString:[ParticleSetupCustomization sharedInstance].modeButtonName];
+    self.text = [self.text stringByReplacingOccurrencesOfString:@"{network prefix}" withString:[ParticleSetupCustomization sharedInstance].networkNamePrefix];
+    self.text = [self.text stringByReplacingOccurrencesOfString:@"{product}" withString:[ParticleSetupCustomization sharedInstance].productName];
 
-    //    self.text = [self.text stringByReplacingOccurrencesOfString:@"{app name}" withString:[SparkSetupCustomization sharedInstance].appName];
+    //    self.text = [self.text stringByReplacingOccurrencesOfString:@"{app name}" withString:[ParticleSetupCustomization sharedInstance].appName];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
@@ -46,18 +46,18 @@
 {
     if ((type) && ([type isEqualToString:@"bold"]))
     {
-        self.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].boldTextFontName size:self.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
-        self.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+        self.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].boldTextFontName size:self.font.pointSize+[ParticleSetupCustomization sharedInstance].fontSizeOffset];
+        self.textColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
     }
     else if ((type) && ([type isEqualToString:@"header"]))
     {
-        self.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].headerTextFontName size:self.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
-        self.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+        self.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].headerTextFontName size:self.font.pointSize+[ParticleSetupCustomization sharedInstance].fontSizeOffset];
+        self.textColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
     }
     else
     {
-        self.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:self.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
-        self.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+        self.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:self.font.pointSize+[ParticleSetupCustomization sharedInstance].fontSizeOffset];
+        self.textColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
         
     }
     [self replacePredefinedText];

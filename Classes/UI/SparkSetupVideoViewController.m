@@ -1,26 +1,26 @@
 //
-//  SparkSetupVideoViewController.m
+//  ParticleSetupVideoViewController.m
 //  Pods
 //
 //  Created by Ido on 6/15/15.
 //
 //
 
-#import "SparkSetupVideoViewController.h"
-#import "SparkSetupCustomization.h"
+#import "ParticleSetupVideoViewController.h"
+#import "ParticleSetupCustomization.h"
 #import <MediaPlayer/MediaPlayer.h>
 #if ANALYTICS
 #import <Mixpanel.h>
 #endif
 
-@interface SparkSetupVideoViewController ()
+@interface ParticleSetupVideoViewController ()
 @property (strong, nonatomic) MPMoviePlayerController *videoPlayer;
 
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 
 @end
 
-@implementation SparkSetupVideoViewController
+@implementation ParticleSetupVideoViewController
 
 /*
 - (NSUInteger)supportedInterfaceOrientations {

@@ -1,15 +1,15 @@
 //
-//  SparkSetup.h
-//  SparkSetup
+//  ParticleSetup.h
+//  ParticleSetup
 //
 //  Created by Ido on 4/8/15.
 //  Copyright (c) 2015 spark. All rights reserved.
 //
 
-#ifndef SparkSetup_SparkSetup_h
-#define SparkSetup_SparkSetup_h
+#ifndef ParticleSetup_ParticleSetup_h
+#define ParticleSetup_ParticleSetup_h
 
-#import "SparkSetupCustomization.h"
-#import "SparkSetupMainController.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleSetupMainController.h"
 
 #endif

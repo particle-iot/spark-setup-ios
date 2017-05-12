@@ -1,13 +1,13 @@
 //
-//  SparkGetReadyViewController.h
+//  ParticleGetReadyViewController.h
 //  teacup-ios-app
 //
 //  Created by Ido on 1/15/15.
 //  Copyright (c) 2015 spark. All rights reserved.
 //
 
-#import "SparkSetupUIViewController.h"
+#import "ParticleSetupUIViewController.h"
 
-@interface SparkGetReadyViewController : SparkSetupUIViewController
+@interface ParticleGetReadyViewController : ParticleSetupUIViewController
 
 @end

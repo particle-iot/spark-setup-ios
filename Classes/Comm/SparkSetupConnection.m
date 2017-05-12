@@ -1,21 +1,21 @@
 //
-//  SparkSetupConnection.m
+//  ParticleSetupConnection.m
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 11/20/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
-#import "SparkSetupConnection.h"
+#import "ParticleSetupConnection.h"
 
-float const kSparkSetupConnectionOpenTimeout = 3.0f;
+float const kParticleSetupConnectionOpenTimeout = 3.0f;
 
 
 
-@interface SparkSetupConnection() <NSStreamDelegate>
+@interface ParticleSetupConnection() <NSStreamDelegate>
 @property (strong, nonatomic) NSInputStream *inputStream;
 @property (strong, nonatomic) NSOutputStream *outputStream;
-@property (nonatomic) SparkSetupConnectionState state;
+@property (nonatomic) ParticleSetupConnectionState state;
 @property (nonatomic, strong) NSString *IPaddr;
 @property (nonatomic) NSInteger port;
 @property (nonatomic, strong) NSMutableString *rcvdDataBuffer;
@@ -27,7 +27,7 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
 
 @end
 
-@implementation SparkSetupConnection
+@implementation ParticleSetupConnection
 
 
 -(void)initSocket
@@ -60,7 +60,7 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
         [self.inputStream open];
         [self.outputStream open];
         
-        self.socketOpenTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:kSparkSetupConnectionOpenTimeout target:self selector:@selector(socketOpenTimeoutHandler:) userInfo:nil repeats:NO];
+        self.socketOpenTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:kParticleSetupConnectionOpenTimeout target:self selector:@selector(socketOpenTimeoutHandler:) userInfo:nil repeats:NO];
 
     });
 }
@@ -87,8 +87,8 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
 -(void)socketOpenTimeoutHandler:(id)sender
 {
     [self.socketOpenTimeoutTimer invalidate];
-    self.state = SparkSetupConnectionOpenTimeout;
-    [self.delegate SparkSetupConnection:self didUpdateState:self.state error:nil];
+    self.state = ParticleSetupConnectionOpenTimeout;
+    [self.delegate ParticleSetupConnection:self didUpdateState:self.state error:nil];
 }
 
 
@@ -112,8 +112,8 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
             if ((self.outStreamOpened) && (self.inStreamOpened))
             {
                 [self.socketOpenTimeoutTimer invalidate];
-                self.state = SparkSetupConnectionStateOpened;
-                [self.delegate SparkSetupConnection:self didUpdateState:self.state error:nil];
+                self.state = ParticleSetupConnectionStateOpened;
+                [self.delegate ParticleSetupConnection:self didUpdateState:self.state error:nil];
             }
         }
     
@@ -148,8 +148,8 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
                 eventCode = eventCode &~NSStreamEventErrorOccurred;
 
 //            NSLog(@"NSStreamEventErrorOccurred: %@",[aStream.streamError localizedDescription]);
-            self.state = SparkSetupConnectionStateError;
-            [self.delegate SparkSetupConnection:self didUpdateState:self.state error:aStream.streamError];
+            self.state = ParticleSetupConnectionStateError;
+            [self.delegate ParticleSetupConnection:self didUpdateState:self.state error:aStream.streamError];
         }
             
         if (eventCode & NSStreamEventEndEncountered)
@@ -171,14 +171,14 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
                 if (self.outStreamOpened) // if input stream has closed - output stream should close too
                     [_outputStream close];
 
-                self.state = SparkSetupConnectionStateClosed;
-                [self.delegate SparkSetupConnection:self didUpdateState:self.state error:[aStream streamError]];
+                self.state = ParticleSetupConnectionStateClosed;
+                [self.delegate ParticleSetupConnection:self didUpdateState:self.state error:[aStream streamError]];
 
                 if (self.rcvdDataBuffer)
                 {
                     if (self.rcvdDataBuffer.length > 0)
                     {
-                        [self.delegate SparkSetupConnection:self didReceiveData:self.rcvdDataBuffer];
+                        [self.delegate ParticleSetupConnection:self didReceiveData:self.rcvdDataBuffer];
                     }
                 }
 
@@ -187,13 +187,13 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
 
         }
             
-        if (eventCode & SparkSetupConnectionStateUnknown)
+        if (eventCode & ParticleSetupConnectionStateUnknown)
         {
-            if (eventCode & SparkSetupConnectionStateUnknown)
-                eventCode = eventCode &~SparkSetupConnectionStateUnknown;
+            if (eventCode & ParticleSetupConnectionStateUnknown)
+                eventCode = eventCode &~ParticleSetupConnectionStateUnknown;
 
-            self.state = SparkSetupConnectionStateUnknown;
-            [self.delegate SparkSetupConnection:self didUpdateState:self.state error:aStream.streamError];
+            self.state = ParticleSetupConnectionStateUnknown;
+            [self.delegate ParticleSetupConnection:self didUpdateState:self.state error:aStream.streamError];
         }
     }
     
@@ -203,9 +203,9 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
 
 -(void)writeString:(NSString *)string completion:(void(^)(NSError *error))completion;
 {
-    if (self.state != SparkSetupConnectionStateOpened)
+    if (self.state != ParticleSetupConnectionStateOpened)
     {
-        completion([NSError errorWithDomain:@"SparkSetupConnectionError" code:3000 userInfo:@{NSLocalizedDescriptionKey:@"Socket connection is not open"}]);
+        completion([NSError errorWithDomain:@"ParticleSetupConnectionError" code:3000 userInfo:@{NSLocalizedDescriptionKey:@"Socket connection is not open"}]);
         return;
     }
     
@@ -219,12 +219,12 @@ float const kSparkSetupConnectionOpenTimeout = 3.0f;
         {
             if (!([self.outputStream write:[buffer bytes] maxLength:[buffer length]] == string.length))
             {
-                completion([NSError errorWithDomain:@"SparkSetupConnectionError" code:3002 userInfo:@{NSLocalizedDescriptionKey:@"Could not write all data to socket"}]);                return;
+                completion([NSError errorWithDomain:@"ParticleSetupConnectionError" code:3002 userInfo:@{NSLocalizedDescriptionKey:@"Could not write all data to socket"}]);                return;
             }
         }
         else
         {
-            completion([NSError errorWithDomain:@"SparkSetupConnectionError" code:3001 userInfo:@{NSLocalizedDescriptionKey:@"Output socket not ready"}]);
+            completion([NSError errorWithDomain:@"ParticleSetupConnectionError" code:3001 userInfo:@{NSLocalizedDescriptionKey:@"Output socket not ready"}]);
         }
     });
     

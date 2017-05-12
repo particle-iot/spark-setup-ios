@@ -1,34 +1,34 @@
 //
-//  SparkSetupManager.m
+//  ParticleSetupManager.m
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 11/15/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
-#import "SparkSetupMainController.h"
-#import "SparkUserSignupViewController.h"
-#import "SparkSetupCommManager.h"
-#import "SparkSetupConnection.h"
+#import "ParticleSetupMainController.h"
+#import "ParticleUserSignupViewController.h"
+#import "ParticleSetupCommManager.h"
+#import "ParticleSetupConnection.h"
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
 #import "Particle-SDK.h"
 #endif
 
-#import "SparkSetupCustomization.h"
-#import "SparkUserLoginViewController.h"
-#import "SparkSetupUIElements.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleUserLoginViewController.h"
+#import "ParticleSetupUIElements.h"
 
-//#define SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER  @"io.spark.SparkSetup"
+//#define SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER  @"io.spark.ParticleSetup"
 
-NSString *const kSparkSetupDidFinishNotification = @"kSparkSetupDidFinishNotification";
-NSString *const kSparkSetupDidFinishStateKey = @"kSparkSetupDidFinishStateKey";
-NSString *const kSparkSetupDidFinishDeviceKey = @"kSparkSetupDidFinishDeviceKey";
-NSString *const kSparkSetupDidLogoutNotification = @"kSparkSetupDidLogoutNotification";
-NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey";
+NSString *const kParticleSetupDidFinishNotification = @"kParticleSetupDidFinishNotification";
+NSString *const kParticleSetupDidFinishStateKey = @"kParticleSetupDidFinishStateKey";
+NSString *const kParticleSetupDidFinishDeviceKey = @"kParticleSetupDidFinishDeviceKey";
+NSString *const kParticleSetupDidLogoutNotification = @"kParticleSetupDidLogoutNotification";
+NSString *const kParticleSetupDidFailDeviceIDKey = @"kParticleSetupDidFailDeviceIDKey";
 
-@interface SparkSetupMainController() <SparkUserLoginDelegate>
+@interface ParticleSetupMainController() <ParticleUserLoginDelegate>
 
 //@property (nonatomic, strong) UINavigationController *setupNavController;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -37,11 +37,11 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
 @property (nonatomic) BOOL setupOnly;
 @end
 
-@implementation SparkSetupMainController
+@implementation ParticleSetupMainController
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+    return ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
 
@@ -51,7 +51,7 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
     // frameework has assets as
     NSBundle *bundle = [NSBundle bundleForClass:self];
 #else
-    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle bundleForClass:[self class]] URLForResource:@"SparkSetup" withExtension:@"bundle"]];
+    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle bundleForClass:[self class]] URLForResource:@"ParticleSetup" withExtension:@"bundle"]];
 #endif
     return bundle;
 }
@@ -59,13 +59,13 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
 
 +(UIStoryboard *)getSetupStoryboard
 {
-    UIStoryboard *setupStoryboard = [UIStoryboard storyboardWithName:@"setup" bundle:[SparkSetupMainController getResourcesBundle]];
+    UIStoryboard *setupStoryboard = [UIStoryboard storyboardWithName:@"setup" bundle:[ParticleSetupMainController getResourcesBundle]];
     return setupStoryboard;
 }
 
 +(UIImage *)loadImageFromResourceBundle:(NSString *)imageName
 {
-    NSBundle *bundle = [SparkSetupMainController getResourcesBundle];
+    NSBundle *bundle = [ParticleSetupMainController getResourcesBundle];
     NSString *imageFileName = [NSString stringWithFormat:@"%@.png",imageName];
     UIImage *image = [UIImage imageNamed:imageFileName inBundle:bundle compatibleWithTraitCollection:nil];
     return image;
@@ -73,11 +73,11 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
 
 -(instancetype)init
 {
-    SparkSetupMainController* mainVC = [super initWithNibName:nil bundle:nil]; // super init is not actually required, but supress the warning
+    ParticleSetupMainController* mainVC = [super initWithNibName:nil bundle:nil]; // super init is not actually required, but supress the warning
     self.authenticationOnly = NO;
     
     @try {
-        mainVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"root"];
+        mainVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"root"];
     }
     @catch (NSException *exception) {
         return nil;
@@ -89,7 +89,7 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
 
 -(instancetype)initWithSetupOnly:(BOOL)yesOrNo
 {
-    SparkSetupMainController* mainVC = [self init];
+    ParticleSetupMainController* mainVC = [self init];
     self.setupOnly = yesOrNo;
     return mainVC;
 }
@@ -97,7 +97,7 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
 
 -(instancetype)initWithAuthenticationOnly:(BOOL)yesOrNo
 {
-    SparkSetupMainController* mainVC = [self init];
+    ParticleSetupMainController* mainVC = [self init];
     self.authenticationOnly = yesOrNo;
     return mainVC;
 }
@@ -106,8 +106,8 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidFinishObserver:) name:kSparkSetupDidFinishNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidLogoutObserver:) name:kSparkSetupDidLogoutNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidFinishObserver:) name:kParticleSetupDidFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidLogoutObserver:) name:kParticleSetupDidLogoutNotification object:nil];
     
     if ([ParticleCloud sharedInstance].isAuthenticated)
     {
@@ -120,7 +120,7 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
         {
             // add a small delay and perform in another thread to let viewDidload finish, otherwise we might get a deadlock black screen
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultLoggedIn)}];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kParticleSetupDidFinishNotification object:nil userInfo:@{kParticleSetupDidFinishStateKey:@(ParticleSetupMainControllerResultLoggedIn)}];
             });
         }
     }
@@ -137,13 +137,13 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
 
 -(void)runSetup
 {
-    UINavigationController* setupVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"setup"];
+    UINavigationController* setupVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"setup"];
     [self showViewController:setupVC];
 }
 
 -(void)showSignup
 {
-    SparkUserSignupViewController *signupVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
+    ParticleUserSignupViewController *signupVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
     signupVC.delegate = self;
     [self showViewController:signupVC];
 }
@@ -152,7 +152,7 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
 -(void)showSignupWithPredefinedActivationCode:(NSString *)activationCode;
 {
     // __deprecated
-    SparkUserSignupViewController *signupVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
+    ParticleUserSignupViewController *signupVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
 //    signupVC.predefinedActivationCode = activationCode;
     signupVC.delegate = self;
     [self showViewController:signupVC];
@@ -161,14 +161,14 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
 
 -(void)showLogin
 {
-    SparkUserLoginViewController *loginVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"login"];
+    ParticleUserLoginViewController *loginVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"login"];
     loginVC.delegate = self;
     [self showViewController:loginVC];
 }
 
 -(void)showPasswordReset
 {
-    SparkUserLoginViewController *pwdrstVC = [[SparkSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"password_reset"];
+    ParticleUserLoginViewController *pwdrstVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"password_reset"];
     pwdrstVC.delegate = self;
     [self showViewController:pwdrstVC];
 }
@@ -180,7 +180,7 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
     [self showLogin];
 }
 
-#pragma mark SparkUserLoginDelegate methods
+#pragma mark ParticleUserLoginDelegate methods
 //-(void)didFinishUserLogin:(id)sender
 -(void)didFinishUserAuthentication:(id)sender loggedIn:(BOOL)loggedIn;
 {
@@ -190,9 +190,9 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
         // add a small delay and perform in another thread to let viewDidload finish (if we're still in it), otherwise we might get a deadlock black screen
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if (loggedIn)
-                [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultLoggedIn)}];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kParticleSetupDidFinishNotification object:nil userInfo:@{kParticleSetupDidFinishStateKey:@(ParticleSetupMainControllerResultLoggedIn)}];
             else
-                [[NSNotificationCenter defaultCenter] postNotificationName:kSparkSetupDidFinishNotification object:nil userInfo:@{kSparkSetupDidFinishStateKey:@(SparkSetupMainControllerResultSkippedAuth)}];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kParticleSetupDidFinishNotification object:nil userInfo:@{kParticleSetupDidFinishStateKey:@(ParticleSetupMainControllerResultSkippedAuth)}];
             
         });
     }
@@ -225,12 +225,12 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
     // Setup finished so dismiss modal main controller and call delegate with state
     
     NSDictionary *finishStateDict = note.userInfo;
-    NSNumber* state = finishStateDict[kSparkSetupDidFinishStateKey];
-    ParticleDevice *device = finishStateDict[kSparkSetupDidFinishDeviceKey];
-    NSString *deviceID = finishStateDict[kSparkSetupDidFailDeviceIDKey];
+    NSNumber* state = finishStateDict[kParticleSetupDidFinishStateKey];
+    ParticleDevice *device = finishStateDict[kParticleSetupDidFinishDeviceKey];
+    NSString *deviceID = finishStateDict[kParticleSetupDidFailDeviceIDKey];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSparkSetupDidFinishNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSparkSetupDidLogoutNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kParticleSetupDidFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kParticleSetupDidLogoutNotification object:nil];
     
     
     [self dismissViewControllerAnimated:YES completion:^{
@@ -272,8 +272,8 @@ NSString *const kSparkSetupDidFailDeviceIDKey = @"kSparkSetupDidFailDeviceIDKey"
 -(void)dealloc
 {
     // check
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSparkSetupDidFinishNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSparkSetupDidLogoutNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kParticleSetupDidFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kParticleSetupDidLogoutNotification object:nil];
 
 }
 

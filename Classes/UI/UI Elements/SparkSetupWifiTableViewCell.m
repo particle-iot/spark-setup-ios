@@ -1,14 +1,14 @@
 //
-//  SparkSetupWifiTableViewCell.m
+//  ParticleSetupWifiTableViewCell.m
 //  
 //
 //  Created by Ido on 9/10/15.
 //
 //
 
-#import "SparkSetupWifiTableViewCell.h"
+#import "ParticleSetupWifiTableViewCell.h"
 
-@implementation SparkSetupWifiTableViewCell
+@implementation ParticleSetupWifiTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

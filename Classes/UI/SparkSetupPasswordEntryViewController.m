@@ -1,26 +1,26 @@
 //
-//  SparkSetupPasswordEntryViewController.m
+//  ParticleSetupPasswordEntryViewController.m
 //  teacup-ios-app
 //
 //  Created by Ido on 1/20/15.
-//  Copyright (c) 2015 spark. All rights reserved.
+//  Copyright (c) 2015 particle. All rights reserved.
 //
 
-#import "SparkSetupPasswordEntryViewController.h"
-#import "SparkSetupUILabel.h"
-#import "SparkSetupCustomization.h"
-#import "SparkConnectingProgressViewController.h"
-#import "SparkSetupCommManager.h"
-#import "SparkSetupCustomization.h"
-#import "SparkSetupMainController.h"
+#import "ParticleSetupPasswordEntryViewController.h"
+#import "ParticleSetupUILabel.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleConnectingProgressViewController.h"
+#import "ParticleSetupCommManager.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleSetupMainController.h"
 #ifdef ANALYTICS
 #import <SEGAnalytics.h>
 #endif
 
-@interface SparkSetupPasswordEntryViewController () <UITextFieldDelegate>
+@interface ParticleSetupPasswordEntryViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet SparkSetupUILabel *networkNameLabel;
-@property (weak, nonatomic) IBOutlet SparkSetupUILabel *securityTypeLabel;
+@property (weak, nonatomic) IBOutlet ParticleSetupUILabel *networkNameLabel;
+@property (weak, nonatomic) IBOutlet ParticleSetupUILabel *securityTypeLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *showPasswordSwitch;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
@@ -28,11 +28,11 @@
 
 @end
 
-@implementation SparkSetupPasswordEntryViewController
+@implementation ParticleSetupPasswordEntryViewController
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+    return ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
 
@@ -41,16 +41,16 @@
     [super viewDidLoad];
     
     // move to super viewdidload?
-    self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
-    self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+    self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
     
-    UIColor *navBarButtonsColor = ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? [UIColor whiteColor] : [UIColor blackColor];
+    UIColor *navBarButtonsColor = ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? [UIColor whiteColor] : [UIColor blackColor];
     [self.backButton setTitleColor:navBarButtonsColor forState:UIControlStateNormal];
 
     
     // force load images from resource bundle
-    self.wifiSymbolImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"wifi3"];
+    self.wifiSymbolImageView.image = [ParticleSetupMainController loadImageFromResourceBundle:@"wifi3"];
     
     // Trick to add an inset from the left of the text fields
     CGRect  viewRect = CGRectMake(0, 0, 10, 32);
@@ -61,17 +61,17 @@
     self.passwordTextField.delegate = self;
     self.passwordTextField.returnKeyType = UIReturnKeyJoin;
 
-    self.passwordTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+    self.passwordTextField.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
     self.networkNameLabel.text = self.networkName;
     self.securityTypeLabel.text = [self convertSecurityTypeToString:self.security];
-    self.showPasswordSwitch.onTintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+    self.showPasswordSwitch.onTintColor = [ParticleSetupCustomization sharedInstance].elementBackgroundColor;
     
     self.wifiSymbolImageView.image = [self.wifiSymbolImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self.wifiSymbolImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
+    self.wifiSymbolImageView.tintColor = [ParticleSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
 
 //    self.backButton.imageView.image = [self.backButton.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//    self.backButton.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+//    self.backButton.tintColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
 
     // Do any additional setup after loading the view.
 }
@@ -126,7 +126,7 @@
     if ([[segue identifier] isEqualToString:@"connect"])
     {
         // Get reference to the destination view controller
-        SparkConnectingProgressViewController *vc = [segue destinationViewController];
+        ParticleConnectingProgressViewController *vc = [segue destinationViewController];
         vc.networkName = self.networkName;
         vc.channel = self.channel;
         vc.security = self.security;
@@ -140,28 +140,28 @@
 -(NSString *)convertSecurityTypeToString:(NSNumber *)securityType
 {
         switch ([securityType intValue]) {
-        case SparkSetupWifiSecurityTypeOpen:
+        case ParticleSetupWifiSecurityTypeOpen:
             return @"Open";
             break;
-        case SparkSetupWifiSecurityTypeWEP_PSK:
+        case ParticleSetupWifiSecurityTypeWEP_PSK:
             return @"WEP-PSK";
             break;
-        case SparkSetupWifiSecurityTypeWEP_SHARED:
+        case ParticleSetupWifiSecurityTypeWEP_SHARED:
             return @"WEP-Shared";
             break;
-        case SparkSetupWifiSecurityTypeWPA_TKIP_PSK:
+        case ParticleSetupWifiSecurityTypeWPA_TKIP_PSK:
             return @"WPA-TKIP";
             break;
-        case SparkSetupWifiSecurityTypeWPA_AES_PSK:
+        case ParticleSetupWifiSecurityTypeWPA_AES_PSK:
             return @"WPA-AES";
             break;
-        case SparkSetupWifiSecurityTypeWPA2_AES_PSK:
+        case ParticleSetupWifiSecurityTypeWPA2_AES_PSK:
             return @"WPA2-AES";
             break;
-        case SparkSetupWifiSecurityTypeWPA2_TKIP_PSK:
+        case ParticleSetupWifiSecurityTypeWPA2_TKIP_PSK:
             return @"WPA2-TKIP";
             break;
-        case SparkSetupWifiSecurityTypeWPA2_MIXED_PSK:
+        case ParticleSetupWifiSecurityTypeWPA2_MIXED_PSK:
             return @"WPA2-Mixed";
             break;
             

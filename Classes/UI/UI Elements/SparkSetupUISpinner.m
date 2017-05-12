@@ -1,16 +1,16 @@
 //
-//  SparkSetupUISpinner.m
+//  ParticleSetupUISpinner.m
 //  teacup-ios-app
 //
 //  Created by Ido on 1/27/15.
 //  Copyright (c) 2015 spark. All rights reserved.
 //
 
-#import "SparkSetupUISpinner.h"
-#import "SparkSetupCustomization.h"
-#import "SparkSetupMainController.h"
+#import "ParticleSetupUISpinner.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleSetupMainController.h"
 
-@implementation SparkSetupUISpinner
+@implementation ParticleSetupUISpinner
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -23,15 +23,15 @@
 {
     if ((type) && ([type isEqualToString:@"foreground"]))
     {
-//        self.image = [UIImage imageNamed:@"spinner_big" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
-        self.image = [SparkSetupMainController loadImageFromResourceBundle:@"spinner_big"];
+//        self.image = [UIImage imageNamed:@"spinner_big" inBundle:[ParticleSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+        self.image = [ParticleSetupMainController loadImageFromResourceBundle:@"spinner_big"];
         self.image = [self.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        self.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+        self.tintColor = [ParticleSetupCustomization sharedInstance].elementBackgroundColor;
     }
     else
     {
-//        self.image = [UIImage imageNamed:@"spinner" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
-        self.image = [SparkSetupMainController loadImageFromResourceBundle:@"spinner"];
+//        self.image = [UIImage imageNamed:@"spinner" inBundle:[ParticleSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+        self.image = [ParticleSetupMainController loadImageFromResourceBundle:@"spinner"];
 //        NSLog(@"spinner: %@",self.image);
     }
     

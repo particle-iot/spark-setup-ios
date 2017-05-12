@@ -1,5 +1,5 @@
 //
-//  SparkSetupUILabel.h
+//  ParticleSetupUILabel.h
 //  teacup-ios-app
 //
 //  Created by Ido on 1/16/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SparkSetupUILabel : UILabel
+@interface ParticleSetupUILabel : UILabel
 @property (nonatomic, strong) NSString *type;// "bold" or nothing
 @end

@@ -1,17 +1,17 @@
 //
-//  SparkSetupUIButton.m
+//  ParticleSetupUIButton.m
 //  teacup-ios-app
 //
 //  Created by Ido on 1/16/15.
-//  Copyright (c) 2015 spark. All rights reserved.
+//  Copyright (c) 2015 particle. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "SparkSetupUIButton.h"
-#import "SparkSetupCustomization.h"
+#import "ParticleSetupUIButton.h"
+#import "ParticleSetupCustomization.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation SparkSetupUIButton
+@implementation ParticleSetupUIButton
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -37,11 +37,11 @@
 
 -(void)replacePredefinedText
 {
-    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{device}" withString:[SparkSetupCustomization sharedInstance].deviceName];
-    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{brand}" withString:[SparkSetupCustomization sharedInstance].brandName];
-    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{color}" withString:[SparkSetupCustomization sharedInstance].listenModeLEDColorName];
-    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{mode button}" withString:[SparkSetupCustomization sharedInstance].modeButtonName];
-    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{network prefix}" withString:[SparkSetupCustomization sharedInstance].networkNamePrefix];
+    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{device}" withString:[ParticleSetupCustomization sharedInstance].deviceName];
+    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{brand}" withString:[ParticleSetupCustomization sharedInstance].brandName];
+    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{color}" withString:[ParticleSetupCustomization sharedInstance].listenModeLEDColorName];
+    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{mode button}" withString:[ParticleSetupCustomization sharedInstance].modeButtonName];
+    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:@"{network prefix}" withString:[ParticleSetupCustomization sharedInstance].networkNamePrefix];
 }
 
 
@@ -62,7 +62,7 @@
 {
     if ([self.type isEqualToString:@"action"])
     {
-        UIColor *color = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+        UIColor *color = [ParticleSetupCustomization sharedInstance].elementBackgroundColor;
         self.backgroundColor = [self darkerColorForColor:color];
 
 //        self.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
@@ -77,7 +77,7 @@
 {
     if ([self.type isEqualToString:@"action"])
     {
-        self.backgroundColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+        self.backgroundColor = [ParticleSetupCustomization sharedInstance].elementBackgroundColor;
         
 //        self.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
         self.layer.shadowOpacity = 0.3;
@@ -96,12 +96,12 @@
     
     if (([type isEqualToString:@"action"]) || ([type isEqualToString:@"primary"]))
     {
-        UIFont *boldFont = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
+        UIFont *boldFont = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[ParticleSetupCustomization sharedInstance].fontSizeOffset];
         self.titleLabel.font = boldFont;
         self.titleLabel.backgroundColor = [UIColor clearColor];
-        self.backgroundColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+        self.backgroundColor = [ParticleSetupCustomization sharedInstance].elementBackgroundColor;
         self.layer.cornerRadius = 3.0;
-        [self setTitleColor:[SparkSetupCustomization sharedInstance].elementTextColor forState:UIControlStateNormal];
+        [self setTitleColor:[ParticleSetupCustomization sharedInstance].elementTextColor forState:UIControlStateNormal];
         
         self.layer.shadowColor = [UIColor blackColor].CGColor;
         self.layer.shadowOpacity = 0.3;
@@ -118,10 +118,10 @@
         [s addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, [s length])];
 
         [self setAttributedTitle:s forState:UIControlStateNormal];
-        self.titleLabel.textColor = [SparkSetupCustomization sharedInstance].linkTextColor;
-        [self setTitleColor:[SparkSetupCustomization sharedInstance].linkTextColor forState:UIControlStateNormal];
+        self.titleLabel.textColor = [ParticleSetupCustomization sharedInstance].linkTextColor;
+        [self setTitleColor:[ParticleSetupCustomization sharedInstance].linkTextColor forState:UIControlStateNormal];
 
-        self.titleLabel.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:self.titleLabel.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
+        self.titleLabel.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:self.titleLabel.font.pointSize+[ParticleSetupCustomization sharedInstance].fontSizeOffset];
         self.backgroundColor = [UIColor clearColor];
     }
     
@@ -129,14 +129,14 @@
     if ([type isEqualToString:@"secondary"])
     {
         
-        UIFont *boldFont = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[SparkSetupCustomization sharedInstance].fontSizeOffset];
+        UIFont *boldFont = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[ParticleSetupCustomization sharedInstance].fontSizeOffset];
         self.titleLabel.font = boldFont;
-//        self.titleLabel.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
-        [self setTitleColor:[SparkSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
+//        self.titleLabel.textColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
+        [self setTitleColor:[ParticleSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
         
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [UIColor clearColor];
-        self.layer.borderColor = [SparkSetupCustomization sharedInstance].normalTextColor.CGColor;
+        self.layer.borderColor = [ParticleSetupCustomization sharedInstance].normalTextColor.CGColor;
         self.layer.backgroundColor = [UIColor clearColor].CGColor;
         self.layer.cornerRadius = 3.0;
         self.layer.borderWidth = 2.0;

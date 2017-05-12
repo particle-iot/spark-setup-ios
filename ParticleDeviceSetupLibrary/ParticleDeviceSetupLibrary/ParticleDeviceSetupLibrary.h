@@ -15,6 +15,6 @@ FOUNDATION_EXPORT double ParticleDeviceSetupLibraryVersionNumber;
 FOUNDATION_EXPORT const unsigned char ParticleDeviceSetupLibraryVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ParticleDeviceSetupLibrary/PublicHeader.h>
-#import <ParticleDeviceSetupLibrary/SparkSetupMainController.h>
-#import <ParticleDeviceSetupLibrary/SparkSetupCustomization.h>
+#import <ParticleDeviceSetupLibrary/ParticleSetupMainController.h>
+#import <ParticleDeviceSetupLibrary/ParticleSetupCustomization.h>
 

@@ -1,5 +1,5 @@
 //
-//  SparkSetupVideoViewController.h
+//  ParticleSetupVideoViewController.h
 //  Pods
 //
 //  Created by Ido on 6/15/15.
@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SparkSetupUIViewController.h"
+#import "ParticleSetupUIViewController.h"
 
-@interface SparkSetupVideoViewController : SparkSetupUIViewController
+@interface ParticleSetupVideoViewController : ParticleSetupUIViewController
 @property (nonatomic, strong) NSString *videoFilePath;
 
 @end

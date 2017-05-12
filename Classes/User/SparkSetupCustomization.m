@@ -1,13 +1,13 @@
 //
-//  SparkSetupCustomization.m
+//  ParticleSetupCustomization.m
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 12/12/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
-#import "SparkSetupCustomization.h"
-#import "SparkSetupMainController.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleSetupMainController.h"
 
 
 
@@ -22,12 +22,12 @@
 }
 @end
 
-@implementation SparkSetupCustomization
+@implementation ParticleSetupCustomization
 
 
 +(instancetype)sharedInstance
 {
-    static SparkSetupCustomization *sharedInstance = nil;
+    static ParticleSetupCustomization *sharedInstance = nil;
     @synchronized(self) {
         if (sharedInstance == nil)
         {
@@ -46,17 +46,17 @@
     {
         // Defaults
         self.deviceName = @"Particle device";
-//        self.deviceImage = [UIImage imageNamed:@"photon" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+//        self.deviceImage = [UIImage imageNamed:@"photon" inBundle:[ParticleSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         self.brandName = @"Particle";
-//        self.brandImage = [UIImage imageNamed:@"spark-logo-head" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
-        self.brandImage = [SparkSetupMainController loadImageFromResourceBundle:@"spark-logo-head"];
+//        self.brandImage = [UIImage imageNamed:@"spark-logo-head" inBundle:[ParticleSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+        self.brandImage = [ParticleSetupMainController loadImageFromResourceBundle:@"spark-logo-head"];
 //        self.brandImageBackgroundColor = [UIColor colorWithRed:0.79f green:0.79f blue:0.79f alpha:1.0f];
         self.brandImageBackgroundColor = [UIColor colorWithRed:229 green:229 blue:237];
       
         self.modeButtonName = @"Setup button";
         self.networkNamePrefix = @"Photon";
         self.listenModeLEDColorName = @"blue";
-//        self.appName = self.brandName;// @"SparkSetup";
+//        self.appName = self.brandName;// @"ParticleSetup";
         self.fontSizeOffset = 0;
         
         self.privacyPolicyLinkURL = [NSURL URLWithString:@"https://www.particle.io/legal/privacy"];

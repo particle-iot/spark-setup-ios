@@ -1,15 +1,15 @@
 //
-//  SparkConnectiProgressViewController.h
+//  ParticleConnectiProgressViewController.h
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 11/25/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "SparkSetupUIViewController.h"
+#import "ParticleSetupUIViewController.h"
 
-@interface SparkConnectingProgressViewController : SparkSetupUIViewController
+@interface ParticleConnectingProgressViewController : ParticleSetupUIViewController
 @property (nonatomic, strong) NSString *networkName;
 @property (nonatomic, strong) NSString *deviceID;
 @property (nonatomic, strong) NSString *password;

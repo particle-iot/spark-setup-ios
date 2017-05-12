@@ -1,23 +1,23 @@
 //
-//  SparkManualNetworkViewController.m
+//  ParticleManualNetworkViewController.m
 //  teacup-ios-app
 //
 //  Created by Ido on 2/22/15.
 //  Copyright (c) 2015 spark. All rights reserved.
 //
 
-#import "SparkManualNetworkViewController.h"
-#import "SparkSetupUIElements.h"
-#import "SparkSetupCustomization.h"
-#import "SparkConnectingProgressViewController.h"
-#import "SparkSetupCommManager.h"
-#import "SparkSetupPasswordEntryViewController.h"
-#import "SparkSetupCustomization.h"
+#import "ParticleManualNetworkViewController.h"
+#import "ParticleSetupUIElements.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleConnectingProgressViewController.h"
+#import "ParticleSetupCommManager.h"
+#import "ParticleSetupPasswordEntryViewController.h"
+#import "ParticleSetupCustomization.h"
 #ifdef ANALYTICS
 #import <SEGAnalytics.h>
 #endif
 
-@interface SparkManualNetworkViewController () <UITextFieldDelegate>
+@interface ParticleManualNetworkViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (weak, nonatomic) IBOutlet UITextField *networkNameTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *networkRequiresPasswordSwitch;
@@ -26,11 +26,11 @@
 
 @end
 
-@implementation SparkManualNetworkViewController
+@implementation ParticleManualNetworkViewController
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+    return ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
 
@@ -39,10 +39,10 @@
     [super viewDidLoad];
 
     // move to super viewdidload?
-    self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
-    self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+    self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
-    UIColor *navBarButtonsColor = ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? [UIColor whiteColor] : [UIColor blackColor];
+    UIColor *navBarButtonsColor = ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? [UIColor whiteColor] : [UIColor blackColor];
     [self.backButton setTitleColor:navBarButtonsColor forState:UIControlStateNormal];
 
     
@@ -54,15 +54,15 @@
     self.networkNameTextField.leftViewMode = UITextFieldViewModeAlways;
     self.networkNameTextField.delegate = self;
     self.networkNameTextField.returnKeyType = UIReturnKeyJoin;
-    self.networkNameTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+    self.networkNameTextField.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
-    self.networkRequiresPasswordSwitch.onTintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+    self.networkRequiresPasswordSwitch.onTintColor = [ParticleSetupCustomization sharedInstance].elementBackgroundColor;
     
     self.wifiSymbolImageView.image = [self.wifiSymbolImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self.wifiSymbolImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
+    self.wifiSymbolImageView.tintColor = [ParticleSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
 
     self.backButton.imageView.image = [self.backButton.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self.backButton.imageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
+    self.backButton.imageView.tintColor = [ParticleSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
     
 }
 
@@ -98,10 +98,10 @@
     if ([[segue identifier] isEqualToString:@"connect"])
     {
         // Get reference to the destination view controller
-        SparkConnectingProgressViewController *vc = [segue destinationViewController];
+        ParticleConnectingProgressViewController *vc = [segue destinationViewController];
         vc.networkName = self.networkNameTextField.text;
         vc.channel = @0; // unknown
-        vc.security = @(SparkSetupWifiSecurityTypeOpen);
+        vc.security = @(ParticleSetupWifiSecurityTypeOpen);
         vc.password = @""; // non secure network
         vc.deviceID = self.deviceID; // propagate device ID
         vc.needToClaimDevice = self.needToClaimDevice;
@@ -109,10 +109,10 @@
     if ([[segue identifier] isEqualToString:@"require_password"]) // prompt user for password
     {
         // Get reference to the destination view controller
-        SparkSetupPasswordEntryViewController *vc = [segue destinationViewController];
+        ParticleSetupPasswordEntryViewController *vc = [segue destinationViewController];
         vc.networkName = self.networkNameTextField.text;
         vc.channel = @0; // unknown
-        vc.security = @(SparkSetupWifiSecurityTypeWPA2_AES_PSK); // default
+        vc.security = @(ParticleSetupWifiSecurityTypeWPA2_AES_PSK); // default
         vc.deviceID = self.deviceID; // propagate device ID
         vc.needToClaimDevice = self.needToClaimDevice;
     }

@@ -1,39 +1,39 @@
 //
-//  SparkUserForgotPasswordViewController.m
+//  ParticleUserForgotPasswordViewController.m
 //  teacup-ios-app
 //
 //  Created by Ido on 2/13/15.
-//  Copyright (c) 2015 spark. All rights reserved.
+//  Copyright (c) 2015 particle. All rights reserved.
 //
 
-#import "SparkUserForgotPasswordViewController.h"
-#import "SparkSetupCustomization.h"
+#import "ParticleUserForgotPasswordViewController.h"
+#import "ParticleSetupCustomization.h"
 #ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
 #import "Particle-SDK.h"
 #endif
-#import "SparkSetupWebViewController.h"
-#import "SparkUserLoginViewController.h"
-#import "SparkSetupUIElements.h"
+#import "ParticleSetupWebViewController.h"
+#import "ParticleUserLoginViewController.h"
+#import "ParticleSetupUIElements.h"
 #ifdef ANALYTICS
 #import <SEGAnalytics.h>
 #endif
 
-@interface SparkUserForgotPasswordViewController () <UIAlertViewDelegate, UITextFieldDelegate>
+@interface ParticleUserForgotPasswordViewController () <UIAlertViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
-@property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
-@property (weak, nonatomic) IBOutlet SparkSetupUIButton *resetPasswordButton;
+@property (weak, nonatomic) IBOutlet ParticleSetupUISpinner *spinner;
+@property (weak, nonatomic) IBOutlet ParticleSetupUIButton *resetPasswordButton;
 
 @end
 
-@implementation SparkUserForgotPasswordViewController
+@implementation ParticleUserForgotPasswordViewController
 
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+    return ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
 
@@ -41,8 +41,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
-    self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+    self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
     // Trick to add an inset from the left of the text fields
     CGRect  viewRect = CGRectMake(0, 0, 10, 32);
@@ -52,7 +52,7 @@
     self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
     self.emailTextField.delegate = self;
     self.emailTextField.returnKeyType = UIReturnKeyGo;
-    self.emailTextField.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
+    self.emailTextField.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
 }
 
@@ -93,9 +93,9 @@
     if ([self isValidEmail:self.emailTextField.text])
     {
         self.resetPasswordButton.userInteractionEnabled = NO;
-        if ([SparkSetupCustomization sharedInstance].productMode) // TODO: fix that so it'll work for non-org too
+        if ([ParticleSetupCustomization sharedInstance].productMode) // TODO: fix that so it'll work for non-org too
         {
-            [[ParticleCloud sharedInstance] requestPasswordResetForCustomer:self.emailTextField.text productId:[SparkSetupCustomization sharedInstance].productId completion:passwordResetCallback];
+            [[ParticleCloud sharedInstance] requestPasswordResetForCustomer:self.emailTextField.text productId:[ParticleSetupCustomization sharedInstance].productId completion:passwordResetCallback];
         }
         else
         {
@@ -110,8 +110,8 @@
     }
 
 
-//        SparkSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
-//        webVC.link = [SparkSetupCustomization sharedInstance].forgotPasswordLinkURL;
+//        ParticleSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
+//        webVC.link = [ParticleSetupCustomization sharedInstance].forgotPasswordLinkURL;
 //        [self presentViewController:webVC animated:YES completion:nil];
 
 }

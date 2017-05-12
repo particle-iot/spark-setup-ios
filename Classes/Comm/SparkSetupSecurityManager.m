@@ -1,19 +1,19 @@
 //
-//  SparkSetupSecurity.m
+//  ParticleSetupSecurity.m
 //  teacup-ios-app
 //
 //  Created by Ido Kleinman on 1/8/15.
-//  Copyright (c) 2015 spark. All rights reserved.
+//  Copyright (c) 2015 particle. All rights reserved.
 //  setPublicKey stripping ASN.1 headers from public key data function based on code from:
 //  http://blog.wingsofhermes.org/?p=75
 
-#import "SparkSetupSecurityManager.h"
+#import "ParticleSetupSecurityManager.h"
 
-char *const kSparkSetupSecurityPublicKeystore = "kSparkSetupSecurityPublicKeystore";
+char *const kParticleSetupSecurityPublicKeystore = "kParticleSetupSecurityPublicKeystore";
 #define CIPHER_BUFFER_SIZE      128
 
 
-@implementation SparkSetupSecurityManager
+@implementation ParticleSetupSecurityManager
 
 
 +(SecKeyRef)getPublicKey
@@ -22,7 +22,7 @@ char *const kSparkSetupSecurityPublicKeystore = "kSparkSetupSecurityPublicKeysto
     CFTypeRef publicKeyRef = NULL;
     OSStatus error = noErr;
 
-    NSData* refTag = [[NSData alloc] initWithBytes:kSparkSetupSecurityPublicKeystore length:strlen(kSparkSetupSecurityPublicKeystore)];
+    NSData* refTag = [[NSData alloc] initWithBytes:kParticleSetupSecurityPublicKeystore length:strlen(kParticleSetupSecurityPublicKeystore)];
 
     [keyAttr setObject:(__bridge id)kSecClassKey forKey:(__bridge id)kSecClass];
     [keyAttr setObject:refTag forKey:(__bridge id)kSecAttrApplicationTag];
@@ -101,7 +101,7 @@ char *const kSparkSetupSecurityPublicKeystore = "kSparkSetupSecurityPublicKeysto
     OSStatus error = noErr;
     CFTypeRef persistPeer = NULL;
     
-    NSData * refTag = [[NSData alloc] initWithBytes:kSparkSetupSecurityPublicKeystore length:strlen(kSparkSetupSecurityPublicKeystore)];
+    NSData * refTag = [[NSData alloc] initWithBytes:kParticleSetupSecurityPublicKeystore length:strlen(kParticleSetupSecurityPublicKeystore)];
     NSMutableDictionary * keyAttr = [[NSMutableDictionary alloc] init];
     
     [keyAttr setObject:(__bridge id)kSecClassKey forKey:(__bridge id)kSecClass];

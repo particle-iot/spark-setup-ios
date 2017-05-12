@@ -1,34 +1,34 @@
 //
-//  SparkSetupWebViewController.m
+//  ParticleSetupWebViewController.m
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 12/12/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
-#import "SparkSetupWebViewController.h"
-#import "SparkSetupCustomization.h"
+#import "ParticleSetupWebViewController.h"
+#import "ParticleSetupCustomization.h"
 #import <UIKit/UIKit.h>
-#import "SparkSetupUIElements.h"
+#import "ParticleSetupUIElements.h"
 #ifdef ANALYTICS
 #import <SEGAnalytics.h>
 #endif
 
-//#import "UIViewController+SparkSetupMainController.h"
+//#import "UIViewController+ParticleSetupMainController.h"
 
-@interface SparkSetupWebViewController () <UIWebViewDelegate>
+@interface ParticleSetupWebViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
+@property (weak, nonatomic) IBOutlet ParticleSetupUISpinner *spinner;
 
 @end
 
-@implementation SparkSetupWebViewController
+@implementation ParticleSetupWebViewController
 
 
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+    return ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
 - (void)viewDidLoad {

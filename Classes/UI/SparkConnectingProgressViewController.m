@@ -1,16 +1,16 @@
 //
-//  SparkConnectiProgressViewController.m
+//  ParticleConnectiProgressViewController.m
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 11/25/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
-#import "SparkConnectingProgressViewController.h"
-#import "SparkSetupCommManager.h"
-#import "SparkSetupMainController.h"
-#import "SparkSetupCustomization.h"
-#import "SparkSetupWebViewController.h"
+#import "ParticleConnectingProgressViewController.h"
+#import "ParticleSetupCommManager.h"
+#import "ParticleSetupMainController.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleSetupWebViewController.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "Reachability.h"
 #ifdef FRAMEWORK
@@ -18,8 +18,8 @@
 #else
 #import "Particle-SDK.h"
 #endif
-#import "SparkSetupUIElements.h"
-#import "SparkSetupResultViewController.h"
+#import "ParticleSetupUIElements.h"
+#import "ParticleSetupResultViewController.h"
 #ifdef ANALYTICS
 #import "SEGAnalytics.h"
 #endif
@@ -31,27 +31,27 @@ NSInteger const kMaxRetriesConnectAP = 5;
 NSInteger const kMaxRetriesReachability = 5;
 NSInteger const kWaitForCloudConnectionTime = 1;
 
-typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
-    SparkSetupConnectionProgressStateConfigureCredentials = 0,
-    SparkSetupConnectionProgressStateConnectToWifi,
-    SparkSetupConnectionProgressStateWaitForCloudConnection,
-    SparkSetupConnectionProgressStateCheckInternetConnectivity,
-    SparkSetupConnectionProgressStateVerifyDeviceOwnership,
-    __SparkSetupConnectionProgressStateLast
+typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
+    ParticleSetupConnectionProgressStateConfigureCredentials = 0,
+    ParticleSetupConnectionProgressStateConnectToWifi,
+    ParticleSetupConnectionProgressStateWaitForCloudConnection,
+    ParticleSetupConnectionProgressStateCheckInternetConnectivity,
+    ParticleSetupConnectionProgressStateVerifyDeviceOwnership,
+    __ParticleSetupConnectionProgressStateLast
 };
 
-@interface SparkConnectingProgressView : UIView
+@interface ParticleConnectingProgressView : UIView
 @property (nonatomic, weak) IBOutlet UILabel *label;
 @property (nonatomic, weak) IBOutlet UIImageView *spinner;
 @end
 
-@implementation SparkConnectingProgressView
+@implementation ParticleConnectingProgressView
 
 @end
 
 
 
-@interface SparkConnectingProgressViewController ()
+@interface ParticleConnectingProgressViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *ssidLabel;
 @property (nonatomic, strong) NSMutableArray *connectionProgressTextList;
 @property (weak, nonatomic) IBOutlet UILabel *deviceIsConnectingLabel;
@@ -70,20 +70,20 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 @property (atomic) BOOL gotStatusEventFromDevice;
 @property (nonatomic, strong) UIAlertView *errorAlertView;
 //@property (nonatomic) BOOL connectAPsent, disconnectedFromDevice;
-@property (nonatomic) SparkSetupMainControllerResult setupResult;
-@property (atomic) SparkSetupConnectionProgressState currentState;
-@property (nonatomic, strong) SparkConnectingProgressView *currentStateView;
-@property (strong, nonatomic) IBOutletCollection(SparkConnectingProgressView) NSArray *progressViews;
+@property (nonatomic) ParticleSetupMainControllerResult setupResult;
+@property (atomic) ParticleSetupConnectionProgressState currentState;
+@property (nonatomic, strong) ParticleConnectingProgressView *currentStateView;
+@property (strong, nonatomic) IBOutletCollection(ParticleConnectingProgressView) NSArray *progressViews;
 
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
 @end
 
-@implementation SparkConnectingProgressViewController
+@implementation ParticleConnectingProgressViewController
 
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+    return ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
 
@@ -91,18 +91,18 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.currentState = SparkSetupConnectionProgressStateConfigureCredentials;
+    self.currentState = ParticleSetupConnectionProgressStateConfigureCredentials;
     self.gotStatusEventFromDevice = NO;
     
     self.ssidLabel.text = self.networkName;
     self.connectionProgressTextList = [[NSMutableArray alloc] init];
     
     // set logo
-    self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
-    self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+    self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
     // force load from resource bundle
-    self.wifiSymbolImageView.image = [SparkSetupMainController loadImageFromResourceBundle:@"wifi3"];
+    self.wifiSymbolImageView.image = [ParticleSetupMainController loadImageFromResourceBundle:@"wifi3"];
     
     self.hostReachable = NO;
     self.apiReachable = NO;
@@ -114,10 +114,10 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 //    self.connectAPsent = NO;
 //    self.disconnectedFromDevice = NO;
 
-    if ([SparkSetupCustomization sharedInstance].tintSetupImages)
+    if ([ParticleSetupCustomization sharedInstance].tintSetupImages)
     {
         self.wifiSymbolImageView.image = [self.wifiSymbolImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        self.wifiSymbolImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
+        self.wifiSymbolImageView.tintColor = [ParticleSetupCustomization sharedInstance].normalTextColor;// elementBackgroundColor;;
     }
 }
 
@@ -125,8 +125,8 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 {
     self.currentStateView = self.progressViews[self.currentState];
     self.currentStateView.hidden = NO;
-    self.currentStateView.label.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
-    self.currentStateView.label.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+    self.currentStateView.label.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:16.0];
+    self.currentStateView.label.textColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
     [self startAnimatingSpinner:self.currentStateView.spinner];
     [self tintConnectionProgressStateSpinner];
 #ifdef ANALYTICS
@@ -183,7 +183,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self stopAnimatingSpinner:self.currentStateView.spinner];
         NSString *stateImageName = (isError) ? @"x" : @"checkmark";
-        self.currentStateView.spinner.image = [UIImage imageNamed:stateImageName inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+        self.currentStateView.spinner.image = [UIImage imageNamed:stateImageName inBundle:[ParticleSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         [self tintConnectionProgressStateSpinner];
     });
 }
@@ -192,13 +192,13 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 -(void)tintConnectionProgressStateSpinner
 {
     self.currentStateView.spinner.image = [self.currentStateView.spinner.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    if ([SparkSetupCustomization sharedInstance].tintSetupImages)
+    if ([ParticleSetupCustomization sharedInstance].tintSetupImages)
     {
-        self.currentStateView.spinner.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+        self.currentStateView.spinner.tintColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
     }
     else
     {
-        self.currentStateView.spinner.tintColor = [SparkSetupCustomization sharedInstance].elementBackgroundColor;
+        self.currentStateView.spinner.tintColor = [ParticleSetupCustomization sharedInstance].elementBackgroundColor;
     }
 
 }
@@ -211,15 +211,15 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     dispatch_async(dispatch_get_main_queue(), ^{
         
         [self stopAnimatingSpinner:self.currentStateView.spinner];
-        self.currentStateView.spinner.image = [UIImage imageNamed:@"checkmark" inBundle:[SparkSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
+        self.currentStateView.spinner.image = [UIImage imageNamed:@"checkmark" inBundle:[ParticleSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         [self tintConnectionProgressStateSpinner];
         self.currentState++;
-        if (self.currentState < __SparkSetupConnectionProgressStateLast)
+        if (self.currentState < __ParticleSetupConnectionProgressStateLast)
         {
             self.currentStateView = self.progressViews[self.currentState];
             self.currentStateView.hidden = NO;
-            self.currentStateView.label.font = [UIFont fontWithName:[SparkSetupCustomization sharedInstance].normalTextFontName size:16.0];
-            self.currentStateView.label.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+            self.currentStateView.label.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:16.0];
+            self.currentStateView.label.textColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
             [self tintConnectionProgressStateSpinner];
             [self startAnimatingSpinner:self.currentStateView.spinner];
         }
@@ -239,7 +239,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 }
 
 
--(void)finishSetupWithResult:(SparkSetupMainControllerResult)result
+-(void)finishSetupWithResult:(ParticleSetupMainControllerResult)result
 {
     self.setupResult = result;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC);
@@ -252,7 +252,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 {
     if ([segue.identifier isEqualToString:@"done"])
     {
-        SparkSetupResultViewController *resultVC = segue.destinationViewController;
+        ParticleSetupResultViewController *resultVC = segue.destinationViewController;
         resultVC.device = self.device;
         resultVC.deviceID = self.deviceID;
         resultVC.setupResult = self.setupResult;
@@ -263,19 +263,19 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 {
     
     // --- Configure-AP ---
-    __block SparkSetupCommManager *managerForConfigure = [[SparkSetupCommManager alloc] init];
+    __block ParticleSetupCommManager *managerForConfigure = [[ParticleSetupCommManager alloc] init];
     
     [managerForConfigure configureAP:self.networkName passcode:self.password security:self.security channel:self.channel completion:^(id responseCode, NSError *error) {
 //        NSLog(@"configureAP sent");
         if ((error) || ([responseCode intValue]!=0))
         {
-            if (self.currentState == SparkSetupConnectionProgressStateConfigureCredentials)
+            if (self.currentState == ParticleSetupConnectionProgressStateConfigureCredentials)
             {
                 self.configureRetries++;
                 if (self.configureRetries >= kMaxRetriesConfigureAP-1)
                 {
                     [self setCurrentConnectionProgressStateError:YES];
-                    [self finishSetupWithResult:SparkSetupMainControllerResultFailureConfigure];
+                    [self finishSetupWithResult:ParticleSetupMainControllerResultFailureConfigure];
                 }
                 else
                 {
@@ -286,7 +286,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
         }
         else
         {
-            if (self.currentState == SparkSetupConnectionProgressStateConfigureCredentials)
+            if (self.currentState == ParticleSetupConnectionProgressStateConfigureCredentials)
             {
                 [self nextConnectionProgressState];
                 self.connectAPRetries = 0;
@@ -307,25 +307,25 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
 -(void)connectDeviceToNetwork // step 1
 {
     // --- Connect-AP ---
-    SparkSetupCommManager *managerForConnect = [[SparkSetupCommManager alloc] init];
+    ParticleSetupCommManager *managerForConnect = [[ParticleSetupCommManager alloc] init];
 //    self.connectAPsent = YES;
 //    if (!self.disconnectedFromDevice)
-    if (self.currentState == SparkSetupConnectionProgressStateConnectToWifi)
+    if (self.currentState == ParticleSetupConnectionProgressStateConnectToWifi)
     {
         [managerForConnect connectAP:^(id responseCode, NSError *error) {
-            while (([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix]) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
+            while (([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix]) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
             {
                 [NSThread sleepForTimeInterval:2.0];
                 self.disconnectRetries++;
             }
             
             // are we still connected to device?
-            if ([SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+            if ([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
             {
                 if (self.connectAPRetries++ >= kMaxRetriesConnectAP)
                 {
                     [self setCurrentConnectionProgressStateError:YES];
-                    [self finishSetupWithResult:SparkSetupMainControllerResultFailureCannotDisconnectFromDevice];
+                    [self finishSetupWithResult:ParticleSetupMainControllerResultFailureCannotDisconnectFromDevice];
                 }
                 else
                 {
@@ -336,7 +336,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
             }
             else
             {
-                if (self.currentState == SparkSetupConnectionProgressStateConnectToWifi)
+                if (self.currentState == ParticleSetupConnectionProgressStateConnectToWifi)
                 {
                     [self nextConnectionProgressState];
                     [self waitForCloudConnection];
@@ -367,7 +367,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
     {
         for (int i=0; i<kMaxRetriesReachability-1; i++)
         {
-            if (![SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+            if (![ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
             {
                 [[ParticleCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
                     if (!error)
@@ -411,14 +411,14 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
         {
             // finished
             [self setCurrentConnectionProgressStateError:NO];
-            [self finishSetupWithResult:SparkSetupMainControllerResultSuccessNotClaimed];
+            [self finishSetupWithResult:ParticleSetupMainControllerResultSuccessNotClaimed];
             
         }
     }
     else
     {
         [self setCurrentConnectionProgressStateError:YES];
-        [self finishSetupWithResult:SparkSetupMainControllerResultFailureCannotDisconnectFromDevice];
+        [self finishSetupWithResult:ParticleSetupMainControllerResultFailureCannotDisconnectFromDevice];
     }
     
 }
@@ -435,12 +435,12 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
             [self nextConnectionProgressState];
             
             if (device.connected)
-                self.setupResult = SparkSetupMainControllerResultSuccess;
+                self.setupResult = ParticleSetupMainControllerResultSuccess;
             else
-                self.setupResult = SparkSetupMainControllerResultSuccessDeviceOffline;
+                self.setupResult = ParticleSetupMainControllerResultSuccessDeviceOffline;
             
             if (self.gotStatusEventFromDevice) { // that means device is or was online and now probably OTAing which is fine
-                self.setupResult = SparkSetupMainControllerResultSuccess;
+                self.setupResult = ParticleSetupMainControllerResultSuccess;
             }
             
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
@@ -451,7 +451,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
         else
         {
             [self setCurrentConnectionProgressStateError:YES]; // this should not happen ever
-            [self finishSetupWithResult:SparkSetupMainControllerResultFailureClaiming];
+            [self finishSetupWithResult:ParticleSetupMainControllerResultFailureClaiming];
         }
     }];
 }
@@ -489,7 +489,7 @@ typedef NS_ENUM(NSInteger, SparkSetupConnectionProgressState) {
             if (self.claimRetries >= kMaxRetriesClaim-1)
             {
                 [self setCurrentConnectionProgressStateError:YES];
-                [self finishSetupWithResult:SparkSetupMainControllerResultFailureClaiming];
+                [self finishSetupWithResult:ParticleSetupMainControllerResultFailureClaiming];
             }
             else
             {

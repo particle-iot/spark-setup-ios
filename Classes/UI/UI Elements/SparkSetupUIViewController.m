@@ -1,31 +1,31 @@
 //
-//  SparkSetupViewController.m
+//  ParticleSetupViewController.m
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 12/13/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
-#import "SparkSetupUIViewController.h"
-#import "SparkSetupCustomization.h"
+#import "ParticleSetupUIViewController.h"
+#import "ParticleSetupCustomization.h"
 
-@interface SparkSetupUIViewController ()
+@interface ParticleSetupUIViewController ()
 @property (nonatomic, assign) CGFloat kbSizeHeight;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @end
 
-@implementation SparkSetupUIViewController
+@implementation ParticleSetupUIViewController
 
 #pragma mark view controller life cycle
 
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    //    self.view.backgroundColor = [SparkSetupCustomization sharedInstance].pageBackgroundColor;
-    if ([SparkSetupCustomization sharedInstance].pageBackgroundImage)
+    //    self.view.backgroundColor = [ParticleSetupCustomization sharedInstance].pageBackgroundColor;
+    if ([ParticleSetupCustomization sharedInstance].pageBackgroundImage)
     {
-        UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[SparkSetupCustomization sharedInstance].pageBackgroundImage];
+        UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[ParticleSetupCustomization sharedInstance].pageBackgroundImage];
         backgroundImage.frame = [UIScreen mainScreen].bounds;
         backgroundImage.contentMode = UIViewContentModeScaleToFill;
         [self.view addSubview:backgroundImage];
@@ -33,10 +33,10 @@
     }
     
     
-    if ([SparkSetupCustomization sharedInstance].pageBackgroundColor) //TODO: check this
+    if ([ParticleSetupCustomization sharedInstance].pageBackgroundColor) //TODO: check this
     {
         UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        view.backgroundColor = [SparkSetupCustomization sharedInstance].pageBackgroundColor;
+        view.backgroundColor = [ParticleSetupCustomization sharedInstance].pageBackgroundColor;
         [self.view addSubview:view];
         [self.view sendSubviewToBack:view];
     }

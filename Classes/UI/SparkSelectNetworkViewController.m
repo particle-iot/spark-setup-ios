@@ -1,38 +1,38 @@
 //
-//  SparkSelectNetworkViewController.m
+//  ParticleSelectNetworkViewController.m
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 11/19/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
-#import "SparkSelectNetworkViewController.h"
-#import "SparkSetupPasswordEntryViewController.h"
-#import "SparkConnectingProgressViewController.h"
-#import "SparkSetupCommManager.h"
-#import "SparkSetupCustomization.h"
-#import "SparkSetupUIElements.h"
-#import "SparkManualNetworkViewController.h"
-#import "SparkSetupMainController.h"
-#import "SparkSetupCustomization.h"
-#import "SparkSetupWifiTableViewCell.h"
+#import "ParticleSelectNetworkViewController.h"
+#import "ParticleSetupPasswordEntryViewController.h"
+#import "ParticleConnectingProgressViewController.h"
+#import "ParticleSetupCommManager.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleSetupUIElements.h"
+#import "ParticleManualNetworkViewController.h"
+#import "ParticleSetupMainController.h"
+#import "ParticleSetupCustomization.h"
+#import "ParticleSetupWifiTableViewCell.h"
 
 #ifdef ANALYTICS
 #import <SEGAnalytics.h>
 #endif
 
 // TODO: move it somewhere else
-#define kSparkWifiRSSIThresholdStrong   -56
-#define kSparkWifiRSSIThresholdWeak     -71
+#define kParticleWifiRSSIThresholdStrong   -56
+#define kParticleWifiRSSIThresholdWeak     -71
 
 
 
-@interface SparkSelectNetworkViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ParticleSelectNetworkViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *wifiTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 @property (weak, nonatomic) IBOutlet UILabel *selectNetworkLabel;
-@property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
+@property (weak, nonatomic) IBOutlet ParticleSetupUISpinner *spinner;
 
 @property (nonatomic, strong) NSIndexPath *selectedNetworkIndexPath;
 @property (nonatomic, strong) NSTimer *checkConnectionTimer;
@@ -42,11 +42,11 @@
 
 @end
 
-@implementation SparkSelectNetworkViewController
+@implementation ParticleSelectNetworkViewController
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return ([SparkSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+    return ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
 }
 
 
@@ -59,23 +59,23 @@
     self.wifiTableView.backgroundColor = [UIColor clearColor];
     
     // move to super viewdidload?
-    self.brandImageView.image = [SparkSetupCustomization sharedInstance].brandImage;
-    self.brandImageView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+    self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
 
     [self sortWifiList];
 
-//    if ([SparkSetupCustomization sharedInstance].tintSetupImages)
+//    if ([ParticleSetupCustomization sharedInstance].tintSetupImages)
 //    {
         self.wifiTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 //    }
 //    else
 //    {
 //        self.wifiTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-//        self.wifiTableView.separatorColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+//        self.wifiTableView.separatorColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
 //    }
 
 //    self.wifiTableView.layer.borderWidth = 0.5;
-//    self.wifiTableView.backgroundColor = [SparkSetupCustomization sharedInstance].brandImageBackgroundColor;
+//    self.wifiTableView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
 
     // temporary test init
     /*
@@ -148,7 +148,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifer = @"wifiCell";
-    SparkSetupWifiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer forIndexPath:indexPath];
+    ParticleSetupWifiTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer forIndexPath:indexPath];
     
     // Using a cell identifier will allow your app to reuse cells as they come and go from the screen.
 //    if (cell == nil)
@@ -161,39 +161,39 @@
 //    UILabel *textLabel = (UILabel *)[cell.contentView viewWithTag:10];
     cell.ssidLabel.text = self.wifiList[row][@"ssid"];
 //    textLabel.text
-    cell.ssidLabel.textColor = [SparkSetupCustomization sharedInstance].normalTextColor;
+    cell.ssidLabel.textColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
     
 //    UIImageView *signalStrengthImageView = cell.wifiStrengthImageView; // (UIImageView *)[cell.contentView viewWithTag:30];
     
     int rssi = [self.wifiList[row][@"rssi"] intValue];
-    if (rssi > kSparkWifiRSSIThresholdStrong)
+    if (rssi > kParticleWifiRSSIThresholdStrong)
     {
-        [cell.wifiStrengthImageView setImage:[SparkSetupMainController loadImageFromResourceBundle:@"wifi3"]];
+        [cell.wifiStrengthImageView setImage:[ParticleSetupMainController loadImageFromResourceBundle:@"wifi3"]];
     }
-    else if (rssi > kSparkWifiRSSIThresholdWeak)
+    else if (rssi > kParticleWifiRSSIThresholdWeak)
     {
-        [cell.wifiStrengthImageView setImage:[SparkSetupMainController loadImageFromResourceBundle:@"wifi2"]];
+        [cell.wifiStrengthImageView setImage:[ParticleSetupMainController loadImageFromResourceBundle:@"wifi2"]];
     }
     else
     {
-        [cell.wifiStrengthImageView setImage:[SparkSetupMainController loadImageFromResourceBundle:@"wifi1"]];
+        [cell.wifiStrengthImageView setImage:[ParticleSetupMainController loadImageFromResourceBundle:@"wifi1"]];
     }
     
 
     cell.wifiStrengthImageView.image = [cell.wifiStrengthImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    cell.wifiStrengthImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;;
+    cell.wifiStrengthImageView.tintColor = [ParticleSetupCustomization sharedInstance].normalTextColor;;
 
    
 //    UIImageView *secureImageView = (UIImageView *)[cell.contentView viewWithTag:20];
-    SparkSetupWifiSecurityType sec = [self.wifiList[row][@"sec"] intValue];
-    if (sec != SparkSetupWifiSecurityTypeOpen)
+    ParticleSetupWifiSecurityType sec = [self.wifiList[row][@"sec"] intValue];
+    if (sec != ParticleSetupWifiSecurityTypeOpen)
     {
 //        [cell.contentView viewWithTag:20].hidden = NO;
 //        UIImageView *lock = cell.securedNetworkIconImageView; //(UIImageView *)[cell.contentView viewWithTag:20];
         cell.securedNetworkIconImageView.hidden = NO;
-        [cell.securedNetworkIconImageView setImage:[SparkSetupMainController loadImageFromResourceBundle:@"lock"]];
+        [cell.securedNetworkIconImageView setImage:[ParticleSetupMainController loadImageFromResourceBundle:@"lock"]];
         cell.securedNetworkIconImageView.image = [cell.securedNetworkIconImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        cell.securedNetworkIconImageView.tintColor = [SparkSetupCustomization sharedInstance].normalTextColor;;
+        cell.securedNetworkIconImageView.tintColor = [ParticleSetupCustomization sharedInstance].normalTextColor;;
     }
     else
     {
@@ -223,7 +223,7 @@
 -(void)checkPhotonConnection:(id)sender
 {
 //    NSLog(@"checkPhotonConnection");
-    if (![SparkSetupCommManager checkSparkDeviceWifiConnection:[SparkSetupCustomization sharedInstance].networkNamePrefix])
+    if (![ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
     {
         [self.checkConnectionTimer invalidate];
         [self.delegate willPopBackToDeviceDiscovery];
@@ -278,13 +278,13 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"sparkSelectNetworkVC prepareForSegue : %@",segue.identifier);
+    NSLog(@"particleSelectNetworkVC prepareForSegue : %@",segue.identifier);
     [self.checkConnectionTimer invalidate];
 
     if ([[segue identifier] isEqualToString:@"connect"])
     {
         // Get reference to the destination view controller
-        SparkConnectingProgressViewController *vc = [segue destinationViewController];
+        ParticleConnectingProgressViewController *vc = [segue destinationViewController];
         vc.networkName = self.selectedNetworkSSID;
         vc.channel = self.selectedNetworkChannel;
         vc.security = self.selectedNetworkSecurity;
@@ -295,7 +295,7 @@
     else if ([[segue identifier] isEqualToString:@"require_password"]) // prompt user for password
     {
         // Get reference to the destination view controller
-        SparkSetupPasswordEntryViewController *vc = [segue destinationViewController];
+        ParticleSetupPasswordEntryViewController *vc = [segue destinationViewController];
         vc.networkName = self.selectedNetworkSSID;
         vc.channel = self.selectedNetworkChannel;
         vc.security = self.selectedNetworkSecurity;
@@ -305,7 +305,7 @@
     else if ([[segue identifier] isEqualToString:@"manual_network"]) // prompt user for password
     {
         // Get reference to the destination view controller
-        SparkManualNetworkViewController *vc = [segue destinationViewController];
+        ParticleManualNetworkViewController *vc = [segue destinationViewController];
         vc.deviceID = self.deviceID; // propagate device ID
         vc.needToClaimDevice = self.needToClaimDevice;
     }
@@ -318,13 +318,13 @@
     [self.wifiTableView deselectRowAtIndexPath:indexPath animated:YES];
     self.selectedNetworkIndexPath = indexPath;
 
-    SparkSetupWifiSecurityType secInt = [self.wifiList[indexPath.row][@"sec"] intValue];
+    ParticleSetupWifiSecurityType secInt = [self.wifiList[indexPath.row][@"sec"] intValue];
     self.selectedNetworkSecurity = [NSNumber numberWithInt:secInt];
     self.selectedNetworkChannel = self.wifiList[indexPath.row][@"ch"];
     self.selectedNetworkSSID = self.wifiList[indexPath.row][@"ssid"];
     [self.checkConnectionTimer invalidate];
     
-    if (secInt == SparkSetupWifiSecurityTypeOpen)
+    if (secInt == ParticleSetupWifiSecurityTypeOpen)
     {
 #ifdef ANALYTICS
         [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Selected open network"];
@@ -377,7 +377,7 @@
     
     self.refreshButton.enabled = NO;
     [self.spinner startAnimating];
-    SparkSetupCommManager *manager = [[SparkSetupCommManager alloc] init];
+    ParticleSetupCommManager *manager = [[ParticleSetupCommManager alloc] init];
     [manager scanAP:^(id scanResponse, NSError *error) {
         [self.spinner stopAnimating];
         if (error)

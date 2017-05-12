@@ -1,9 +1,9 @@
 //
-//  SparkSetupCustomization.h
+//  ParticleSetupCustomization.h
 //  mobile-sdk-ios
 //
 //  Created by Ido Kleinman on 12/12/14.
-//  Copyright (c) 2014-2015 Spark. All rights reserved.
+//  Copyright (c) 2014-2015 Particle. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,10 +11,10 @@
 
 //#define ANALYTICS   1     // comment out to disable Analytics 
 
-@interface SparkSetupCustomization : NSObject
+@interface ParticleSetupCustomization : NSObject
 
 /**
- *  Spark soft AP setup wizard apperance customization proxy class
+ *  Particle soft AP setup wizard apperance customization proxy class
  *
  *  @return Singleton instance of the customization class
  */
