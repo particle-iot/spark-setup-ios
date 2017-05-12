@@ -11,7 +11,7 @@
 #import <ParticleSDK/ParticleSDK.h>
 #import <OnePasswordExtension/OnePasswordExtension.h>
 #else
-#import "Particle-SDK.h"
+//#import "ParticleCloud.h"
 #import <1PasswordExtension/OnePasswordExtension.h>
 #endif
 #import "SparkUserLoginViewController.h"

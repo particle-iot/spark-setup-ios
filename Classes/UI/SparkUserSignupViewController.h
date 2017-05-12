@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SparkSetupUIViewController.h"
+#import "Particle-SDK.h"
 
 @protocol SparkUserLoginDelegate <NSObject>
 @required

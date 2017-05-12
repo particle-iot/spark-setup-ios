@@ -16,7 +16,7 @@
 #import <ParticleSDK/ParticleSDK.h>
 #import <OnePasswordExtension/OnePasswordExtension.h>
 #else
-#import "Particle-SDK.h"
+#import <Particle-SDK.h>
 #import "OnePasswordExtension.h"
 //#import <1PasswordExtension/OnePasswordExtension.h>
 #endif
