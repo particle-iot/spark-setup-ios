@@ -33,7 +33,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *brandImage;
 @property (weak, nonatomic) IBOutlet UIButton *noAccountButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
-@property (strong, nonatomic) UIAlertView *skipAuthAlertView;
 @property (weak, nonatomic) IBOutlet SparkSetupUISpinner *spinner;
 @property (weak, nonatomic) IBOutlet SparkSetupUIButton *skipAuthButton;
 @property (weak, nonatomic) IBOutlet UIButton *onePasswordButton;
@@ -53,9 +52,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [self makeLinkButton:self.forgotButton withText:@"Forgot password"];
-//    [self makeBoldButton:self.noAccountButton withText:nil];
     
     // move to super viewdidload?
     self.brandImage.image = [SparkSetupCustomization sharedInstance].brandImage;
@@ -92,15 +88,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)onePasswordButtonTapped:(id)sender {
     [[OnePasswordExtension sharedExtension] findLoginForURLString:@"https://login.particle.io" forViewController:self sender:sender completion:^(NSDictionary *loginDictionary, NSError *error) {
@@ -153,8 +140,9 @@
     [self.view endEditing:YES];
     if (self.passwordTextField.text.length == 0)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot sign in" message:@"Password cannot be blank" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Sign In" message:@"Password cannot be blank" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
         return;
     }
     
@@ -189,15 +177,18 @@
                  else
                      errorText = error.localizedDescription;
                      
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot sign in" message:errorText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                 [alert show];
+                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Sign In" message:errorText preferredStyle:UIAlertControllerStyleAlert];
+                 [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+                 [self presentViewController:alertController animated:YES completion:nil];
+
              }
          }];
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot sign in" message:@"Invalid email address" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Sign In" message:@"Invalid email address" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 
 }
@@ -208,34 +199,26 @@
     [self.view endEditing:YES];
     [self.delegate didRequestUserSignup:self];
     
-    /*
-    // go back to signup
-    [self dismissViewControllerAnimated:YES completion:nil];
-     */
-
 }
 
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView == self.skipAuthAlertView)
-    {
-        if (buttonIndex == 0) //YES
-        {
-#ifdef ANALYTICS
-            [[SEGAnalytics sharedAnalytics] track:@"Auth: Auth skipped"];
-#endif
-            [self.delegate didFinishUserAuthentication:self loggedIn:NO];
-        }
-    }
-}
 
 - (IBAction)skipAuthButtonTapped:(id)sender {
     
     // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
     NSString *messageStr = [SparkSetupCustomization sharedInstance].skipAuthenticationMessage;
-    self.skipAuthAlertView = [[UIAlertView alloc] initWithTitle:@"Skip authentication" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
-    [self.skipAuthAlertView show];
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Skip Authentication" message:messageStr preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+#ifdef ANALYTICS
+        [[SEGAnalytics sharedAnalytics] track:@"Auth: Auth skipped"];
+#endif
+        [self.delegate didFinishUserAuthentication:self loggedIn:NO];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        // ???
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
     
 }
 
