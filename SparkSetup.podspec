@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.screenshots      = "http://i58.tinypic.com/15yhdeb.jpg"
     s.license          = 'Apache 2.0'
     s.author           = { "Particle" => "ido@particle.io" }
-    s.source           = { :git => "https://github.com/spark/spark-setup-ios.git", :tag => s.version.to_s }
+    s.source           = { :git => "https://github.com/spark/particle-setup-ios.git", :tag => s.version.to_s }
     s.social_media_url = 'https://twitter.com/particle'
 
     s.platform     = :ios, '8.0'
