@@ -1,1 +1,0 @@
-../../../Particle-SDK/Pod/Classes/Particle-SDK-Bridging-Header.h

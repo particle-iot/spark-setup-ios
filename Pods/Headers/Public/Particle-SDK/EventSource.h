@@ -1,1 +1,0 @@
-../../../Particle-SDK/Pod/Classes/Helpers/EventSource.h

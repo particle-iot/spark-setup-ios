@@ -42,6 +42,7 @@
 		50E840BE1E95FC960038ED42 /* ParticleCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E840BD1E95FC960038ED42 /* ParticleCloud.h */; };
 		50E840C01E95FC9E0038ED42 /* ParticleDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E840BF1E95FC9E0038ED42 /* ParticleDevice.h */; };
 		50EECD9F1CEE8ABF00192EF9 /* ParticleSetup.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509080DC1ACF494A0014E7DF /* ParticleSetup.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B436C641042F353FD2E972C8 /* libPods-ParticleSetup.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2D2EF5C65691E23BC06F92 /* libPods-ParticleSetup.a */; };
 		DCB04F2BC254F123BE2EA995 /* libPods-SparkSetup.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4F6640DE6818F7AFF1DE8 /* libPods-SparkSetup.a */; };
 /* End PBXBuildFile section */
 
@@ -120,9 +121,10 @@
 		50E840BB1E95FC890038ED42 /* Particle-SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Particle-SDK.h"; path = "spark-setup-ios/Pods/Particle-SDK/Pod/Classes/Particle-SDK.h"; sourceTree = "<group>"; };
 		50E840BD1E95FC960038ED42 /* ParticleCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleCloud.h; path = "spark-setup-ios/Pods/Particle-SDK/Pod/Classes/SDK/ParticleCloud.h"; sourceTree = "<group>"; };
 		50E840BF1E95FC9E0038ED42 /* ParticleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleDevice.h; path = "spark-setup-ios/Pods/Particle-SDK/Pod/Classes/SDK/ParticleDevice.h"; sourceTree = "<group>"; };
-		8D6C1E5D1D50E067FE398E1D /* Pods-SparkSetup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparkSetup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SparkSetup/Pods-SparkSetup.debug.xcconfig"; sourceTree = "<group>"; };
+		922F04A174A4B8F0D9886CBC /* Pods-ParticleSetup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParticleSetup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup.debug.xcconfig"; sourceTree = "<group>"; };
 		94C4F6640DE6818F7AFF1DE8 /* libPods-SparkSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SparkSetup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC127B02FE61AE0F1276E4FD /* Pods-SparkSetup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SparkSetup.release.xcconfig"; path = "Pods/Target Support Files/Pods-SparkSetup/Pods-SparkSetup.release.xcconfig"; sourceTree = "<group>"; };
+		9775665D44D753DD32E1DD17 /* Pods-ParticleSetup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParticleSetup.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup.release.xcconfig"; sourceTree = "<group>"; };
+		CC2D2EF5C65691E23BC06F92 /* libPods-ParticleSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParticleSetup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCB04F2BC254F123BE2EA995 /* libPods-SparkSetup.a in Frameworks */,
+				B436C641042F353FD2E972C8 /* libPods-ParticleSetup.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,8 +296,8 @@
 		6983E8FE21D2126E573DA5A7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8D6C1E5D1D50E067FE398E1D /* Pods-SparkSetup.debug.xcconfig */,
-				FC127B02FE61AE0F1276E4FD /* Pods-SparkSetup.release.xcconfig */,
+				922F04A174A4B8F0D9886CBC /* Pods-ParticleSetup.debug.xcconfig */,
+				9775665D44D753DD32E1DD17 /* Pods-ParticleSetup.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				94C4F6640DE6818F7AFF1DE8 /* libPods-SparkSetup.a */,
+				CC2D2EF5C65691E23BC06F92 /* libPods-ParticleSetup.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -446,7 +450,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SparkSetup/Pods-SparkSetup-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -494,7 +498,6 @@
 /* Begin XCBuildConfiguration section */
 		509080D01ACF46600014E7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D6C1E5D1D50E067FE398E1D /* Pods-SparkSetup.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -549,7 +552,6 @@
 		};
 		509080D11ACF46600014E7DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC127B02FE61AE0F1276E4FD /* Pods-SparkSetup.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -608,7 +610,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = io.spark.SparkSetup;
+				PRODUCT_BUNDLE_IDENTIFIER = io.particle.ParticleSetup;
 				PRODUCT_NAME = ParticleSetup;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -626,7 +628,7 @@
 				DEVELOPMENT_TEAM = TNJ67X9MQD;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = io.spark.SparkSetup;
+				PRODUCT_BUNDLE_IDENTIFIER = io.particle.ParticleSetup;
 				PRODUCT_NAME = ParticleSetup;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -637,7 +639,7 @@
 		};
 		509080F91ACF49670014E7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D6C1E5D1D50E067FE398E1D /* Pods-SparkSetup.debug.xcconfig */;
+			baseConfigurationReference = 922F04A174A4B8F0D9886CBC /* Pods-ParticleSetup.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_BITCODE = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -682,7 +684,7 @@
 		};
 		509080FA1ACF49670014E7DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC127B02FE61AE0F1276E4FD /* Pods-SparkSetup.release.xcconfig */;
+			baseConfigurationReference = 9775665D44D753DD32E1DD17 /* Pods-ParticleSetup.release.xcconfig */;
 			buildSettings = {
 				ENABLE_BITCODE = YES;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;

@@ -11,7 +11,6 @@
 		08E8A9E2E491935A498652F88B5A7850 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E38190D48D673B6D5539D59D3A9B522 /* Foundation.framework */; };
 		0FBA1FC3BCB951FE8D8DD371741DB3E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E38190D48D673B6D5539D59D3A9B522 /* Foundation.framework */; };
 		1341A7AC2439CB63D459D32EF985A414 /* UIImage+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = EF58586D9AA24F446254915F9B3C70D5 /* UIImage+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		149379A746DED23E890BC421538A3029 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E38190D48D673B6D5539D59D3A9B522 /* Foundation.framework */; };
 		1E2FC084BCED6DAEAD054D77C2D89F38 /* EventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 43E5B2057507A542563874BBB25634E1 /* EventSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2579663181BFA8F7DA4B5D7CF8537FC0 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B7961A5FA9DE968D43DD0B625CE91F /* UIActivityIndicatorView+AFNetworking.m */; };
 		2843898C40D365BC1361BF1CD832E9B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E900A1F29A69E8C5A009141BAB3D36C /* CoreGraphics.framework */; };
@@ -20,6 +19,7 @@
 		31ED9BD97AF9E62874AF3CDF2F8090CF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8979D993DFBB8469656CC1A303052676 /* AFNetworkActivityIndicatorManager.m */; };
 		46401F3C7FF0B0CFE2E9B14914780835 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = AD56E95824D3DC279B702AE663D6B218 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E2FA1E8B102519460BCEE5010269E2F /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 445A42C06B10F0D98CB924A79F42EAAB /* 1Password.xcassets */; };
+		545DF6C1398F59C3995B009E13A19E84 /* Pods-ParticleSetup-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D998CAD4D0F733AEA12FC20350236A2 /* Pods-ParticleSetup-dummy.m */; };
 		5719F06B809080CDEF7E6BC75DEA1A3C /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = E2DDE4147516554A09E46D40DBE8705A /* UIKit+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5945033488F9995134DBB7014DE2412F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 175FBDC40A09023D8E95EBA1928FB7ED /* AFURLRequestSerialization.m */; };
 		5C0696B2AD1DC23F6473F5A19FAB6296 /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E3427A3AC76C7163B884B3C361EF66 /* AFImageDownloader.m */; };
@@ -62,9 +62,9 @@
 		D5CB999FB5FC80FC126A38AB4DF12227 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = B9C4EC90FDBC878DA0B3F3C0A649961D /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D61D7BE42966CBB17DC42C110ECE39E7 /* ParticleCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C11F607661E966C62922FA5012891F /* ParticleCloud.m */; };
 		D6661D944DA4B5402DA6B57914542DF9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6B1371D1BB86FB192697CDAE015EA /* Security.framework */; };
+		D830DB22CFBDE3519B77AE8ABD468CE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E38190D48D673B6D5539D59D3A9B522 /* Foundation.framework */; };
 		DE31BBF6A7963C5871A19655EF5532BE /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6542F976136483C1B3DD8DEF5B299815 /* AFNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E0EF330DB2D3521ED26E67B2E8687A2E /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F235DB194B116728C6A536B76BFF6 /* AFNetworkReachabilityManager.m */; };
-		E2227F18E072B9A4180E7914D1475E7F /* Pods-SparkSetup-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B42D2FFB6926410E402AAF7E0BBA916 /* Pods-SparkSetup-dummy.m */; };
 		E50E21E9FADF703874404DF898D78323 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6B1371D1BB86FB192697CDAE015EA /* Security.framework */; };
 		E738C16AF8020F2D6948D867AA7109EF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DFE3EAE9278BC47E19AF118E07B4DA /* SystemConfiguration.framework */; };
 		E7B0270BEDCBE116DDD853F76E27B0BA /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B88C7A7DC6397A53C54123481C62753C /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -76,12 +76,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2D72F78958EA657D28796B232C5A03AC /* PBXContainerItemProxy */ = {
+		33EC09D4781B8BAFD2A506BA76F0B737 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 022515496D6E16FDA16FCFB225643758;
-			remoteInfo = 1PasswordExtension;
+			remoteGlobalIDString = 9E033EDB5EC0819481B0546434FA577B;
+			remoteInfo = AFNetworking;
+		};
+		6FD3BB5E26459A1478069BC4DA5A27CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10C27BE46C6D5F2E8017B1FA6393FDC7;
+			remoteInfo = "Particle-SDK";
 		};
 		951B842A2916F2EFA98EC2259C17C058 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -90,21 +97,14 @@
 			remoteGlobalIDString = 948BF29F3FC2639B8E511A94E1AB8C87;
 			remoteInfo = "1PasswordExtension-OnePasswordExtensionResources";
 		};
+		C060123A27A2554E26E1EE4300ABFBB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 022515496D6E16FDA16FCFB225643758;
+			remoteInfo = 1PasswordExtension;
+		};
 		CF0FB76F6F7B812462A3EDC03647AF39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9E033EDB5EC0819481B0546434FA577B;
-			remoteInfo = AFNetworking;
-		};
-		D53E6835B2ACF9DE2DCE7B19E67B6F3D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 10C27BE46C6D5F2E8017B1FA6393FDC7;
-			remoteInfo = "Particle-SDK";
-		};
-		E7C8BAE8FBEDBC261912860EE34F9AAF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -117,50 +117,49 @@
 		009F3B5AD85AA9DAB7295C416582D223 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		02E3427A3AC76C7163B884B3C361EF66 /* AFImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFImageDownloader.m; path = "UIKit+AFNetworking/AFImageDownloader.m"; sourceTree = "<group>"; };
 		02EF16A24253C2CB86E135DF7C2F46BB /* ParticleSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ParticleSession.m; path = Pod/Classes/SDK/ParticleSession.m; sourceTree = "<group>"; };
+		04535F9DD4F0FB3F3BDFF3729A7B7D0E /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAFNetworking.a; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B8EDFF8DB27C7FBF8455ABD6C9A5E8 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
 		0A4F235DB194B116728C6A536B76BFF6 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		0F6847D26CF7FF43B13878692E64A714 /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFAutoPurgingImageCache.m; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.m"; sourceTree = "<group>"; };
 		175FBDC40A09023D8E95EBA1928FB7ED /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
 		1E685A98B070A5E6E93A7ED684169130 /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
 		24BB6839DD487A829F4DAF9B2403FA16 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KeychainItemWrapper.h; path = Pod/Classes/Helpers/KeychainItemWrapper.h; sourceTree = "<group>"; };
-		292A5FB337BD720B8CB7C54DC72C1DF0 /* Pods-SparkSetup-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SparkSetup-resources.sh"; sourceTree = "<group>"; };
+		28F6D4AA39CE29867175A6615ACCA121 /* lib1PasswordExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = lib1PasswordExtension.a; path = lib1PasswordExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3C8E754C60E33FBFBECDC3B9DF6574 /* Particle-SDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Particle-SDK.h"; path = "Pod/Classes/Particle-SDK.h"; sourceTree = "<group>"; };
 		2E900A1F29A69E8C5A009141BAB3D36C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		3425133816D529FCBC1F4CED2610AC40 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
 		352C570E620F6BFB2F587C3B0ED483A7 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		3A3F5567548E84EE2DCDE7DD0FF60122 /* EventSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EventSource.m; path = Pod/Classes/Helpers/EventSource.m; sourceTree = "<group>"; };
 		3C951D50D7AABEEABBBF309C4582F13C /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		3D998CAD4D0F733AEA12FC20350236A2 /* Pods-ParticleSetup-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ParticleSetup-dummy.m"; sourceTree = "<group>"; };
 		3EB50B49C20BC89B90B16012B6371EF4 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
 		43E5B2057507A542563874BBB25634E1 /* EventSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EventSource.h; path = Pod/Classes/Helpers/EventSource.h; sourceTree = "<group>"; };
 		445A42C06B10F0D98CB924A79F42EAAB /* 1Password.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
 		45E1DA54079DF820654F624B83ED377A /* ParticleEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParticleEvent.h; path = Pod/Classes/SDK/ParticleEvent.h; sourceTree = "<group>"; };
 		47A6A2D04B4AC692D06B69292B2F7EC5 /* 1PasswordExtension.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = 1PasswordExtension.xcconfig; sourceTree = "<group>"; };
-		4B42D2FFB6926410E402AAF7E0BBA916 /* Pods-SparkSetup-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "Pods-SparkSetup-dummy.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4CF103ADE74F0D4736D03D60B6F956E9 /* OnePasswordExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
 		4FA6B31081231AA0DC75A347FA841DB7 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		5003C97CA6F062A2E1CBADD74ABFBE67 /* ParticleDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ParticleDevice.m; path = Pod/Classes/SDK/ParticleDevice.m; sourceTree = "<group>"; };
-		566956C168C0DCBCDFD3C9AB56052561 /* libParticle-SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libParticle-SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AACBCA5FF1D72A68353D0315715DCB /* ParticleEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ParticleEvent.m; path = Pod/Classes/SDK/ParticleEvent.m; sourceTree = "<group>"; };
 		5AC762BD49D9D3B50FF4ED4053C75810 /* Particle-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Particle-SDK.xcconfig"; sourceTree = "<group>"; };
-		5E047D61C86B2F34A46F8277E0881394 /* Pods-SparkSetup-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SparkSetup-acknowledgements.plist"; sourceTree = "<group>"; };
+		5F61289E45036869873927EE3C8A8507 /* OnePasswordExtensionResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OnePasswordExtensionResources.bundle; path = OnePasswordExtensionResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8AA69361B7B581F86BD3F4A81BB34D /* AFImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFImageDownloader.h; path = "UIKit+AFNetworking/AFImageDownloader.h"; sourceTree = "<group>"; };
 		5FDD3B20D23661EF49990F06D5113E56 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		60B7961A5FA9DE968D43DD0B625CE91F /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
-		62491F60BBC1D9D0CACC868CCBB0E10A /* lib1PasswordExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = lib1PasswordExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FDCAFBCBF6C75601B853611D3EAB8E /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
-		644CA962B0C83CD0972FEBFEEB8C8DA4 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6542F976136483C1B3DD8DEF5B299815 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		696720535E2EC0DC77E7E394F884E738 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		73F1539F80845354D34EBB975047DC03 /* 1PasswordExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "1PasswordExtension-prefix.pch"; sourceTree = "<group>"; };
+		7869834D63ABA20BA8D0197FD2F70860 /* Pods-ParticleSetup-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ParticleSetup-acknowledgements.plist"; sourceTree = "<group>"; };
 		7E38190D48D673B6D5539D59D3A9B522 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7F5E204A1C2D4F00CF4E6514878D915C /* Pods-SparkSetup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SparkSetup.release.xcconfig"; sourceTree = "<group>"; };
 		80B0DE19B5524DC52F773C531B837326 /* Particle-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Particle-SDK-dummy.m"; sourceTree = "<group>"; };
 		8979D993DFBB8469656CC1A303052676 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		8A1E3F38FA94FDFF6FFF270A4AB55D6F /* Particle-SDK-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Particle-SDK-Bridging-Header.h"; path = "Pod/Classes/Particle-SDK-Bridging-Header.h"; sourceTree = "<group>"; };
 		8BAE89496F127EDDECD2A0EC967B005F /* KeychainItemWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KeychainItemWrapper.m; path = Pod/Classes/Helpers/KeychainItemWrapper.m; sourceTree = "<group>"; };
 		8C0A4BDB3260A0B7139C3DA89A8BFD69 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		9194192EE892FCD291512F853C5B7DCC /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lineEnding = 0; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9895C44F4F4E77CDD8A6293A15A02393 /* Pods-ParticleSetup-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ParticleSetup-acknowledgements.markdown"; sourceTree = "<group>"; };
 		98C11F607661E966C62922FA5012891F /* ParticleCloud.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ParticleCloud.m; path = Pod/Classes/SDK/ParticleCloud.m; sourceTree = "<group>"; };
 		9E8E4C302F260D4403CEDB0674D231D0 /* OnePasswordExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
 		9FE950620C435141DF41AF0562FFF479 /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
@@ -177,21 +176,22 @@
 		B530A2553EC1B6312E673FD139200AC2 /* Particle-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Particle-SDK-prefix.pch"; sourceTree = "<group>"; };
 		B88C7A7DC6397A53C54123481C62753C /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
 		B9C4EC90FDBC878DA0B3F3C0A649961D /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		BDCA7F60D1FAA6670A65C38A934ED30A /* libPods-SparkSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SparkSetup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C77E9832849750A657EB0FE74A98FCF0 /* Pods-SparkSetup-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SparkSetup-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CD969864DCD8B751090A985D8E21E24C /* Pods-SparkSetup-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SparkSetup-frameworks.sh"; sourceTree = "<group>"; };
+		C18C0BFE65181268809A73E3C9FEDB44 /* libPods-ParticleSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ParticleSetup.a"; path = "libPods-ParticleSetup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8F035CEE8F701A7070A7ACB4F5B6050 /* Pods-ParticleSetup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ParticleSetup.debug.xcconfig"; sourceTree = "<group>"; };
+		CD5BF41CF524B527E85AA155BFFA6D55 /* Pods-ParticleSetup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ParticleSetup.release.xcconfig"; sourceTree = "<group>"; };
 		CF0143D80EA67F840B2F664F909000A2 /* ResourceBundle-OnePasswordExtensionResources-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-OnePasswordExtensionResources-Info.plist"; sourceTree = "<group>"; };
 		CF029F45D23E04BE6DB7DDB7D27EE424 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		D14BD57F24AC3B70F96B612A4D2C584E /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
-		D16E1B069B99D0CAD0D57F10A27F8F10 /* OnePasswordExtensionResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnePasswordExtensionResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CB28ADA6473A722E16D38B7F79AFF2 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		D67FB3B832CBE555B071BFD46EF82110 /* libParticle-SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libParticle-SDK.a"; path = "libParticle-SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97AC14C06D13BDC0662C592CA61DAC7 /* Pods-ParticleSetup-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ParticleSetup-resources.sh"; sourceTree = "<group>"; };
 		DE1FCD7AC65900FC4779064BC496EED9 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
 		E2DDE4147516554A09E46D40DBE8705A /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		E78F5FF2B891AF6BF53251E8E8D585F2 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
-		ECB1AF8323721CBAEEA898595DFC60D4 /* Pods-SparkSetup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SparkSetup.debug.xcconfig"; sourceTree = "<group>"; };
 		ECBD81B434B185CBC081A5EA030A4EAE /* ParticleDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParticleDevice.h; path = Pod/Classes/SDK/ParticleDevice.h; sourceTree = "<group>"; };
 		EF58586D9AA24F446254915F9B3C70D5 /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+AFNetworking.h"; path = "UIKit+AFNetworking/UIImage+AFNetworking.h"; sourceTree = "<group>"; };
 		F54E6D3D3D48E33376BCD88C901D3BA3 /* 1PasswordExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "1PasswordExtension-dummy.m"; sourceTree = "<group>"; };
+		F57FD81A6CA5B3F37221EEF362BAADCB /* Pods-ParticleSetup-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ParticleSetup-frameworks.sh"; sourceTree = "<group>"; };
 		FAF0EFC97D64D70D946AABB2FAFAB4EF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -206,14 +206,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		322E979557EC9104861B3ABE4422B21E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				149379A746DED23E890BC421538A3029 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3A9BCB5B4C49EEA1C37C95E3A98F6138 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -221,6 +213,14 @@
 				0FBA1FC3BCB951FE8D8DD371741DB3E5 /* Foundation.framework in Frameworks */,
 				E50E21E9FADF703874404DF898D78323 /* Security.framework in Frameworks */,
 				C3EBC1E4806A9E03696A2F335C32BE28 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D190D21D9E6E2F72FF4304F9175E750 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D830DB22CFBDE3519B77AE8ABD468CE5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +254,7 @@
 				D7A9A702591C863570B66334CCDEE7D9 /* Resources */,
 				59489D170857072FA188F064211BA22F /* Support Files */,
 			);
+			name = 1PasswordExtension;
 			path = 1PasswordExtension;
 			sourceTree = "<group>";
 		};
@@ -287,21 +288,6 @@
 			name = Serialization;
 			sourceTree = "<group>";
 		};
-		27E31521597B5DDE1D88668DD9D123AE /* Pods-SparkSetup */ = {
-			isa = PBXGroup;
-			children = (
-				C77E9832849750A657EB0FE74A98FCF0 /* Pods-SparkSetup-acknowledgements.markdown */,
-				5E047D61C86B2F34A46F8277E0881394 /* Pods-SparkSetup-acknowledgements.plist */,
-				4B42D2FFB6926410E402AAF7E0BBA916 /* Pods-SparkSetup-dummy.m */,
-				CD969864DCD8B751090A985D8E21E24C /* Pods-SparkSetup-frameworks.sh */,
-				292A5FB337BD720B8CB7C54DC72C1DF0 /* Pods-SparkSetup-resources.sh */,
-				ECB1AF8323721CBAEEA898595DFC60D4 /* Pods-SparkSetup.debug.xcconfig */,
-				7F5E204A1C2D4F00CF4E6514878D915C /* Pods-SparkSetup.release.xcconfig */,
-			);
-			name = "Pods-SparkSetup";
-			path = "Target Support Files/Pods-SparkSetup";
-			sourceTree = "<group>";
-		};
 		31E834551273BC04C2B24461E4CBB3AC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,26 +297,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/AFNetworking";
-			sourceTree = "<group>";
-		};
-		3A1DF5B7C1C2D2342E9B9FC6D37C39F8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				62491F60BBC1D9D0CACC868CCBB0E10A /* lib1PasswordExtension.a */,
-				644CA962B0C83CD0972FEBFEEB8C8DA4 /* libAFNetworking.a */,
-				566956C168C0DCBCDFD3C9AB56052561 /* libParticle-SDK.a */,
-				BDCA7F60D1FAA6670A65C38A934ED30A /* libPods-SparkSetup.a */,
-				D16E1B069B99D0CAD0D57F10A27F8F10 /* OnePasswordExtensionResources.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		558474CD5598A44E630817E8D14A5B8F /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				27E31521597B5DDE1D88668DD9D123AE /* Pods-SparkSetup */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		59489D170857072FA188F064211BA22F /* Support Files */ = {
@@ -358,6 +324,21 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		724CCEEAEE430EAD96B00F7D6E641006 /* Pods-ParticleSetup */ = {
+			isa = PBXGroup;
+			children = (
+				9895C44F4F4E77CDD8A6293A15A02393 /* Pods-ParticleSetup-acknowledgements.markdown */,
+				7869834D63ABA20BA8D0197FD2F70860 /* Pods-ParticleSetup-acknowledgements.plist */,
+				3D998CAD4D0F733AEA12FC20350236A2 /* Pods-ParticleSetup-dummy.m */,
+				F57FD81A6CA5B3F37221EEF362BAADCB /* Pods-ParticleSetup-frameworks.sh */,
+				D97AC14C06D13BDC0662C592CA61DAC7 /* Pods-ParticleSetup-resources.sh */,
+				C8F035CEE8F701A7070A7ACB4F5B6050 /* Pods-ParticleSetup.debug.xcconfig */,
+				CD5BF41CF524B527E85AA155BFFA6D55 /* Pods-ParticleSetup.release.xcconfig */,
+			);
+			name = "Pods-ParticleSetup";
+			path = "Target Support Files/Pods-ParticleSetup";
+			sourceTree = "<group>";
+		};
 		7B95BFBC0C2B957BC77809C4BF9053B8 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,9 +354,17 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */,
 				DB70E162C9A81C594154161AA9ED295D /* Pods */,
-				3A1DF5B7C1C2D2342E9B9FC6D37C39F8 /* Products */,
-				558474CD5598A44E630817E8D14A5B8F /* Targets Support Files */,
+				A922577AE5FA2BBC0A517C47DC6EC68C /* Products */,
+				9D834A185700D43CFACE378473ED29ED /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		9D834A185700D43CFACE378473ED29ED /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				724CCEEAEE430EAD96B00F7D6E641006 /* Pods-ParticleSetup */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		A3AC9BF040E5C55877C162087C6619F8 /* Particle-SDK */ = {
@@ -387,7 +376,20 @@
 				C0C1C7C8AF59FAF2D127866882FE610E /* SDK */,
 				FC4EB875AB1FEE03136DE8207A68C983 /* Support Files */,
 			);
+			name = "Particle-SDK";
 			path = "Particle-SDK";
+			sourceTree = "<group>";
+		};
+		A922577AE5FA2BBC0A517C47DC6EC68C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28F6D4AA39CE29867175A6615ACCA121 /* lib1PasswordExtension.a */,
+				04535F9DD4F0FB3F3BDFF3729A7B7D0E /* libAFNetworking.a */,
+				D67FB3B832CBE555B071BFD46EF82110 /* libParticle-SDK.a */,
+				C18C0BFE65181268809A73E3C9FEDB44 /* libPods-ParticleSetup.a */,
+				5F61289E45036869873927EE3C8A8507 /* OnePasswordExtensionResources.bundle */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		AB00DDB1FDA99D71ED7BA2B3840266C6 /* NSURLSession */ = {
@@ -412,6 +414,7 @@
 				31E834551273BC04C2B24461E4CBB3AC /* Support Files */,
 				F2C8869890593964F3203B9933FC3F5F /* UIKit */,
 			);
+			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -564,7 +567,7 @@
 			);
 			name = 1PasswordExtension;
 			productName = 1PasswordExtension;
-			productReference = 62491F60BBC1D9D0CACC868CCBB0E10A /* lib1PasswordExtension.a */;
+			productReference = 28F6D4AA39CE29867175A6615ACCA121 /* lib1PasswordExtension.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		10C27BE46C6D5F2E8017B1FA6393FDC7 /* Particle-SDK */ = {
@@ -582,7 +585,7 @@
 			);
 			name = "Particle-SDK";
 			productName = "Particle-SDK";
-			productReference = 566956C168C0DCBCDFD3C9AB56052561 /* libParticle-SDK.a */;
+			productReference = D67FB3B832CBE555B071BFD46EF82110 /* libParticle-SDK.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		948BF29F3FC2639B8E511A94E1AB8C87 /* 1PasswordExtension-OnePasswordExtensionResources */ = {
@@ -599,7 +602,7 @@
 			);
 			name = "1PasswordExtension-OnePasswordExtensionResources";
 			productName = "1PasswordExtension-OnePasswordExtensionResources";
-			productReference = D16E1B069B99D0CAD0D57F10A27F8F10 /* OnePasswordExtensionResources.bundle */;
+			productReference = 5F61289E45036869873927EE3C8A8507 /* OnePasswordExtensionResources.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		9E033EDB5EC0819481B0546434FA577B /* AFNetworking */ = {
@@ -616,26 +619,26 @@
 			);
 			name = AFNetworking;
 			productName = AFNetworking;
-			productReference = 644CA962B0C83CD0972FEBFEEB8C8DA4 /* libAFNetworking.a */;
+			productReference = 04535F9DD4F0FB3F3BDFF3729A7B7D0E /* libAFNetworking.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		B4A2DCB9071C1034F06172140E8A9DAF /* Pods-SparkSetup */ = {
+		F80119236C1D50D358F54063C83EAE15 /* Pods-ParticleSetup */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7FF2FEC5F5280E06233B09064D510D05 /* Build configuration list for PBXNativeTarget "Pods-SparkSetup" */;
+			buildConfigurationList = 6A7F92D6605E9058AD55CE9113B10845 /* Build configuration list for PBXNativeTarget "Pods-ParticleSetup" */;
 			buildPhases = (
-				25F2697E4AB215F0A095E28059B9F0AF /* Sources */,
-				322E979557EC9104861B3ABE4422B21E /* Frameworks */,
+				118A1E7226BCADBA1D896E17B0F1875F /* Sources */,
+				3D190D21D9E6E2F72FF4304F9175E750 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1919D78607174A39E07D21497A4E742D /* PBXTargetDependency */,
-				9251177D1B95278F27D8E083C3D5FD1E /* PBXTargetDependency */,
-				AD82BA6AE1203F47147942E5E2CE1681 /* PBXTargetDependency */,
+				4F08C0C889960023EC9E8AE44A4BEC11 /* PBXTargetDependency */,
+				E4DB914F58DBDDE06D29DFFD7EEAB291 /* PBXTargetDependency */,
+				04C3B825DBDB4E02AA83A4F57377D36B /* PBXTargetDependency */,
 			);
-			name = "Pods-SparkSetup";
-			productName = "Pods-SparkSetup";
-			productReference = BDCA7F60D1FAA6670A65C38A934ED30A /* libPods-SparkSetup.a */;
+			name = "Pods-ParticleSetup";
+			productName = "Pods-ParticleSetup";
+			productReference = C18C0BFE65181268809A73E3C9FEDB44 /* libPods-ParticleSetup.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -645,7 +648,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -655,7 +658,7 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 3A1DF5B7C1C2D2342E9B9FC6D37C39F8 /* Products */;
+			productRefGroup = A922577AE5FA2BBC0A517C47DC6EC68C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -663,7 +666,7 @@
 				948BF29F3FC2639B8E511A94E1AB8C87 /* 1PasswordExtension-OnePasswordExtensionResources */,
 				9E033EDB5EC0819481B0546434FA577B /* AFNetworking */,
 				10C27BE46C6D5F2E8017B1FA6393FDC7 /* Particle-SDK */,
-				B4A2DCB9071C1034F06172140E8A9DAF /* Pods-SparkSetup */,
+				F80119236C1D50D358F54063C83EAE15 /* Pods-ParticleSetup */,
 			);
 		};
 /* End PBXProject section */
@@ -703,20 +706,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		118A1E7226BCADBA1D896E17B0F1875F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				545DF6C1398F59C3995B009E13A19E84 /* Pods-ParticleSetup-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1378DB95779714B23289EB1A54D2E44C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				95FB52CD3656F2EBEE3DFC3D585B9DA2 /* 1PasswordExtension-dummy.m in Sources */,
 				EBCA8F5A442530FEF2F3615853235933 /* OnePasswordExtension.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		25F2697E4AB215F0A095E28059B9F0AF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E2227F18E072B9A4180E7914D1475E7F /* Pods-SparkSetup-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,11 +747,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1919D78607174A39E07D21497A4E742D /* PBXTargetDependency */ = {
+		04C3B825DBDB4E02AA83A4F57377D36B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = 1PasswordExtension;
-			target = 022515496D6E16FDA16FCFB225643758 /* 1PasswordExtension */;
-			targetProxy = 2D72F78958EA657D28796B232C5A03AC /* PBXContainerItemProxy */;
+			name = "Particle-SDK";
+			target = 10C27BE46C6D5F2E8017B1FA6393FDC7 /* Particle-SDK */;
+			targetProxy = 6FD3BB5E26459A1478069BC4DA5A27CE /* PBXContainerItemProxy */;
 		};
 		48F024D5501BE4110616A1CD6E84B3B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -756,23 +759,23 @@
 			target = 948BF29F3FC2639B8E511A94E1AB8C87 /* 1PasswordExtension-OnePasswordExtensionResources */;
 			targetProxy = 951B842A2916F2EFA98EC2259C17C058 /* PBXContainerItemProxy */;
 		};
+		4F08C0C889960023EC9E8AE44A4BEC11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = 1PasswordExtension;
+			target = 022515496D6E16FDA16FCFB225643758 /* 1PasswordExtension */;
+			targetProxy = C060123A27A2554E26E1EE4300ABFBB4 /* PBXContainerItemProxy */;
+		};
 		57DD7C35D5AC25BB71D0AB637B24F3D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AFNetworking;
 			target = 9E033EDB5EC0819481B0546434FA577B /* AFNetworking */;
 			targetProxy = CF0FB76F6F7B812462A3EDC03647AF39 /* PBXContainerItemProxy */;
 		};
-		9251177D1B95278F27D8E083C3D5FD1E /* PBXTargetDependency */ = {
+		E4DB914F58DBDDE06D29DFFD7EEAB291 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AFNetworking;
 			target = 9E033EDB5EC0819481B0546434FA577B /* AFNetworking */;
-			targetProxy = E7C8BAE8FBEDBC261912860EE34F9AAF /* PBXContainerItemProxy */;
-		};
-		AD82BA6AE1203F47147942E5E2CE1681 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Particle-SDK";
-			target = 10C27BE46C6D5F2E8017B1FA6393FDC7 /* Particle-SDK */;
-			targetProxy = D53E6835B2ACF9DE2DCE7B19E67B6F3D /* PBXContainerItemProxy */;
+			targetProxy = 33EC09D4781B8BAFD2A506BA76F0B737 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -800,6 +803,29 @@
 			};
 			name = Debug;
 		};
+		190628CCE073F0CE78E72974ACC12BA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD5BF41CF524B527E85AA155BFFA6D55 /* Pods-ParticleSetup.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		212E3A7BBE12EA2A4291E1D0C3AB84A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47A6A2D04B4AC692D06B69292B2F7EC5 /* 1PasswordExtension.xcconfig */;
@@ -811,7 +837,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/1PasswordExtension/1PasswordExtension-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -834,7 +860,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/1PasswordExtension/1PasswordExtension-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -854,7 +880,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/1PasswordExtension/ResourceBundle-OnePasswordExtensionResources-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = OnePasswordExtensionResources;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -877,19 +903,15 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -919,7 +941,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/1PasswordExtension/ResourceBundle-OnePasswordExtensionResources-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = OnePasswordExtensionResources;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -939,7 +961,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -951,9 +973,49 @@
 			};
 			name = Release;
 		};
-		886598E71BE133F98E5504B0F9442217 /* Debug */ = {
+		B7324857C38B065FEB1EEE3105C2367A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECB1AF8323721CBAEEA898595DFC60D4 /* Pods-SparkSetup.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EBE8DC7F472EFD7C61204208C399FB6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8F035CEE8F701A7070A7ACB4F5B6050 /* Pods-ParticleSetup.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -973,73 +1035,6 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
-		};
-		B7324857C38B065FEB1EEE3105C2367A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		DE5E5B2553E48A08EA8DAAAB2185C83A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F5E204A1C2D4F00CF4E6514878D915C /* Pods-SparkSetup.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
 		};
 		F15A231E360B4701B50D2009C8FE978B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1075,7 +1070,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -1117,20 +1112,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		6A7F92D6605E9058AD55CE9113B10845 /* Build configuration list for PBXNativeTarget "Pods-ParticleSetup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBE8DC7F472EFD7C61204208C399FB6E /* Debug */,
+				190628CCE073F0CE78E72974ACC12BA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6D033EEA09BF77761D895D3B99CBEBFB /* Build configuration list for PBXNativeTarget "Particle-SDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0802324A2C18EB7AC5FCD3CFB3163FF3 /* Debug */,
 				F15A231E360B4701B50D2009C8FE978B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7FF2FEC5F5280E06233B09064D510D05 /* Build configuration list for PBXNativeTarget "Pods-SparkSetup" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				886598E71BE133F98E5504B0F9442217 /* Debug */,
-				DE5E5B2553E48A08EA8DAAAB2185C83A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
