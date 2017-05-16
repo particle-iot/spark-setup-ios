@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "ParticleSetup"
-    s.version          = "0.7.0"
+    s.version          = "0.8.0"
     s.summary          = "Particle iOS Device Setup library for easy integration of setup process for Particle devices in your app"
     s.description      = <<-DESC
                         Particle (formerly Particle) Device Setup library for integrating setup process of Particle devices in your app

@@ -5,7 +5,7 @@
       location = "group:ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SparkSetup.xcodeproj">
+      location = "group:/Users/ido/projects/Spark/spark-setup-ios/ParticleSetup.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -35,13 +35,13 @@
 		509081F81ACF6AF70014E7DF /* ParticleSetupMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081E31ACF6AF70014E7DF /* ParticleSetupMainController.m */; };
 		50CAA4C31BA27D70002FEF0F /* ParticleSetupWifiTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 50CAA4C11BA27D70002FEF0F /* ParticleSetupWifiTableViewCell.h */; };
 		50CAA4C41BA27D70002FEF0F /* ParticleSetupWifiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CAA4C21BA27D70002FEF0F /* ParticleSetupWifiTableViewCell.m */; };
-		50D095991AD5BB6E008EDBD7 /* SparkSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D095981AD5BB6E008EDBD7 /* SparkSetup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50D095991AD5BB6E008EDBD7 /* ParticleSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D095981AD5BB6E008EDBD7 /* ParticleSetup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50E01B041B7AFC510020714F /* ParticleSetupResultViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E01B021B7AFC510020714F /* ParticleSetupResultViewController.h */; };
 		50E01B051B7AFC510020714F /* ParticleSetupResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E01B031B7AFC510020714F /* ParticleSetupResultViewController.m */; };
 		50E840BC1E95FC890038ED42 /* Particle-SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E840BB1E95FC890038ED42 /* Particle-SDK.h */; };
 		50E840BE1E95FC960038ED42 /* ParticleCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E840BD1E95FC960038ED42 /* ParticleCloud.h */; };
 		50E840C01E95FC9E0038ED42 /* ParticleDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E840BF1E95FC9E0038ED42 /* ParticleDevice.h */; };
-		50EECD9F1CEE8ABF00192EF9 /* SparkSetup.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509080DC1ACF494A0014E7DF /* SparkSetup.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		50EECD9F1CEE8ABF00192EF9 /* ParticleSetup.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509080DC1ACF494A0014E7DF /* ParticleSetup.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DCB04F2BC254F123BE2EA995 /* libPods-SparkSetup.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4F6640DE6818F7AFF1DE8 /* libPods-SparkSetup.a */; };
 /* End PBXBuildFile section */
 
@@ -52,22 +52,22 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 7;
 			files = (
-				50EECD9F1CEE8ABF00192EF9 /* SparkSetup.bundle in CopyFiles */,
+				50EECD9F1CEE8ABF00192EF9 /* ParticleSetup.bundle in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5018DC4A1ADC862E00ADD403 /* SparkSetup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "SparkSetup-Bridging-Header.h"; path = "Classes/SparkSetup-Bridging-Header.h"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5018DC4A1ADC862E00ADD403 /* ParticleSetup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "ParticleSetup-Bridging-Header.h"; path = "Classes/ParticleSetup-Bridging-Header.h"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5061B6C81EC692EC00EA482E /* ParticleSetupVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSetupVideoViewController.h; sourceTree = "<group>"; };
 		5061B6C91EC692EC00EA482E /* ParticleSetupVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSetupVideoViewController.m; sourceTree = "<group>"; };
 		5066876C1BB23067008E363B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; path = CHANGELOG.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		506C6FE31AD32E1C009D8498 /* ParticleSetupUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupUIViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		506C6FE41AD32E1C009D8498 /* ParticleSetupUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSetupUIViewController.m; sourceTree = "<group>"; };
-		509080DC1ACF494A0014E7DF /* SparkSetup.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkSetup.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		509080E71ACF49660014E7DF /* libSparkSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSparkSetup.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		509081AC1ACF69720014E7DF /* SparkSetup.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; lineEnding = 0; path = SparkSetup.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = "<none>"; };
+		509080DC1ACF494A0014E7DF /* ParticleSetup.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParticleSetup.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		509080E71ACF49660014E7DF /* libParticleSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libParticleSetup.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		509081AC1ACF69720014E7DF /* ParticleSetup.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; lineEnding = 0; path = ParticleSetup.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = "<none>"; };
 		509081AF1ACF6A8A0014E7DF /* setup.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = setup.xcassets; sourceTree = "<group>"; };
 		509081B11ACF6A8A0014E7DF /* setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = setup.storyboard; sourceTree = "<group>"; };
 		509081B61ACF6AF70014E7DF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		50CAA4C21BA27D70002FEF0F /* ParticleSetupWifiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSetupWifiTableViewCell.m; sourceTree = "<group>"; };
 		50D0955A1AD38CE4008EDBD7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		50D0955B1AD38E2E008EDBD7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		50D095981AD5BB6E008EDBD7 /* SparkSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = SparkSetup.h; path = Classes/SparkSetup.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		50D095981AD5BB6E008EDBD7 /* ParticleSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = ParticleSetup.h; path = Classes/ParticleSetup.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		50E01B021B7AFC510020714F /* ParticleSetupResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupResultViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		50E01B031B7AFC510020714F /* ParticleSetupResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupResultViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		50E840BB1E95FC890038ED42 /* Particle-SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Particle-SDK.h"; path = "spark-setup-ios/Pods/Particle-SDK/Pod/Classes/Particle-SDK.h"; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 		509080BF1ACF46600014E7DF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				509080DC1ACF494A0014E7DF /* SparkSetup.bundle */,
-				509080E71ACF49660014E7DF /* libSparkSetup.a */,
+				509080DC1ACF494A0014E7DF /* ParticleSetup.bundle */,
+				509080E71ACF49660014E7DF /* libParticleSetup.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,8 +168,8 @@
 		509081611ACF66E60014E7DF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				50D095981AD5BB6E008EDBD7 /* SparkSetup.h */,
-				5018DC4A1ADC862E00ADD403 /* SparkSetup-Bridging-Header.h */,
+				50D095981AD5BB6E008EDBD7 /* ParticleSetup.h */,
+				5018DC4A1ADC862E00ADD403 /* ParticleSetup-Bridging-Header.h */,
 				509082031ACF71500014E7DF /* Spark-SDK Headers */,
 				509081B51ACF6AF70014E7DF /* Comm */,
 				509081BE1ACF6AF70014E7DF /* UI */,
@@ -283,7 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				5066876C1BB23067008E363B /* CHANGELOG.md */,
-				509081AC1ACF69720014E7DF /* SparkSetup.podspec */,
+				509081AC1ACF69720014E7DF /* ParticleSetup.podspec */,
 				50D0955A1AD38CE4008EDBD7 /* README.md */,
 				50D0955B1AD38E2E008EDBD7 /* LICENSE */,
 			);
@@ -321,7 +321,7 @@
 				50CAA4C31BA27D70002FEF0F /* ParticleSetupWifiTableViewCell.h in Headers */,
 				5014ED501CB7268E00A1063E /* ParticleSetupMainController.h in Headers */,
 				5014ED4F1CB7268A00A1063E /* ParticleSetupCustomization.h in Headers */,
-				50D095991AD5BB6E008EDBD7 /* SparkSetup.h in Headers */,
+				50D095991AD5BB6E008EDBD7 /* ParticleSetup.h in Headers */,
 				50E840BC1E95FC890038ED42 /* Particle-SDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,9 +329,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		509080DB1ACF494A0014E7DF /* SparkSetupResourceBundle */ = {
+		509080DB1ACF494A0014E7DF /* ParticleSetupResourceBundle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 509080E01ACF494A0014E7DF /* Build configuration list for PBXNativeTarget "SparkSetupResourceBundle" */;
+			buildConfigurationList = 509080E01ACF494A0014E7DF /* Build configuration list for PBXNativeTarget "ParticleSetupResourceBundle" */;
 			buildPhases = (
 				509080D81ACF494A0014E7DF /* Sources */,
 				509080D91ACF494A0014E7DF /* Frameworks */,
@@ -341,14 +341,14 @@
 			);
 			dependencies = (
 			);
-			name = SparkSetupResourceBundle;
+			name = ParticleSetupResourceBundle;
 			productName = "Resource Bundle";
-			productReference = 509080DC1ACF494A0014E7DF /* SparkSetup.bundle */;
+			productReference = 509080DC1ACF494A0014E7DF /* ParticleSetup.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		509080E61ACF49660014E7DF /* SparkSetup */ = {
+		509080E61ACF49660014E7DF /* ParticleSetup */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 509080F81ACF49670014E7DF /* Build configuration list for PBXNativeTarget "SparkSetup" */;
+			buildConfigurationList = 509080F81ACF49670014E7DF /* Build configuration list for PBXNativeTarget "ParticleSetup" */;
 			buildPhases = (
 				34105243C65B54E4E8680C7D /* [CP] Check Pods Manifest.lock */,
 				509080E31ACF49660014E7DF /* Sources */,
@@ -361,9 +361,9 @@
 			);
 			dependencies = (
 			);
-			name = SparkSetup;
+			name = ParticleSetup;
 			productName = "Lib Core";
-			productReference = 509080E71ACF49660014E7DF /* libSparkSetup.a */;
+			productReference = 509080E71ACF49660014E7DF /* libParticleSetup.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -388,7 +388,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 509080B91ACF46600014E7DF /* Build configuration list for PBXProject "SparkSetup" */;
+			buildConfigurationList = 509080B91ACF46600014E7DF /* Build configuration list for PBXProject "ParticleSetup" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -400,8 +400,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				509080DB1ACF494A0014E7DF /* SparkSetupResourceBundle */,
-				509080E61ACF49660014E7DF /* SparkSetup */,
+				509080DB1ACF494A0014E7DF /* ParticleSetupResourceBundle */,
+				509080E61ACF49660014E7DF /* ParticleSetup */,
 			);
 		};
 /* End PBXProject section */
@@ -609,7 +609,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = io.spark.SparkSetup;
-				PRODUCT_NAME = SparkSetup;
+				PRODUCT_NAME = ParticleSetup;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -627,7 +627,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = io.spark.SparkSetup;
-				PRODUCT_NAME = SparkSetup;
+				PRODUCT_NAME = ParticleSetup;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -673,7 +673,7 @@
 					"-weak_framework",
 					"\"WebKit\"",
 				);
-				PRODUCT_NAME = SparkSetup;
+				PRODUCT_NAME = ParticleSetup;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "arm64 i386 armv7 armv7s";
@@ -713,7 +713,7 @@
 					"-weak_framework",
 					"\"WebKit\"",
 				);
-				PRODUCT_NAME = SparkSetup;
+				PRODUCT_NAME = ParticleSetup;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "arm64 i386 armv7 armv7s";
@@ -723,7 +723,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		509080B91ACF46600014E7DF /* Build configuration list for PBXProject "SparkSetup" */ = {
+		509080B91ACF46600014E7DF /* Build configuration list for PBXProject "ParticleSetup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				509080D01ACF46600014E7DF /* Debug */,
@@ -732,7 +732,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		509080E01ACF494A0014E7DF /* Build configuration list for PBXNativeTarget "SparkSetupResourceBundle" */ = {
+		509080E01ACF494A0014E7DF /* Build configuration list for PBXNativeTarget "ParticleSetupResourceBundle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				509080E11ACF494A0014E7DF /* Debug */,
@@ -741,7 +741,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		509080F81ACF49670014E7DF /* Build configuration list for PBXNativeTarget "SparkSetup" */ = {
+		509080F81ACF49670014E7DF /* Build configuration list for PBXNativeTarget "ParticleSetup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				509080F91ACF49670014E7DF /* Debug */,
