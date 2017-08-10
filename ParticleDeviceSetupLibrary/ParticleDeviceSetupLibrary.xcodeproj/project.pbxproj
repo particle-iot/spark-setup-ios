@@ -10,51 +10,51 @@
 		5038C5321CA21D190084D255 /* ParticleDeviceSetupLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5311CA21D190084D255 /* ParticleDeviceSetupLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5038C5741CA21E750084D255 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5401CA21E750084D255 /* Reachability.h */; };
 		5038C5751CA21E750084D255 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5411CA21E750084D255 /* Reachability.m */; };
-		5038C5761CA21E750084D255 /* SparkSetupCommManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5421CA21E750084D255 /* SparkSetupCommManager.h */; };
-		5038C5771CA21E750084D255 /* SparkSetupCommManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5431CA21E750084D255 /* SparkSetupCommManager.m */; };
-		5038C5781CA21E750084D255 /* SparkSetupConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5441CA21E750084D255 /* SparkSetupConnection.h */; };
-		5038C5791CA21E750084D255 /* SparkSetupConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5451CA21E750084D255 /* SparkSetupConnection.m */; };
-		5038C57A1CA21E750084D255 /* SparkSetupSecurityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5461CA21E750084D255 /* SparkSetupSecurityManager.h */; };
-		5038C57B1CA21E750084D255 /* SparkSetupSecurityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5471CA21E750084D255 /* SparkSetupSecurityManager.m */; };
-		5038C57E1CA21E750084D255 /* SparkConnectingProgressViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54B1CA21E750084D255 /* SparkConnectingProgressViewController.h */; };
-		5038C57F1CA21E750084D255 /* SparkConnectingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C54C1CA21E750084D255 /* SparkConnectingProgressViewController.m */; };
-		5038C5801CA21E750084D255 /* SparkDiscoverDeviceViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54D1CA21E750084D255 /* SparkDiscoverDeviceViewController.h */; };
-		5038C5811CA21E750084D255 /* SparkDiscoverDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C54E1CA21E750084D255 /* SparkDiscoverDeviceViewController.m */; };
-		5038C5821CA21E750084D255 /* SparkGetReadyViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54F1CA21E750084D255 /* SparkGetReadyViewController.h */; };
-		5038C5831CA21E750084D255 /* SparkGetReadyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5501CA21E750084D255 /* SparkGetReadyViewController.m */; };
-		5038C5841CA21E750084D255 /* SparkManualNetworkViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5511CA21E750084D255 /* SparkManualNetworkViewController.h */; };
-		5038C5851CA21E750084D255 /* SparkManualNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5521CA21E750084D255 /* SparkManualNetworkViewController.m */; };
-		5038C5861CA21E750084D255 /* SparkSelectNetworkViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5531CA21E750084D255 /* SparkSelectNetworkViewController.h */; };
-		5038C5871CA21E750084D255 /* SparkSelectNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5541CA21E750084D255 /* SparkSelectNetworkViewController.m */; };
-		5038C5881CA21E750084D255 /* SparkSetupPasswordEntryViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5551CA21E750084D255 /* SparkSetupPasswordEntryViewController.h */; };
-		5038C5891CA21E750084D255 /* SparkSetupPasswordEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5561CA21E750084D255 /* SparkSetupPasswordEntryViewController.m */; };
-		5038C58A1CA21E750084D255 /* SparkSetupResultViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5571CA21E750084D255 /* SparkSetupResultViewController.h */; };
-		5038C58B1CA21E750084D255 /* SparkSetupResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5581CA21E750084D255 /* SparkSetupResultViewController.m */; };
-		5038C58C1CA21E750084D255 /* SparkSetupVideoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5591CA21E750084D255 /* SparkSetupVideoViewController.h */; };
-		5038C58D1CA21E750084D255 /* SparkSetupVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C55A1CA21E750084D255 /* SparkSetupVideoViewController.m */; };
-		5038C58E1CA21E750084D255 /* SparkSetupWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C55B1CA21E750084D255 /* SparkSetupWebViewController.h */; };
-		5038C58F1CA21E750084D255 /* SparkSetupWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C55C1CA21E750084D255 /* SparkSetupWebViewController.m */; };
-		5038C5901CA21E750084D255 /* SparkUserForgotPasswordViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C55D1CA21E750084D255 /* SparkUserForgotPasswordViewController.h */; };
-		5038C5911CA21E750084D255 /* SparkUserForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C55E1CA21E750084D255 /* SparkUserForgotPasswordViewController.m */; };
-		5038C5921CA21E750084D255 /* SparkUserLoginViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C55F1CA21E750084D255 /* SparkUserLoginViewController.h */; };
-		5038C5931CA21E750084D255 /* SparkUserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5601CA21E750084D255 /* SparkUserLoginViewController.m */; };
-		5038C5941CA21E750084D255 /* SparkUserSignupViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5611CA21E750084D255 /* SparkUserSignupViewController.h */; };
-		5038C5951CA21E750084D255 /* SparkUserSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5621CA21E750084D255 /* SparkUserSignupViewController.m */; };
-		5038C5961CA21E750084D255 /* SparkSetupUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5641CA21E750084D255 /* SparkSetupUIButton.h */; };
-		5038C5971CA21E750084D255 /* SparkSetupUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5651CA21E750084D255 /* SparkSetupUIButton.m */; };
-		5038C5981CA21E750084D255 /* SparkSetupUIElements.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5661CA21E750084D255 /* SparkSetupUIElements.h */; };
-		5038C5991CA21E750084D255 /* SparkSetupUILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5671CA21E750084D255 /* SparkSetupUILabel.h */; };
-		5038C59A1CA21E750084D255 /* SparkSetupUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5681CA21E750084D255 /* SparkSetupUILabel.m */; };
-		5038C59B1CA21E750084D255 /* SparkSetupUISpinner.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5691CA21E750084D255 /* SparkSetupUISpinner.h */; };
-		5038C59C1CA21E750084D255 /* SparkSetupUISpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C56A1CA21E750084D255 /* SparkSetupUISpinner.m */; };
-		5038C59D1CA21E750084D255 /* SparkSetupUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C56B1CA21E750084D255 /* SparkSetupUIViewController.h */; };
-		5038C59E1CA21E750084D255 /* SparkSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C56C1CA21E750084D255 /* SparkSetupUIViewController.m */; };
-		5038C59F1CA21E750084D255 /* SparkSetupWifiTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C56D1CA21E750084D255 /* SparkSetupWifiTableViewCell.h */; };
-		5038C5A01CA21E750084D255 /* SparkSetupWifiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C56E1CA21E750084D255 /* SparkSetupWifiTableViewCell.m */; };
-		5038C5A11CA21E750084D255 /* SparkSetupCustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5701CA21E750084D255 /* SparkSetupCustomization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5038C5A21CA21E750084D255 /* SparkSetupCustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5711CA21E750084D255 /* SparkSetupCustomization.m */; };
-		5038C5A31CA21E750084D255 /* SparkSetupMainController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5721CA21E750084D255 /* SparkSetupMainController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5038C5A41CA21E750084D255 /* SparkSetupMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5731CA21E750084D255 /* SparkSetupMainController.m */; };
+		5038C5761CA21E750084D255 /* ParticleSetupCommManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5421CA21E750084D255 /* ParticleSetupCommManager.h */; };
+		5038C5771CA21E750084D255 /* ParticleSetupCommManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5431CA21E750084D255 /* ParticleSetupCommManager.m */; };
+		5038C5781CA21E750084D255 /* ParticleSetupConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5441CA21E750084D255 /* ParticleSetupConnection.h */; };
+		5038C5791CA21E750084D255 /* ParticleSetupConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5451CA21E750084D255 /* ParticleSetupConnection.m */; };
+		5038C57A1CA21E750084D255 /* ParticleSetupSecurityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5461CA21E750084D255 /* ParticleSetupSecurityManager.h */; };
+		5038C57B1CA21E750084D255 /* ParticleSetupSecurityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5471CA21E750084D255 /* ParticleSetupSecurityManager.m */; };
+		5038C57E1CA21E750084D255 /* ParticleConnectingProgressViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54B1CA21E750084D255 /* ParticleConnectingProgressViewController.h */; };
+		5038C57F1CA21E750084D255 /* ParticleConnectingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C54C1CA21E750084D255 /* ParticleConnectingProgressViewController.m */; };
+		5038C5801CA21E750084D255 /* ParticleDiscoverDeviceViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54D1CA21E750084D255 /* ParticleDiscoverDeviceViewController.h */; };
+		5038C5811CA21E750084D255 /* ParticleDiscoverDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C54E1CA21E750084D255 /* ParticleDiscoverDeviceViewController.m */; };
+		5038C5821CA21E750084D255 /* ParticleGetReadyViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C54F1CA21E750084D255 /* ParticleGetReadyViewController.h */; };
+		5038C5831CA21E750084D255 /* ParticleGetReadyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5501CA21E750084D255 /* ParticleGetReadyViewController.m */; };
+		5038C5841CA21E750084D255 /* ParticleManualNetworkViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5511CA21E750084D255 /* ParticleManualNetworkViewController.h */; };
+		5038C5851CA21E750084D255 /* ParticleManualNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5521CA21E750084D255 /* ParticleManualNetworkViewController.m */; };
+		5038C5861CA21E750084D255 /* ParticleSelectNetworkViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5531CA21E750084D255 /* ParticleSelectNetworkViewController.h */; };
+		5038C5871CA21E750084D255 /* ParticleSelectNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5541CA21E750084D255 /* ParticleSelectNetworkViewController.m */; };
+		5038C5881CA21E750084D255 /* ParticleSetupPasswordEntryViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5551CA21E750084D255 /* ParticleSetupPasswordEntryViewController.h */; };
+		5038C5891CA21E750084D255 /* ParticleSetupPasswordEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5561CA21E750084D255 /* ParticleSetupPasswordEntryViewController.m */; };
+		5038C58A1CA21E750084D255 /* ParticleSetupResultViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5571CA21E750084D255 /* ParticleSetupResultViewController.h */; };
+		5038C58B1CA21E750084D255 /* ParticleSetupResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5581CA21E750084D255 /* ParticleSetupResultViewController.m */; };
+		5038C58C1CA21E750084D255 /* ParticleSetupVideoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5591CA21E750084D255 /* ParticleSetupVideoViewController.h */; };
+		5038C58D1CA21E750084D255 /* ParticleSetupVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C55A1CA21E750084D255 /* ParticleSetupVideoViewController.m */; };
+		5038C58E1CA21E750084D255 /* ParticleSetupWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C55B1CA21E750084D255 /* ParticleSetupWebViewController.h */; };
+		5038C58F1CA21E750084D255 /* ParticleSetupWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C55C1CA21E750084D255 /* ParticleSetupWebViewController.m */; };
+		5038C5901CA21E750084D255 /* ParticleUserForgotPasswordViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C55D1CA21E750084D255 /* ParticleUserForgotPasswordViewController.h */; };
+		5038C5911CA21E750084D255 /* ParticleUserForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C55E1CA21E750084D255 /* ParticleUserForgotPasswordViewController.m */; };
+		5038C5921CA21E750084D255 /* ParticleUserLoginViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C55F1CA21E750084D255 /* ParticleUserLoginViewController.h */; };
+		5038C5931CA21E750084D255 /* ParticleUserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5601CA21E750084D255 /* ParticleUserLoginViewController.m */; };
+		5038C5941CA21E750084D255 /* ParticleUserSignupViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5611CA21E750084D255 /* ParticleUserSignupViewController.h */; };
+		5038C5951CA21E750084D255 /* ParticleUserSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5621CA21E750084D255 /* ParticleUserSignupViewController.m */; };
+		5038C5961CA21E750084D255 /* ParticleSetupUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5641CA21E750084D255 /* ParticleSetupUIButton.h */; };
+		5038C5971CA21E750084D255 /* ParticleSetupUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5651CA21E750084D255 /* ParticleSetupUIButton.m */; };
+		5038C5981CA21E750084D255 /* ParticleSetupUIElements.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5661CA21E750084D255 /* ParticleSetupUIElements.h */; };
+		5038C5991CA21E750084D255 /* ParticleSetupUILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5671CA21E750084D255 /* ParticleSetupUILabel.h */; };
+		5038C59A1CA21E750084D255 /* ParticleSetupUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5681CA21E750084D255 /* ParticleSetupUILabel.m */; };
+		5038C59B1CA21E750084D255 /* ParticleSetupUISpinner.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5691CA21E750084D255 /* ParticleSetupUISpinner.h */; };
+		5038C59C1CA21E750084D255 /* ParticleSetupUISpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C56A1CA21E750084D255 /* ParticleSetupUISpinner.m */; };
+		5038C59D1CA21E750084D255 /* ParticleSetupUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C56B1CA21E750084D255 /* ParticleSetupUIViewController.h */; };
+		5038C59E1CA21E750084D255 /* ParticleSetupUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C56C1CA21E750084D255 /* ParticleSetupUIViewController.m */; };
+		5038C59F1CA21E750084D255 /* ParticleSetupWifiTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C56D1CA21E750084D255 /* ParticleSetupWifiTableViewCell.h */; };
+		5038C5A01CA21E750084D255 /* ParticleSetupWifiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C56E1CA21E750084D255 /* ParticleSetupWifiTableViewCell.m */; };
+		5038C5A11CA21E750084D255 /* ParticleSetupCustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5701CA21E750084D255 /* ParticleSetupCustomization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5038C5A21CA21E750084D255 /* ParticleSetupCustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5711CA21E750084D255 /* ParticleSetupCustomization.m */; };
+		5038C5A31CA21E750084D255 /* ParticleSetupMainController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5721CA21E750084D255 /* ParticleSetupMainController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5038C5A41CA21E750084D255 /* ParticleSetupMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5731CA21E750084D255 /* ParticleSetupMainController.m */; };
 		5038C5B51CA22D9C0084D255 /* setup.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5038C5B41CA22D9C0084D255 /* setup.xcassets */; };
 		5038C5B71CA22DA20084D255 /* setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5038C5B61CA22DA20084D255 /* setup.storyboard */; };
 		5061B6C71EC540D300EA482E /* ParticleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5061B6C61EC540D300EA482E /* ParticleSDK.framework */; };
@@ -68,51 +68,51 @@
 		5038C5331CA21D190084D255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5038C5401CA21E750084D255 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		5038C5411CA21E750084D255 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		5038C5421CA21E750084D255 /* SparkSetupCommManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupCommManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5431CA21E750084D255 /* SparkSetupCommManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupCommManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5441CA21E750084D255 /* SparkSetupConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupConnection.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5451CA21E750084D255 /* SparkSetupConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupConnection.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5461CA21E750084D255 /* SparkSetupSecurityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupSecurityManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5471CA21E750084D255 /* SparkSetupSecurityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupSecurityManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C54B1CA21E750084D255 /* SparkConnectingProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkConnectingProgressViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C54C1CA21E750084D255 /* SparkConnectingProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkConnectingProgressViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C54D1CA21E750084D255 /* SparkDiscoverDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkDiscoverDeviceViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C54E1CA21E750084D255 /* SparkDiscoverDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkDiscoverDeviceViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C54F1CA21E750084D255 /* SparkGetReadyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkGetReadyViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5501CA21E750084D255 /* SparkGetReadyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkGetReadyViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5511CA21E750084D255 /* SparkManualNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkManualNetworkViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5521CA21E750084D255 /* SparkManualNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkManualNetworkViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5531CA21E750084D255 /* SparkSelectNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSelectNetworkViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5541CA21E750084D255 /* SparkSelectNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSelectNetworkViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5551CA21E750084D255 /* SparkSetupPasswordEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupPasswordEntryViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5561CA21E750084D255 /* SparkSetupPasswordEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupPasswordEntryViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5571CA21E750084D255 /* SparkSetupResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupResultViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5581CA21E750084D255 /* SparkSetupResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupResultViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5591CA21E750084D255 /* SparkSetupVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupVideoViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C55A1CA21E750084D255 /* SparkSetupVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupVideoViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C55B1CA21E750084D255 /* SparkSetupWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupWebViewController.h; sourceTree = "<group>"; };
-		5038C55C1CA21E750084D255 /* SparkSetupWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupWebViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C55D1CA21E750084D255 /* SparkUserForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkUserForgotPasswordViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C55E1CA21E750084D255 /* SparkUserForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkUserForgotPasswordViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C55F1CA21E750084D255 /* SparkUserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkUserLoginViewController.h; sourceTree = "<group>"; };
-		5038C5601CA21E750084D255 /* SparkUserLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkUserLoginViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5611CA21E750084D255 /* SparkUserSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkUserSignupViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5621CA21E750084D255 /* SparkUserSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkUserSignupViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5641CA21E750084D255 /* SparkSetupUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupUIButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5651CA21E750084D255 /* SparkSetupUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupUIButton.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5661CA21E750084D255 /* SparkSetupUIElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupUIElements.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5671CA21E750084D255 /* SparkSetupUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupUILabel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5681CA21E750084D255 /* SparkSetupUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupUILabel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5691CA21E750084D255 /* SparkSetupUISpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupUISpinner.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C56A1CA21E750084D255 /* SparkSetupUISpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupUISpinner.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C56B1CA21E750084D255 /* SparkSetupUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupUIViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C56C1CA21E750084D255 /* SparkSetupUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupUIViewController.m; sourceTree = "<group>"; };
-		5038C56D1CA21E750084D255 /* SparkSetupWifiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkSetupWifiTableViewCell.h; sourceTree = "<group>"; };
-		5038C56E1CA21E750084D255 /* SparkSetupWifiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkSetupWifiTableViewCell.m; sourceTree = "<group>"; };
-		5038C5701CA21E750084D255 /* SparkSetupCustomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupCustomization.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5711CA21E750084D255 /* SparkSetupCustomization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupCustomization.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5721CA21E750084D255 /* SparkSetupMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SparkSetupMainController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5731CA21E750084D255 /* SparkSetupMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SparkSetupMainController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5421CA21E750084D255 /* ParticleSetupCommManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupCommManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5431CA21E750084D255 /* ParticleSetupCommManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupCommManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5441CA21E750084D255 /* ParticleSetupConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupConnection.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5451CA21E750084D255 /* ParticleSetupConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupConnection.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5461CA21E750084D255 /* ParticleSetupSecurityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupSecurityManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5471CA21E750084D255 /* ParticleSetupSecurityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupSecurityManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C54B1CA21E750084D255 /* ParticleConnectingProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleConnectingProgressViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C54C1CA21E750084D255 /* ParticleConnectingProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleConnectingProgressViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C54D1CA21E750084D255 /* ParticleDiscoverDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleDiscoverDeviceViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C54E1CA21E750084D255 /* ParticleDiscoverDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleDiscoverDeviceViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C54F1CA21E750084D255 /* ParticleGetReadyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleGetReadyViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5501CA21E750084D255 /* ParticleGetReadyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleGetReadyViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5511CA21E750084D255 /* ParticleManualNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleManualNetworkViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5521CA21E750084D255 /* ParticleManualNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleManualNetworkViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5531CA21E750084D255 /* ParticleSelectNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSelectNetworkViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5541CA21E750084D255 /* ParticleSelectNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSelectNetworkViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5551CA21E750084D255 /* ParticleSetupPasswordEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupPasswordEntryViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5561CA21E750084D255 /* ParticleSetupPasswordEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupPasswordEntryViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5571CA21E750084D255 /* ParticleSetupResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupResultViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5581CA21E750084D255 /* ParticleSetupResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupResultViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5591CA21E750084D255 /* ParticleSetupVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupVideoViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C55A1CA21E750084D255 /* ParticleSetupVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupVideoViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C55B1CA21E750084D255 /* ParticleSetupWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSetupWebViewController.h; sourceTree = "<group>"; };
+		5038C55C1CA21E750084D255 /* ParticleSetupWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupWebViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C55D1CA21E750084D255 /* ParticleUserForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleUserForgotPasswordViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C55E1CA21E750084D255 /* ParticleUserForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleUserForgotPasswordViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C55F1CA21E750084D255 /* ParticleUserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleUserLoginViewController.h; sourceTree = "<group>"; };
+		5038C5601CA21E750084D255 /* ParticleUserLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleUserLoginViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5611CA21E750084D255 /* ParticleUserSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleUserSignupViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5621CA21E750084D255 /* ParticleUserSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleUserSignupViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5641CA21E750084D255 /* ParticleSetupUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupUIButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5651CA21E750084D255 /* ParticleSetupUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupUIButton.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5661CA21E750084D255 /* ParticleSetupUIElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupUIElements.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5671CA21E750084D255 /* ParticleSetupUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupUILabel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5681CA21E750084D255 /* ParticleSetupUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupUILabel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5691CA21E750084D255 /* ParticleSetupUISpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupUISpinner.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C56A1CA21E750084D255 /* ParticleSetupUISpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupUISpinner.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C56B1CA21E750084D255 /* ParticleSetupUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupUIViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C56C1CA21E750084D255 /* ParticleSetupUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSetupUIViewController.m; sourceTree = "<group>"; };
+		5038C56D1CA21E750084D255 /* ParticleSetupWifiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSetupWifiTableViewCell.h; sourceTree = "<group>"; };
+		5038C56E1CA21E750084D255 /* ParticleSetupWifiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSetupWifiTableViewCell.m; sourceTree = "<group>"; };
+		5038C5701CA21E750084D255 /* ParticleSetupCustomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupCustomization.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5711CA21E750084D255 /* ParticleSetupCustomization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupCustomization.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5038C5721CA21E750084D255 /* ParticleSetupMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupMainController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5038C5731CA21E750084D255 /* ParticleSetupMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupMainController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5038C5B41CA22D9C0084D255 /* setup.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = setup.xcassets; path = ../../Resources/setup.xcassets; sourceTree = "<group>"; };
 		5038C5B61CA22DA20084D255 /* setup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = setup.storyboard; path = ../../Resources/setup.storyboard; sourceTree = "<group>"; };
 		5061B6C61EC540D300EA482E /* ParticleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParticleSDK.framework; sourceTree = "<group>"; };
@@ -182,12 +182,12 @@
 			children = (
 				5038C5401CA21E750084D255 /* Reachability.h */,
 				5038C5411CA21E750084D255 /* Reachability.m */,
-				5038C5421CA21E750084D255 /* SparkSetupCommManager.h */,
-				5038C5431CA21E750084D255 /* SparkSetupCommManager.m */,
-				5038C5441CA21E750084D255 /* SparkSetupConnection.h */,
-				5038C5451CA21E750084D255 /* SparkSetupConnection.m */,
-				5038C5461CA21E750084D255 /* SparkSetupSecurityManager.h */,
-				5038C5471CA21E750084D255 /* SparkSetupSecurityManager.m */,
+				5038C5421CA21E750084D255 /* ParticleSetupCommManager.h */,
+				5038C5431CA21E750084D255 /* ParticleSetupCommManager.m */,
+				5038C5441CA21E750084D255 /* ParticleSetupConnection.h */,
+				5038C5451CA21E750084D255 /* ParticleSetupConnection.m */,
+				5038C5461CA21E750084D255 /* ParticleSetupSecurityManager.h */,
+				5038C5471CA21E750084D255 /* ParticleSetupSecurityManager.m */,
 			);
 			path = Comm;
 			sourceTree = "<group>";
@@ -195,30 +195,30 @@
 		5038C54A1CA21E750084D255 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				5038C54B1CA21E750084D255 /* SparkConnectingProgressViewController.h */,
-				5038C54C1CA21E750084D255 /* SparkConnectingProgressViewController.m */,
-				5038C54D1CA21E750084D255 /* SparkDiscoverDeviceViewController.h */,
-				5038C54E1CA21E750084D255 /* SparkDiscoverDeviceViewController.m */,
-				5038C54F1CA21E750084D255 /* SparkGetReadyViewController.h */,
-				5038C5501CA21E750084D255 /* SparkGetReadyViewController.m */,
-				5038C5511CA21E750084D255 /* SparkManualNetworkViewController.h */,
-				5038C5521CA21E750084D255 /* SparkManualNetworkViewController.m */,
-				5038C5531CA21E750084D255 /* SparkSelectNetworkViewController.h */,
-				5038C5541CA21E750084D255 /* SparkSelectNetworkViewController.m */,
-				5038C5551CA21E750084D255 /* SparkSetupPasswordEntryViewController.h */,
-				5038C5561CA21E750084D255 /* SparkSetupPasswordEntryViewController.m */,
-				5038C5571CA21E750084D255 /* SparkSetupResultViewController.h */,
-				5038C5581CA21E750084D255 /* SparkSetupResultViewController.m */,
-				5038C5591CA21E750084D255 /* SparkSetupVideoViewController.h */,
-				5038C55A1CA21E750084D255 /* SparkSetupVideoViewController.m */,
-				5038C55B1CA21E750084D255 /* SparkSetupWebViewController.h */,
-				5038C55C1CA21E750084D255 /* SparkSetupWebViewController.m */,
-				5038C55D1CA21E750084D255 /* SparkUserForgotPasswordViewController.h */,
-				5038C55E1CA21E750084D255 /* SparkUserForgotPasswordViewController.m */,
-				5038C55F1CA21E750084D255 /* SparkUserLoginViewController.h */,
-				5038C5601CA21E750084D255 /* SparkUserLoginViewController.m */,
-				5038C5611CA21E750084D255 /* SparkUserSignupViewController.h */,
-				5038C5621CA21E750084D255 /* SparkUserSignupViewController.m */,
+				5038C54B1CA21E750084D255 /* ParticleConnectingProgressViewController.h */,
+				5038C54C1CA21E750084D255 /* ParticleConnectingProgressViewController.m */,
+				5038C54D1CA21E750084D255 /* ParticleDiscoverDeviceViewController.h */,
+				5038C54E1CA21E750084D255 /* ParticleDiscoverDeviceViewController.m */,
+				5038C54F1CA21E750084D255 /* ParticleGetReadyViewController.h */,
+				5038C5501CA21E750084D255 /* ParticleGetReadyViewController.m */,
+				5038C5511CA21E750084D255 /* ParticleManualNetworkViewController.h */,
+				5038C5521CA21E750084D255 /* ParticleManualNetworkViewController.m */,
+				5038C5531CA21E750084D255 /* ParticleSelectNetworkViewController.h */,
+				5038C5541CA21E750084D255 /* ParticleSelectNetworkViewController.m */,
+				5038C5551CA21E750084D255 /* ParticleSetupPasswordEntryViewController.h */,
+				5038C5561CA21E750084D255 /* ParticleSetupPasswordEntryViewController.m */,
+				5038C5571CA21E750084D255 /* ParticleSetupResultViewController.h */,
+				5038C5581CA21E750084D255 /* ParticleSetupResultViewController.m */,
+				5038C5591CA21E750084D255 /* ParticleSetupVideoViewController.h */,
+				5038C55A1CA21E750084D255 /* ParticleSetupVideoViewController.m */,
+				5038C55B1CA21E750084D255 /* ParticleSetupWebViewController.h */,
+				5038C55C1CA21E750084D255 /* ParticleSetupWebViewController.m */,
+				5038C55D1CA21E750084D255 /* ParticleUserForgotPasswordViewController.h */,
+				5038C55E1CA21E750084D255 /* ParticleUserForgotPasswordViewController.m */,
+				5038C55F1CA21E750084D255 /* ParticleUserLoginViewController.h */,
+				5038C5601CA21E750084D255 /* ParticleUserLoginViewController.m */,
+				5038C5611CA21E750084D255 /* ParticleUserSignupViewController.h */,
+				5038C5621CA21E750084D255 /* ParticleUserSignupViewController.m */,
 				5038C5631CA21E750084D255 /* UI Elements */,
 			);
 			path = UI;
@@ -227,17 +227,17 @@
 		5038C5631CA21E750084D255 /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
-				5038C5641CA21E750084D255 /* SparkSetupUIButton.h */,
-				5038C5651CA21E750084D255 /* SparkSetupUIButton.m */,
-				5038C5661CA21E750084D255 /* SparkSetupUIElements.h */,
-				5038C5671CA21E750084D255 /* SparkSetupUILabel.h */,
-				5038C5681CA21E750084D255 /* SparkSetupUILabel.m */,
-				5038C5691CA21E750084D255 /* SparkSetupUISpinner.h */,
-				5038C56A1CA21E750084D255 /* SparkSetupUISpinner.m */,
-				5038C56B1CA21E750084D255 /* SparkSetupUIViewController.h */,
-				5038C56C1CA21E750084D255 /* SparkSetupUIViewController.m */,
-				5038C56D1CA21E750084D255 /* SparkSetupWifiTableViewCell.h */,
-				5038C56E1CA21E750084D255 /* SparkSetupWifiTableViewCell.m */,
+				5038C5641CA21E750084D255 /* ParticleSetupUIButton.h */,
+				5038C5651CA21E750084D255 /* ParticleSetupUIButton.m */,
+				5038C5661CA21E750084D255 /* ParticleSetupUIElements.h */,
+				5038C5671CA21E750084D255 /* ParticleSetupUILabel.h */,
+				5038C5681CA21E750084D255 /* ParticleSetupUILabel.m */,
+				5038C5691CA21E750084D255 /* ParticleSetupUISpinner.h */,
+				5038C56A1CA21E750084D255 /* ParticleSetupUISpinner.m */,
+				5038C56B1CA21E750084D255 /* ParticleSetupUIViewController.h */,
+				5038C56C1CA21E750084D255 /* ParticleSetupUIViewController.m */,
+				5038C56D1CA21E750084D255 /* ParticleSetupWifiTableViewCell.h */,
+				5038C56E1CA21E750084D255 /* ParticleSetupWifiTableViewCell.m */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -245,10 +245,10 @@
 		5038C56F1CA21E750084D255 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				5038C5701CA21E750084D255 /* SparkSetupCustomization.h */,
-				5038C5711CA21E750084D255 /* SparkSetupCustomization.m */,
-				5038C5721CA21E750084D255 /* SparkSetupMainController.h */,
-				5038C5731CA21E750084D255 /* SparkSetupMainController.m */,
+				5038C5701CA21E750084D255 /* ParticleSetupCustomization.h */,
+				5038C5711CA21E750084D255 /* ParticleSetupCustomization.m */,
+				5038C5721CA21E750084D255 /* ParticleSetupMainController.h */,
+				5038C5731CA21E750084D255 /* ParticleSetupMainController.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -270,30 +270,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				5038C5321CA21D190084D255 /* ParticleDeviceSetupLibrary.h in Headers */,
-				5038C57A1CA21E750084D255 /* SparkSetupSecurityManager.h in Headers */,
-				5038C5A11CA21E750084D255 /* SparkSetupCustomization.h in Headers */,
-				5038C5A31CA21E750084D255 /* SparkSetupMainController.h in Headers */,
-				5038C59D1CA21E750084D255 /* SparkSetupUIViewController.h in Headers */,
-				5038C5881CA21E750084D255 /* SparkSetupPasswordEntryViewController.h in Headers */,
-				5038C58E1CA21E750084D255 /* SparkSetupWebViewController.h in Headers */,
-				5038C5981CA21E750084D255 /* SparkSetupUIElements.h in Headers */,
-				5038C5821CA21E750084D255 /* SparkGetReadyViewController.h in Headers */,
-				5038C5901CA21E750084D255 /* SparkUserForgotPasswordViewController.h in Headers */,
-				5038C5991CA21E750084D255 /* SparkSetupUILabel.h in Headers */,
-				5038C58A1CA21E750084D255 /* SparkSetupResultViewController.h in Headers */,
-				5038C57E1CA21E750084D255 /* SparkConnectingProgressViewController.h in Headers */,
-				5038C5761CA21E750084D255 /* SparkSetupCommManager.h in Headers */,
-				5038C5941CA21E750084D255 /* SparkUserSignupViewController.h in Headers */,
-				5038C59F1CA21E750084D255 /* SparkSetupWifiTableViewCell.h in Headers */,
-				5038C59B1CA21E750084D255 /* SparkSetupUISpinner.h in Headers */,
-				5038C5861CA21E750084D255 /* SparkSelectNetworkViewController.h in Headers */,
-				5038C5781CA21E750084D255 /* SparkSetupConnection.h in Headers */,
-				5038C5961CA21E750084D255 /* SparkSetupUIButton.h in Headers */,
-				5038C58C1CA21E750084D255 /* SparkSetupVideoViewController.h in Headers */,
-				5038C5921CA21E750084D255 /* SparkUserLoginViewController.h in Headers */,
-				5038C5841CA21E750084D255 /* SparkManualNetworkViewController.h in Headers */,
+				5038C57A1CA21E750084D255 /* ParticleSetupSecurityManager.h in Headers */,
+				5038C5A11CA21E750084D255 /* ParticleSetupCustomization.h in Headers */,
+				5038C5A31CA21E750084D255 /* ParticleSetupMainController.h in Headers */,
+				5038C59D1CA21E750084D255 /* ParticleSetupUIViewController.h in Headers */,
+				5038C5881CA21E750084D255 /* ParticleSetupPasswordEntryViewController.h in Headers */,
+				5038C58E1CA21E750084D255 /* ParticleSetupWebViewController.h in Headers */,
+				5038C5981CA21E750084D255 /* ParticleSetupUIElements.h in Headers */,
+				5038C5821CA21E750084D255 /* ParticleGetReadyViewController.h in Headers */,
+				5038C5901CA21E750084D255 /* ParticleUserForgotPasswordViewController.h in Headers */,
+				5038C5991CA21E750084D255 /* ParticleSetupUILabel.h in Headers */,
+				5038C58A1CA21E750084D255 /* ParticleSetupResultViewController.h in Headers */,
+				5038C57E1CA21E750084D255 /* ParticleConnectingProgressViewController.h in Headers */,
+				5038C5761CA21E750084D255 /* ParticleSetupCommManager.h in Headers */,
+				5038C5941CA21E750084D255 /* ParticleUserSignupViewController.h in Headers */,
+				5038C59F1CA21E750084D255 /* ParticleSetupWifiTableViewCell.h in Headers */,
+				5038C59B1CA21E750084D255 /* ParticleSetupUISpinner.h in Headers */,
+				5038C5861CA21E750084D255 /* ParticleSelectNetworkViewController.h in Headers */,
+				5038C5781CA21E750084D255 /* ParticleSetupConnection.h in Headers */,
+				5038C5961CA21E750084D255 /* ParticleSetupUIButton.h in Headers */,
+				5038C58C1CA21E750084D255 /* ParticleSetupVideoViewController.h in Headers */,
+				5038C5921CA21E750084D255 /* ParticleUserLoginViewController.h in Headers */,
+				5038C5841CA21E750084D255 /* ParticleManualNetworkViewController.h in Headers */,
 				5038C5741CA21E750084D255 /* Reachability.h in Headers */,
-				5038C5801CA21E750084D255 /* SparkDiscoverDeviceViewController.h in Headers */,
+				5038C5801CA21E750084D255 /* ParticleDiscoverDeviceViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,29 +367,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5038C58B1CA21E750084D255 /* SparkSetupResultViewController.m in Sources */,
+				5038C58B1CA21E750084D255 /* ParticleSetupResultViewController.m in Sources */,
 				5038C5751CA21E750084D255 /* Reachability.m in Sources */,
-				5038C58D1CA21E750084D255 /* SparkSetupVideoViewController.m in Sources */,
-				5038C5931CA21E750084D255 /* SparkUserLoginViewController.m in Sources */,
-				5038C59C1CA21E750084D255 /* SparkSetupUISpinner.m in Sources */,
-				5038C5A21CA21E750084D255 /* SparkSetupCustomization.m in Sources */,
-				5038C5911CA21E750084D255 /* SparkUserForgotPasswordViewController.m in Sources */,
-				5038C5971CA21E750084D255 /* SparkSetupUIButton.m in Sources */,
-				5038C5871CA21E750084D255 /* SparkSelectNetworkViewController.m in Sources */,
-				5038C5851CA21E750084D255 /* SparkManualNetworkViewController.m in Sources */,
-				5038C57F1CA21E750084D255 /* SparkConnectingProgressViewController.m in Sources */,
-				5038C58F1CA21E750084D255 /* SparkSetupWebViewController.m in Sources */,
-				5038C59A1CA21E750084D255 /* SparkSetupUILabel.m in Sources */,
-				5038C5A01CA21E750084D255 /* SparkSetupWifiTableViewCell.m in Sources */,
-				5038C5A41CA21E750084D255 /* SparkSetupMainController.m in Sources */,
-				5038C5771CA21E750084D255 /* SparkSetupCommManager.m in Sources */,
-				5038C5791CA21E750084D255 /* SparkSetupConnection.m in Sources */,
-				5038C57B1CA21E750084D255 /* SparkSetupSecurityManager.m in Sources */,
-				5038C5831CA21E750084D255 /* SparkGetReadyViewController.m in Sources */,
-				5038C5891CA21E750084D255 /* SparkSetupPasswordEntryViewController.m in Sources */,
-				5038C5811CA21E750084D255 /* SparkDiscoverDeviceViewController.m in Sources */,
-				5038C59E1CA21E750084D255 /* SparkSetupUIViewController.m in Sources */,
-				5038C5951CA21E750084D255 /* SparkUserSignupViewController.m in Sources */,
+				5038C58D1CA21E750084D255 /* ParticleSetupVideoViewController.m in Sources */,
+				5038C5931CA21E750084D255 /* ParticleUserLoginViewController.m in Sources */,
+				5038C59C1CA21E750084D255 /* ParticleSetupUISpinner.m in Sources */,
+				5038C5A21CA21E750084D255 /* ParticleSetupCustomization.m in Sources */,
+				5038C5911CA21E750084D255 /* ParticleUserForgotPasswordViewController.m in Sources */,
+				5038C5971CA21E750084D255 /* ParticleSetupUIButton.m in Sources */,
+				5038C5871CA21E750084D255 /* ParticleSelectNetworkViewController.m in Sources */,
+				5038C5851CA21E750084D255 /* ParticleManualNetworkViewController.m in Sources */,
+				5038C57F1CA21E750084D255 /* ParticleConnectingProgressViewController.m in Sources */,
+				5038C58F1CA21E750084D255 /* ParticleSetupWebViewController.m in Sources */,
+				5038C59A1CA21E750084D255 /* ParticleSetupUILabel.m in Sources */,
+				5038C5A01CA21E750084D255 /* ParticleSetupWifiTableViewCell.m in Sources */,
+				5038C5A41CA21E750084D255 /* ParticleSetupMainController.m in Sources */,
+				5038C5771CA21E750084D255 /* ParticleSetupCommManager.m in Sources */,
+				5038C5791CA21E750084D255 /* ParticleSetupConnection.m in Sources */,
+				5038C57B1CA21E750084D255 /* ParticleSetupSecurityManager.m in Sources */,
+				5038C5831CA21E750084D255 /* ParticleGetReadyViewController.m in Sources */,
+				5038C5891CA21E750084D255 /* ParticleSetupPasswordEntryViewController.m in Sources */,
+				5038C5811CA21E750084D255 /* ParticleDiscoverDeviceViewController.m in Sources */,
+				5038C59E1CA21E750084D255 /* ParticleSetupUIViewController.m in Sources */,
+				5038C5951CA21E750084D255 /* ParticleUserSignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
