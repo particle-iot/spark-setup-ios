@@ -1,0 +1,1 @@
+../../../Particle-SDK/Pod/Classes/SDK/ParticleEvent.h
