@@ -234,10 +234,10 @@ NSString *const kParticleSetupDidFailDeviceIDKey = @"kParticleSetupDidFailDevice
     
     
     [self dismissViewControllerAnimated:YES completion:^{
-        [self.delegate sparkSetupViewController:self didFinishWithResult:[state integerValue] device:device]; // TODO: add NSError reporting?
+        [self.delegate particleSetupViewController:self didFinishWithResult:[state integerValue] device:device]; // TODO: add NSError reporting?
         if ((!device) && (deviceID)) {
-            if ([self.delegate respondsToSelector:@selector(sparkSetupViewController:didNotSucceeedWithDeviceID:)]) {
-                [self.delegate sparkSetupViewController:self didNotSucceeedWithDeviceID:deviceID];
+            if ([self.delegate respondsToSelector:@selector(particleSetupViewController:didNotSucceeedWithDeviceID:)]) {
+                [self.delegate particleSetupViewController:self didNotSucceeedWithDeviceID:deviceID];
             }
         }
     }];
