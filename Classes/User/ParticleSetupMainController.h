@@ -48,7 +48,7 @@ extern NSString *const kParticleSetupDidFailDeviceIDKey;
  *  @param result     Result of setup completion - can be success, failure or user-cancelled.
  *  @param device     ParticleDevice instance in case the setup completed successfully and a ParticleDevice was claimed to logged in user
  */
-- (void)sparkSetupViewController:(ParticleSetupMainController *)controller didFinishWithResult:(ParticleSetupMainControllerResult)result device:(ParticleDevice *)device;
+- (void)particleSetupViewController:(ParticleSetupMainController *)controller didFinishWithResult:(ParticleSetupMainControllerResult)result device:(ParticleDevice *)device;
 
 @optional
 /**
@@ -59,7 +59,7 @@ extern NSString *const kParticleSetupDidFailDeviceIDKey;
  *  @param deviceID   Device ID string of the device which was last tried to be setup
  */
 
-- (void)sparkSetupViewController:(ParticleSetupMainController *)controller didNotSucceeedWithDeviceID:(NSString *)deviceID;
+- (void)particleSetupViewController:(ParticleSetupMainController *)controller didNotSucceeedWithDeviceID:(NSString *)deviceID;
 
 @end
 
