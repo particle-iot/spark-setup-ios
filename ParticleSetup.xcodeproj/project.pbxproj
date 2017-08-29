@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E5EB2B6B32932F37C3A9A43 /* libPods-ParticleSetup.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F8565380E77481E5452695 /* libPods-ParticleSetup.a */; };
 		5014ED4F1CB7268A00A1063E /* ParticleSetupCustomization.h in Headers */ = {isa = PBXBuildFile; fileRef = 509081E01ACF6AF70014E7DF /* ParticleSetupCustomization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5014ED501CB7268E00A1063E /* ParticleSetupMainController.h in Headers */ = {isa = PBXBuildFile; fileRef = 509081E21ACF6AF70014E7DF /* ParticleSetupMainController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5061B6CA1EC692EC00EA482E /* ParticleSetupVideoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5061B6C81EC692EC00EA482E /* ParticleSetupVideoViewController.h */; };
@@ -42,8 +43,6 @@
 		50E840BE1E95FC960038ED42 /* ParticleCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E840BD1E95FC960038ED42 /* ParticleCloud.h */; };
 		50E840C01E95FC9E0038ED42 /* ParticleDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E840BF1E95FC9E0038ED42 /* ParticleDevice.h */; };
 		50EECD9F1CEE8ABF00192EF9 /* ParticleSetup.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509080DC1ACF494A0014E7DF /* ParticleSetup.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		B436C641042F353FD2E972C8 /* libPods-ParticleSetup.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2D2EF5C65691E23BC06F92 /* libPods-ParticleSetup.a */; };
-		DCB04F2BC254F123BE2EA995 /* libPods-SparkSetup.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4F6640DE6818F7AFF1DE8 /* libPods-SparkSetup.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +59,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00E1D8A324B3981D5C61BC42 /* Pods-ParticleSetup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParticleSetup.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup.release.xcconfig"; sourceTree = "<group>"; };
+		0F0C037B32A2CEAB8B682E76 /* Pods-ParticleSetup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParticleSetup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup.debug.xcconfig"; sourceTree = "<group>"; };
+		12F8565380E77481E5452695 /* libPods-ParticleSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParticleSetup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50016D281F54CA0A007C743A /* libPods-ParticleSetup.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ParticleSetup.a"; path = "Pods/../build/Debug-iphoneos/libPods-ParticleSetup.a"; sourceTree = "<group>"; };
+		50016D2A1F54CA16007C743A /* libParticle-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libParticle-SDK.a"; path = "Pods/../build/Debug-iphoneos/Particle-SDK/libParticle-SDK.a"; sourceTree = "<group>"; };
 		5018DC4A1ADC862E00ADD403 /* ParticleSetup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "ParticleSetup-Bridging-Header.h"; path = "Classes/ParticleSetup-Bridging-Header.h"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5061B6C81EC692EC00EA482E /* ParticleSetupVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSetupVideoViewController.h; sourceTree = "<group>"; };
 		5061B6C91EC692EC00EA482E /* ParticleSetupVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSetupVideoViewController.m; sourceTree = "<group>"; };
@@ -121,10 +125,6 @@
 		50E840BB1E95FC890038ED42 /* Particle-SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Particle-SDK.h"; path = "spark-setup-ios/Pods/Particle-SDK/Pod/Classes/Particle-SDK.h"; sourceTree = "<group>"; };
 		50E840BD1E95FC960038ED42 /* ParticleCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleCloud.h; path = "spark-setup-ios/Pods/Particle-SDK/Pod/Classes/SDK/ParticleCloud.h"; sourceTree = "<group>"; };
 		50E840BF1E95FC9E0038ED42 /* ParticleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleDevice.h; path = "spark-setup-ios/Pods/Particle-SDK/Pod/Classes/SDK/ParticleDevice.h"; sourceTree = "<group>"; };
-		922F04A174A4B8F0D9886CBC /* Pods-ParticleSetup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParticleSetup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup.debug.xcconfig"; sourceTree = "<group>"; };
-		94C4F6640DE6818F7AFF1DE8 /* libPods-SparkSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SparkSetup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9775665D44D753DD32E1DD17 /* Pods-ParticleSetup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParticleSetup.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup.release.xcconfig"; sourceTree = "<group>"; };
-		CC2D2EF5C65691E23BC06F92 /* libPods-ParticleSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParticleSetup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCB04F2BC254F123BE2EA995 /* libPods-SparkSetup.a in Frameworks */,
-				B436C641042F353FD2E972C8 /* libPods-ParticleSetup.a in Frameworks */,
+				4E5EB2B6B32932F37C3A9A43 /* libPods-ParticleSetup.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,8 +295,8 @@
 		6983E8FE21D2126E573DA5A7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				922F04A174A4B8F0D9886CBC /* Pods-ParticleSetup.debug.xcconfig */,
-				9775665D44D753DD32E1DD17 /* Pods-ParticleSetup.release.xcconfig */,
+				0F0C037B32A2CEAB8B682E76 /* Pods-ParticleSetup.debug.xcconfig */,
+				00E1D8A324B3981D5C61BC42 /* Pods-ParticleSetup.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -305,8 +304,9 @@
 		E8196A50FC0297B5934BFE01 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				94C4F6640DE6818F7AFF1DE8 /* libPods-SparkSetup.a */,
-				CC2D2EF5C65691E23BC06F92 /* libPods-ParticleSetup.a */,
+				50016D2A1F54CA16007C743A /* libParticle-SDK.a */,
+				50016D281F54CA0A007C743A /* libPods-ParticleSetup.a */,
+				12F8565380E77481E5452695 /* libPods-ParticleSetup.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -645,7 +645,7 @@
 		};
 		509080F91ACF49670014E7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 922F04A174A4B8F0D9886CBC /* Pods-ParticleSetup.debug.xcconfig */;
+			baseConfigurationReference = 0F0C037B32A2CEAB8B682E76 /* Pods-ParticleSetup.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_BITCODE = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -656,6 +656,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Particle-SDK",
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				LINK_WITH_STANDARD_LIBRARIES = YES;
@@ -690,13 +691,14 @@
 		};
 		509080FA1ACF49670014E7DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9775665D44D753DD32E1DD17 /* Pods-ParticleSetup.release.xcconfig */;
+			baseConfigurationReference = 00E1D8A324B3981D5C61BC42 /* Pods-ParticleSetup.release.xcconfig */;
 			buildSettings = {
 				ENABLE_BITCODE = YES;
 				LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Particle-SDK",
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				LINK_WITH_STANDARD_LIBRARIES = YES;

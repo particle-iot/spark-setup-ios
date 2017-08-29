@@ -2,9 +2,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '9.0'
 
-project 'ParticleSetup.xcodeproj'
+project 'ParticleSetup'
     target 'ParticleSetup' do
-#        pod 'AFNetworking'
+        pod 'AFNetworking'
         pod 'Particle-SDK'
         pod '1PasswordExtension'
 end
