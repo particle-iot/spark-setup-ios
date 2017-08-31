@@ -64,7 +64,7 @@
 		12F8565380E77481E5452695 /* libPods-ParticleSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParticleSetup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50016D281F54CA0A007C743A /* libPods-ParticleSetup.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ParticleSetup.a"; path = "Pods/../build/Debug-iphoneos/libPods-ParticleSetup.a"; sourceTree = "<group>"; };
 		50016D2A1F54CA16007C743A /* libParticle-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libParticle-SDK.a"; path = "Pods/../build/Debug-iphoneos/Particle-SDK/libParticle-SDK.a"; sourceTree = "<group>"; };
-		5018DC4A1ADC862E00ADD403 /* ParticleSetup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "ParticleSetup-Bridging-Header.h"; path = "Classes/ParticleSetup-Bridging-Header.h"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5018DC4A1ADC862E00ADD403 /* ParticleSetup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "ParticleSetup-Bridging-Header.h"; path = "Classes/ParticleSetup-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		5061B6C81EC692EC00EA482E /* ParticleSetupVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSetupVideoViewController.h; sourceTree = "<group>"; };
 		5061B6C91EC692EC00EA482E /* ParticleSetupVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSetupVideoViewController.m; sourceTree = "<group>"; };
 		5066876C1BB23067008E363B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; lineEnding = 0; path = CHANGELOG.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
@@ -172,7 +172,7 @@
 			children = (
 				50D095981AD5BB6E008EDBD7 /* ParticleSetup.h */,
 				5018DC4A1ADC862E00ADD403 /* ParticleSetup-Bridging-Header.h */,
-				509082031ACF71500014E7DF /* Spark-SDK Headers */,
+				509082031ACF71500014E7DF /* Particle-SDK Headers */,
 				509081B51ACF6AF70014E7DF /* Comm */,
 				509081BE1ACF6AF70014E7DF /* UI */,
 				509081DF1ACF6AF70014E7DF /* User */,
@@ -270,14 +270,14 @@
 			path = Classes/User;
 			sourceTree = SOURCE_ROOT;
 		};
-		509082031ACF71500014E7DF /* Spark-SDK Headers */ = {
+		509082031ACF71500014E7DF /* Particle-SDK Headers */ = {
 			isa = PBXGroup;
 			children = (
 				50E840BB1E95FC890038ED42 /* Particle-SDK.h */,
 				50E840BD1E95FC960038ED42 /* ParticleCloud.h */,
 				50E840BF1E95FC9E0038ED42 /* ParticleDevice.h */,
 			);
-			name = "Spark-SDK Headers";
+			name = "Particle-SDK Headers";
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -448,7 +448,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/1PasswordExtension/OnePasswordExtensionResources.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/1PasswordExtension/OnePasswordExtensionResources.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
