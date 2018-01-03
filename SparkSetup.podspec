@@ -9,11 +9,11 @@ Pod::Spec.new do |s|
                         logos/colors/fonts/texts and instructional video.
                         DEPRECATED
                         DESC
-    s.homepage         = "https://github.com/spark/spark-setup-ios"
+    s.homepage         = "https://github.com/particle-iot/spark-setup-ios"
     s.screenshots      = "http://i58.tinypic.com/15yhdeb.jpg"
     s.license          = 'Apache 2.0'
     s.author           = { "Particle" => "ido@particle.io" }
-    s.source           = { :git => "https://github.com/spark/spark-setup-ios.git", :tag => s.version.to_s }
+    s.source           = { :git => "https://github.com/particle-iot/spark-setup-ios.git", :tag => s.version.to_s }
     s.social_media_url = 'https://twitter.com/particle'
 
     s.platform     = :ios, '8.0'

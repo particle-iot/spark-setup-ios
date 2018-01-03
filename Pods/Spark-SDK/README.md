@@ -2,7 +2,7 @@
 <img src="http://oi60.tinypic.com/116jd51.jpg" alt="Particle" title="Particle">
 </p>
 # Particle iOS Cloud SDK
-[![Build Status](https://api.travis-ci.org/spark/spark-sdk-ios.svg)](https://travis-ci.org/spark/spark-sdk-ios) [![license](https://img.shields.io/hexpm/l/plug.svg)](https://github.com/spark/spark-sdk-ios/blob/master/LICENSE) [![version](https://img.shields.io/badge/cocoapods-0.5.0-green.svg)](https://github.com/spark/spark-sdk-ios/blob/master/CHANGELOG.md)
+[![Build Status](https://api.travis-ci.org/spark/spark-sdk-ios.svg)](https://travis-ci.org/spark/spark-sdk-ios) [![license](https://img.shields.io/hexpm/l/plug.svg)](https://github.com/particle-iot/spark-sdk-ios/blob/master/LICENSE) [![version](https://img.shields.io/badge/cocoapods-0.5.0-green.svg)](https://github.com/particle-iot/spark-sdk-ios/blob/master/CHANGELOG.md)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connected products via the Particle Cloud. It’s an easy-to-use wrapper for Particle REST API. The Cloud SDK will allow you to:
@@ -25,7 +25,7 @@ Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be repla
 
 **Beta notice**
 
-This SDK is still under development and is currently released as Beta. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one Cloud SDK version to the next. Be sure to consult the [Change Log](https://github.com/spark/spark-sdk-ios/blob/master/CHANGELOG.md) for any breaking changes / additions to the SDK.
+This SDK is still under development and is currently released as Beta. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one Cloud SDK version to the next. Be sure to consult the [Change Log](https://github.com/particle-iot/spark-sdk-ios/blob/master/CHANGELOG.md) for any breaking changes / additions to the SDK.
 
 **Major/breaking changes in v0.4 notice**
 
@@ -63,7 +63,7 @@ Particle iOS Cloud SDK supports it fully, no code changes required!
 ## Getting Started
 
 - Perform the installation step described under the **Installation** section below for integrating in your own project
-- You can also [Download Particle iOS Cloud SDK](https://github.com/spark/spark-sdk-ios/archive/master.zip) and try out the included iOS example app
+- You can also [Download Particle iOS Cloud SDK](https://github.com/particle-iot/spark-sdk-ios/archive/master.zip) and try out the included iOS example app
 - Be sure to check [Usage](#usage) before you begin for some code examples
 
 ## Usage
@@ -534,7 +534,7 @@ For a detailed step-by-step help on integrating the Cloud SDK within a Swift pro
 The [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) is an important resource on mixing Objective-C and Swift code, be sure to read through that as well.
 
 _Notice_ that we've included the required bridging header file in the SDK, you just need to copy it to your project add it as the active bridging header file in the project settings as described in the links above.
-There's also an [example app](https://github.com/spark/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
+There's also an [example app](https://github.com/particle-iot/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
 
 ## Maintainers
 

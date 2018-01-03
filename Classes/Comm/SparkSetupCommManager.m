@@ -5,7 +5,7 @@
 //  Created by Ido Kleinman on 11/20/14.
 //  Copyright (c) 2014-2015 Particle. All rights reserved.
 //  This class implements the Particle Soft-AP protocol specified in
-//  https://github.com/spark/photon-wiced/blob/master/soft-ap.md
+//  https://github.com/particle-iot/photon-wiced/blob/master/soft-ap.md
 //
 
 #import "SparkSetupCommManager.h"

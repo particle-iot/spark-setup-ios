@@ -3,7 +3,7 @@
 	url = https://github.com/AFNetworking/AFNetworking.git
 [submodule "Carthage/Checkouts/spark-sdk-ios"]
 	path = Carthage/Checkouts/spark-sdk-ios
-	url = https://github.com/spark/spark-sdk-ios.git
+	url = https://github.com/particle-iot/spark-sdk-ios.git
 [submodule "Carthage/Checkouts/onepassword-extension"]
 	path = Carthage/Checkouts/onepassword-extension
 	url = https://github.com/AgileBits/onepassword-extension.git

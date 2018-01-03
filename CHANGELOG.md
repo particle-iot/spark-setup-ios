@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver.org/).
 
 ---
-## [0.7.0](https://github.com/spark/spark-setup-ios/releases/tag/0.7.0) (2017-3-28)
+## [0.7.0](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.7.0) (2017-3-28)
 
 * Change: XCode 8 compatibility fixes
 
@@ -27,7 +27,7 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 * Change: Updated Pods and Carthage
 
-## [0.6.1](https://github.com/spark/spark-setup-ios/releases/tag/0.6.1) (2016-9-12)
+## [0.6.1](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.6.1) (2016-9-12)
 
 * Bugfix: Privacy policy and TOS will not cause app crash now
 
@@ -41,7 +41,7 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 * Bugfix: Removed some obsolete NSLogs
 
-## [0.6.0](https://github.com/spark/spark-setup-ios/releases/tag/0.6.0) (2016-7-22)
+## [0.6.0](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.6.0) (2016-7-22)
 
 * Bugfix: didNotSucceedWithDeviceId - will only be called if delegate supports that (@optional)
 
@@ -51,17 +51,17 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 * Change: Org/product error messages
 
-## [0.5.0](https://github.com/spark/spark-setup-ios/releases/tag/0.5.0) (2016-5-19)
+## [0.5.0](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.5.0) (2016-5-19)
 
 * New delegate function didFailWithDeviceID - will report the device ID that setup failed setting up
 
 * Main setup delegate function will now report detailed failture codes via the SparkSetupMainControllerResult enum (updated)
 
-## [0.4.1](https://github.com/spark/spark-setup-ios/releases/tag/0.4.1) (2016-5-19)
+## [0.4.1](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.4.1) (2016-5-19)
 
 * Missing setup assets bug fix (podspec issue)
 
-## [0.4.0](https://github.com/spark/spark-setup-ios/releases/tag/0.4.0) (2016-4-5)
+## [0.4.0](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.4.0) (2016-4-5)
 
 * Library now published as dynamic framework through Carthage
 
@@ -71,13 +71,13 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 * Do not tint the success/warning/fail icon on last setup screen
 
-## [0.3.3](https://github.com/spark/spark-setup-ios/releases/tag/0.3.3) (2015-11-25)
+## [0.3.3](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.3.3) (2015-11-25)
 
 * Show a 'warning state' setup result if device has been setup successfully but does not come online
 
 * Fix duplicate network names in scanned list - show only strongest RSSI network
 
-## [0.3.2](https://github.com/spark/spark-setup-ios/releases/tag/0.3.2) (2015-09-27)
+## [0.3.2](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.3.2) (2015-09-27)
 
 * Fix UI issues caused by XCode 7
 
@@ -89,23 +89,23 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 * CHANGELOG added
 
-## [0.3.1](https://github.com/spark/spark-setup-ios/releases/tag/0.3.1) (2015-09-15)
+## [0.3.1](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.3.1) (2015-09-15)
 
 * Resource bundle changes
 
 * iOS 9 fixes
 
-## [0.3.0](https://github.com/spark/spark-setup-ios/releases/tag/0.3.0) (2015-08-27)
+## [0.3.0](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.3.0) (2015-08-27)
 
 * Skip authentication mode
 
-## [0.2.2](https://github.com/spark/spark-setup-ios/releases/tag/0.2.2) (2015-08-08)
+## [0.2.2](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.2.2) (2015-08-08)
 
 * Optional app analytics
 
 * Organizational/Product setup flow changes (match to iOS Cloud SDK changes)
 
-## [0.2.1](https://github.com/spark/spark-setup-ios/releases/tag/0.2.1) (2015-07-26)
+## [0.2.1](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.2.1) (2015-07-26)
 
 * Fix issues email upper/lowercase signing up/logging in
 
@@ -119,7 +119,7 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 * Pop back to device discovery behaviour when losing signal from device while in Wifi list
 
-## [0.2.0](https://github.com/spark/spark-setup-ios/releases/tag/0.2.0) (2015-06-20)
+## [0.2.0](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.2.0) (2015-06-20)
 
 * Many UI improvements and bugfixes
 
@@ -129,26 +129,26 @@ Particle iOS Device Setup library adheres to [Semantic Versioning](http://semver
 
 * Photon communication bugfixes
 
-## [0.1.4](https://github.com/spark/spark-setup-ios/releases/tag/0.1.4) (2015-05-06)
+## [0.1.4](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.1.4) (2015-05-06)
 
 * Documentation changes for beta SDK release
 
-## [0.1.3](https://github.com/spark/spark-setup-ios/releases/tag/0.1.3) (2015-04-22)
+## [0.1.3](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.1.3) (2015-04-22)
 
 * Authentication-only mode
 
 * Match iOS Cloud SDK version changes
 
-## [0.1.2](https://github.com/spark/spark-setup-ios/releases/tag/0.1.2) (2015-04-10)
+## [0.1.2](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.1.2) (2015-04-10)
 
 * Swift compatibily fixes and bridging headers
 
 * Documentation
 
-## [0.1.1](https://github.com/spark/spark-setup-ios/releases/tag/0.1.1) (2015-04-07)
+## [0.1.1](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.1.1) (2015-04-07)
 
 * Documentation changes
 
-## [0.1.0](https://github.com/spark/spark-setup-ios/releases/tag/0.1.0) (2015-04-07)
+## [0.1.0](https://github.com/particle-iot/spark-setup-ios/releases/tag/0.1.0) (2015-04-07)
 
 * Initial release
